@@ -1,0 +1,5 @@
+products:
+  - name: CordisX
+    repository: https://github.com/cordisx/cordisx
+    documentation: https://cordisx.github.io/docs/cordisx/
+    summary: A Cordis-powered, opt-in local UI plugin host for Codex Desktop.
