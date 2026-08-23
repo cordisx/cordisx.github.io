@@ -3,3 +3,7 @@ products:
     repository: https://github.com/cordisx/cordisx
     documentation: https://cordisx.github.io/docs/cordisx/
     summary: A Cordis-powered, opt-in local UI plugin host for Codex Desktop.
+  - name: CordisX Marketplace
+    repository: https://github.com/cordisx/marketplace
+    documentation: https://cordisx.github.io/marketplace/
+    summary: A pull-request-driven, schema-validated community plugin discovery catalog.

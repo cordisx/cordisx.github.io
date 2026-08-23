@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Browse the schema-validated CordisX community plugin catalog.">
+    <title>CordisX Marketplace</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="CordisX home">
+        <span class="brand-mark">CX</span>
+        <span>CordisX</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="/docs/">Docs</a>
+        <a href="https://github.com/cordisx/marketplace">GitHub</a>
+        <a class="nav-primary" href="https://github.com/cordisx/marketplace/blob/main/CONTRIBUTING.md">Add a plugin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">COMMUNITY DISCOVERY</div>
+        <h1>Extend Codex with CordisX.</h1>
+        <p>Browse public plugin metadata contributed through pull requests and validated against the versioned CordisX marketplace protocol.</p>
+        <div class="boundary">Catalog inclusion is not a code audit, signature check, safety review, or installation approval.</div>
+      </section>
+
+      <section class="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-heading">
+          <div>
+            <div class="eyebrow">MARKETPLACE</div>
+            <h2 id="catalog-title">Community plugins</h2>
+          </div>
+          <div id="plugin-count" class="count" aria-live="polite">Loading feed…</div>
+        </div>
+        <label class="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="plugin-search" type="search" placeholder="Search plugins, authors, or keywords…" autocomplete="off">
+        </label>
+        <div id="feed-status" class="status" role="status" aria-live="polite"></div>
+        <div id="plugin-grid" class="plugin-grid"></div>
+        <noscript>This page requires JavaScript to fetch the public marketplace JSON feed.</noscript>
+      </section>
+    </main>
+
+    <footer>
+      <span>CordisX is an unofficial, opt-in local UI extension host for Codex Desktop.</span>
+      <a href="https://github.com/cordisx/marketplace">View catalog source</a>
+    </footer>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

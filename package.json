@@ -1,0 +1,12 @@
+{
+  "name": "@cordisx/homepage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check marketplace/app.js && node scripts/check.mjs"
+  },
+  "engines": {
+    "node": ">=22.19"
+  }
+}
