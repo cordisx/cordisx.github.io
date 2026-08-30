@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CordisX is an unofficial, local, opt-in extension host for AI coding workspaces."
+    />
+    <meta name="theme-color" content="#1b1c20" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://raw.githubusercontent.com/cordisx/cordisx/09c6284b7e3c3616cb1bdb10a631423c8b1c12b1/packages/cli/assets/brand/cordisx-mark-dark.svg"
+    />
+    <title>CordisX — Make your workspace extensible</title>
+    <link rel="stylesheet" href="./site-shell.css?v=1" />
+    <link rel="stylesheet" href="./styles.css?v=33" />
+    <script src="./brand-animation.js?v=33" defer></script>
+    <script type="module" src="./conversation.js?v=33"></script>
+    <script type="module" src="./marketplace.js?v=33"></script>
+  </head>
+  <body>
+    <div class="site-frame">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="/#product" aria-label="CordisX home">
+            <img
+              src="https://raw.githubusercontent.com/cordisx/cordisx/09c6284b7e3c3616cb1bdb10a631423c8b1c12b1/packages/cli/assets/brand/cordisx-mark-dark.svg"
+              alt=""
+            />
+            <span>CordisX</span>
+          </a>
+
+          <nav aria-label="Main navigation">
+            <a href="/#product" aria-current="page">Product</a>
+            <a href="/docs/">Docs</a>
+            <a href="/marketplace/">Marketplace</a>
+            <a class="github-link" href="https://github.com/cordisx/cordisx">
+              GitHub
+              <span class="reicon-slot nav-icon" data-reicon="ArrowUpRight" data-reicon-size="13" aria-hidden="true"></span>
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="product">
+          <div class="hero-content">
+            <canvas
+              class="hero-mark"
+              width="512"
+              height="512"
+              data-cordisx-animation="one-shot"
+              role="img"
+              aria-label="Animated CordisX three-ring mark"
+            ></canvas>
+            <p class="hero-line">
+              Make your workspace
+              <span class="hero-emphasis" data-text="extensible." aria-label="extensible.">extensible.</span>
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://github.com/cordisx/cordisx">Get started</a>
+              <a class="button button-secondary" href="/marketplace/">
+                Explore plugins
+                <span class="reicon-slot" data-reicon="ArrowRight" data-reicon-size="14" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="conversation-demo" id="customize" aria-labelledby="conversation-title">
+          <div class="conversation-stage">
+            <div class="conversation-window">
+              <div class="conversation-bar">
+                <span><i></i><strong id="conversation-title">CordisX · Live workspace</strong></span>
+                <b>02 / LIVE EXTENSION · LOCAL</b>
+              </div>
+
+              <div class="conversation-output" data-conversation-output aria-label="Live extension build output">
+                <div class="output-empty">
+                  <span>READY</span>
+                  <p>Send a request to reshape this composer.</p>
+                </div>
+              </div>
+
+              <form class="live-composer" data-live-composer>
+                <p class="request-copy" data-request-copy>Add a voice input button to the left of my send button.</p>
+                <div class="composer-controls">
+                  <span class="voice-slot" data-voice-slot></span>
+                  <button class="demo-send is-inviting" type="submit" aria-label="Send request">
+                    <span class="reicon-slot send-icon" data-reicon="ArrowUp" data-reicon-size="17" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <p class="sr-only" data-conversation-status aria-live="polite"></p>
+              </form>
+            </div>
+
+            <p class="conversation-footnote"><span>ONE REQUEST</span><i></i><span>ONE NEW SURFACE</span><i></i><span>NO REBUILD</span></p>
+          </div>
+        </section>
+
+        <section class="marketplace-demo" id="marketplace-lab" aria-labelledby="marketplace-title" data-marketplace-demo>
+          <div class="marketplace-stage">
+            <div class="marketplace-window">
+              <div class="marketplace-bar">
+                <span><i></i><strong id="marketplace-title" data-marketplace-title>CordisX · Marketplace</strong></span>
+                <b data-marketplace-mode>03 / INTERACTION CONCEPT · LOCAL</b>
+              </div>
+
+              <div class="marketplace-surface">
+                <div class="market-search-view" data-market-search-view>
+                  <header class="market-intro">
+                    <span>SEARCH THE EXTENSION GRAPH</span>
+                    <p>Find what your workspace is missing.</p>
+                  </header>
+
+                  <form class="market-search" data-market-search>
+                    <span class="reicon-slot market-search-leading" data-reicon="Search" data-reicon-size="18" aria-hidden="true"></span>
+                    <input
+                      data-market-search-input
+                      value="send button"
+                      readonly
+                      aria-label="Plugin search query"
+                    />
+                    <button class="market-search-button is-inviting" type="submit" aria-label="Search plugins">
+                      <span class="reicon-slot" data-reicon="Search" data-reicon-size="18" aria-hidden="true"></span>
+                    </button>
+                  </form>
+
+                  <div class="market-empty" data-market-empty>
+                    <span>LIVE QUERY</span>
+                    <p>The request is refining itself. Search when it feels right.</p>
+                  </div>
+
+                  <div class="market-results" data-market-results hidden aria-live="polite">
+                    <div class="market-results-meta">
+                      <span>3 MATCHING PLUGINS</span>
+                      <b>CONCEPT · LOCAL</b>
+                    </div>
+
+                    <div class="plugin-grid">
+                      <article class="plugin-card plugin-card-featured">
+                        <div class="plugin-card-topline">
+                          <span class="plugin-icon"><span class="reicon-slot" data-reicon="Confetti" data-reicon-size="22" aria-hidden="true"></span></span>
+                          <small>COMPOSER</small>
+                        </div>
+                        <div>
+                          <h3>Party Popper</h3>
+                          <p>Turn send into a celebration.</p>
+                        </div>
+                        <button class="plugin-install" type="button" data-install-party>
+                          <span>Install</span>
+                          <span class="reicon-slot" data-reicon="BoxAdd" data-reicon-size="15" aria-hidden="true"></span>
+                        </button>
+                      </article>
+
+                      <article class="plugin-card">
+                        <div class="plugin-card-topline">
+                          <span class="plugin-icon"><span class="reicon-slot" data-reicon="Microphone" data-reicon-size="22" aria-hidden="true"></span></span>
+                          <small>INPUT</small>
+                        </div>
+                        <div>
+                          <h3>Voice Input</h3>
+                          <p>Speak directly into the composer.</p>
+                        </div>
+                        <span class="plugin-card-state">AVAILABLE</span>
+                      </article>
+
+                      <article class="plugin-card">
+                        <div class="plugin-card-topline">
+                          <span class="plugin-icon"><span class="reicon-slot" data-reicon="Activity" data-reicon-size="22" aria-hidden="true"></span></span>
+                          <small>TRACE</small>
+                        </div>
+                        <div>
+                          <h3>Agent Trace</h3>
+                          <p>See every tool and task move.</p>
+                        </div>
+                        <span class="plugin-card-state">AVAILABLE</span>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="market-chat-view" data-market-chat-view hidden>
+                  <div class="conversation-output market-chat-output" aria-label="Party Popper workspace output">
+                    <div class="build-complete market-chat-plugin-state">
+                      <div>
+                        <strong>Party Popper preview active</strong>
+                        <small>concept interaction · local only</small>
+                      </div>
+                      <span>PREVIEW</span>
+                    </div>
+
+                    <div class="output-empty market-chat-hint" data-party-hint>
+                      <span>READY</span>
+                      <p>Party Popper is active. Try the send action.</p>
+                    </div>
+
+                    <div class="request-message market-chat-message" data-party-message hidden>Launch the release.</div>
+                  </div>
+
+                  <form class="live-composer party-composer" data-party-composer>
+                    <p class="request-copy">Launch the release.</p>
+                    <div class="composer-controls">
+                      <button class="demo-send party-send is-inviting" type="submit" aria-label="Send with Party Popper">
+                        <span class="reicon-slot send-icon" data-reicon="Confetti" data-reicon-size="20" aria-hidden="true"></span>
+                      </button>
+                    </div>
+                  </form>
+                  <div class="confetti-layer" data-confetti-layer aria-hidden="true"></div>
+                </div>
+
+                <div class="permission-overlay" data-permission-overlay hidden>
+                  <div class="permission-dialog" role="dialog" aria-modal="true" aria-labelledby="permission-title">
+                    <button class="permission-close" type="button" data-cancel-install aria-label="Close permission request">
+                      <span class="reicon-slot" data-reicon="Xmark" data-reicon-size="16" aria-hidden="true"></span>
+                    </button>
+
+                    <span class="permission-mark">
+                      <span class="reicon-slot" data-reicon="ShieldCheck" data-reicon-size="26" aria-hidden="true"></span>
+                    </span>
+                    <span class="permission-kicker">CONCEPT PREVIEW</span>
+                    <h3 id="permission-title">Preview Party Popper?</h3>
+                    <p class="permission-copy">This illustrates a future capability prompt. These permissions are not enforced today.</p>
+
+                    <ul class="permission-list">
+                      <li>
+                        <span class="reicon-slot" data-reicon="Check" data-reicon-size="15" aria-hidden="true"></span>
+                        <div><strong>Replace the send action</strong><small>composer.actions.send</small></div>
+                      </li>
+                      <li>
+                        <span class="reicon-slot" data-reicon="Check" data-reicon-size="15" aria-hidden="true"></span>
+                        <div><strong>Render celebration effects</strong><small>current conversation only</small></div>
+                      </li>
+                      <li>
+                        <span class="reicon-slot" data-reicon="Check" data-reicon-size="15" aria-hidden="true"></span>
+                        <div><strong>Save plugin settings</strong><small>local profile</small></div>
+                      </li>
+                    </ul>
+
+                    <div class="permission-actions">
+                      <button class="permission-cancel" type="button" data-cancel-install>Cancel</button>
+                      <button class="permission-allow" type="button" data-allow-install>
+                        <span>Preview activation</span>
+                        <span class="reicon-slot" data-reicon="BoxAdd" data-reicon-size="15" aria-hidden="true"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="marketplace-footnote"><span>SEARCH</span><i></i><span>INSPECT</span><i></i><span>PREVIEW</span><i></i><span>ACTIVATE</span></p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer" id="footer" aria-label="CordisX footer">
+        <div class="footer-main">
+          <div class="footer-intro">
+            <a class="footer-brand" href="/#product" aria-label="CordisX home">
+              <img
+                src="https://raw.githubusercontent.com/cordisx/cordisx/09c6284b7e3c3616cb1bdb10a631423c8b1c12b1/packages/cli/assets/brand/cordisx-mark-dark.svg"
+                alt=""
+              />
+              <span>CordisX</span>
+            </a>
+            <p>An extensible layer for the AI coding workspace you already trust.</p>
+          </div>
+
+          <div class="footer-note">
+            <h2>Unofficial, local, and opt-in.</h2>
+            <p>CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.</p>
+            <p>Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-legal">
+            <p>© 2026 CordisX. Open source.</p>
+            <nav class="footer-links" aria-label="Footer links">
+              <a href="/docs/">Docs</a>
+              <a href="/marketplace/">Marketplace</a>
+              <a href="https://github.com/cordisx/cordisx-protocol">Protocol</a>
+              <a href="https://github.com/cordisx/cordisx">GitHub</a>
+            </nav>
+          </div>
+
+          <nav class="footer-actions" aria-label="CordisX quick links">
+            <a href="https://github.com/cordisx/cordisx" aria-label="CordisX on GitHub" title="GitHub">
+              <span class="reicon-slot" data-reicon="Code" data-reicon-size="18" aria-hidden="true"></span>
+            </a>
+            <a href="/docs/" aria-label="CordisX documentation" title="Docs">
+              <span class="reicon-slot" data-reicon="BookOpen" data-reicon-size="18" aria-hidden="true"></span>
+            </a>
+            <a href="/marketplace/" aria-label="CordisX marketplace" title="Marketplace">
+              <span class="reicon-slot" data-reicon="Store" data-reicon-size="18" aria-hidden="true"></span>
+            </a>
+            <a href="https://cordisx.github.io/" aria-label="CordisX website" title="Website">
+              <span class="reicon-slot" data-reicon="Globe" data-reicon-size="18" aria-hidden="true"></span>
+            </a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

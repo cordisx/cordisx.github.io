@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check marketplace/app.js && node scripts/check.mjs"
+    "check": "node --check brand-animation.js && node --check conversation.js && node --check marketplace.js && node --check reicons.js && node --check marketplace/app.js && node scripts/check.mjs"
   },
   "engines": {
     "node": ">=22.19"
