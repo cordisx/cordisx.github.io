@@ -1,17 +1,9 @@
-.catalog-heading p {
-  margin: 0;
-  color: #737882;
-  font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 9px;
-  letter-spacing: 0.13em;
-}
-
 .catalog-section {
   --section-edge: #303238;
   position: relative;
   min-height: calc(100vh - 75px);
   min-height: calc(100svh - 75px);
-  padding: 62px 24px 78px;
+  padding: 24px 24px 78px;
   border-bottom: 1px solid var(--section-edge);
   background:
     linear-gradient(rgba(111, 116, 126, 0.045) 1px, transparent 1px),
@@ -25,35 +17,12 @@
   margin: 0 auto;
 }
 
-.catalog-heading {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.catalog-heading h1 {
-  margin: 8px 0 0;
-  color: #ecedef;
-  font-size: 24px;
-  font-weight: 580;
-  letter-spacing: -0.04em;
-}
-
-.plugin-count {
-  color: #777c85;
-  font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-}
-
 .catalog-search {
   height: 54px;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 12px;
-  margin-top: 30px;
   padding: 0 16px;
   border: 1px solid #454950;
   border-radius: 4px;
@@ -82,46 +51,11 @@
   color: #6e737c;
 }
 
-.catalog-boundary {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 16px;
-  padding: 14px 15px;
-  border: 1px solid #34373d;
-  color: #7e838c;
-  background: rgba(27, 28, 32, 0.84);
-}
-
-.catalog-boundary > .reicon-slot {
-  margin-top: 1px;
-  color: #afb3ba;
-}
-
-.catalog-boundary p {
-  margin: 0;
-  font-size: 10px;
-  line-height: 1.6;
-}
-
-.feed-status {
-  min-height: 18px;
-  margin: 20px 0 13px;
-  color: #777c85;
-  font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 8px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.feed-status[data-error="true"] {
-  color: #d8aeb6;
-}
-
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 292px));
   gap: 12px;
+  margin-top: 16px;
 }
 
 .catalog-card {
@@ -264,22 +198,10 @@ noscript {
   .catalog-section {
     min-height: calc(100vh - 67px);
     min-height: calc(100svh - 67px);
-    padding: 50px 18px 64px;
+    padding: 18px 18px 64px;
   }
 
   .catalog-grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 520px) {
-  .catalog-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .catalog-search {
-    margin-top: 24px;
   }
 }

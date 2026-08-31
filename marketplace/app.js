@@ -3,8 +3,6 @@ import { hydrateReicons } from '../reicons.js'
 const FEED_URL = 'https://raw.githubusercontent.com/cordisx/marketplace/main/marketplace.json'
 
 const grid = document.querySelector('#plugin-grid')
-const count = document.querySelector('#plugin-count')
-const status = document.querySelector('#feed-status')
 const search = document.querySelector('#plugin-search')
 
 let plugins = []
@@ -152,7 +150,6 @@ function render() {
     .map(localizedPlugin)
     .filter(plugin => searchableText(plugin).includes(query))
 
-  count.textContent = `${filtered.length} of ${plugins.length} plugins`
   grid.replaceChildren()
 
   if (filtered.length === 0) {
@@ -167,20 +164,14 @@ function render() {
 }
 
 async function load() {
-  status.textContent = `Loading ${new URL(FEED_URL).hostname}`
-  status.dataset.error = 'false'
-
   try {
     const response = await fetch(FEED_URL, { headers: { accept: 'application/json' } })
     if (!response.ok) throw new Error(`Feed returned HTTP ${response.status}`)
     plugins = validateFeed(await response.json())
-    status.textContent = 'Validated marketplace feed v3 · public metadata'
     render()
   } catch (error) {
-    status.dataset.error = 'true'
-    status.textContent = error instanceof Error ? error.message : String(error)
-    count.textContent = 'Feed unavailable'
-    grid.replaceChildren(create('div', 'catalog-empty', 'The marketplace feed could not be loaded. Try again later or view the catalog on GitHub.'))
+    const message = error instanceof Error ? error.message : String(error)
+    grid.replaceChildren(create('div', 'catalog-empty', `The marketplace feed could not be loaded. ${message}`))
   }
 }
 

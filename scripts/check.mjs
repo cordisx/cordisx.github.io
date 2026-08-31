@@ -32,9 +32,12 @@ if (
   marketplace.includes('marketplace-hero') ||
   marketplaceStyles.includes('.marketplace-hero') ||
   !/<main>\s*<section class="catalog-section"(?:\s|>)/.test(marketplace) ||
-  !marketplace.includes('<h1 id="catalog-title">') ||
-  !marketplaceStyles.includes('.catalog-heading h1') ||
-  !marketplaceStyles.includes('padding: 62px 24px 78px') ||
+  marketplace.includes('class="catalog-heading"') ||
+  marketplace.includes('class="catalog-boundary"') ||
+  marketplace.includes('id="feed-status"') ||
+  marketplace.includes('id="plugin-count"') ||
+  !marketplaceStyles.includes('padding: 24px 24px 78px') ||
+  !marketplaceStyles.includes('margin-top: 16px') ||
   !marketplaceStyles.includes('.catalog-shell {\n  width: 100%') ||
   !marketplaceStyles.includes('min-height: calc(100svh - 75px)') ||
   !marketplaceStyles.includes('min-height: calc(100svh - 67px)')
