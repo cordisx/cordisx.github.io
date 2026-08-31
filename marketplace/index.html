@@ -15,13 +15,18 @@
     />
     <title>CordisX — Marketplace</title>
     <link rel="stylesheet" href="../site-shell.css?v=2" />
-    <link rel="stylesheet" href="./styles.css?v=6" />
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem('cordisx:theme') || 'dark'
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=7" />
   </head>
   <body>
     <div class="site-frame">
       <header class="site-header">
         <div class="header-inner">
-          <a class="brand" href="/#product" aria-label="CordisX home">
+          <a class="brand" href="/#product" aria-label="CordisX home" data-i18n-aria-label="homeLabel">
             <img
               src="https://raw.githubusercontent.com/cordisx/cordisx/09c6284b7e3c3616cb1bdb10a631423c8b1c12b1/packages/cli/assets/brand/cordisx-mark-dark.svg"
               alt=""
@@ -30,9 +35,9 @@
           </a>
 
           <nav aria-label="Main navigation">
-            <a href="/#product">Product</a>
+            <a href="/#product" data-i18n="product">Product</a>
             <a href="/docs/">Docs</a>
-            <a href="/marketplace/" aria-current="page">Marketplace</a>
+            <a href="/marketplace/" aria-current="page" data-i18n="marketplace">Marketplace</a>
             <a class="github-link" href="https://github.com/cordisx/marketplace">
               GitHub
               <span class="reicon-slot nav-icon" data-reicon="ArrowUpRight" data-reicon-size="13" aria-hidden="true"></span>
@@ -46,16 +51,23 @@
           <div class="catalog-shell">
             <label class="catalog-search" for="plugin-search">
               <span class="reicon-slot" data-reicon="Search" data-reicon-size="18" aria-hidden="true"></span>
-              <span class="sr-only">Search community plugins</span>
+              <span class="sr-only" data-i18n="searchLabel">Search community plugins</span>
               <input
                 id="plugin-search"
                 type="search"
                 placeholder="Search plugins, authors, or keywords"
+                data-i18n-placeholder="searchPlaceholder"
                 autocomplete="off"
+                disabled
               />
             </label>
 
-            <div id="plugin-grid" class="catalog-grid"></div>
+            <div id="plugin-grid" class="catalog-grid" aria-busy="true">
+              <div class="catalog-loading" role="status" aria-live="polite">
+                <img src="../cordisx-mark-animated-dark.svg" alt="" />
+                <span data-i18n="loading">Loading plugins…</span>
+              </div>
+            </div>
             <noscript>This page requires JavaScript to fetch the public marketplace JSON feed.</noscript>
           </div>
         </section>
@@ -64,52 +76,65 @@
       <footer class="site-footer" id="footer" aria-label="CordisX footer">
         <div class="footer-main">
           <div class="footer-intro">
-            <a class="footer-brand" href="/#product" aria-label="CordisX home">
+            <a class="footer-brand" href="/#product" aria-label="CordisX home" data-i18n-aria-label="homeLabel">
               <img
                 src="https://raw.githubusercontent.com/cordisx/cordisx/09c6284b7e3c3616cb1bdb10a631423c8b1c12b1/packages/cli/assets/brand/cordisx-mark-dark.svg"
                 alt=""
               />
               <span>CordisX</span>
             </a>
-            <p>An extensible layer for the AI coding workspace you already trust.</p>
+            <p data-i18n="footerIntro">An extensible layer for the AI coding workspace you already trust.</p>
           </div>
 
           <div class="footer-note">
-            <h2>Unofficial, local, and opt-in.</h2>
-            <p>CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.</p>
-            <p>Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.</p>
+            <h2 data-i18n="footerTitle">Unofficial, local, and opt-in.</h2>
+            <p data-i18n="footerDescription">CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.</p>
+            <p data-i18n="footerSafety">Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.</p>
           </div>
         </div>
 
         <div class="footer-bottom">
           <div class="footer-legal">
-            <p>© 2026 CordisX. Open source.</p>
+            <p data-i18n="copyright">© 2026 CordisX. Open source.</p>
             <nav class="footer-links" aria-label="Footer links">
               <a href="/docs/">Docs</a>
-              <a href="/marketplace/" aria-current="page">Marketplace</a>
+              <a href="/marketplace/" aria-current="page" data-i18n="marketplace">Marketplace</a>
               <a href="https://github.com/cordisx/cordisx-protocol">Protocol</a>
               <a href="https://github.com/cordisx/cordisx">GitHub</a>
             </nav>
           </div>
 
-          <nav class="footer-actions" aria-label="CordisX quick links">
-            <a href="https://github.com/cordisx/cordisx" aria-label="CordisX on GitHub" title="GitHub">
-              <span class="reicon-slot" data-reicon="Code" data-reicon-size="18" aria-hidden="true"></span>
-            </a>
-            <a href="/docs/" aria-label="CordisX documentation" title="Docs">
-              <span class="reicon-slot" data-reicon="BookOpen" data-reicon-size="18" aria-hidden="true"></span>
-            </a>
-            <a href="/marketplace/" aria-label="CordisX marketplace" title="Marketplace">
-              <span class="reicon-slot" data-reicon="Store" data-reicon-size="18" aria-hidden="true"></span>
-            </a>
-            <a href="https://cordisx.github.io/" aria-label="CordisX website" title="Website">
-              <span class="reicon-slot" data-reicon="Globe" data-reicon-size="18" aria-hidden="true"></span>
-            </a>
-          </nav>
+          <div class="footer-tools">
+            <div class="footer-preferences" aria-label="Display preferences" data-i18n-aria-label="preferencesLabel">
+              <button id="locale-toggle" class="footer-preference" type="button">
+                <span class="reicon-slot" data-reicon="Globe" data-reicon-size="16" aria-hidden="true"></span>
+                <span data-locale-label>EN</span>
+              </button>
+              <button id="theme-toggle" class="footer-preference" type="button">
+                <span class="theme-swatch" aria-hidden="true"></span>
+                <span data-theme-label>Dark</span>
+              </button>
+            </div>
+
+            <nav class="footer-actions" aria-label="CordisX quick links">
+              <a href="https://github.com/cordisx/cordisx" aria-label="CordisX on GitHub" title="GitHub">
+                <span class="reicon-slot" data-reicon="Code" data-reicon-size="18" aria-hidden="true"></span>
+              </a>
+              <a href="/docs/" aria-label="CordisX documentation" title="Docs">
+                <span class="reicon-slot" data-reicon="BookOpen" data-reicon-size="18" aria-hidden="true"></span>
+              </a>
+              <a href="/marketplace/" aria-label="CordisX marketplace" title="Marketplace">
+                <span class="reicon-slot" data-reicon="Store" data-reicon-size="18" aria-hidden="true"></span>
+              </a>
+              <a href="https://cordisx.github.io/" aria-label="CordisX website" title="Website">
+                <span class="reicon-slot" data-reicon="Globe" data-reicon-size="18" aria-hidden="true"></span>
+              </a>
+            </nav>
+          </div>
         </div>
       </footer>
     </div>
 
-    <script type="module" src="./app.js?v=3"></script>
+    <script type="module" src="./app.js?v=4"></script>
   </body>
 </html>

@@ -4,9 +4,108 @@ const FEED_URL = 'https://raw.githubusercontent.com/cordisx/marketplace/main/mar
 
 const grid = document.querySelector('#plugin-grid')
 const search = document.querySelector('#plugin-search')
+const localeToggle = document.querySelector('#locale-toggle')
+const themeToggle = document.querySelector('#theme-toggle')
+const themeColor = document.querySelector('meta[name="theme-color"]')
+
+const STORAGE_LOCALE = 'cordisx:locale'
+const STORAGE_THEME = 'cordisx:theme'
+const translations = {
+  en: {
+    product: 'Product',
+    marketplace: 'Marketplace',
+    homeLabel: 'CordisX home',
+    searchLabel: 'Search community plugins',
+    searchPlaceholder: 'Search plugins, authors, or keywords',
+    loading: 'Loading plugins…',
+    empty: 'No plugins are published yet.',
+    noMatches: 'No plugins match this search.',
+    loadError: 'The marketplace feed could not be loaded.',
+    source: 'Source',
+    footerIntro: 'An extensible layer for the AI coding workspace you already trust.',
+    footerTitle: 'Unofficial, local, and opt-in.',
+    footerDescription: 'CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.',
+    footerSafety: 'Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.',
+    copyright: '© 2026 CordisX. Open source.',
+    preferencesLabel: 'Display preferences',
+    languageName: 'EN',
+    languageAction: 'Switch language to Chinese',
+    dark: 'Dark',
+    light: 'Light',
+    themeAction: 'Switch color theme',
+  },
+  'zh-CN': {
+    product: '产品',
+    marketplace: '插件市场',
+    homeLabel: '返回 CordisX 首页',
+    searchLabel: '搜索社区插件',
+    searchPlaceholder: '搜索插件、作者或关键词',
+    loading: '正在加载插件…',
+    empty: '暂时还没有已发布的插件。',
+    noMatches: '没有匹配当前搜索的插件。',
+    loadError: '插件市场数据加载失败。',
+    source: '源码',
+    footerIntro: '为你已经信任的 AI 编程工作区增加可扩展能力。',
+    footerTitle: '非官方、本地运行、由你启用。',
+    footerDescription: 'CordisX 将插件带入 Codex Desktop，同时保留你现有的工具、项目、对话和智能体工作流。',
+    footerSafety: '插件目前以受信任的渲染器代码运行，暂不提供沙箱、签名包或强制权限控制；启用扩展前请先审查源码。',
+    copyright: '© 2026 CordisX。开源项目。',
+    preferencesLabel: '显示偏好',
+    languageName: '中文',
+    languageAction: '切换语言为英文',
+    dark: '深色',
+    light: '浅色',
+    themeAction: '切换颜色主题',
+  },
+}
 
 let plugins = []
 let feedFallbackLocale = 'en'
+let locale = storedValue(STORAGE_LOCALE) || ((navigator.language || '').startsWith('zh') ? 'zh-CN' : 'en')
+let theme = storedValue(STORAGE_THEME) === 'light' ? 'light' : 'dark'
+
+function storedValue(key) {
+  try {
+    return localStorage.getItem(key)
+  } catch {
+    return null
+  }
+}
+
+function storeValue(key, value) {
+  try {
+    localStorage.setItem(key, value)
+  } catch {}
+}
+
+function copy(key) {
+  return translations[locale]?.[key] ?? translations.en[key] ?? key
+}
+
+function applyLocale() {
+  document.documentElement.lang = locale
+  for (const element of document.querySelectorAll('[data-i18n]')) {
+    element.textContent = copy(element.dataset.i18n)
+  }
+  for (const element of document.querySelectorAll('[data-i18n-placeholder]')) {
+    element.placeholder = copy(element.dataset.i18nPlaceholder)
+  }
+  for (const element of document.querySelectorAll('[data-i18n-aria-label]')) {
+    element.setAttribute('aria-label', copy(element.dataset.i18nAriaLabel))
+  }
+  localeToggle.querySelector('[data-locale-label]').textContent = copy('languageName')
+  localeToggle.setAttribute('aria-label', copy('languageAction'))
+  localeToggle.title = copy('languageAction')
+  if (plugins.length > 0) render()
+}
+
+function applyTheme() {
+  document.documentElement.dataset.theme = theme
+  themeColor.content = theme === 'light' ? '#e7e7e4' : '#1b1c20'
+  themeToggle.querySelector('[data-theme-label]').textContent = copy(theme)
+  themeToggle.setAttribute('aria-label', copy('themeAction'))
+  themeToggle.title = copy('themeAction')
+}
 
 function create(tag, className, text) {
   const element = document.createElement(tag)
@@ -62,10 +161,10 @@ function validateFeed(value) {
 
 function localeCandidates() {
   const candidates = []
-  for (const locale of [...(navigator.languages ?? []), navigator.language, feedFallbackLocale]) {
-    if (typeof locale !== 'string' || locale === '') continue
-    if (!candidates.includes(locale)) candidates.push(locale)
-    const language = locale.split('-')[0]
+  for (const candidate of [locale, ...(navigator.languages ?? []), navigator.language, feedFallbackLocale]) {
+    if (typeof candidate !== 'string' || candidate === '') continue
+    if (!candidates.includes(candidate)) candidates.push(candidate)
+    const language = candidate.split('-')[0]
     if (language && !candidates.includes(language)) candidates.push(language)
   }
   return candidates
@@ -138,7 +237,7 @@ function renderCard(plugin) {
   source.href = safeLink(plugin.homepage, safeLink(plugin.source, '#'))
   source.target = '_blank'
   source.rel = 'noreferrer'
-  source.append(create('span', undefined, 'Source'), iconSlot('ArrowUpRight', 12))
+  source.append(create('span', undefined, copy('source')), iconSlot('ArrowUpRight', 12))
   meta.append(create('span', undefined, `v${plugin.version} · ${plugin.license}`), source)
   card.append(meta)
   return card
@@ -153,9 +252,7 @@ function render() {
   grid.replaceChildren()
 
   if (filtered.length === 0) {
-    grid.append(create('div', 'catalog-empty', plugins.length === 0
-      ? 'No plugins are published yet.'
-      : 'No plugins match this search.'))
+    grid.append(create('div', 'catalog-empty', plugins.length === 0 ? copy('empty') : copy('noMatches')))
     return
   }
 
@@ -165,16 +262,35 @@ function render() {
 
 async function load() {
   try {
-    const response = await fetch(FEED_URL, { headers: { accept: 'application/json' } })
+    const [response] = await Promise.all([
+      fetch(FEED_URL, { headers: { accept: 'application/json' } }),
+      new Promise(resolve => setTimeout(resolve, 700)),
+    ])
     if (!response.ok) throw new Error(`Feed returned HTTP ${response.status}`)
     plugins = validateFeed(await response.json())
     render()
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error)
-    grid.replaceChildren(create('div', 'catalog-empty', `The marketplace feed could not be loaded. ${message}`))
+    grid.replaceChildren(create('div', 'catalog-empty', `${copy('loadError')} ${message}`))
+  } finally {
+    grid.setAttribute('aria-busy', 'false')
+    search.disabled = false
   }
 }
 
 search.addEventListener('input', render)
+localeToggle.addEventListener('click', () => {
+  locale = locale === 'en' ? 'zh-CN' : 'en'
+  storeValue(STORAGE_LOCALE, locale)
+  applyLocale()
+  applyTheme()
+})
+themeToggle.addEventListener('click', () => {
+  theme = theme === 'dark' ? 'light' : 'dark'
+  storeValue(STORAGE_THEME, theme)
+  applyTheme()
+})
+applyLocale()
+applyTheme()
 hydrateReicons()
 void load()
