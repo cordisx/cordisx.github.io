@@ -2259,7 +2259,7 @@ main > section::after {
 
 .site-footer {
   position: relative;
-  padding: 72px 48px 34px;
+  padding: 72px 24px 34px;
   color: #a8acb3;
   background:
     radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.028), transparent 30%),
@@ -2395,7 +2395,7 @@ main > section::after {
 
 @media (max-width: 760px) {
   .site-footer {
-    padding: 56px 24px 30px;
+    padding: 56px 18px 30px;
   }
 
   .footer-main {

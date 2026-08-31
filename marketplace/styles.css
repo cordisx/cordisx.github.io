@@ -11,7 +11,7 @@
   position: relative;
   min-height: calc(100vh - 75px);
   min-height: calc(100svh - 75px);
-  padding: 62px 48px 78px;
+  padding: 62px 24px 78px;
   border-bottom: 1px solid var(--section-edge);
   background:
     linear-gradient(rgba(111, 116, 126, 0.045) 1px, transparent 1px),
@@ -21,7 +21,7 @@
 }
 
 .catalog-shell {
-  width: min(900px, 100%);
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -264,7 +264,7 @@ noscript {
   .catalog-section {
     min-height: calc(100vh - 67px);
     min-height: calc(100svh - 67px);
-    padding: 50px 20px 64px;
+    padding: 50px 18px 64px;
   }
 
   .catalog-grid {

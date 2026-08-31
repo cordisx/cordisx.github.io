@@ -11,7 +11,7 @@ const products = await readFile(new URL('../products.yaml', import.meta.url), 'u
 for (const [file, content, references] of [
   ['index.html', homepage, ['./site-shell.css', './styles.css', '/docs/', '/marketplace/', 'class="site-footer"']],
   ['marketplace/index.html', marketplace, ['../site-shell.css', './styles.css', './app.js', 'id="plugin-grid"', 'id="plugin-search"', 'aria-current="page"', 'class="site-footer"']],
-  ['site-shell.css', shell, ['width: min(1040px, 100%)', 'height: 76px', '.site-header::before', '.site-footer']],
+  ['site-shell.css', shell, ['width: min(1040px, 100%)', 'height: 76px', '.site-header::before', '.site-footer', 'padding: 72px 24px 34px', 'padding: 56px 18px 30px']],
 ]) {
   for (const reference of references) {
     if (!content.includes(reference)) throw new Error(`${file} is missing ${reference}`)
@@ -34,6 +34,8 @@ if (
   !/<main>\s*<section class="catalog-section"(?:\s|>)/.test(marketplace) ||
   !marketplace.includes('<h1 id="catalog-title">') ||
   !marketplaceStyles.includes('.catalog-heading h1') ||
+  !marketplaceStyles.includes('padding: 62px 24px 78px') ||
+  !marketplaceStyles.includes('.catalog-shell {\n  width: 100%') ||
   !marketplaceStyles.includes('min-height: calc(100svh - 75px)') ||
   !marketplaceStyles.includes('min-height: calc(100svh - 67px)')
 ) {
