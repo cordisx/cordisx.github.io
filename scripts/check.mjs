@@ -3,6 +3,7 @@ import { access, readFile } from 'node:fs/promises'
 const homepage = await readFile(new URL('../index.html', import.meta.url), 'utf8')
 const homepageStyles = await readFile(new URL('../styles.css', import.meta.url), 'utf8')
 const homepagePreferences = await readFile(new URL('../preferences.js', import.meta.url), 'utf8')
+const homepageMarketplace = await readFile(new URL('../marketplace.js', import.meta.url), 'utf8')
 const shell = await readFile(new URL('../site-shell.css', import.meta.url), 'utf8')
 const marketplace = await readFile(new URL('../marketplace/index.html', import.meta.url), 'utf8')
 const marketplaceStyles = await readFile(new URL('../marketplace/styles.css', import.meta.url), 'utf8')
@@ -14,7 +15,7 @@ const reicons = await readFile(new URL('../reicons.js', import.meta.url), 'utf8'
 const products = await readFile(new URL('../products.yaml', import.meta.url), 'utf8')
 
 for (const [file, content, references] of [
-  ['index.html', homepage, ['./site-shell.css', './styles.css', './preferences.js', './showcase.js', '/docs/', '/marketplace/', 'class="site-footer"', 'data-showcase', 'ACTUAL PRODUCT UI', 'id="locale-toggle"', 'id="theme-toggle"']],
+  ['index.html', homepage, ['./site-shell.css', './styles.css', './preferences.js', './showcase.js', '/docs/', '/marketplace/', 'class="site-footer"', 'data-showcase', 'REAL CODEX DESKTOP', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['marketplace/index.html', marketplace, ['../site-shell.css', './styles.css', './app.js', '../brand-animation.js', 'id="plugin-grid"', 'id="plugin-search"', 'aria-current="page"', 'class="site-footer"', 'class="catalog-loading"', 'data-cordisx-animation="one-shot"', '../cordisx-mark-animated-dark.svg', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['marketplace/plugin/index.html', pluginDetail, ['/site-shell.css', '/marketplace/styles.css', './styles.css', './app.js', 'id="plugin-detail"', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['site-shell.css', shell, ['width: min(1040px, 100%)', 'height: 76px', '.site-header::before', '.site-footer', 'padding: 72px 24px 34px', 'padding: 56px 18px 30px']],
@@ -54,6 +55,15 @@ if (!homepagePreferences.includes('prefers-color-scheme: light') || !marketplace
 }
 if (!homepageStyles.includes(':root[data-theme="light"]')) {
   throw new Error('homepage must provide a light color theme')
+}
+if (!homepageStyles.includes(':root[data-theme="light"] .site-header') || !homepageStyles.includes('background: #18181b')) {
+  throw new Error('homepage light header must resolve to the same canvas color as the body')
+}
+if (homepage.includes('market-chat-plugin-state') || homepage.includes('partyActive') || homepage.includes('conceptOnly')) {
+  throw new Error('party demo must not include the removed preview state banner')
+}
+if (!homepageMarketplace.includes("partyInput.textContent = ''") || !homepageMarketplace.includes('partyButton.disabled = true')) {
+  throw new Error('party demo must clear the request and disable empty sends')
 }
 if (!marketplaceScript.includes('value.schemaVersion !== 3') || !marketplaceScript.includes('plugin.schemaVersion !== 3')) {
   throw new Error('marketplace app does not validate marketplace feed v3')
@@ -117,9 +127,7 @@ for (const icon of [
 }
 await access(new URL('../cordisx-mark-animated-dark.svg', import.meta.url))
 await access(new URL('../assets/reicon/LICENSE', import.meta.url))
-await access(new URL('../assets/screenshots/cordisx-agent-workspace.png', import.meta.url))
-await access(new URL('../assets/screenshots/cordisx-plugin-manager.png', import.meta.url))
-await access(new URL('../assets/screenshots/cordisx-plugin-settings.png', import.meta.url))
-await access(new URL('../assets/screenshots/cordisx-permission-dialog.png', import.meta.url))
+await access(new URL('../assets/screenshots/codex-real-manager.png', import.meta.url))
+await access(new URL('../assets/screenshots/codex-real-extension-points.png', import.meta.url))
 
 console.log('homepage and marketplace checks passed')

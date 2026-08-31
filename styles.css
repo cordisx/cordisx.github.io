@@ -1747,6 +1747,14 @@ main > section::after {
   background: #ffffff;
 }
 
+.party-send:disabled {
+  border-color: #4a4e56;
+  color: #747982;
+  background: #25272c;
+  cursor: not-allowed;
+  opacity: 0.56;
+}
+
 .market-empty {
   flex: 1;
   display: grid;
@@ -2093,10 +2101,6 @@ main > section::after {
 
 .market-chat-output {
   flex: 0 0 294px;
-}
-
-.market-chat-plugin-state {
-  margin-top: 0;
 }
 
 .market-chat-hint {
@@ -2665,7 +2669,12 @@ main > section::after {
 }
 
 :root[data-theme="light"] .site-frame {
+  background: #18181b;
   filter: invert(1) hue-rotate(180deg);
+}
+
+:root[data-theme="light"] .site-header {
+  background: #18181b;
 }
 
 :root[data-theme="light"] .showcase-slide {

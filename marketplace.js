@@ -29,6 +29,7 @@ if (marketplace instanceof HTMLElement) {
   const marketplaceTitle = marketplace.querySelector('[data-marketplace-title]')
   const marketplaceMode = marketplace.querySelector('[data-marketplace-mode]')
   const partyComposer = marketplace.querySelector('[data-party-composer]')
+  const partyInput = marketplace.querySelector('[data-party-input]')
   const partyButton = marketplace.querySelector('.party-send')
   const partyMessage = marketplace.querySelector('[data-party-message]')
   const partyHint = marketplace.querySelector('[data-party-hint]')
@@ -146,16 +147,19 @@ if (marketplace instanceof HTMLElement) {
   }
 
   const sendWithPartyPopper = () => {
-    if (partyBursting) return
+    const message = partyInput.textContent.trim()
+    if (partyBursting || !message) return
     partyBursting = true
     partyButton.classList.remove('is-inviting')
     partyHint.hidden = true
+    partyMessage.textContent = message
     partyMessage.hidden = false
     window.requestAnimationFrame(() => partyMessage.classList.add('is-visible'))
     burstConfetti()
+    partyInput.textContent = ''
+    partyButton.disabled = true
     window.setTimeout(() => {
       partyBursting = false
-      partyButton.classList.add('is-inviting')
     }, prefersReducedMotion ? 0 : 1400)
   }
 
