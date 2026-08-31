@@ -3,6 +3,7 @@ import { access, readFile } from 'node:fs/promises'
 const homepage = await readFile(new URL('../index.html', import.meta.url), 'utf8')
 const shell = await readFile(new URL('../site-shell.css', import.meta.url), 'utf8')
 const marketplace = await readFile(new URL('../marketplace/index.html', import.meta.url), 'utf8')
+const marketplaceStyles = await readFile(new URL('../marketplace/styles.css', import.meta.url), 'utf8')
 const marketplaceScript = await readFile(new URL('../marketplace/app.js', import.meta.url), 'utf8')
 const reicons = await readFile(new URL('../reicons.js', import.meta.url), 'utf8')
 const products = await readFile(new URL('../products.yaml', import.meta.url), 'utf8')
@@ -26,6 +27,15 @@ if (!marketplaceScript.includes('value.schemaVersion !== 3') || !marketplaceScri
 if (marketplaceScript.includes('.innerHTML')) throw new Error('marketplace app must not inject catalog HTML')
 if (/\b(?:Install|Allow permissions)\b/.test(marketplace)) {
   throw new Error('production marketplace must remain read-only discovery')
+}
+if (
+  marketplace.includes('marketplace-hero') ||
+  marketplaceStyles.includes('.marketplace-hero') ||
+  !/<main>\s*<section class="catalog-section"(?:\s|>)/.test(marketplace) ||
+  !marketplace.includes('<h1 id="catalog-title">') ||
+  !marketplaceStyles.includes('.catalog-heading h1')
+) {
+  throw new Error('marketplace must open directly on the catalog surface')
 }
 if (reicons.includes('unpkg.com')) throw new Error('public site icons must load from the vendored Reicon modules')
 if (!shell.includes('.site-header nav a[href="/#product"],') || !shell.includes('.site-header nav .github-link')) {
