@@ -7,12 +7,16 @@ const shell = await readFile(new URL('../site-shell.css', import.meta.url), 'utf
 const marketplace = await readFile(new URL('../marketplace/index.html', import.meta.url), 'utf8')
 const marketplaceStyles = await readFile(new URL('../marketplace/styles.css', import.meta.url), 'utf8')
 const marketplaceScript = await readFile(new URL('../marketplace/app.js', import.meta.url), 'utf8')
+const pluginDetail = await readFile(new URL('../marketplace/plugin/index.html', import.meta.url), 'utf8')
+const pluginDetailStyles = await readFile(new URL('../marketplace/plugin/styles.css', import.meta.url), 'utf8')
+const pluginDetailScript = await readFile(new URL('../marketplace/plugin/app.js', import.meta.url), 'utf8')
 const reicons = await readFile(new URL('../reicons.js', import.meta.url), 'utf8')
 const products = await readFile(new URL('../products.yaml', import.meta.url), 'utf8')
 
 for (const [file, content, references] of [
   ['index.html', homepage, ['./site-shell.css', './styles.css', './preferences.js', './showcase.js', '/docs/', '/marketplace/', 'class="site-footer"', 'data-showcase', 'ACTUAL PRODUCT UI', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['marketplace/index.html', marketplace, ['../site-shell.css', './styles.css', './app.js', '../brand-animation.js', 'id="plugin-grid"', 'id="plugin-search"', 'aria-current="page"', 'class="site-footer"', 'class="catalog-loading"', 'data-cordisx-animation="one-shot"', '../cordisx-mark-animated-dark.svg', 'id="locale-toggle"', 'id="theme-toggle"']],
+  ['marketplace/plugin/index.html', pluginDetail, ['/site-shell.css', '/marketplace/styles.css', './styles.css', './app.js', 'id="plugin-detail"', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['site-shell.css', shell, ['width: min(1040px, 100%)', 'height: 76px', '.site-header::before', '.site-footer', 'padding: 72px 24px 34px', 'padding: 56px 18px 30px']],
 ]) {
   for (const reference of references) {
@@ -23,6 +27,19 @@ for (const [file, content, references] of [
 if (!marketplaceScript.includes('https://raw.githubusercontent.com/cordisx/marketplace/main/marketplace.json')) {
   throw new Error('marketplace app does not reference the official feed')
 }
+if (!marketplaceScript.includes('/marketplace/plugin/?id=')) throw new Error('marketplace cards must link to plugin details')
+if (!pluginDetailScript.includes('https://raw.githubusercontent.com/cordisx/marketplace/main/marketplace.json')) {
+  throw new Error('plugin detail does not reference the official feed')
+}
+if (!pluginDetailScript.includes("'cordisx:locale'") || !pluginDetailScript.includes("'cordisx:theme'")) {
+  throw new Error('plugin detail display preferences must be persistent')
+}
+if (!pluginDetailScript.includes('prefers-color-scheme: light')) {
+  throw new Error('plugin detail must follow the system theme by default')
+}
+if (!pluginDetailStyles.includes(':root[data-theme="light"]')) {
+  throw new Error('plugin detail must provide a light color theme')
+}
 if (!marketplaceScript.includes("'cordisx:locale'") || !marketplaceScript.includes("'cordisx:theme'")) {
   throw new Error('marketplace display preferences must be persistent')
 }
@@ -31,6 +48,9 @@ if (!marketplaceStyles.includes(':root[data-theme="light"]')) {
 }
 if (!homepagePreferences.includes("'cordisx:locale'") || !homepagePreferences.includes("'cordisx:theme'")) {
   throw new Error('homepage display preferences must be persistent')
+}
+if (!homepagePreferences.includes('prefers-color-scheme: light') || !marketplaceScript.includes('prefers-color-scheme: light')) {
+  throw new Error('homepage and marketplace must follow the system theme by default')
 }
 if (!homepageStyles.includes(':root[data-theme="light"]')) {
   throw new Error('homepage must provide a light color theme')

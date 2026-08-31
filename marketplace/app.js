@@ -10,6 +10,7 @@ const themeColor = document.querySelector('meta[name="theme-color"]')
 
 const STORAGE_LOCALE = 'cordisx:locale'
 const STORAGE_THEME = 'cordisx:theme'
+const systemTheme = matchMedia('(prefers-color-scheme: light)')
 const translations = {
   en: {
     product: 'Product',
@@ -23,6 +24,7 @@ const translations = {
     empty: 'No plugins are published yet.',
     noMatches: 'No plugins match this search.',
     loadError: 'The marketplace feed could not be loaded.',
+    details: 'Details',
     source: 'Source',
     footerIntro: 'An extensible layer for the AI coding workspace you already trust.',
     footerTitle: 'Unofficial, local, and opt-in.',
@@ -32,6 +34,7 @@ const translations = {
     preferencesLabel: 'Display preferences',
     languageName: 'EN',
     languageAction: 'Switch language to Chinese',
+    system: 'System',
     dark: 'Dark',
     light: 'Light',
     themeAction: 'Switch color theme',
@@ -48,6 +51,7 @@ const translations = {
     empty: '暂时还没有已发布的插件。',
     noMatches: '没有匹配当前搜索的插件。',
     loadError: '插件市场数据加载失败。',
+    details: '详情',
     source: '源码',
     footerIntro: '为你已经信任的 AI 编程工作区增加可扩展能力。',
     footerTitle: '非官方、本地运行、由你启用。',
@@ -57,6 +61,7 @@ const translations = {
     preferencesLabel: '显示偏好',
     languageName: '中文',
     languageAction: '切换语言为英文',
+    system: '跟随系统',
     dark: '深色',
     light: '浅色',
     themeAction: '切换颜色主题',
@@ -66,7 +71,9 @@ const translations = {
 let plugins = []
 let feedFallbackLocale = 'en'
 let locale = storedValue(STORAGE_LOCALE) || ((navigator.language || '').startsWith('zh') ? 'zh-CN' : 'en')
-let theme = storedValue(STORAGE_THEME) === 'light' ? 'light' : 'dark'
+const storedTheme = storedValue(STORAGE_THEME)
+let followsSystemTheme = storedTheme !== 'light' && storedTheme !== 'dark'
+let theme = followsSystemTheme ? (systemTheme.matches ? 'light' : 'dark') : storedTheme
 
 function storedValue(key) {
   try {
@@ -79,6 +86,12 @@ function storedValue(key) {
 function storeValue(key, value) {
   try {
     localStorage.setItem(key, value)
+  } catch {}
+}
+
+function clearValue(key) {
+  try {
+    localStorage.removeItem(key)
   } catch {}
 }
 
@@ -106,7 +119,7 @@ function applyLocale() {
 function applyTheme() {
   document.documentElement.dataset.theme = theme
   themeColor.content = theme === 'light' ? '#e7e7e4' : '#1b1c20'
-  themeToggle.querySelector('[data-theme-label]').textContent = copy(theme)
+  themeToggle.querySelector('[data-theme-label]').textContent = followsSystemTheme ? copy('system') : copy(theme)
   themeToggle.setAttribute('aria-label', copy('themeAction'))
   themeToggle.title = copy('themeAction')
 }
@@ -224,17 +237,21 @@ function searchableText(plugin) {
 
 function renderCard(plugin) {
   const card = create('article', 'catalog-card')
+  const detail = create('a', 'catalog-card-detail')
+  detail.href = `/marketplace/plugin/?id=${encodeURIComponent(plugin.id)}`
+  detail.setAttribute('aria-label', `${copy('details')}: ${plugin.name}`)
   const head = create('div', 'catalog-card-head')
   const icon = create('div', 'catalog-card-icon', initials(plugin.name))
   const title = create('div', 'catalog-card-title')
   title.append(create('h3', undefined, plugin.name), create('div', 'catalog-card-id', plugin.id))
   head.append(icon, title)
-  card.append(head, create('p', 'catalog-card-description', plugin.description))
+  detail.append(head, create('p', 'catalog-card-description', plugin.description))
 
   const tags = create('div', 'catalog-tags')
   for (const keyword of (plugin.keywords ?? []).slice(0, 3)) tags.append(create('span', 'catalog-tag', keyword))
   tags.append(create('span', 'catalog-tag', `CordisX ${plugin.compatibility?.cordisx ?? 'unspecified'}`))
-  card.append(tags)
+  detail.append(tags)
+  card.append(detail)
 
   const meta = create('div', 'catalog-card-meta')
   const source = create('a', 'catalog-source')
@@ -242,7 +259,12 @@ function renderCard(plugin) {
   source.target = '_blank'
   source.rel = 'noreferrer'
   source.append(create('span', undefined, copy('source')), iconSlot('ArrowUpRight', 12))
-  meta.append(create('span', undefined, `v${plugin.version} · ${plugin.license}`), source)
+  const details = create('a', 'catalog-source')
+  details.href = detail.href
+  details.append(create('span', undefined, copy('details')), iconSlot('ArrowRight', 12))
+  const links = create('span', 'catalog-card-links')
+  links.append(source, details)
+  meta.append(create('span', undefined, `v${plugin.version} · ${plugin.license}`), links)
   card.append(meta)
   return card
 }
@@ -290,8 +312,24 @@ localeToggle.addEventListener('click', () => {
   applyTheme()
 })
 themeToggle.addEventListener('click', () => {
-  theme = theme === 'dark' ? 'light' : 'dark'
-  storeValue(STORAGE_THEME, theme)
+  if (followsSystemTheme) {
+    followsSystemTheme = false
+    theme = 'dark'
+    storeValue(STORAGE_THEME, theme)
+  } else if (theme === 'dark') {
+    theme = 'light'
+    storeValue(STORAGE_THEME, theme)
+  } else {
+    followsSystemTheme = true
+    theme = systemTheme.matches ? 'light' : 'dark'
+    clearValue(STORAGE_THEME)
+  }
+  applyTheme()
+})
+
+systemTheme.addEventListener('change', event => {
+  if (!followsSystemTheme) return
+  theme = event.matches ? 'light' : 'dark'
   applyTheme()
 })
 applyLocale()

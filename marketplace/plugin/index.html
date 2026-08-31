@@ -3,18 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Browse the public CordisX community plugin catalog."
-    />
+    <meta name="description" content="View a CordisX community plugin." />
     <meta name="theme-color" content="#1b1c20" />
     <link
       rel="icon"
       type="image/svg+xml"
       href="https://raw.githubusercontent.com/cordisx/cordisx/09c6284b7e3c3616cb1bdb10a631423c8b1c12b1/packages/cli/assets/brand/cordisx-mark-dark.svg"
     />
-    <title>CordisX — Marketplace</title>
-    <link rel="stylesheet" href="../site-shell.css?v=2" />
+    <title>CordisX — Plugin details</title>
+    <link rel="stylesheet" href="/site-shell.css?v=2" />
     <script>
       try {
         const savedTheme = localStorage.getItem('cordisx:theme')
@@ -24,8 +21,9 @@
         document.documentElement.lang = localStorage.getItem('cordisx:locale') || ((navigator.language || '').startsWith('zh') ? 'zh-CN' : 'en')
       } catch {}
     </script>
-    <script src="../brand-animation.js?v=40" defer></script>
-    <link rel="stylesheet" href="./styles.css?v=9" />
+    <script src="/brand-animation.js?v=40" defer></script>
+    <link rel="stylesheet" href="/marketplace/styles.css?v=9" />
+    <link rel="stylesheet" href="./styles.css?v=1" />
   </head>
   <body>
     <div class="site-frame">
@@ -52,37 +50,22 @@
       </header>
 
       <main>
-        <section class="catalog-section" aria-label="Community plugins">
-          <div class="catalog-shell">
-            <label class="catalog-search" for="plugin-search">
-              <span class="reicon-slot" data-reicon="Search" data-reicon-size="18" aria-hidden="true"></span>
-              <span class="sr-only" data-i18n="searchLabel">Search community plugins</span>
-              <input
-                id="plugin-search"
-                type="search"
-                placeholder="Search plugins, authors, or keywords"
-                data-i18n-placeholder="searchPlaceholder"
-                autocomplete="off"
-                disabled
-              />
-            </label>
-
-            <div id="plugin-grid" class="catalog-grid" aria-busy="true">
-              <div class="catalog-loading" role="status" aria-live="polite">
-                <canvas
-                  class="catalog-loading-mark"
-                  width="512"
-                  height="512"
-                  data-cordisx-animation="one-shot"
-                  data-cordisx-animation-source="../cordisx-mark-animated-dark.svg"
-                  role="img"
-                  aria-label="Animated CordisX mark"
-                ></canvas>
-                <span data-i18n="loading">Loading plugins…</span>
-              </div>
+        <section class="plugin-detail-section">
+          <div id="plugin-detail" class="plugin-detail-shell" aria-busy="true">
+            <div class="plugin-detail-loading" role="status" aria-live="polite">
+              <canvas
+                class="catalog-loading-mark"
+                width="512"
+                height="512"
+                data-cordisx-animation="one-shot"
+                data-cordisx-animation-source="/cordisx-mark-animated-dark.svg"
+                role="img"
+                aria-label="Animated CordisX mark"
+              ></canvas>
+              <span data-i18n="loading">Loading plugin…</span>
             </div>
-            <noscript>This page requires JavaScript to fetch the public marketplace JSON feed.</noscript>
           </div>
+          <noscript>This page requires JavaScript to fetch the public marketplace JSON feed.</noscript>
         </section>
       </main>
 
@@ -148,6 +131,6 @@
       </footer>
     </div>
 
-    <script type="module" src="./app.js?v=6"></script>
+    <script type="module" src="./app.js?v=1"></script>
   </body>
 </html>
