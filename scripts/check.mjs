@@ -33,7 +33,9 @@ if (
   marketplaceStyles.includes('.marketplace-hero') ||
   !/<main>\s*<section class="catalog-section"(?:\s|>)/.test(marketplace) ||
   !marketplace.includes('<h1 id="catalog-title">') ||
-  !marketplaceStyles.includes('.catalog-heading h1')
+  !marketplaceStyles.includes('.catalog-heading h1') ||
+  !marketplaceStyles.includes('min-height: calc(100svh - 75px)') ||
+  !marketplaceStyles.includes('min-height: calc(100svh - 67px)')
 ) {
   throw new Error('marketplace must open directly on the catalog surface')
 }
