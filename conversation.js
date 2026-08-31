@@ -1,6 +1,30 @@
 import { Microphone } from './reicons.js?v=33'
 
 const liveComposer = document.querySelector('[data-live-composer]')
+const zh = document.documentElement.lang === 'zh-CN'
+const copy = zh ? {
+  voiceInput: '语音输入',
+  stopVoiceInput: '停止语音输入',
+  voiceStarted: '语音输入已开始。',
+  voiceStopped: '语音输入已停止。',
+  voiceAdded: '语音输入已添加',
+  done: '完成',
+  runAgain: '再次运行演示',
+  addedStatus: '语音输入按钮已添加到发送按钮左侧。',
+  generating: '正在生成',
+  fallbackRequest: '在发送按钮左侧增加一个语音输入按钮。',
+} : {
+  voiceInput: 'Voice input',
+  stopVoiceInput: 'Stop voice input',
+  voiceStarted: 'Voice input started.',
+  voiceStopped: 'Voice input stopped.',
+  voiceAdded: 'Voice input added',
+  done: 'DONE',
+  runAgain: 'Run the demo again',
+  addedStatus: 'The voice input button was added to the left of send.',
+  generating: 'Generating',
+  fallbackRequest: 'Add a voice input button to the left of my send button.',
+}
 
 if (liveComposer instanceof HTMLFormElement) {
   const output = document.querySelector('[data-conversation-output]')
@@ -63,7 +87,7 @@ if (liveComposer instanceof HTMLFormElement) {
     const button = document.createElement('button')
     button.type = 'button'
     button.className = 'voice-button'
-    button.setAttribute('aria-label', 'Voice input')
+    button.setAttribute('aria-label', copy.voiceInput)
     const icon = Microphone({
       size: 20,
       className: 'microphone-icon',
@@ -72,8 +96,8 @@ if (liveComposer instanceof HTMLFormElement) {
     button.append(icon)
     button.addEventListener('click', () => {
       const listening = button.classList.toggle('is-listening')
-      button.setAttribute('aria-label', listening ? 'Stop voice input' : 'Voice input')
-      if (status) status.textContent = listening ? 'Voice input started.' : 'Voice input stopped.'
+      button.setAttribute('aria-label', listening ? copy.stopVoiceInput : copy.voiceInput)
+      if (status) status.textContent = listening ? copy.voiceStarted : copy.voiceStopped
     })
     voiceSlot.replaceChildren(button)
     voiceSlot.classList.add('is-ready')
@@ -86,9 +110,9 @@ if (liveComposer instanceof HTMLFormElement) {
     const title = document.createElement('strong')
     const detail = document.createElement('small')
     const state = document.createElement('span')
-    title.textContent = 'Voice input added'
+    title.textContent = copy.voiceAdded
     detail.textContent = 'composer.actions.before · active now'
-    state.textContent = 'DONE'
+    state.textContent = copy.done
     copy.append(title, detail)
     card.append(copy, state)
     output.append(card)
@@ -97,9 +121,9 @@ if (liveComposer instanceof HTMLFormElement) {
     liveComposer.classList.remove('is-building')
     sendButton.disabled = false
     sendButton.classList.add('is-inviting')
-    sendButton.setAttribute('aria-label', 'Run the demo again')
+    sendButton.setAttribute('aria-label', copy.runAgain)
     running = false
-    if (status) status.textContent = 'The voice input button was added to the left of send.'
+    if (status) status.textContent = copy.addedStatus
   }
 
   const runBuild = async () => {
@@ -108,14 +132,14 @@ if (liveComposer instanceof HTMLFormElement) {
     liveComposer.classList.add('is-building')
     sendButton.classList.remove('is-inviting')
     sendButton.disabled = true
-    sendButton.setAttribute('aria-label', 'Generating')
+    sendButton.setAttribute('aria-label', copy.generating)
     voiceSlot.classList.remove('is-ready')
     voiceSlot.replaceChildren()
     output.replaceChildren()
 
     const request = document.createElement('div')
     request.className = 'request-message'
-    request.textContent = requestCopy?.textContent.trim() || 'Add a voice input button to the left of my send button.'
+    request.textContent = requestCopy?.textContent.trim() || copy.fallbackRequest
     output.append(request)
     const stream = document.createElement('div')
     stream.className = 'build-stream'

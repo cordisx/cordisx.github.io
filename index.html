@@ -15,8 +15,15 @@
     />
     <title>CordisX — Make your workspace extensible</title>
     <link rel="stylesheet" href="./site-shell.css?v=2" />
-    <link rel="stylesheet" href="./styles.css?v=35" />
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem('cordisx:theme') || 'dark'
+        document.documentElement.lang = localStorage.getItem('cordisx:locale') || ((navigator.language || '').startsWith('zh') ? 'zh-CN' : 'en')
+      } catch {}
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=36" />
     <script src="./brand-animation.js?v=33" defer></script>
+    <script type="module" src="./preferences.js?v=36"></script>
     <script type="module" src="./conversation.js?v=33"></script>
     <script type="module" src="./marketplace.js?v=33"></script>
     <script type="module" src="./showcase.js?v=35"></script>
@@ -25,7 +32,7 @@
     <div class="site-frame">
       <header class="site-header">
         <div class="header-inner">
-          <a class="brand" href="/#product" aria-label="CordisX home">
+          <a class="brand" href="/#product" aria-label="CordisX home" data-i18n-aria-label="homeLabel">
             <img
               src="https://raw.githubusercontent.com/cordisx/cordisx/09c6284b7e3c3616cb1bdb10a631423c8b1c12b1/packages/cli/assets/brand/cordisx-mark-dark.svg"
               alt=""
@@ -34,9 +41,9 @@
           </a>
 
           <nav aria-label="Main navigation">
-            <a href="/#product" aria-current="page">Product</a>
-            <a href="/docs/">Docs</a>
-            <a href="/marketplace/">Marketplace</a>
+            <a href="/#product" aria-current="page" data-i18n="product">Product</a>
+            <a href="/docs/" data-i18n="docs">Docs</a>
+            <a href="/marketplace/" data-i18n="marketplace">Marketplace</a>
             <a class="github-link" href="https://github.com/cordisx/cordisx">
               GitHub
               <span class="reicon-slot nav-icon" data-reicon="ArrowUpRight" data-reicon-size="13" aria-hidden="true"></span>
@@ -57,13 +64,13 @@
               aria-label="Animated CordisX three-ring mark"
             ></canvas>
             <p class="hero-line">
-              Make your workspace
-              <span class="hero-emphasis" data-text="extensible." aria-label="extensible.">extensible.</span>
+              <span data-i18n="heroPrefix">Make your workspace</span>
+              <span class="hero-emphasis" data-text="extensible." aria-label="extensible." data-i18n="heroEmphasis" data-i18n-data-text="heroEmphasis" data-i18n-aria-label="heroEmphasis">extensible.</span>
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="https://github.com/cordisx/cordisx">Get started</a>
+              <a class="button button-primary" href="https://github.com/cordisx/cordisx" data-i18n="getStarted">Get started</a>
               <a class="button button-secondary" href="/marketplace/">
-                Explore plugins
+                <span data-i18n="explorePlugins">Explore plugins</span>
                 <span class="reicon-slot" data-reicon="ArrowRight" data-reicon-size="14" aria-hidden="true"></span>
               </a>
             </div>
@@ -74,22 +81,22 @@
           <div class="conversation-stage">
             <div class="conversation-window">
               <div class="conversation-bar">
-                <span><i></i><strong id="conversation-title">CordisX · Live workspace</strong></span>
-                <b>02 / LIVE EXTENSION · LOCAL</b>
+                <span><i></i><strong id="conversation-title" data-i18n="liveWorkspace">CordisX · Live workspace</strong></span>
+                <b data-i18n="liveExtensionMode">02 / LIVE EXTENSION · LOCAL</b>
               </div>
 
               <div class="conversation-output" data-conversation-output aria-label="Live extension build output">
                 <div class="output-empty">
-                  <span>READY</span>
-                  <p>Send a request to reshape this composer.</p>
+                  <span data-i18n="ready">READY</span>
+                  <p data-i18n="reshapeComposer">Send a request to reshape this composer.</p>
                 </div>
               </div>
 
               <form class="live-composer" data-live-composer>
-                <p class="request-copy" data-request-copy>Add a voice input button to the left of my send button.</p>
+                <p class="request-copy" data-request-copy data-i18n="voiceRequest">Add a voice input button to the left of my send button.</p>
                 <div class="composer-controls">
                   <span class="voice-slot" data-voice-slot></span>
-                  <button class="demo-send is-inviting" type="submit" aria-label="Send request">
+                  <button class="demo-send is-inviting" type="submit" aria-label="Send request" data-i18n-aria-label="sendRequest">
                     <span class="reicon-slot send-icon" data-reicon="ArrowUp" data-reicon-size="17" aria-hidden="true"></span>
                   </button>
                 </div>
@@ -105,15 +112,15 @@
           <div class="marketplace-stage">
             <div class="marketplace-window">
               <div class="marketplace-bar">
-                <span><i></i><strong id="marketplace-title" data-marketplace-title>CordisX · Marketplace</strong></span>
-                <b data-marketplace-mode>03 / INTERACTION CONCEPT · LOCAL</b>
+                <span><i></i><strong id="marketplace-title" data-marketplace-title data-i18n="marketplaceTitle">CordisX · Marketplace</strong></span>
+                <b data-marketplace-mode data-i18n="marketplaceMode">03 / INTERACTION CONCEPT · LOCAL</b>
               </div>
 
               <div class="marketplace-surface">
                 <div class="market-search-view" data-market-search-view>
                   <header class="market-intro">
-                    <span>SEARCH THE EXTENSION GRAPH</span>
-                    <p>Find what your workspace is missing.</p>
+                    <span data-i18n="searchGraph">SEARCH THE EXTENSION GRAPH</span>
+                    <p data-i18n="findMissing">Find what your workspace is missing.</p>
                   </header>
 
                   <form class="market-search" data-market-search>
@@ -121,37 +128,39 @@
                     <input
                       data-market-search-input
                       value="send button"
+                      data-i18n-value="searchSeed"
                       readonly
                       aria-label="Plugin search query"
+                      data-i18n-aria-label="pluginSearchQuery"
                     />
-                    <button class="market-search-button is-inviting" type="submit" aria-label="Search plugins">
+                    <button class="market-search-button is-inviting" type="submit" aria-label="Search plugins" data-i18n-aria-label="searchPlugins">
                       <span class="reicon-slot" data-reicon="Search" data-reicon-size="18" aria-hidden="true"></span>
                     </button>
                   </form>
 
                   <div class="market-empty" data-market-empty>
-                    <span>LIVE QUERY</span>
-                    <p>The request is refining itself. Search when it feels right.</p>
+                    <span data-i18n="liveQuery">LIVE QUERY</span>
+                    <p data-i18n="refiningQuery">The request is refining itself. Search when it feels right.</p>
                   </div>
 
                   <div class="market-results" data-market-results hidden aria-live="polite">
                     <div class="market-results-meta">
-                      <span>3 MATCHING PLUGINS</span>
-                      <b>CONCEPT · LOCAL</b>
+                      <span data-i18n="matchingPlugins">3 MATCHING PLUGINS</span>
+                      <b data-i18n="conceptLocal">CONCEPT · LOCAL</b>
                     </div>
 
                     <div class="plugin-grid">
                       <article class="plugin-card plugin-card-featured">
                         <div class="plugin-card-topline">
                           <span class="plugin-icon"><span class="reicon-slot" data-reicon="Confetti" data-reicon-size="22" aria-hidden="true"></span></span>
-                          <small>COMPOSER</small>
+                          <small data-i18n="composer">COMPOSER</small>
                         </div>
                         <div>
                           <h3>Party Popper</h3>
-                          <p>Turn send into a celebration.</p>
+                          <p data-i18n="partyDescription">Turn send into a celebration.</p>
                         </div>
                         <button class="plugin-install" type="button" data-install-party>
-                          <span>Install</span>
+                          <span data-i18n="install">Install</span>
                           <span class="reicon-slot" data-reicon="BoxAdd" data-reicon-size="15" aria-hidden="true"></span>
                         </button>
                       </article>
@@ -159,25 +168,25 @@
                       <article class="plugin-card">
                         <div class="plugin-card-topline">
                           <span class="plugin-icon"><span class="reicon-slot" data-reicon="Microphone" data-reicon-size="22" aria-hidden="true"></span></span>
-                          <small>INPUT</small>
+                          <small data-i18n="input">INPUT</small>
                         </div>
                         <div>
-                          <h3>Voice Input</h3>
-                          <p>Speak directly into the composer.</p>
+                          <h3 data-i18n="voiceInput">Voice Input</h3>
+                          <p data-i18n="voiceDescription">Speak directly into the composer.</p>
                         </div>
-                        <span class="plugin-card-state">AVAILABLE</span>
+                        <span class="plugin-card-state" data-i18n="available">AVAILABLE</span>
                       </article>
 
                       <article class="plugin-card">
                         <div class="plugin-card-topline">
                           <span class="plugin-icon"><span class="reicon-slot" data-reicon="Activity" data-reicon-size="22" aria-hidden="true"></span></span>
-                          <small>TRACE</small>
+                          <small data-i18n="trace">TRACE</small>
                         </div>
                         <div>
                           <h3>Agent Trace</h3>
-                          <p>See every tool and task move.</p>
+                          <p data-i18n="traceDescription">See every tool and task move.</p>
                         </div>
-                        <span class="plugin-card-state">AVAILABLE</span>
+                        <span class="plugin-card-state" data-i18n="available">AVAILABLE</span>
                       </article>
                     </div>
                   </div>
@@ -187,24 +196,24 @@
                   <div class="conversation-output market-chat-output" aria-label="Party Popper workspace output">
                     <div class="build-complete market-chat-plugin-state">
                       <div>
-                        <strong>Party Popper preview active</strong>
-                        <small>concept interaction · local only</small>
+                        <strong data-i18n="partyActive">Party Popper preview active</strong>
+                        <small data-i18n="conceptOnly">concept interaction · local only</small>
                       </div>
-                      <span>PREVIEW</span>
+                      <span data-i18n="preview">PREVIEW</span>
                     </div>
 
                     <div class="output-empty market-chat-hint" data-party-hint>
-                      <span>READY</span>
-                      <p>Party Popper is active. Try the send action.</p>
+                      <span data-i18n="ready">READY</span>
+                      <p data-i18n="partyReady">Party Popper is active. Try the send action.</p>
                     </div>
 
-                    <div class="request-message market-chat-message" data-party-message hidden>Launch the release.</div>
+                    <div class="request-message market-chat-message" data-party-message hidden data-i18n="launchRelease">Launch the release.</div>
                   </div>
 
                   <form class="live-composer party-composer" data-party-composer>
-                    <p class="request-copy">Launch the release.</p>
+                    <p class="request-copy" data-i18n="launchRelease">Launch the release.</p>
                     <div class="composer-controls">
-                      <button class="demo-send party-send is-inviting" type="submit" aria-label="Send with Party Popper">
+                      <button class="demo-send party-send is-inviting" type="submit" aria-label="Send with Party Popper" data-i18n-aria-label="sendWithParty">
                         <span class="reicon-slot send-icon" data-reicon="Confetti" data-reicon-size="20" aria-hidden="true"></span>
                       </button>
                     </div>
@@ -214,36 +223,36 @@
 
                 <div class="permission-overlay" data-permission-overlay hidden>
                   <div class="permission-dialog" role="dialog" aria-modal="true" aria-labelledby="permission-title">
-                    <button class="permission-close" type="button" data-cancel-install aria-label="Close permission request">
+                    <button class="permission-close" type="button" data-cancel-install aria-label="Close permission request" data-i18n-aria-label="closePermission">
                       <span class="reicon-slot" data-reicon="Xmark" data-reicon-size="16" aria-hidden="true"></span>
                     </button>
 
                     <span class="permission-mark">
                       <span class="reicon-slot" data-reicon="ShieldCheck" data-reicon-size="26" aria-hidden="true"></span>
                     </span>
-                    <span class="permission-kicker">CONCEPT PREVIEW</span>
-                    <h3 id="permission-title">Preview Party Popper?</h3>
-                    <p class="permission-copy">This illustrates a future capability prompt. These permissions are not enforced today.</p>
+                    <span class="permission-kicker" data-i18n="conceptPreview">CONCEPT PREVIEW</span>
+                    <h3 id="permission-title" data-i18n="previewParty">Preview Party Popper?</h3>
+                    <p class="permission-copy" data-i18n="permissionCopy">This illustrates a future capability prompt. These permissions are not enforced today.</p>
 
                     <ul class="permission-list">
                       <li>
                         <span class="reicon-slot" data-reicon="Check" data-reicon-size="15" aria-hidden="true"></span>
-                        <div><strong>Replace the send action</strong><small>composer.actions.send</small></div>
+                        <div><strong data-i18n="replaceSend">Replace the send action</strong><small>composer.actions.send</small></div>
                       </li>
                       <li>
                         <span class="reicon-slot" data-reicon="Check" data-reicon-size="15" aria-hidden="true"></span>
-                        <div><strong>Render celebration effects</strong><small>current conversation only</small></div>
+                        <div><strong data-i18n="renderEffects">Render celebration effects</strong><small data-i18n="currentConversation">current conversation only</small></div>
                       </li>
                       <li>
                         <span class="reicon-slot" data-reicon="Check" data-reicon-size="15" aria-hidden="true"></span>
-                        <div><strong>Save plugin settings</strong><small>local profile</small></div>
+                        <div><strong data-i18n="saveSettings">Save plugin settings</strong><small data-i18n="localProfile">local profile</small></div>
                       </li>
                     </ul>
 
                     <div class="permission-actions">
-                      <button class="permission-cancel" type="button" data-cancel-install>Cancel</button>
+                      <button class="permission-cancel" type="button" data-cancel-install data-i18n="cancel">Cancel</button>
                       <button class="permission-allow" type="button" data-allow-install>
-                        <span>Preview activation</span>
+                        <span data-i18n="previewActivation">Preview activation</span>
                         <span class="reicon-slot" data-reicon="BoxAdd" data-reicon-size="15" aria-hidden="true"></span>
                       </button>
                     </div>
@@ -259,7 +268,7 @@
         <section class="product-showcase" id="showcase" aria-label="CordisX product interface gallery" data-showcase>
           <div class="showcase-shell">
             <div class="showcase-heading">
-              <span>CORDISX / ACTUAL PRODUCT UI</span>
+              <span data-i18n="actualProductUi">CORDISX / ACTUAL PRODUCT UI</span>
               <span><b data-showcase-index>01</b> / 04</span>
             </div>
 
@@ -271,6 +280,8 @@
                   alt="CordisX live multi-agent workspace"
                   data-showcase-title="Live workspace"
                   data-showcase-description="A Host-owned multi-agent conversation running in CordisX."
+                  data-i18n-showcase-title="showcaseWorkspaceTitle"
+                  data-i18n-showcase-description="showcaseWorkspaceDescription"
                   aria-hidden="false"
                   fetchpriority="high"
                   decoding="async"
@@ -281,6 +292,8 @@
                   alt="CordisX plugin manager with active extensions"
                   data-showcase-title="Plugin manager"
                   data-showcase-description="Installed extensions and lifecycle controls in one place."
+                  data-i18n-showcase-title="showcaseManagerTitle"
+                  data-i18n-showcase-description="showcaseManagerDescription"
                   aria-hidden="true"
                   loading="lazy"
                   decoding="async"
@@ -291,6 +304,8 @@
                   alt="CordisX schema-driven plugin settings"
                   data-showcase-title="Schema-driven settings"
                   data-showcase-description="Real plugin configuration rendered by the Host."
+                  data-i18n-showcase-title="showcaseSettingsTitle"
+                  data-i18n-showcase-description="showcaseSettingsDescription"
                   aria-hidden="true"
                   loading="lazy"
                   decoding="async"
@@ -301,6 +316,8 @@
                   alt="CordisX Host-owned permission request"
                   data-showcase-title="Permission requests"
                   data-showcase-description="A Host-owned decision surface with request context and scoped choices."
+                  data-i18n-showcase-title="showcasePermissionTitle"
+                  data-i18n-showcase-description="showcasePermissionDescription"
                   aria-hidden="true"
                   loading="lazy"
                   decoding="async"
@@ -309,12 +326,12 @@
 
               <div class="showcase-toolbar">
                 <p class="showcase-copy" aria-live="polite">
-                  <strong data-showcase-title>Live workspace</strong>
-                  <span data-showcase-description>A Host-owned multi-agent conversation running in CordisX.</span>
+                  <strong data-showcase-title data-i18n="showcaseWorkspaceTitle">Live workspace</strong>
+                  <span data-showcase-description data-i18n="showcaseWorkspaceDescription">A Host-owned multi-agent conversation running in CordisX.</span>
                 </p>
 
                 <div class="showcase-controls">
-                  <button class="showcase-arrow showcase-arrow-previous" type="button" aria-label="Previous product interface" data-showcase-previous>
+                  <button class="showcase-arrow showcase-arrow-previous" type="button" aria-label="Previous product interface" data-i18n-aria-label="previousInterface" data-showcase-previous>
                     <span class="reicon-slot" data-reicon="ArrowRight" data-reicon-size="15" aria-hidden="true"></span>
                   </button>
                   <div class="showcase-pagination" role="group" aria-label="Choose product interface">
@@ -323,7 +340,7 @@
                     <button type="button" aria-label="Show schema-driven settings" data-showcase-page="2"></button>
                     <button type="button" aria-label="Show permission requests" data-showcase-page="3"></button>
                   </div>
-                  <button class="showcase-arrow" type="button" aria-label="Next product interface" data-showcase-next>
+                  <button class="showcase-arrow" type="button" aria-label="Next product interface" data-i18n-aria-label="nextInterface" data-showcase-next>
                     <span class="reicon-slot" data-reicon="ArrowRight" data-reicon-size="15" aria-hidden="true"></span>
                   </button>
                 </div>
@@ -336,35 +353,47 @@
       <footer class="site-footer" id="footer" aria-label="CordisX footer">
         <div class="footer-main">
           <div class="footer-intro">
-            <a class="footer-brand" href="/#product" aria-label="CordisX home">
+            <a class="footer-brand" href="/#product" aria-label="CordisX home" data-i18n-aria-label="homeLabel">
               <img
                 src="https://raw.githubusercontent.com/cordisx/cordisx/09c6284b7e3c3616cb1bdb10a631423c8b1c12b1/packages/cli/assets/brand/cordisx-mark-dark.svg"
                 alt=""
               />
               <span>CordisX</span>
             </a>
-            <p>An extensible layer for the AI coding workspace you already trust.</p>
+            <p data-i18n="footerIntro">An extensible layer for the AI coding workspace you already trust.</p>
           </div>
 
           <div class="footer-note">
-            <h2>Unofficial, local, and opt-in.</h2>
-            <p>CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.</p>
-            <p>Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.</p>
+            <h2 data-i18n="footerTitle">Unofficial, local, and opt-in.</h2>
+            <p data-i18n="footerDescription">CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.</p>
+            <p data-i18n="footerSafety">Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.</p>
           </div>
         </div>
 
         <div class="footer-bottom">
           <div class="footer-legal">
-            <p>© 2026 CordisX. Open source.</p>
+            <p data-i18n="copyright">© 2026 CordisX. Open source.</p>
             <nav class="footer-links" aria-label="Footer links">
-              <a href="/docs/">Docs</a>
-              <a href="/marketplace/">Marketplace</a>
-              <a href="https://github.com/cordisx/cordisx-protocol">Protocol</a>
+              <a href="/docs/" data-i18n="docs">Docs</a>
+              <a href="/marketplace/" data-i18n="marketplace">Marketplace</a>
+              <a href="https://github.com/cordisx/cordisx-protocol" data-i18n="protocol">Protocol</a>
               <a href="https://github.com/cordisx/cordisx">GitHub</a>
             </nav>
           </div>
 
-          <nav class="footer-actions" aria-label="CordisX quick links">
+          <div class="footer-tools">
+            <div class="footer-preferences" aria-label="Display preferences" data-i18n-aria-label="preferencesLabel">
+              <button id="locale-toggle" class="footer-preference" type="button">
+                <span class="reicon-slot" data-reicon="Globe" data-reicon-size="16" aria-hidden="true"></span>
+                <span data-locale-label>EN</span>
+              </button>
+              <button id="theme-toggle" class="footer-preference" type="button">
+                <span class="theme-swatch" aria-hidden="true"></span>
+                <span data-theme-label>Dark</span>
+              </button>
+            </div>
+
+            <nav class="footer-actions" aria-label="CordisX quick links">
             <a href="https://github.com/cordisx/cordisx" aria-label="CordisX on GitHub" title="GitHub">
               <span class="reicon-slot" data-reicon="Code" data-reicon-size="18" aria-hidden="true"></span>
             </a>
@@ -377,7 +406,8 @@
             <a href="https://cordisx.github.io/" aria-label="CordisX website" title="Website">
               <span class="reicon-slot" data-reicon="Globe" data-reicon-size="18" aria-hidden="true"></span>
             </a>
-          </nav>
+            </nav>
+          </div>
         </div>
       </footer>
     </div>

@@ -13,7 +13,9 @@ const STORAGE_THEME = 'cordisx:theme'
 const translations = {
   en: {
     product: 'Product',
+    docs: 'Docs',
     marketplace: 'Marketplace',
+    protocol: 'Protocol',
     homeLabel: 'CordisX home',
     searchLabel: 'Search community plugins',
     searchPlaceholder: 'Search plugins, authors, or keywords',
@@ -36,7 +38,9 @@ const translations = {
   },
   'zh-CN': {
     product: '产品',
+    docs: '文档',
     marketplace: '插件市场',
+    protocol: '协议',
     homeLabel: '返回 CordisX 首页',
     searchLabel: '搜索社区插件',
     searchPlaceholder: '搜索插件、作者或关键词',

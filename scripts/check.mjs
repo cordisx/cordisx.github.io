@@ -1,6 +1,8 @@
 import { access, readFile } from 'node:fs/promises'
 
 const homepage = await readFile(new URL('../index.html', import.meta.url), 'utf8')
+const homepageStyles = await readFile(new URL('../styles.css', import.meta.url), 'utf8')
+const homepagePreferences = await readFile(new URL('../preferences.js', import.meta.url), 'utf8')
 const shell = await readFile(new URL('../site-shell.css', import.meta.url), 'utf8')
 const marketplace = await readFile(new URL('../marketplace/index.html', import.meta.url), 'utf8')
 const marketplaceStyles = await readFile(new URL('../marketplace/styles.css', import.meta.url), 'utf8')
@@ -9,7 +11,7 @@ const reicons = await readFile(new URL('../reicons.js', import.meta.url), 'utf8'
 const products = await readFile(new URL('../products.yaml', import.meta.url), 'utf8')
 
 for (const [file, content, references] of [
-  ['index.html', homepage, ['./site-shell.css', './styles.css', './showcase.js', '/docs/', '/marketplace/', 'class="site-footer"', 'data-showcase', 'ACTUAL PRODUCT UI']],
+  ['index.html', homepage, ['./site-shell.css', './styles.css', './preferences.js', './showcase.js', '/docs/', '/marketplace/', 'class="site-footer"', 'data-showcase', 'ACTUAL PRODUCT UI', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['marketplace/index.html', marketplace, ['../site-shell.css', './styles.css', './app.js', '../brand-animation.js', 'id="plugin-grid"', 'id="plugin-search"', 'aria-current="page"', 'class="site-footer"', 'class="catalog-loading"', 'data-cordisx-animation="one-shot"', '../cordisx-mark-animated-dark.svg', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['site-shell.css', shell, ['width: min(1040px, 100%)', 'height: 76px', '.site-header::before', '.site-footer', 'padding: 72px 24px 34px', 'padding: 56px 18px 30px']],
 ]) {
@@ -26,6 +28,12 @@ if (!marketplaceScript.includes("'cordisx:locale'") || !marketplaceScript.includ
 }
 if (!marketplaceStyles.includes(':root[data-theme="light"]')) {
   throw new Error('marketplace must provide a light color theme')
+}
+if (!homepagePreferences.includes("'cordisx:locale'") || !homepagePreferences.includes("'cordisx:theme'")) {
+  throw new Error('homepage display preferences must be persistent')
+}
+if (!homepageStyles.includes(':root[data-theme="light"]')) {
+  throw new Error('homepage must provide a light color theme')
 }
 if (!marketplaceScript.includes('value.schemaVersion !== 3') || !marketplaceScript.includes('plugin.schemaVersion !== 3')) {
   throw new Error('marketplace app does not validate marketplace feed v3')

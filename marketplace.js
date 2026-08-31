@@ -1,6 +1,18 @@
 import { hydrateReicons } from './reicons.js?v=33'
 
 const marketplace = document.querySelector('[data-marketplace-demo]')
+const zh = document.documentElement.lang === 'zh-CN'
+const copy = zh ? {
+  searchTerms: ['发送按钮', '庆祝效果', '礼花按钮'],
+  previewing: '正在预览…',
+  liveWorkspace: 'CordisX · 实时工作区',
+  partyMode: '概念 · 礼花发送',
+} : {
+  searchTerms: ['send button', 'celebration', 'party popper'],
+  previewing: 'Previewing…',
+  liveWorkspace: 'CordisX · Live workspace',
+  partyMode: 'CONCEPT · PARTY POPPER',
+}
 
 if (marketplace instanceof HTMLElement) {
   const searchView = marketplace.querySelector('[data-market-search-view]')
@@ -23,7 +35,7 @@ if (marketplace instanceof HTMLElement) {
   const confettiLayer = marketplace.querySelector('[data-confetti-layer]')
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const wait = milliseconds => new Promise(resolve => window.setTimeout(resolve, prefersReducedMotion ? 0 : milliseconds))
-  const searchTerms = ['send button', 'celebration', 'party popper']
+  const searchTerms = copy.searchTerms
   let typingStopped = false
   let searchComplete = false
   let installed = false
@@ -94,7 +106,7 @@ if (marketplace instanceof HTMLElement) {
     if (installed) return
     installed = true
     allowButton.disabled = true
-    allowButton.querySelector('span').textContent = 'Previewing…'
+    allowButton.querySelector('span').textContent = copy.previewing
     allowButton.classList.add('is-installing')
     await wait(620)
     overlay.classList.remove('is-open')
@@ -102,8 +114,8 @@ if (marketplace instanceof HTMLElement) {
     searchView.hidden = true
     chatView.hidden = false
     marketplace.classList.add('is-chat-active')
-    marketplaceTitle.textContent = 'CordisX · Live workspace'
-    marketplaceMode.textContent = 'CONCEPT · PARTY POPPER'
+    marketplaceTitle.textContent = copy.liveWorkspace
+    marketplaceMode.textContent = copy.partyMode
     hydrateReicons(chatView)
     window.requestAnimationFrame(() => chatView.classList.add('is-visible'))
     partyButton.focus({ preventScroll: true })

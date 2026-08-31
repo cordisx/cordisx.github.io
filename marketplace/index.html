@@ -18,6 +18,7 @@
     <script>
       try {
         document.documentElement.dataset.theme = localStorage.getItem('cordisx:theme') || 'dark'
+        document.documentElement.lang = localStorage.getItem('cordisx:locale') || ((navigator.language || '').startsWith('zh') ? 'zh-CN' : 'en')
       } catch {}
     </script>
     <script src="../brand-animation.js?v=40" defer></script>
@@ -37,7 +38,7 @@
 
           <nav aria-label="Main navigation">
             <a href="/#product" data-i18n="product">Product</a>
-            <a href="/docs/">Docs</a>
+            <a href="/docs/" data-i18n="docs">Docs</a>
             <a href="/marketplace/" aria-current="page" data-i18n="marketplace">Marketplace</a>
             <a class="github-link" href="https://github.com/cordisx/marketplace">
               GitHub
@@ -106,9 +107,9 @@
           <div class="footer-legal">
             <p data-i18n="copyright">© 2026 CordisX. Open source.</p>
             <nav class="footer-links" aria-label="Footer links">
-              <a href="/docs/">Docs</a>
+              <a href="/docs/" data-i18n="docs">Docs</a>
               <a href="/marketplace/" aria-current="page" data-i18n="marketplace">Marketplace</a>
-              <a href="https://github.com/cordisx/cordisx-protocol">Protocol</a>
+              <a href="https://github.com/cordisx/cordisx-protocol" data-i18n="protocol">Protocol</a>
               <a href="https://github.com/cordisx/cordisx">GitHub</a>
             </nav>
           </div>
