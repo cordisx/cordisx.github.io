@@ -2232,6 +2232,218 @@ main > section::after {
   }
 }
 
+.product-showcase {
+  --section-edge: #3a3c42;
+  position: relative;
+  min-height: 676px;
+  padding: 52px 54px 58px;
+  border-bottom: 1px solid var(--section-edge);
+  background:
+    linear-gradient(rgba(111, 116, 126, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 116, 126, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.035), transparent 46%),
+    #18191d;
+  background-size: 40px 40px, 40px 40px, auto, auto;
+}
+
+.showcase-shell {
+  width: 100%;
+}
+
+.showcase-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  color: #747983;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+}
+
+.showcase-heading b {
+  color: #d7d9dd;
+  font-weight: 500;
+}
+
+.showcase-frame {
+  overflow: hidden;
+  border: 1px solid #474a51;
+  border-radius: 3px;
+  background: #111216;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.24);
+}
+
+.showcase-viewport {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #e9eaec;
+}
+
+.showcase-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.012);
+  transition: opacity 420ms ease, transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.showcase-slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.showcase-toolbar {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 13px 14px 13px 18px;
+  border-top: 1px solid #3b3e45;
+  background: #18191d;
+}
+
+.showcase-copy {
+  min-width: 0;
+  margin: 0;
+}
+
+.showcase-copy strong,
+.showcase-copy span {
+  display: block;
+}
+
+.showcase-copy strong {
+  color: #eceef0;
+  font-size: 12px;
+  font-weight: 570;
+}
+
+.showcase-copy span {
+  margin-top: 4px;
+  overflow: hidden;
+  color: #7f848d;
+  font-size: 9px;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.showcase-controls,
+.showcase-pagination {
+  display: flex;
+  align-items: center;
+}
+
+.showcase-controls {
+  flex: 0 0 auto;
+  gap: 11px;
+}
+
+.showcase-arrow {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #42454c;
+  border-radius: 3px;
+  color: #a8adb5;
+  background: #1d1e23;
+  cursor: pointer;
+  transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.showcase-arrow:hover,
+.showcase-arrow:focus-visible {
+  border-color: #696e77;
+  color: #f0f1f2;
+  outline: 0;
+  background: #26282d;
+}
+
+.showcase-arrow-previous .reicon-slot {
+  transform: rotate(180deg);
+}
+
+.showcase-pagination {
+  gap: 5px;
+}
+
+.showcase-pagination button {
+  width: 16px;
+  height: 20px;
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.showcase-pagination button::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 9px;
+  height: 2px;
+  background: #444850;
+  transition: left 160ms ease, right 160ms ease, background 160ms ease;
+}
+
+.showcase-pagination button[aria-current="true"]::before {
+  left: 0;
+  right: 0;
+  background: #e8eaec;
+  box-shadow: -1px 0 rgba(37, 244, 238, 0.6), 1px 0 rgba(254, 44, 85, 0.55);
+}
+
+.showcase-pagination button:focus-visible {
+  outline: 1px solid #8b9098;
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .product-showcase {
+    min-height: auto;
+    padding: 42px 18px 46px;
+  }
+}
+
+@media (max-width: 520px) {
+  .product-showcase {
+    padding-inline: 12px;
+  }
+
+  .showcase-heading {
+    padding-inline: 2px;
+  }
+
+  .showcase-toolbar {
+    min-height: 112px;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .showcase-copy span {
+    white-space: normal;
+  }
+
+  .showcase-controls {
+    justify-content: space-between;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -2254,6 +2466,10 @@ main > section::after {
   .party-send.is-inviting > .reicon-slot,
   .party-send.is-inviting::before {
     animation: none;
+  }
+
+  .showcase-slide {
+    transition: none;
   }
 }
 

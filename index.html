@@ -15,10 +15,11 @@
     />
     <title>CordisX — Make your workspace extensible</title>
     <link rel="stylesheet" href="./site-shell.css?v=2" />
-    <link rel="stylesheet" href="./styles.css?v=34" />
+    <link rel="stylesheet" href="./styles.css?v=35" />
     <script src="./brand-animation.js?v=33" defer></script>
     <script type="module" src="./conversation.js?v=33"></script>
     <script type="module" src="./marketplace.js?v=33"></script>
+    <script type="module" src="./showcase.js?v=35"></script>
   </head>
   <body>
     <div class="site-frame">
@@ -252,6 +253,82 @@
             </div>
 
             <p class="marketplace-footnote"><span>SEARCH</span><i></i><span>INSPECT</span><i></i><span>PREVIEW</span><i></i><span>ACTIVATE</span></p>
+          </div>
+        </section>
+
+        <section class="product-showcase" id="showcase" aria-label="CordisX product interface gallery" data-showcase>
+          <div class="showcase-shell">
+            <div class="showcase-heading">
+              <span>CORDISX / ACTUAL PRODUCT UI</span>
+              <span><b data-showcase-index>01</b> / 04</span>
+            </div>
+
+            <div class="showcase-frame">
+              <div class="showcase-viewport">
+                <img
+                  class="showcase-slide is-active"
+                  src="./assets/screenshots/cordisx-agent-workspace.png"
+                  alt="CordisX live multi-agent workspace"
+                  data-showcase-title="Live workspace"
+                  data-showcase-description="A Host-owned multi-agent conversation running in CordisX."
+                  aria-hidden="false"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+                <img
+                  class="showcase-slide"
+                  src="./assets/screenshots/cordisx-plugin-manager.png"
+                  alt="CordisX plugin manager with active extensions"
+                  data-showcase-title="Plugin manager"
+                  data-showcase-description="Installed extensions and lifecycle controls in one place."
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="showcase-slide"
+                  src="./assets/screenshots/cordisx-plugin-settings.png"
+                  alt="CordisX schema-driven plugin settings"
+                  data-showcase-title="Schema-driven settings"
+                  data-showcase-description="Real plugin configuration rendered by the Host."
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="showcase-slide"
+                  src="./assets/screenshots/cordisx-permission-dialog.png"
+                  alt="CordisX Host-owned permission request"
+                  data-showcase-title="Permission requests"
+                  data-showcase-description="A Host-owned decision surface with request context and scoped choices."
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="showcase-toolbar">
+                <p class="showcase-copy" aria-live="polite">
+                  <strong data-showcase-title>Live workspace</strong>
+                  <span data-showcase-description>A Host-owned multi-agent conversation running in CordisX.</span>
+                </p>
+
+                <div class="showcase-controls">
+                  <button class="showcase-arrow showcase-arrow-previous" type="button" aria-label="Previous product interface" data-showcase-previous>
+                    <span class="reicon-slot" data-reicon="ArrowRight" data-reicon-size="15" aria-hidden="true"></span>
+                  </button>
+                  <div class="showcase-pagination" role="group" aria-label="Choose product interface">
+                    <button type="button" aria-label="Show live workspace" aria-current="true" data-showcase-page="0"></button>
+                    <button type="button" aria-label="Show plugin manager" data-showcase-page="1"></button>
+                    <button type="button" aria-label="Show schema-driven settings" data-showcase-page="2"></button>
+                    <button type="button" aria-label="Show permission requests" data-showcase-page="3"></button>
+                  </div>
+                  <button class="showcase-arrow" type="button" aria-label="Next product interface" data-showcase-next>
+                    <span class="reicon-slot" data-reicon="ArrowRight" data-reicon-size="15" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

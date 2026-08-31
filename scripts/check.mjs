@@ -9,7 +9,7 @@ const reicons = await readFile(new URL('../reicons.js', import.meta.url), 'utf8'
 const products = await readFile(new URL('../products.yaml', import.meta.url), 'utf8')
 
 for (const [file, content, references] of [
-  ['index.html', homepage, ['./site-shell.css', './styles.css', '/docs/', '/marketplace/', 'class="site-footer"']],
+  ['index.html', homepage, ['./site-shell.css', './styles.css', './showcase.js', '/docs/', '/marketplace/', 'class="site-footer"', 'data-showcase', 'ACTUAL PRODUCT UI']],
   ['marketplace/index.html', marketplace, ['../site-shell.css', './styles.css', './app.js', '../brand-animation.js', 'id="plugin-grid"', 'id="plugin-search"', 'aria-current="page"', 'class="site-footer"', 'class="catalog-loading"', 'data-cordisx-animation="one-shot"', '../cordisx-mark-animated-dark.svg', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['site-shell.css', shell, ['width: min(1040px, 100%)', 'height: 76px', '.site-header::before', '.site-footer', 'padding: 72px 24px 34px', 'padding: 56px 18px 30px']],
 ]) {
@@ -89,5 +89,9 @@ for (const icon of [
 }
 await access(new URL('../cordisx-mark-animated-dark.svg', import.meta.url))
 await access(new URL('../assets/reicon/LICENSE', import.meta.url))
+await access(new URL('../assets/screenshots/cordisx-agent-workspace.png', import.meta.url))
+await access(new URL('../assets/screenshots/cordisx-plugin-manager.png', import.meta.url))
+await access(new URL('../assets/screenshots/cordisx-plugin-settings.png', import.meta.url))
+await access(new URL('../assets/screenshots/cordisx-permission-dialog.png', import.meta.url))
 
 console.log('homepage and marketplace checks passed')
