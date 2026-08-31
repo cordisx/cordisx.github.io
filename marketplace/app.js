@@ -264,7 +264,7 @@ async function load() {
   try {
     const [response] = await Promise.all([
       fetch(FEED_URL, { headers: { accept: 'application/json' } }),
-      new Promise(resolve => setTimeout(resolve, 700)),
+      new Promise(resolve => setTimeout(resolve, 1800)),
     ])
     if (!response.ok) throw new Error(`Feed returned HTTP ${response.status}`)
     plugins = validateFeed(await response.json())

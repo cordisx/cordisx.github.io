@@ -10,7 +10,7 @@ const products = await readFile(new URL('../products.yaml', import.meta.url), 'u
 
 for (const [file, content, references] of [
   ['index.html', homepage, ['./site-shell.css', './styles.css', '/docs/', '/marketplace/', 'class="site-footer"']],
-  ['marketplace/index.html', marketplace, ['../site-shell.css', './styles.css', './app.js', 'id="plugin-grid"', 'id="plugin-search"', 'aria-current="page"', 'class="site-footer"', 'class="catalog-loading"', '../cordisx-mark-animated-dark.svg', 'id="locale-toggle"', 'id="theme-toggle"']],
+  ['marketplace/index.html', marketplace, ['../site-shell.css', './styles.css', './app.js', '../brand-animation.js', 'id="plugin-grid"', 'id="plugin-search"', 'aria-current="page"', 'class="site-footer"', 'class="catalog-loading"', 'data-cordisx-animation="one-shot"', '../cordisx-mark-animated-dark.svg', 'id="locale-toggle"', 'id="theme-toggle"']],
   ['site-shell.css', shell, ['width: min(1040px, 100%)', 'height: 76px', '.site-header::before', '.site-footer', 'padding: 72px 24px 34px', 'padding: 56px 18px 30px']],
 ]) {
   for (const reference of references) {

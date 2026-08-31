@@ -1,10 +1,12 @@
-const canvas = document.querySelector('canvas[data-cordisx-animation="one-shot"]')
+const canvases = document.querySelectorAll('canvas[data-cordisx-animation="one-shot"]')
 
-if (canvas instanceof HTMLCanvasElement) {
+for (const canvas of canvases) {
+  if (!(canvas instanceof HTMLCanvasElement)) continue
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
 
   const loadOfficialArtwork = async () => {
-    const response = await fetch('./cordisx-mark-animated-dark.svg')
+    const sourceUrl = canvas.dataset.cordisxAnimationSource ?? './cordisx-mark-animated-dark.svg'
+    const response = await fetch(sourceUrl)
     if (!response.ok) throw new Error(`CordisX artwork returned HTTP ${response.status}`)
     const source = await response.text()
     const outerMatch = source.match(/const outer = (\[.*?\]);/)

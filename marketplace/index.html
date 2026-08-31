@@ -20,7 +20,8 @@
         document.documentElement.dataset.theme = localStorage.getItem('cordisx:theme') || 'dark'
       } catch {}
     </script>
-    <link rel="stylesheet" href="./styles.css?v=7" />
+    <script src="../brand-animation.js?v=40" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=8" />
   </head>
   <body>
     <div class="site-frame">
@@ -64,7 +65,15 @@
 
             <div id="plugin-grid" class="catalog-grid" aria-busy="true">
               <div class="catalog-loading" role="status" aria-live="polite">
-                <img src="../cordisx-mark-animated-dark.svg" alt="" />
+                <canvas
+                  class="catalog-loading-mark"
+                  width="512"
+                  height="512"
+                  data-cordisx-animation="one-shot"
+                  data-cordisx-animation-source="../cordisx-mark-animated-dark.svg"
+                  role="img"
+                  aria-label="Animated CordisX mark"
+                ></canvas>
                 <span data-i18n="loading">Loading plugins…</span>
               </div>
             </div>
@@ -135,6 +144,6 @@
       </footer>
     </div>
 
-    <script type="module" src="./app.js?v=4"></script>
+    <script type="module" src="./app.js?v=5"></script>
   </body>
 </html>
