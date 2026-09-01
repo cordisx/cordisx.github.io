@@ -20,7 +20,9 @@ import os from 'node:os'
 import path from 'node:path'
 import process from 'node:process'
 import {
+  AI_PLUGIN_DEMO_HOST_COMMIT,
   AI_PLUGIN_DEMO_PROMPT,
+  AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
   aiPluginDemoScene,
 } from './ai-plugin-demo-scene.mjs'
 
@@ -91,7 +93,7 @@ const profileDirectory = path.join(captureRoot, 'chromium-profile')
 const workspaceDirectory = path.join(captureRoot, 'ai-plugin-demo')
 const framesDirectory = path.join(captureRoot, 'frames')
 const smokeDirectory = path.join(captureRoot, 'codec-smoke')
-const pluginEntry = path.join(workspaceDirectory, 'src', 'celebration.tsx')
+const pluginEntry = path.join(workspaceDirectory, '.cordisx', 'plugins', 'natural-language.ts')
 const appLauncher = path.join(captureRoot, 'launch-codex-app')
 const computerUseApp = path.join(codexHome, 'computer-use', 'Codex Computer Use.app')
 const computerUseExecutable = path.join(computerUseApp, 'Contents', 'MacOS', 'SkyComputerUseService')
@@ -234,8 +236,8 @@ function runFixtureCheck() {
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
   })
-  if (!output.includes('"status": "ready"') || !output.includes('"pluginId": "celebration"')) {
-    throw new Error(`CordisX dry-run did not report the celebration plugin as ready:\n${output}`)
+  if (!output.includes('"status": "ready"') || !output.includes('"pluginId": "natural-language"')) {
+    throw new Error(`CordisX dry-run did not report the managed natural-language entry as ready:\n${output}`)
   }
   return output
 }
@@ -530,12 +532,12 @@ async function composerState(send) {
 
 async function pluginGeneration(send) {
   return await evaluate(send, `(() => {
-    const plugin = globalThis.__cordisxRuntime?.snapshot?.().plugins?.find(item => item.id === 'celebration')
+    const plugin = globalThis.__cordisxRuntime?.snapshot?.().plugins?.find(item => item.id === 'natural-language')
     if (plugin === undefined || plugin.status !== 'active') return null
     return plugin.package?.moduleGeneration ?? plugin.artifactGeneration ?? JSON.stringify({
       source: plugin.source,
       status: plugin.status,
-      registrations: globalThis.__cordisxRuntime.snapshot().registrations.filter(item => item.owner === 'celebration').map(item => item.qualifiedId),
+      registrations: globalThis.__cordisxRuntime.snapshot().registrations.filter(item => item.owner === 'natural-language').map(item => item.qualifiedId),
     })
   })()`)
 }
@@ -612,7 +614,7 @@ async function waitForInitialGeneration(send, recorder) {
     await recorder.frame('baseline-generation')
     await new Promise(resolve => setTimeout(resolve, 250))
   }
-  throw new Error('Baseline celebration local-development generation did not become active')
+  throw new Error('Baseline natural-language local-development generation did not become active')
 }
 
 async function waitForAgentAndReplacement(send, recorder, baselineGeneration, initialSource) {
@@ -715,6 +717,13 @@ try {
     requirePath(pluginSkill, 'CordisX plugin-development skill'),
     requirePath(fixtureRoot, 'AI plugin demo fixture'),
   ])
+  const cordisxCommit = execFileSync('git', ['rev-parse', 'HEAD'], {
+    cwd: cordisxRoot,
+    encoding: 'utf8',
+  }).trim()
+  if (cordisxCommit !== AI_PLUGIN_DEMO_HOST_COMMIT) {
+    throw new Error(`CordisX checkpoint mismatch: expected ${AI_PLUGIN_DEMO_HOST_COMMIT}, received ${cordisxCommit}`)
+  }
   await prepareWorkspace()
   runFixtureCheck()
 
@@ -746,7 +755,7 @@ try {
     const launchStartedAt = new Date().toISOString()
     launcher = spawn(process.execPath, [
       cliEntry,
-      'dev', pluginEntry,
+      'dev', '--natural-language',
       '--executable', appLauncher,
       '--debug-port', String(port),
       '--profile-dir', profileDirectory,
@@ -837,12 +846,16 @@ try {
       effectObserved: true,
       effect,
       plugin: {
-        id: 'celebration',
+        id: 'natural-language',
         sourceChanged: sourceAfter !== sourceBefore,
         sourceMtimeChanged: sourceMetadataAfter.mtimeMs !== sourceMetadataBefore.mtimeMs,
         baselineGeneration,
         replacementGeneration: replacement.replacementGeneration,
         generationChanged: replacement.replacementGeneration !== baselineGeneration,
+      },
+      checkpoints: {
+        host: cordisxCommit,
+        protocol: AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
       },
       capture: {
         launchStartedAt,

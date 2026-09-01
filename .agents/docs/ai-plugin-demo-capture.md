@@ -12,7 +12,7 @@ video must show, in order:
 1. the exact request `我要发送按钮在点击的时候全屏放礼花。` typed into the
    real Codex composer and sent through its native submit control;
 2. the real Codex Agent turn editing the isolated plugin workspace;
-3. the running `cordisx dev <entry>` service publishing a replacement plugin
+3. the running `cordisx dev --natural-language` service publishing a replacement plugin
    generation without restarting the Codex renderer;
 4. a second real native submit click; and
 5. a Host-owned full-screen confetti effect in that renderer.
@@ -43,6 +43,11 @@ The recorder may wait on the Host-private
 protocol values must not receive or spoof that marker. Do not implement a
 fixed plugin DOM overlay, canvas, custom CSS, native selector listener, or a
 second reload API to unblock the recording.
+
+This capture is pinned to Host commit
+`b53d7ddc324c7bbdb476becb96bf5813a4b6b3c2` and protocol commit
+`34d2113984882d5c0fa4f0803fb929c8da605eee`. The recorder fails closed when
+the selected CordisX checkout does not match the Host checkpoint.
 
 ## Isolation and privacy
 

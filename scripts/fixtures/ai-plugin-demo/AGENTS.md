@@ -15,8 +15,9 @@ Use the installed `cordisx-plugin-development` skill for this plugin task.
   DOM overlay, canvas, selector hook, custom CSS, or synthetic click listener.
 - Do not put `marker`, `testMarker`, `selector`, DOM data, message text, session
   identity, or account identity into any public declaration, event, or command.
-- Keep the plugin id `celebration` and edit `src/celebration.tsx` in place so
-  the running `cordisx dev` process can publish a replacement generation.
-- Retain the existing manifest, localization, and the toolbar contribution.
+- Read `CORDISX_DEV_ENTRY` and edit that exact managed entry in place. Keep its
+  exported name `natural-language`; do not create another launcher or watcher.
+- Let the existing `cordisx dev --natural-language` process publish the
+  replacement generation in the same Host service.
 - Run `npm run check` after the edit. Do not ask for confirmation for ordinary
   workspace edits or checks.

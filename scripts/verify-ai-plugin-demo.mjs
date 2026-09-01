@@ -3,7 +3,12 @@ import { execFileSync } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
-import { AI_PLUGIN_DEMO_PROMPT, aiPluginDemoScene } from './ai-plugin-demo-scene.mjs'
+import {
+  AI_PLUGIN_DEMO_HOST_COMMIT,
+  AI_PLUGIN_DEMO_PROMPT,
+  AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
+  aiPluginDemoScene,
+} from './ai-plugin-demo-scene.mjs'
 
 function option(name) {
   const index = process.argv.indexOf(name)
@@ -101,10 +106,12 @@ if (!infrastructureOnly) {
   assert(metadata.effect?.selector === '[data-cordisx-effect="confetti"]', 'capture metadata effect marker drifted')
   assert(metadata.effect?.cleanupObserved === true, 'capture metadata does not prove Host effect cleanup')
   assert(typeof metadata.effect?.cleanedAt === 'string', 'capture metadata is missing the Host effect cleanup timestamp')
-  assert(metadata.plugin?.id === 'celebration', 'capture metadata plugin id drifted')
+  assert(metadata.plugin?.id === 'natural-language', 'capture metadata plugin id drifted')
   assert(metadata.plugin?.sourceChanged === true, 'capture metadata does not prove a real source edit')
   assert(metadata.plugin?.generationChanged === true, 'capture metadata does not prove a replacement generation')
   assert(metadata.plugin?.baselineGeneration !== metadata.plugin?.replacementGeneration, 'plugin generations are identical')
+  assert(metadata.checkpoints?.host === AI_PLUGIN_DEMO_HOST_COMMIT, 'capture metadata Host checkpoint drifted')
+  assert(metadata.checkpoints?.protocol === AI_PLUGIN_DEMO_PROTOCOL_COMMIT, 'capture metadata protocol checkpoint drifted')
   assert(metadata.privacy?.authenticationPublished === false, 'capture metadata claims authentication was published')
   assert(metadata.privacy?.emptyProjectAndThreadState === true, 'capture metadata does not prove empty private UI state')
   assert(metadata.capture?.frameCount >= 36, 'capture metadata frame count is too small')
@@ -133,6 +140,7 @@ console.log(JSON.stringify({
       finalSubmitClicked: metadata.finalSubmitClicked,
       effectObserved: metadata.effectObserved,
       effectCleanupObserved: metadata.effect.cleanupObserved,
+      checkpoints: metadata.checkpoints,
       privacy: metadata.privacy,
     },
   }),

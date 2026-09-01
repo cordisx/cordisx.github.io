@@ -43,7 +43,8 @@ can change without touching the interaction timeline.
 
 The AI-first capture is a separate, truthful workflow: one isolated real Codex
 Desktop renderer receives the exact Chinese request, performs the plugin edit,
-publishes a replacement through the running `cordisx dev` generation watcher,
+publishes a replacement through the running `cordisx dev --natural-language`
+generation watcher,
 and receives a second real native Send click that activates the Host-owned
 full-screen confetti effect. It does not use a recreated Codex shell, authored
 Agent replies, or caption cards for any of those steps.

@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "check": "npm run typecheck && npm run dev:dry-run",
-    "dev:dry-run": "cordisx dev ./src/celebration.tsx --dry-run",
+    "dev:dry-run": "cordisx dev --natural-language --dry-run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {

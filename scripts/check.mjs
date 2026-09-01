@@ -151,7 +151,7 @@ for (const fixture of [
   '../scripts/fixtures/ai-plugin-demo/AGENTS.md',
   '../scripts/fixtures/ai-plugin-demo/package.json',
   '../scripts/fixtures/ai-plugin-demo/tsconfig.json',
-  '../scripts/fixtures/ai-plugin-demo/src/celebration.tsx',
+  '../scripts/fixtures/ai-plugin-demo/.cordisx/plugins/natural-language.ts',
 ]) await access(new URL(fixture, import.meta.url))
 
 for (const icon of [

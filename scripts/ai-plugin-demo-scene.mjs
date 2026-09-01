@@ -10,10 +10,18 @@ export const AI_PLUGIN_DEMO_PROMPT = '我要发送按钮在点击的时候全屏
 
 export const AI_PLUGIN_DEMO_PROOF_MESSAGE = '完成啦！'
 
+export const AI_PLUGIN_DEMO_HOST_COMMIT = 'b53d7ddc324c7bbdb476becb96bf5813a4b6b3c2'
+
+export const AI_PLUGIN_DEMO_PROTOCOL_COMMIT = '34d2113984882d5c0fa4f0803fb929c8da605eee'
+
 export const aiPluginDemoScene = Object.freeze({
   id: 'cordisx-ai-plugin-demo.zh-CN.dark.v1',
   locale: 'zh-CN',
   theme: 'dark',
+  checkpoints: Object.freeze({
+    host: AI_PLUGIN_DEMO_HOST_COMMIT,
+    protocol: AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
+  }),
   output: Object.freeze({
     width: 1600,
     height: 1000,
