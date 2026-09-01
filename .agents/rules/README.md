@@ -5,6 +5,10 @@
 - Do not publish roadmap or private planning material.
 - Keep detailed product documentation at `/docs/`.
 - Treat `products.yaml` as the homepage project index.
+- Follow [the homepage design system](../docs/site-design-system.md) before
+  changing visible layout, spacing, section geometry, typography, icons,
+  theme/locale presentation, footer, or product-media framing. Fix shared roles
+  before adding page-local visual overrides.
 - Follow [the showcase capture workflow](../docs/showcase-capture.md) when
   regenerating real Codex screenshots or videos.
 - Review visual and generated-media changes on the local homepage before
