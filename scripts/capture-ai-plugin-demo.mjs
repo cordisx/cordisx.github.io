@@ -662,6 +662,20 @@ async function waitForEffect(send, recorder) {
   throw new Error(`Full-screen effect did not become visible: ${scene.selectors.effect}`)
 }
 
+async function waitForEffectCleanup(send, recorder) {
+  const deadline = Date.now() + 8_000
+  while (Date.now() < deadline) {
+    const present = await evaluate(send, `document.querySelector(${JSON.stringify(scene.selectors.effect)}) !== null`)
+    if (!present) {
+      await recorder.hold(6, 'confetti-cleared')
+      return { cleanupObserved: true, cleanedAt: new Date().toISOString() }
+    }
+    await recorder.frame('confetti-cleanup:waiting')
+    await new Promise(resolve => setTimeout(resolve, 80))
+  }
+  throw new Error(`Full-screen effect was not cleaned up: ${scene.selectors.effect}`)
+}
+
 async function capturePoster(send, file) {
   const screenshot = await send('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false })
   await writeFile(file, Buffer.from(screenshot.data, 'base64'))
@@ -808,6 +822,7 @@ try {
       const effect = await waitForEffect(send, recorder)
       await capturePoster(send, stagedPoster)
       await recorder.hold(42, 'confetti-visible')
+      Object.assign(effect, await waitForEffectCleanup(send, recorder))
       const encoded = encodeFrames(framesDirectory, stagingDirectory, outputBasename)
       const sourceAfter = await readFile(pluginEntry, 'utf8')
       const sourceMetadataAfter = await stat(pluginEntry)

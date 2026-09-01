@@ -99,6 +99,8 @@ if (!infrastructureOnly) {
   assert(metadata.finalSubmitClicked === true, 'capture metadata does not prove the final native submit click')
   assert(metadata.effectObserved === true, 'capture metadata does not prove the full-screen effect')
   assert(metadata.effect?.selector === '[data-cordisx-effect="confetti"]', 'capture metadata effect marker drifted')
+  assert(metadata.effect?.cleanupObserved === true, 'capture metadata does not prove Host effect cleanup')
+  assert(typeof metadata.effect?.cleanedAt === 'string', 'capture metadata is missing the Host effect cleanup timestamp')
   assert(metadata.plugin?.id === 'celebration', 'capture metadata plugin id drifted')
   assert(metadata.plugin?.sourceChanged === true, 'capture metadata does not prove a real source edit')
   assert(metadata.plugin?.generationChanged === true, 'capture metadata does not prove a replacement generation')
@@ -130,6 +132,7 @@ console.log(JSON.stringify({
       generationChanged: metadata.plugin.generationChanged,
       finalSubmitClicked: metadata.finalSubmitClicked,
       effectObserved: metadata.effectObserved,
+      effectCleanupObserved: metadata.effect.cleanupObserved,
       privacy: metadata.privacy,
     },
   }),
