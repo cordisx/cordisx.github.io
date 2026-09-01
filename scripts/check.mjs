@@ -13,6 +13,9 @@ const pluginDetailStyles = await readFile(new URL('../marketplace/plugin/styles.
 const pluginDetailScript = await readFile(new URL('../marketplace/plugin/app.js', import.meta.url), 'utf8')
 const reicons = await readFile(new URL('../reicons.js', import.meta.url), 'utf8')
 const products = await readFile(new URL('../products.yaml', import.meta.url), 'utf8')
+const aiPluginScene = await readFile(new URL('./ai-plugin-demo-scene.mjs', import.meta.url), 'utf8')
+const aiPluginCapture = await readFile(new URL('./capture-ai-plugin-demo.mjs', import.meta.url), 'utf8')
+const aiPluginWorkflow = await readFile(new URL('../.agents/docs/ai-plugin-demo-capture.md', import.meta.url), 'utf8')
 
 for (const [file, content, references] of [
   ['index.html', homepage, ['./site-shell.css', './styles.css', './preferences.js', './showcase.js', '/docs/', '/marketplace/', 'class="site-footer"', 'data-showcase', 'REAL CODEX DESKTOP', 'id="locale-toggle"', 'id="theme-toggle"']],
@@ -128,6 +131,28 @@ if ((homepage + marketplace).includes('/cordisx/main/packages/cli/assets/brand/'
   throw new Error('brand assets must be pinned to an immutable CordisX revision')
 }
 if (!products.includes('https://github.com/cordisx/marketplace')) throw new Error('products.yaml is missing marketplace')
+if (!aiPluginScene.includes('我要发送按钮在点击的时候全屏放礼花。')) {
+  throw new Error('AI plugin demo scene is missing the exact Chinese request')
+}
+for (const truthMarker of [
+  "rendererUrl: 'app://-/index.html'",
+  'generationChanged: replacement.replacementGeneration !== baselineGeneration',
+  'finalSubmitClicked: true',
+  'effectObserved: true',
+  "'-movflags', '+faststart'",
+  "'-pix_fmt', scene.output.pixelFormat",
+]) {
+  if (!aiPluginCapture.includes(truthMarker)) throw new Error(`AI plugin capture is missing ${truthMarker}`)
+}
+if (!aiPluginWorkflow.includes('Do not replace the Codex shell') || !aiPluginWorkflow.includes('Dry run never reads authentication')) {
+  throw new Error('AI plugin capture workflow is missing its truth or privacy boundary')
+}
+for (const fixture of [
+  '../scripts/fixtures/ai-plugin-demo/AGENTS.md',
+  '../scripts/fixtures/ai-plugin-demo/package.json',
+  '../scripts/fixtures/ai-plugin-demo/tsconfig.json',
+  '../scripts/fixtures/ai-plugin-demo/src/celebration.tsx',
+]) await access(new URL(fixture, import.meta.url))
 
 for (const icon of [
   'Activity',

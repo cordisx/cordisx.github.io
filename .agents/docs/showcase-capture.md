@@ -77,3 +77,8 @@ asset rather than applying visual filters to the previous recording.
 If the real Codex UI changes after an application upgrade, update selectors and
 the scene script, regenerate the full matrix, and repeat the same-frame review.
 Do not patch only one variant.
+
+The AI-first plugin-development video has a different truth contract and is
+owned by [`ai-plugin-demo-capture.md`](ai-plugin-demo-capture.md). Do not fold
+its live Agent turn, generation replacement, or full-screen effect into this
+deterministic Manager walkthrough.

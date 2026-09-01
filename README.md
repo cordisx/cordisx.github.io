@@ -38,3 +38,41 @@ and GIF variants to `assets/motion/`. Edit the scene instead of manually
 recording a new demo after Codex or CordisX upgrades. The cursor artwork lives
 separately at `assets/capture/cordisx-motion-cursor.svg`, so its visual design
 can change without touching the interaction timeline.
+
+## Record the AI-first plugin demo
+
+The AI-first capture is a separate, truthful workflow: one isolated real Codex
+Desktop renderer receives the exact Chinese request, performs the plugin edit,
+publishes a replacement through the running `cordisx dev` generation watcher,
+and receives a second real native Send click that activates the Host-owned
+full-screen confetti effect. It does not use a recreated Codex shell, authored
+Agent replies, or caption cards for any of those steps.
+
+Prepare and exercise the workspace plus H.264/VP9 encoders without reading
+authentication or launching Codex:
+
+```sh
+npm run capture:ai-plugin-demo -- --dry-run
+npm run capture:ai-plugin-demo -- --launch-smoke
+```
+
+`--launch-smoke` goes one step further: it opens the isolated real renderer and
+proves the baseline plugin generation plus composer/submit targeting, but sends
+no prompt and publishes no media.
+
+After selecting a CordisX checkout whose public plugin contract and Host both
+support the structured celebration effect, record and verify the real demo:
+
+```sh
+npm run capture:ai-plugin-demo -- --cordisx-root /absolute/cordisx
+npm run verify:ai-plugin-demo -- \
+  --mp4 assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4 \
+  --webm assets/motion/cordisx-ai-plugin-demo-zh-dark.webm \
+  --poster assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png \
+  --metadata assets/motion/cordisx-ai-plugin-demo-zh-dark.json
+```
+
+The MP4 is H.264 `yuv420p` with a front-loaded `moov` atom; the paired WebM is
+VP9 `yuv420p`. Both are 1600×1000. See
+`.agents/docs/ai-plugin-demo-capture.md` for the storyboard, privacy boundary,
+checkpoint gate, and evidence requirements.
