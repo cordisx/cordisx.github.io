@@ -1,0 +1,1463 @@
+{
+  "schemaVersion": 1,
+  "scene": "cordisx-ai-plugin-demo.zh-CN.dark.v1",
+  "realRenderer": true,
+  "rendererUrl": "app://-/index.html",
+  "prompt": "我要发送按钮在点击的时候全屏放礼花。",
+  "promptSubmitted": true,
+  "finalSubmitClicked": true,
+  "effectObserved": true,
+  "effect": {
+    "observedAt": "2026-09-01T22:53:40.749Z",
+    "selector": "[data-cordisx-effect=\"confetti\"]",
+    "cleanupObserved": true,
+    "cleanedAt": "2026-09-01T22:53:45.099Z"
+  },
+  "plugin": {
+    "id": "natural-language",
+    "sourceChanged": true,
+    "sourceMtimeChanged": true,
+    "baselineGeneration": "natural-language-local-dev-1-289f44fad41d",
+    "replacementGeneration": "natural-language-local-dev-4-b30820d6e33a",
+    "generationChanged": true
+  },
+  "checkpoints": {
+    "host": "b53d7ddc324c7bbdb476becb96bf5813a4b6b3c2",
+    "protocol": "34d2113984882d5c0fa4f0803fb929c8da605eee"
+  },
+  "capture": {
+    "launchStartedAt": "2026-09-01T22:50:45.982Z",
+    "finishedAt": "2026-09-01T22:53:49.996Z",
+    "sourceDurationSeconds": 102.479,
+    "encodedDurationSeconds": 23.5,
+    "frameCount": 282,
+    "frameRate": 12,
+    "width": 1600,
+    "height": 1000,
+    "theme": "dark",
+    "locale": "zh-CN",
+    "timeline": [
+      {
+        "frame": 0,
+        "segment": "opening",
+        "sourceElapsedMs": 40
+      },
+      {
+        "frame": 1,
+        "segment": "opening",
+        "sourceElapsedMs": 107
+      },
+      {
+        "frame": 2,
+        "segment": "opening",
+        "sourceElapsedMs": 191
+      },
+      {
+        "frame": 3,
+        "segment": "opening",
+        "sourceElapsedMs": 282
+      },
+      {
+        "frame": 4,
+        "segment": "opening",
+        "sourceElapsedMs": 369
+      },
+      {
+        "frame": 5,
+        "segment": "opening",
+        "sourceElapsedMs": 451
+      },
+      {
+        "frame": 6,
+        "segment": "opening",
+        "sourceElapsedMs": 545
+      },
+      {
+        "frame": 7,
+        "segment": "opening",
+        "sourceElapsedMs": 628
+      },
+      {
+        "frame": 8,
+        "segment": "opening",
+        "sourceElapsedMs": 723
+      },
+      {
+        "frame": 9,
+        "segment": "opening",
+        "sourceElapsedMs": 790
+      },
+      {
+        "frame": 10,
+        "segment": "opening",
+        "sourceElapsedMs": 877
+      },
+      {
+        "frame": 11,
+        "segment": "opening",
+        "sourceElapsedMs": 955
+      },
+      {
+        "frame": 12,
+        "segment": "user-request:focus:approach",
+        "sourceElapsedMs": 1054
+      },
+      {
+        "frame": 13,
+        "segment": "user-request:focus:approach",
+        "sourceElapsedMs": 1137
+      },
+      {
+        "frame": 14,
+        "segment": "user-request:focus:pressed",
+        "sourceElapsedMs": 1230
+      },
+      {
+        "frame": 15,
+        "segment": "user-request:focus:pressed",
+        "sourceElapsedMs": 1321
+      },
+      {
+        "frame": 16,
+        "segment": "user-request:focus:released",
+        "sourceElapsedMs": 1419
+      },
+      {
+        "frame": 17,
+        "segment": "user-request:focus:released",
+        "sourceElapsedMs": 1497
+      },
+      {
+        "frame": 18,
+        "segment": "user-request",
+        "sourceElapsedMs": 1625
+      },
+      {
+        "frame": 19,
+        "segment": "user-request",
+        "sourceElapsedMs": 1719
+      },
+      {
+        "frame": 20,
+        "segment": "user-request",
+        "sourceElapsedMs": 1802
+      },
+      {
+        "frame": 21,
+        "segment": "user-request",
+        "sourceElapsedMs": 1894
+      },
+      {
+        "frame": 22,
+        "segment": "user-request",
+        "sourceElapsedMs": 1976
+      },
+      {
+        "frame": 23,
+        "segment": "user-request",
+        "sourceElapsedMs": 2060
+      },
+      {
+        "frame": 24,
+        "segment": "user-request",
+        "sourceElapsedMs": 2149
+      },
+      {
+        "frame": 25,
+        "segment": "user-request",
+        "sourceElapsedMs": 2236
+      },
+      {
+        "frame": 26,
+        "segment": "user-request",
+        "sourceElapsedMs": 2318
+      },
+      {
+        "frame": 27,
+        "segment": "user-request",
+        "sourceElapsedMs": 2407
+      },
+      {
+        "frame": 28,
+        "segment": "user-request",
+        "sourceElapsedMs": 2501
+      },
+      {
+        "frame": 29,
+        "segment": "user-request",
+        "sourceElapsedMs": 2586
+      },
+      {
+        "frame": 30,
+        "segment": "user-request",
+        "sourceElapsedMs": 2687
+      },
+      {
+        "frame": 31,
+        "segment": "user-request",
+        "sourceElapsedMs": 2763
+      },
+      {
+        "frame": 32,
+        "segment": "user-request",
+        "sourceElapsedMs": 2853
+      },
+      {
+        "frame": 33,
+        "segment": "user-request",
+        "sourceElapsedMs": 2933
+      },
+      {
+        "frame": 34,
+        "segment": "user-request",
+        "sourceElapsedMs": 3025
+      },
+      {
+        "frame": 35,
+        "segment": "user-request",
+        "sourceElapsedMs": 3107
+      },
+      {
+        "frame": 36,
+        "segment": "submit-request:approach",
+        "sourceElapsedMs": 3201
+      },
+      {
+        "frame": 37,
+        "segment": "submit-request:approach",
+        "sourceElapsedMs": 3295
+      },
+      {
+        "frame": 38,
+        "segment": "submit-request:pressed",
+        "sourceElapsedMs": 3377
+      },
+      {
+        "frame": 39,
+        "segment": "submit-request:pressed",
+        "sourceElapsedMs": 3473
+      },
+      {
+        "frame": 40,
+        "segment": "submit-request:released",
+        "sourceElapsedMs": 3651
+      },
+      {
+        "frame": 41,
+        "segment": "submit-request:released",
+        "sourceElapsedMs": 3711
+      },
+      {
+        "frame": 42,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 3865
+      },
+      {
+        "frame": 43,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 4530
+      },
+      {
+        "frame": 44,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 5075
+      },
+      {
+        "frame": 45,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 5619
+      },
+      {
+        "frame": 46,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 6160
+      },
+      {
+        "frame": 47,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 6705
+      },
+      {
+        "frame": 48,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 7267
+      },
+      {
+        "frame": 49,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 7816
+      },
+      {
+        "frame": 50,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 8368
+      },
+      {
+        "frame": 51,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 8921
+      },
+      {
+        "frame": 52,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 9461
+      },
+      {
+        "frame": 53,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 10010
+      },
+      {
+        "frame": 54,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 10542
+      },
+      {
+        "frame": 55,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 11077
+      },
+      {
+        "frame": 56,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 11618
+      },
+      {
+        "frame": 57,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 12168
+      },
+      {
+        "frame": 58,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 12706
+      },
+      {
+        "frame": 59,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 13234
+      },
+      {
+        "frame": 60,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 13783
+      },
+      {
+        "frame": 61,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 14323
+      },
+      {
+        "frame": 62,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 14869
+      },
+      {
+        "frame": 63,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 15409
+      },
+      {
+        "frame": 64,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 15947
+      },
+      {
+        "frame": 65,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 16492
+      },
+      {
+        "frame": 66,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 17026
+      },
+      {
+        "frame": 67,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 17570
+      },
+      {
+        "frame": 68,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 18109
+      },
+      {
+        "frame": 69,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 18647
+      },
+      {
+        "frame": 70,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 19191
+      },
+      {
+        "frame": 71,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 19736
+      },
+      {
+        "frame": 72,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 20289
+      },
+      {
+        "frame": 73,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 20833
+      },
+      {
+        "frame": 74,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 21372
+      },
+      {
+        "frame": 75,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 21922
+      },
+      {
+        "frame": 76,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 22472
+      },
+      {
+        "frame": 77,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 23025
+      },
+      {
+        "frame": 78,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 23569
+      },
+      {
+        "frame": 79,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 24115
+      },
+      {
+        "frame": 80,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 24662
+      },
+      {
+        "frame": 81,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 25197
+      },
+      {
+        "frame": 82,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 25729
+      },
+      {
+        "frame": 83,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 26271
+      },
+      {
+        "frame": 84,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 26817
+      },
+      {
+        "frame": 85,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 27358
+      },
+      {
+        "frame": 86,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 27901
+      },
+      {
+        "frame": 87,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 28449
+      },
+      {
+        "frame": 88,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 28995
+      },
+      {
+        "frame": 89,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 29535
+      },
+      {
+        "frame": 90,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 30071
+      },
+      {
+        "frame": 91,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 30617
+      },
+      {
+        "frame": 92,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 31163
+      },
+      {
+        "frame": 93,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 31703
+      },
+      {
+        "frame": 94,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 32247
+      },
+      {
+        "frame": 95,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 32787
+      },
+      {
+        "frame": 96,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 33348
+      },
+      {
+        "frame": 97,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 33877
+      },
+      {
+        "frame": 98,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 34419
+      },
+      {
+        "frame": 99,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 34967
+      },
+      {
+        "frame": 100,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 35517
+      },
+      {
+        "frame": 101,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 36059
+      },
+      {
+        "frame": 102,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 36635
+      },
+      {
+        "frame": 103,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 37177
+      },
+      {
+        "frame": 104,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 37719
+      },
+      {
+        "frame": 105,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 38267
+      },
+      {
+        "frame": 106,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 38819
+      },
+      {
+        "frame": 107,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 39359
+      },
+      {
+        "frame": 108,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 39900
+      },
+      {
+        "frame": 109,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 40449
+      },
+      {
+        "frame": 110,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 40988
+      },
+      {
+        "frame": 111,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 41537
+      },
+      {
+        "frame": 112,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 42082
+      },
+      {
+        "frame": 113,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 42635
+      },
+      {
+        "frame": 114,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 43176
+      },
+      {
+        "frame": 115,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 43717
+      },
+      {
+        "frame": 116,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 44262
+      },
+      {
+        "frame": 117,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 44793
+      },
+      {
+        "frame": 118,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 45340
+      },
+      {
+        "frame": 119,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 45883
+      },
+      {
+        "frame": 120,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 46434
+      },
+      {
+        "frame": 121,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 46983
+      },
+      {
+        "frame": 122,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 47532
+      },
+      {
+        "frame": 123,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 48081
+      },
+      {
+        "frame": 124,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 48630
+      },
+      {
+        "frame": 125,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 49178
+      },
+      {
+        "frame": 126,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 49714
+      },
+      {
+        "frame": 127,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 50245
+      },
+      {
+        "frame": 128,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 50776
+      },
+      {
+        "frame": 129,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 51329
+      },
+      {
+        "frame": 130,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 51873
+      },
+      {
+        "frame": 131,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 52423
+      },
+      {
+        "frame": 132,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 52979
+      },
+      {
+        "frame": 133,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 53514
+      },
+      {
+        "frame": 134,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 54048
+      },
+      {
+        "frame": 135,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 54598
+      },
+      {
+        "frame": 136,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 55142
+      },
+      {
+        "frame": 137,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 55693
+      },
+      {
+        "frame": 138,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 56234
+      },
+      {
+        "frame": 139,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 56776
+      },
+      {
+        "frame": 140,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 57325
+      },
+      {
+        "frame": 141,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 57876
+      },
+      {
+        "frame": 142,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 58423
+      },
+      {
+        "frame": 143,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 58968
+      },
+      {
+        "frame": 144,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 59517
+      },
+      {
+        "frame": 145,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 60068
+      },
+      {
+        "frame": 146,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 60620
+      },
+      {
+        "frame": 147,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 61169
+      },
+      {
+        "frame": 148,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 61720
+      },
+      {
+        "frame": 149,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 62269
+      },
+      {
+        "frame": 150,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 62816
+      },
+      {
+        "frame": 151,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 63362
+      },
+      {
+        "frame": 152,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 63909
+      },
+      {
+        "frame": 153,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 64455
+      },
+      {
+        "frame": 154,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 65004
+      },
+      {
+        "frame": 155,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 65545
+      },
+      {
+        "frame": 156,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 66104
+      },
+      {
+        "frame": 157,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 66662
+      },
+      {
+        "frame": 158,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 67207
+      },
+      {
+        "frame": 159,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 67762
+      },
+      {
+        "frame": 160,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 68308
+      },
+      {
+        "frame": 161,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 68855
+      },
+      {
+        "frame": 162,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 69401
+      },
+      {
+        "frame": 163,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 69952
+      },
+      {
+        "frame": 164,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 70499
+      },
+      {
+        "frame": 165,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 71038
+      },
+      {
+        "frame": 166,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 71581
+      },
+      {
+        "frame": 167,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 72137
+      },
+      {
+        "frame": 168,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 72690
+      },
+      {
+        "frame": 169,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 73235
+      },
+      {
+        "frame": 170,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 73781
+      },
+      {
+        "frame": 171,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 74328
+      },
+      {
+        "frame": 172,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 74866
+      },
+      {
+        "frame": 173,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 75419
+      },
+      {
+        "frame": 174,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 75968
+      },
+      {
+        "frame": 175,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 76511
+      },
+      {
+        "frame": 176,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 77066
+      },
+      {
+        "frame": 177,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 77628
+      },
+      {
+        "frame": 178,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 78171
+      },
+      {
+        "frame": 179,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 78718
+      },
+      {
+        "frame": 180,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 79264
+      },
+      {
+        "frame": 181,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 79808
+      },
+      {
+        "frame": 182,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 80347
+      },
+      {
+        "frame": 183,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 80880
+      },
+      {
+        "frame": 184,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 81410
+      },
+      {
+        "frame": 185,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 81943
+      },
+      {
+        "frame": 186,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 82481
+      },
+      {
+        "frame": 187,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 83016
+      },
+      {
+        "frame": 188,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 83547
+      },
+      {
+        "frame": 189,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 84082
+      },
+      {
+        "frame": 190,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 84623
+      },
+      {
+        "frame": 191,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 85169
+      },
+      {
+        "frame": 192,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 85716
+      },
+      {
+        "frame": 193,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 86257
+      },
+      {
+        "frame": 194,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 86795
+      },
+      {
+        "frame": 195,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 87353
+      },
+      {
+        "frame": 196,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 87898
+      },
+      {
+        "frame": 197,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 88444
+      },
+      {
+        "frame": 198,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 88994
+      },
+      {
+        "frame": 199,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 89534
+      },
+      {
+        "frame": 200,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 90095
+      },
+      {
+        "frame": 201,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90135
+      },
+      {
+        "frame": 202,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90219
+      },
+      {
+        "frame": 203,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90302
+      },
+      {
+        "frame": 204,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90387
+      },
+      {
+        "frame": 205,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90461
+      },
+      {
+        "frame": 206,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90544
+      },
+      {
+        "frame": 207,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90628
+      },
+      {
+        "frame": 208,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90713
+      },
+      {
+        "frame": 209,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90798
+      },
+      {
+        "frame": 210,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90890
+      },
+      {
+        "frame": 211,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 90972
+      },
+      {
+        "frame": 212,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 91064
+      },
+      {
+        "frame": 213,
+        "segment": "proof-message:focus:approach",
+        "sourceElapsedMs": 91146
+      },
+      {
+        "frame": 214,
+        "segment": "proof-message:focus:approach",
+        "sourceElapsedMs": 91239
+      },
+      {
+        "frame": 215,
+        "segment": "proof-message:focus:pressed",
+        "sourceElapsedMs": 91324
+      },
+      {
+        "frame": 216,
+        "segment": "proof-message:focus:pressed",
+        "sourceElapsedMs": 91400
+      },
+      {
+        "frame": 217,
+        "segment": "proof-message:focus:released",
+        "sourceElapsedMs": 91499
+      },
+      {
+        "frame": 218,
+        "segment": "proof-message:focus:released",
+        "sourceElapsedMs": 91588
+      },
+      {
+        "frame": 219,
+        "segment": "proof-message",
+        "sourceElapsedMs": 91686
+      },
+      {
+        "frame": 220,
+        "segment": "proof-message",
+        "sourceElapsedMs": 91771
+      },
+      {
+        "frame": 221,
+        "segment": "proof-message",
+        "sourceElapsedMs": 91854
+      },
+      {
+        "frame": 222,
+        "segment": "proof-message",
+        "sourceElapsedMs": 91938
+      },
+      {
+        "frame": 223,
+        "segment": "proof-message",
+        "sourceElapsedMs": 92031
+      },
+      {
+        "frame": 224,
+        "segment": "proof-message",
+        "sourceElapsedMs": 92105
+      },
+      {
+        "frame": 225,
+        "segment": "proof-message",
+        "sourceElapsedMs": 92205
+      },
+      {
+        "frame": 226,
+        "segment": "proof-message",
+        "sourceElapsedMs": 92291
+      },
+      {
+        "frame": 227,
+        "segment": "submit-proof:approach",
+        "sourceElapsedMs": 92372
+      },
+      {
+        "frame": 228,
+        "segment": "submit-proof:approach",
+        "sourceElapsedMs": 92456
+      },
+      {
+        "frame": 229,
+        "segment": "submit-proof:pressed",
+        "sourceElapsedMs": 92548
+      },
+      {
+        "frame": 230,
+        "segment": "submit-proof:pressed",
+        "sourceElapsedMs": 92632
+      },
+      {
+        "frame": 231,
+        "segment": "submit-proof:released",
+        "sourceElapsedMs": 93101
+      },
+      {
+        "frame": 232,
+        "segment": "submit-proof:released",
+        "sourceElapsedMs": 93148
+      },
+      {
+        "frame": 233,
+        "segment": "fullscreen-confetti:waiting",
+        "sourceElapsedMs": 93230
+      },
+      {
+        "frame": 234,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 93403
+      },
+      {
+        "frame": 235,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 93485
+      },
+      {
+        "frame": 236,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 93567
+      },
+      {
+        "frame": 237,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 93653
+      },
+      {
+        "frame": 238,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 93737
+      },
+      {
+        "frame": 239,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 93822
+      },
+      {
+        "frame": 240,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 93920
+      },
+      {
+        "frame": 241,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 93997
+      },
+      {
+        "frame": 242,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94082
+      },
+      {
+        "frame": 243,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94165
+      },
+      {
+        "frame": 244,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94249
+      },
+      {
+        "frame": 245,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94335
+      },
+      {
+        "frame": 246,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94427
+      },
+      {
+        "frame": 247,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94505
+      },
+      {
+        "frame": 248,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94778
+      },
+      {
+        "frame": 249,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94824
+      },
+      {
+        "frame": 250,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94903
+      },
+      {
+        "frame": 251,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 94988
+      },
+      {
+        "frame": 252,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95070
+      },
+      {
+        "frame": 253,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95151
+      },
+      {
+        "frame": 254,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95227
+      },
+      {
+        "frame": 255,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95323
+      },
+      {
+        "frame": 256,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95405
+      },
+      {
+        "frame": 257,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95500
+      },
+      {
+        "frame": 258,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95566
+      },
+      {
+        "frame": 259,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95666
+      },
+      {
+        "frame": 260,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95741
+      },
+      {
+        "frame": 261,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95823
+      },
+      {
+        "frame": 262,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95908
+      },
+      {
+        "frame": 263,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 95993
+      },
+      {
+        "frame": 264,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96079
+      },
+      {
+        "frame": 265,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96165
+      },
+      {
+        "frame": 266,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96256
+      },
+      {
+        "frame": 267,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96329
+      },
+      {
+        "frame": 268,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96417
+      },
+      {
+        "frame": 269,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96498
+      },
+      {
+        "frame": 270,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96583
+      },
+      {
+        "frame": 271,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96685
+      },
+      {
+        "frame": 272,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96767
+      },
+      {
+        "frame": 273,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96848
+      },
+      {
+        "frame": 274,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 96931
+      },
+      {
+        "frame": 275,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 97016
+      },
+      {
+        "frame": 276,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 97106
+      },
+      {
+        "frame": 277,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 97186
+      },
+      {
+        "frame": 278,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 97282
+      },
+      {
+        "frame": 279,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 97358
+      },
+      {
+        "frame": 280,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 97439
+      },
+      {
+        "frame": 281,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 97523
+      }
+    ]
+  },
+  "privacy": {
+    "isolatedHome": true,
+    "isolatedCodexHome": true,
+    "isolatedCordisXHome": true,
+    "isolatedChromiumProfile": true,
+    "emptyProjectAndThreadState": true,
+    "visibleProfileIdentity": "CordisX Demo",
+    "authenticationCopiedForRuntimeOnly": true,
+    "authenticationPublished": false
+  },
+  "onboarding": []
+}

@@ -49,6 +49,12 @@ and receives a second real native Send click that activates the Host-owned
 full-screen confetti effect. It does not use a recreated Codex shell, authored
 Agent replies, or caption cards for any of those steps.
 
+[![Real CordisX AI-first plugin demo](assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png)](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4)
+
+[MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
+[WebM](assets/motion/cordisx-ai-plugin-demo-zh-dark.webm) ·
+[capture evidence](assets/motion/cordisx-ai-plugin-demo-zh-dark.json)
+
 Prepare and exercise the workspace plus H.264/VP9 encoders without reading
 authentication or launching Codex:
 
