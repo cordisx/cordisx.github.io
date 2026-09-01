@@ -17,8 +17,11 @@ through CordisX, not an HTML recreation of Codex.
 - Set `CORDISX_CDP_INJECTION_TIMEOUT_MS=300000` only for the capture process so
   a large development bundle can finish injection without changing the CordisX
   product default.
-- Set the Codex theme and document locale explicitly for every capture. Do not
-  infer either value from the operator's system settings.
+- Start separate disposable Codex instances for the light and dark captures.
+  Set `desktop.appearanceTheme` in each isolated `config.toml` before launch,
+  then wait for the matching document media query and CordisX theme projection
+  before capturing. Do not infer theme or locale from the operator's system
+  settings, and do not recolor one running Host to impersonate both themes.
 - Keep capture windows opaque. Translucent or blurred application chrome mixes
   the desktop background into the recording and makes theme colors unstable.
   Set an opaque CDP default background for every theme before capturing; do not

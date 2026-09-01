@@ -26,12 +26,28 @@ const locale = option('--locale', 'en-US')
 const motionEnabled = process.argv.includes('--motion')
 const motionOutputDir = path.resolve(option('--motion-output-dir', path.join(projectRoot, 'assets', 'motion')))
 const motionFrameRate = 12
-const motionCursorSvg = await readFile(path.join(projectRoot, 'assets', 'capture', 'cordisx-motion-cursor.svg'), 'utf8')
 
 if (process.argv.includes('--help')) {
   console.log('Usage: npm run capture:codex-showcase -- [--motion] [--motion-output-dir /absolute/motion] [--name CordisX] [--avatar /absolute/avatar.png] [--auth /absolute/auth.json] [--output /absolute/workspace.png] [--output-dir /absolute/screenshots] [--locale en-US] [--app /Applications/ChatGPT.app]')
   process.exit(0)
 }
+
+const captureTheme = option('--capture-theme')
+if (captureTheme === undefined) {
+  for (const theme of ['dark', 'light']) {
+    console.log(`[showcase] starting isolated ${theme} Codex capture`)
+    execFileSync(process.execPath, [path.resolve(process.argv[1]), ...process.argv.slice(2), '--capture-theme', theme], {
+      stdio: 'inherit',
+    })
+  }
+  process.exit(0)
+}
+if (!['dark', 'light'].includes(captureTheme)) throw new Error(`Unsupported capture theme: ${captureTheme}`)
+
+const motionCursorSvg = await readFile(path.join(projectRoot, 'assets', 'capture', 'cordisx-motion-cursor.svg'), 'utf8')
+const workspaceOutputFile = captureTheme === 'dark'
+  ? outputFile
+  : path.join(outputDir, 'codex-workspace-real-light.png')
 
 async function availablePort() {
   const server = net.createServer()
@@ -382,11 +398,12 @@ await writeFile(path.join(codexHome, '.codex-global-state.json'), `${JSON.string
   'thread-workspace-root-hints': {},
   'thread-writable-roots': {},
 }, null, 2)}\n`, { mode: 0o600 })
-await writeFile(path.join(codexHome, 'config.toml'), `appearanceTheme = "system"
+await writeFile(path.join(codexHome, 'config.toml'), `[desktop]
+appearanceTheme = ${JSON.stringify(captureTheme)}
 appearanceDarkChromeTheme = { accent = "#339cff", contrast = 60, fonts = { code = "", ui = "" }, ink = "#ffffff", opaqueWindows = true, semanticColors = { diffAdded = "#40c977", diffRemoved = "#fa423e", skill = "#ad7bf9" }, surface = "#181818" }
 appearanceLightChromeTheme = { accent = "#339cff", contrast = 45, fonts = { code = "", ui = "" }, ink = "#1a1c1f", opaqueWindows = true, semanticColors = { diffAdded = "#00a240", diffRemoved = "#ba2623", skill = "#924ff7" }, surface = "#ffffff" }
 `, { mode: 0o600 })
-console.log('[showcase] opaque Codex chrome configured for isolated capture profile')
+console.log(`[showcase] opaque ${captureTheme} Codex chrome configured before launch`)
 await writeFile(configFile, `${JSON.stringify({
   version: 1,
   defaultApp: 'codex',
@@ -565,13 +582,21 @@ try {
       translated,
       profile: profile instanceof HTMLElement,
       cordisxEntry: trigger instanceof HTMLElement,
+      managerTargets: [...document.querySelectorAll('button[aria-haspopup="menu"]')]
+        .filter(button => button instanceof HTMLElement && button.offsetParent !== null)
+        .map(button => ({
+          text: (button.textContent ?? '').trim(),
+          ariaLabel: button.getAttribute('aria-label'),
+          title: button.getAttribute('title'),
+          className: button.className,
+        })),
       onboardingVisible: /个性化|personalization/i.test(visibleText),
       remainingCjk: [...new Set(visibleText.split('\\n').map(line => line.trim()).filter(line => /[\u3400-\u9fff]/u.test(line)))].slice(0, 12),
     }
   })()`)
 
   if (!projection.profile) throw new Error('Could not project the CordisX profile identity')
-  if (!projection.cordisxEntry) throw new Error('Could not expose the CordisX extension entry')
+  if (!projection.cordisxEntry) throw new Error(`Could not expose the CordisX extension entry; manager targets: ${JSON.stringify(projection.managerTargets)}`)
   if (projection.remainingCjk.length > 0) throw new Error(`Codex workspace still contains untranslated text: ${projection.remainingCjk.join(' | ')}`)
   await new Promise(resolve => setTimeout(resolve, 800))
 
@@ -649,17 +674,13 @@ try {
   })()`)
   if (!welcome) throw new Error('CordisX welcome page did not become visible')
   await new Promise(resolve => setTimeout(resolve, 700))
-  await setCaptureTheme(send, 'dark')
-  await capture(send, outputFile, true)
-  const workspaceLightFile = path.join(outputDir, 'codex-workspace-real-light.png')
-  await setCaptureTheme(send, 'light')
-  await capture(send, workspaceLightFile, true)
-  await setCaptureTheme(send, 'dark')
+  await setCaptureTheme(send, captureTheme)
+  await capture(send, workspaceOutputFile, true)
 
   const motionOutputs = {}
   if (motionEnabled) {
     for (const [language, documentLocale] of [['en', 'en'], ['zh', 'zh-CN']]) {
-      for (const theme of ['dark', 'light']) {
+      for (const theme of [captureTheme]) {
         await evaluate(send, `(async () => {
           document.documentElement.lang = ${JSON.stringify(documentLocale)}
           document.querySelector('[data-cordisx-motion-cursor]')?.remove()
@@ -716,11 +737,11 @@ try {
     'routes',
     'marketplace',
   ]
-  const captured = [outputFile, workspaceLightFile]
+  const captured = [workspaceOutputFile]
   for (const [language, documentLocale] of [['en', 'en'], ['zh', 'zh-CN']]) {
     await evaluate(send, `document.documentElement.lang = ${JSON.stringify(documentLocale)}`)
     await new Promise(resolve => setTimeout(resolve, 500))
-    for (const theme of ['dark', 'light']) {
+    for (const theme of [captureTheme]) {
       await setCaptureTheme(send, theme)
       for (const pageId of managerPages) {
         const selected = await evaluate(send, `(async () => {
@@ -738,7 +759,7 @@ try {
     }
   }
 
-  console.log(JSON.stringify({ outputs: captured, motionOutputs, locale, name: profileName, onboarding, projection, finalLocalization }, null, 2))
+  console.log(JSON.stringify({ outputs: captured, motionOutputs, locale, name: profileName, theme: captureTheme, onboarding, projection, finalLocalization }, null, 2))
   socket.close()
 } finally {
   process.off('SIGINT', onSigint)
