@@ -12,6 +12,11 @@ through CordisX, not an HTML recreation of Codex.
   thread, or account data.
 - Install and activate the showcase plugin through CordisX in that isolated
   profile so the visible product difference comes from a real extension.
+- Enable the `slot-showcase` `welcomePage` option only inside the isolated
+  capture configuration. Keep the example plugin's normal default unchanged.
+- Set `CORDISX_CDP_INJECTION_TIMEOUT_MS=300000` only for the capture process so
+  a large development bundle can finish injection without changing the CordisX
+  product default.
 - Set the Codex theme and document locale explicitly for every capture. Do not
   infer either value from the operator's system settings.
 - Keep capture windows opaque. Translucent or blurred application chrome mixes
