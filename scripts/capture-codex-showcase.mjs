@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execFileSync, spawn } from 'node:child_process'
-import { chmod, copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { chmod, copyFile, mkdir, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import net from 'node:net'
 import os from 'node:os'
 import path from 'node:path'
@@ -150,13 +150,32 @@ async function evaluate(send, expression) {
   return result.result?.value
 }
 
-async function capture(send, file) {
+async function capture(send, file, opaque = false) {
   const screenshot = await send('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false })
   await mkdir(path.dirname(file), { recursive: true })
-  await writeFile(file, Buffer.from(screenshot.data, 'base64'))
+  if (!opaque) {
+    await writeFile(file, Buffer.from(screenshot.data, 'base64'))
+    return
+  }
+  const source = path.join(path.dirname(file), `.${path.basename(file, '.png')}-rgba-${process.pid}.png`)
+  const normalized = `${source}.opaque.png`
+  try {
+    await writeFile(source, Buffer.from(screenshot.data, 'base64'))
+    execFileSync('ffmpeg', [
+      '-y', '-hide_banner', '-loglevel', 'error', '-i', source,
+      '-vf', 'format=rgb24', '-frames:v', '1', normalized,
+    ], { stdio: 'inherit' })
+    await rename(normalized, file)
+  } finally {
+    await Promise.all([rm(source, { force: true }), rm(normalized, { force: true })])
+  }
 }
 
 async function setCaptureTheme(send, theme) {
+  const background = theme === 'dark'
+    ? { r: 24, g: 24, b: 24, a: 1 }
+    : { r: 255, g: 255, b: 255, a: 1 }
+  await send('Emulation.setDefaultBackgroundColorOverride', { color: background })
   await send('Emulation.setEmulatedMedia', {
     features: [{ name: 'prefers-color-scheme', value: theme }],
   })
@@ -482,6 +501,7 @@ try {
       ['审查代码并提出修改建议', 'Review code and suggest changes'], ['修复问题和失败', 'Fix issues and failures'],
       ['选择项目', 'Select a project'], ['随心输入', 'Ask anything'], ['请求批准', 'Ask for approval'],
       ['语音', 'Voice'], ['开始使用', 'Get started'], ['轻度', 'Low'], ['极高', 'X-high'],
+      ['更多', 'More'],
       ['新建本地工作树', 'New local worktree'], ['无环境', 'No environment'], ['完全访问', 'Full access'],
       ['试试 ChatGPT 语音', 'Try ChatGPT Voice'], ['编排任务，连接工具，探索代码', 'Plan tasks, connect tools, and explore code'],
       ['开始语音', 'Start voice'],
@@ -630,10 +650,10 @@ try {
   if (!welcome) throw new Error('CordisX welcome page did not become visible')
   await new Promise(resolve => setTimeout(resolve, 700))
   await setCaptureTheme(send, 'dark')
-  await capture(send, outputFile)
+  await capture(send, outputFile, true)
   const workspaceLightFile = path.join(outputDir, 'codex-workspace-real-light.png')
   await setCaptureTheme(send, 'light')
-  await capture(send, workspaceLightFile)
+  await capture(send, workspaceLightFile, true)
   await setCaptureTheme(send, 'dark')
 
   const motionOutputs = {}

@@ -21,6 +21,8 @@ through CordisX, not an HTML recreation of Codex.
   infer either value from the operator's system settings.
 - Keep capture windows opaque. Translucent or blurred application chrome mixes
   the desktop background into the recording and makes theme colors unstable.
+  Set an opaque CDP default background for every theme before capturing; do not
+  assume the native window preference alone removes the screenshot alpha channel.
 - Generate the complete locale/theme matrix: English and Chinese in both light
   and dark themes. These are independent recordings, not one recording reused
   or recolored by the homepage.
@@ -60,9 +62,12 @@ asset rather than applying visual filters to the previous recording.
 3. Inspect at least one early, middle, and late frame from every variant. Check
    Codex chrome, CordisX surfaces, theme colors, locale, pointer hotspot, and
    the absence of translucent desktop bleed.
-4. Open the local homepage, switch language and theme in both directions, and
+4. Confirm the full-canvas workspace PNGs are RGB images without an alpha
+   channel. Overlay captures may retain shaped transparency only when the
+   pixels beneath them are captured Host UI rather than desktop bleed.
+5. Open the local homepage, switch language and theme in both directions, and
    confirm the video and poster change immediately without layout movement.
-5. Share the local URL for visual approval. Do not publish or deploy until the
+6. Share the local URL for visual approval. Do not publish or deploy until the
    user explicitly requests it.
 
 If the real Codex UI changes after an application upgrade, update selectors and

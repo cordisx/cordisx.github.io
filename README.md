@@ -27,7 +27,8 @@ to `assets/screenshots/`. Use `npm run capture:codex-showcase -- --help` for
 avatar, profile name, app bundle, locale, authentication file, CordisX checkout,
 and output-directory overrides. The command requires macOS,
 `/Applications/ChatGPT.app`, a signed-in Codex auth file, and a built sibling
-CordisX checkout.
+CordisX checkout. It also requires `ffmpeg` to normalize the full-canvas
+workspace screenshots to opaque RGB output.
 
 `capture:codex-motion` runs the declarative timeline in
 `scripts/showcase-motion-scene.mjs`. It performs real Host clicks while a
