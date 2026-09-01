@@ -20,12 +20,12 @@ npm run capture:codex-showcase
 npm run capture:codex-motion
 ```
 
-The reusable capture starts separate disposable Codex instances for light and
-dark, then produces signed-in workspace screenshots plus the Plugins,
-Extension points, Routes, and Marketplace pages of the real CordisX Manager in
-English and Chinese. Outputs are written to `assets/screenshots/`. Use
+The reusable capture starts a separate disposable Codex instance for every
+English/Chinese and light/dark variant, then produces the signed-in workspace
+and the Plugins, Extension points, Routes, and Marketplace pages of the real
+CordisX Manager. Outputs are written to `assets/screenshots/`. Use
 `npm run capture:codex-showcase -- --help` for
-avatar, profile name, app bundle, locale, authentication file, CordisX checkout,
+avatar, profile name, app bundle, authentication file, CordisX checkout,
 and output-directory overrides. The command requires macOS,
 `/Applications/ChatGPT.app`, a signed-in Codex auth file, and a built sibling
 CordisX checkout. It also requires `ffmpeg` to normalize the full-canvas
