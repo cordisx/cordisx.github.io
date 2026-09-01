@@ -19,8 +19,16 @@ if (showcase) {
 
     slides.forEach((slide, index) => {
       const active = index === activeIndex
+      const wasActive = slide.classList.contains('is-active')
       slide.classList.toggle('is-active', active)
       slide.setAttribute('aria-hidden', String(!active))
+      if (slide instanceof HTMLVideoElement) {
+        if (active && !reduceMotion) void slide.play().catch(() => {})
+        else {
+          slide.pause()
+          if (wasActive) slide.currentTime = 0
+        }
+      }
     })
 
     pages.forEach((page, index) => {
@@ -54,5 +62,5 @@ if (showcase) {
   })
 
   hydrateReicons(showcase)
-  start()
+  show(0)
 }

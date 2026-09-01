@@ -56,8 +56,33 @@ if (!homepagePreferences.includes('prefers-color-scheme: light') || !marketplace
 if (!homepageStyles.includes(':root[data-theme="light"]')) {
   throw new Error('homepage must provide a light color theme')
 }
-if (!homepageStyles.includes(':root[data-theme="light"] .site-header') || !homepageStyles.includes('background: #18181b')) {
-  throw new Error('homepage light header must resolve to the same canvas color as the body')
+if (!homepageStyles.includes(':root[data-theme="light"] .site-header') || !homepageStyles.includes('background: #e4e4e7')) {
+  throw new Error('homepage light body must match the rendered header canvas')
+}
+if (!homepageStyles.includes('aspect-ratio: 2560 / 1640') || !homepageStyles.includes('object-fit: contain')) {
+  throw new Error('homepage showcase must display the complete real Codex screenshots')
+}
+if (!homepage.includes('data-i18n-alt="showcaseWorkspaceAlt"') || !homepage.includes('data-i18n-aria-label="showcaseChoices"')) {
+  throw new Error('homepage showcase media and controls must be localized')
+}
+if ((homepage.match(/class="showcase-slide(?: is-active)?"/g) ?? []).length !== 6 || !homepage.includes('<b data-showcase-index>01</b> / 06')) {
+  throw new Error('homepage showcase must contain the real workflow and five real Codex interfaces')
+}
+for (const language of ['en', 'zh']) {
+  for (const theme of ['dark', 'light']) {
+    for (const extension of ['webm', 'mp4']) {
+      if (!homepage.includes(`assets/motion/cordisx-real-workflow-${language}-${theme}.${extension}`)) {
+        throw new Error(`homepage showcase is missing the ${language}/${theme} real Codex workflow video`)
+      }
+      await access(new URL(`../assets/motion/cordisx-real-workflow-${language}-${theme}.${extension}`, import.meta.url))
+    }
+  }
+}
+if (!homepagePreferences.includes('showcaseVideo${language}${appearance}Webm') || !homepagePreferences.includes('showcaseVideo${language}${appearance}Mp4')) {
+  throw new Error('homepage preferences must switch showcase video sources by locale and theme')
+}
+if (!homepagePreferences.includes("theme === 'light' ? '#e4e4e7'")) {
+  throw new Error('homepage theme color must match the light outer canvas')
 }
 if (homepage.includes('market-chat-plugin-state') || homepage.includes('partyActive') || homepage.includes('conceptOnly')) {
   throw new Error('party demo must not include the removed preview state banner')
@@ -127,7 +152,21 @@ for (const icon of [
 }
 await access(new URL('../cordisx-mark-animated-dark.svg', import.meta.url))
 await access(new URL('../assets/reicon/LICENSE', import.meta.url))
+await access(new URL('../assets/capture/cordisx-profile-avatar.png', import.meta.url))
+await access(new URL('../assets/capture/cordisx-motion-cursor.svg', import.meta.url))
 await access(new URL('../assets/screenshots/codex-real-manager.png', import.meta.url))
 await access(new URL('../assets/screenshots/codex-real-extension-points.png', import.meta.url))
+await access(new URL('../assets/screenshots/codex-workspace-real.png', import.meta.url))
+await access(new URL('../assets/screenshots/codex-workspace-real-light.png', import.meta.url))
+await access(new URL('../assets/motion/cordisx-real-workflow.mp4', import.meta.url))
+await access(new URL('../assets/motion/cordisx-real-workflow.webm', import.meta.url))
+await access(new URL('../assets/motion/cordisx-real-workflow.gif', import.meta.url))
+for (const locale of ['en', 'zh']) {
+  for (const theme of ['light', 'dark']) {
+    for (const page of ['plugins', 'extension-points', 'routes', 'marketplace']) {
+      await access(new URL(`../assets/screenshots/cordisx-manager-${page}-${locale}-${theme}.png`, import.meta.url))
+    }
+  }
+}
 
 console.log('homepage and marketplace checks passed')

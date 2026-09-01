@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check brand-animation.js && node --check conversation.js && node --check marketplace.js && node --check preferences.js && node --check showcase.js && node --check reicons.js && node --check marketplace/app.js && node --check marketplace/plugin/app.js && node scripts/check.mjs"
+    "check": "node --check brand-animation.js && node --check conversation.js && node --check marketplace.js && node --check preferences.js && node --check showcase.js && node --check reicons.js && node --check marketplace/app.js && node --check marketplace/plugin/app.js && node --check scripts/showcase-motion-scene.mjs && node --check scripts/capture-codex-showcase.mjs && node scripts/check.mjs",
+    "capture:codex-showcase": "node scripts/capture-codex-showcase.mjs",
+    "capture:codex-motion": "node scripts/capture-codex-showcase.mjs --motion"
   },
   "engines": {
     "node": ">=22.19"

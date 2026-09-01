@@ -24,9 +24,9 @@
         document.documentElement.lang = localStorage.getItem('cordisx:locale') || ((navigator.language || '').startsWith('zh') ? 'zh-CN' : 'en')
       } catch {}
     </script>
-    <link rel="stylesheet" href="./styles.css?v=37" />
+    <link rel="stylesheet" href="./styles.css?v=41" />
     <script src="./brand-animation.js?v=33" defer></script>
-    <script type="module" src="./preferences.js?v=38"></script>
+    <script type="module" src="./preferences.js?v=40"></script>
     <script type="module" src="./conversation.js?v=33"></script>
     <script type="module" src="./marketplace.js?v=34"></script>
     <script type="module" src="./showcase.js?v=35"></script>
@@ -264,31 +264,122 @@
           <div class="showcase-shell">
             <div class="showcase-heading">
               <span data-i18n="actualProductUi">CORDISX / REAL CODEX DESKTOP</span>
-              <span><b data-showcase-index>01</b> / 02</span>
+              <span><b data-showcase-index>01</b> / 06</span>
             </div>
 
             <div class="showcase-frame">
               <div class="showcase-viewport">
-                <img
+                <video
                   class="showcase-slide is-active"
-                  src="./assets/screenshots/codex-real-manager.png"
-                  alt="Real CordisX plugin manager running in Codex Desktop"
-                  data-showcase-title="CordisX Manager"
-                  data-showcase-description="The real Host-owned plugin manager running inside Codex Desktop."
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="./assets/screenshots/codex-workspace-real.png"
+                  aria-label="A real CordisX workflow inside Codex Desktop"
+                  data-i18n-aria-label="showcaseMotionAlt"
+                  data-showcase-title="Real CordisX flow"
+                  data-showcase-description="A scripted walkthrough of the real Codex Host with a visible cursor."
+                  data-i18n-showcase-title="showcaseMotionTitle"
+                  data-i18n-showcase-description="showcaseMotionDescription"
+                  data-showcase-poster-en-light="./assets/screenshots/codex-workspace-real-light.png"
+                  data-showcase-poster-en-dark="./assets/screenshots/codex-workspace-real.png"
+                  data-showcase-poster-zh-light="./assets/screenshots/codex-workspace-real-light.png"
+                  data-showcase-poster-zh-dark="./assets/screenshots/codex-workspace-real.png"
+                  data-showcase-video-en-light-webm="./assets/motion/cordisx-real-workflow-en-light.webm"
+                  data-showcase-video-en-light-mp4="./assets/motion/cordisx-real-workflow-en-light.mp4"
+                  data-showcase-video-en-dark-webm="./assets/motion/cordisx-real-workflow-en-dark.webm"
+                  data-showcase-video-en-dark-mp4="./assets/motion/cordisx-real-workflow-en-dark.mp4"
+                  data-showcase-video-zh-light-webm="./assets/motion/cordisx-real-workflow-zh-light.webm"
+                  data-showcase-video-zh-light-mp4="./assets/motion/cordisx-real-workflow-zh-light.mp4"
+                  data-showcase-video-zh-dark-webm="./assets/motion/cordisx-real-workflow-zh-dark.webm"
+                  data-showcase-video-zh-dark-mp4="./assets/motion/cordisx-real-workflow-zh-dark.mp4"
+                  aria-hidden="false"
+                >
+                  <source src="./assets/motion/cordisx-real-workflow-en-dark.webm" type="video/webm" />
+                  <source src="./assets/motion/cordisx-real-workflow-en-dark.mp4" type="video/mp4" />
+                </video>
+                <img
+                  class="showcase-slide"
+                  src="./assets/screenshots/codex-workspace-real.png"
+                  alt="Signed-in Codex Desktop workspace launched by CordisX"
+                  data-i18n-alt="showcaseWorkspaceAlt"
+                  data-showcase-src-en-light="./assets/screenshots/codex-workspace-real-light.png"
+                  data-showcase-src-en-dark="./assets/screenshots/codex-workspace-real.png"
+                  data-showcase-src-zh-light="./assets/screenshots/codex-workspace-real-light.png"
+                  data-showcase-src-zh-dark="./assets/screenshots/codex-workspace-real.png"
+                  data-showcase-title="Codex workspace"
+                  data-showcase-description="A signed-in, isolated Codex Desktop workspace launched by CordisX."
                   data-i18n-showcase-title="showcaseWorkspaceTitle"
                   data-i18n-showcase-description="showcaseWorkspaceDescription"
-                  aria-hidden="false"
+                  aria-hidden="true"
                   fetchpriority="high"
                   decoding="async"
                 />
                 <img
                   class="showcase-slide"
-                  src="./assets/screenshots/codex-real-extension-points.png"
-                  alt="Real CordisX extension point catalog running in Codex Desktop"
+                  src="./assets/screenshots/cordisx-manager-plugins-en-dark.png"
+                  alt="CordisX Manager plugins page inside Codex Desktop"
+                  data-i18n-alt="showcasePluginsAlt"
+                  data-showcase-src-en-light="./assets/screenshots/cordisx-manager-plugins-en-light.png"
+                  data-showcase-src-en-dark="./assets/screenshots/cordisx-manager-plugins-en-dark.png"
+                  data-showcase-src-zh-light="./assets/screenshots/cordisx-manager-plugins-zh-light.png"
+                  data-showcase-src-zh-dark="./assets/screenshots/cordisx-manager-plugins-zh-dark.png"
+                  data-showcase-title="Plugins"
+                  data-showcase-description="Installed CordisX plugins inside the real Codex Manager."
+                  data-i18n-showcase-title="showcasePluginsTitle"
+                  data-i18n-showcase-description="showcasePluginsDescription"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="showcase-slide"
+                  src="./assets/screenshots/cordisx-manager-extension-points-en-dark.png"
+                  alt="CordisX extension points inside Codex Desktop"
+                  data-i18n-alt="showcaseExtensionPointsAlt"
+                  data-showcase-src-en-light="./assets/screenshots/cordisx-manager-extension-points-en-light.png"
+                  data-showcase-src-en-dark="./assets/screenshots/cordisx-manager-extension-points-en-dark.png"
+                  data-showcase-src-zh-light="./assets/screenshots/cordisx-manager-extension-points-zh-light.png"
+                  data-showcase-src-zh-dark="./assets/screenshots/cordisx-manager-extension-points-zh-dark.png"
                   data-showcase-title="Extension points"
-                  data-showcase-description="The real semantic extension catalog exposed by the Codex Desktop Host."
-                  data-i18n-showcase-title="showcaseManagerTitle"
-                  data-i18n-showcase-description="showcaseManagerDescription"
+                  data-showcase-description="Every Host-owned surface available to plugins."
+                  data-i18n-showcase-title="showcaseExtensionPointsTitle"
+                  data-i18n-showcase-description="showcaseExtensionPointsDescription"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="showcase-slide"
+                  src="./assets/screenshots/cordisx-manager-routes-en-dark.png"
+                  alt="CordisX plugin routes inside Codex Desktop"
+                  data-i18n-alt="showcaseRoutesAlt"
+                  data-showcase-src-en-light="./assets/screenshots/cordisx-manager-routes-en-light.png"
+                  data-showcase-src-en-dark="./assets/screenshots/cordisx-manager-routes-en-dark.png"
+                  data-showcase-src-zh-light="./assets/screenshots/cordisx-manager-routes-zh-light.png"
+                  data-showcase-src-zh-dark="./assets/screenshots/cordisx-manager-routes-zh-dark.png"
+                  data-showcase-title="Routes"
+                  data-showcase-description="Plugin pages and navigation registered in the real Host."
+                  data-i18n-showcase-title="showcaseRoutesTitle"
+                  data-i18n-showcase-description="showcaseRoutesDescription"
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <img
+                  class="showcase-slide"
+                  src="./assets/screenshots/cordisx-manager-marketplace-en-dark.png"
+                  alt="CordisX Marketplace inside Codex Desktop"
+                  data-i18n-alt="showcaseMarketplaceAlt"
+                  data-showcase-src-en-light="./assets/screenshots/cordisx-manager-marketplace-en-light.png"
+                  data-showcase-src-en-dark="./assets/screenshots/cordisx-manager-marketplace-en-dark.png"
+                  data-showcase-src-zh-light="./assets/screenshots/cordisx-manager-marketplace-zh-light.png"
+                  data-showcase-src-zh-dark="./assets/screenshots/cordisx-manager-marketplace-zh-dark.png"
+                  data-showcase-title="Marketplace"
+                  data-showcase-description="The real local Marketplace view running inside CordisX Manager."
+                  data-i18n-showcase-title="showcaseMarketplaceTitle"
+                  data-i18n-showcase-description="showcaseMarketplaceDescription"
                   aria-hidden="true"
                   loading="lazy"
                   decoding="async"
@@ -297,17 +388,21 @@
 
               <div class="showcase-toolbar">
                 <p class="showcase-copy" aria-live="polite">
-                  <strong data-showcase-title data-i18n="showcaseWorkspaceTitle">CordisX Manager</strong>
-                  <span data-showcase-description data-i18n="showcaseWorkspaceDescription">The real Host-owned plugin manager running inside Codex Desktop.</span>
+                  <strong data-showcase-title data-i18n="showcaseMotionTitle">Real CordisX flow</strong>
+                  <span data-showcase-description data-i18n="showcaseMotionDescription">A scripted walkthrough of the real Codex Host with a visible cursor.</span>
                 </p>
 
                 <div class="showcase-controls">
                   <button class="showcase-arrow showcase-arrow-previous" type="button" aria-label="Previous product interface" data-i18n-aria-label="previousInterface" data-showcase-previous>
                     <span class="reicon-slot" data-reicon="ArrowRight" data-reicon-size="15" aria-hidden="true"></span>
                   </button>
-                  <div class="showcase-pagination" role="group" aria-label="Choose product interface">
-                    <button type="button" aria-label="Show CordisX Manager" aria-current="true" data-showcase-page="0"></button>
-                    <button type="button" aria-label="Show extension points" data-showcase-page="1"></button>
+                  <div class="showcase-pagination" role="group" aria-label="Choose a Codex Desktop interface" data-i18n-aria-label="showcaseChoices">
+                    <button type="button" aria-label="Show the real CordisX flow" data-i18n-aria-label="showMotion" aria-current="true" data-showcase-page="0"></button>
+                    <button type="button" aria-label="Show Codex workspace" data-i18n-aria-label="showWorkspace" data-showcase-page="1"></button>
+                    <button type="button" aria-label="Show plugins" data-i18n-aria-label="showPlugins" data-showcase-page="2"></button>
+                    <button type="button" aria-label="Show extension points" data-i18n-aria-label="showExtensionPoints" data-showcase-page="3"></button>
+                    <button type="button" aria-label="Show routes" data-i18n-aria-label="showRoutes" data-showcase-page="4"></button>
+                    <button type="button" aria-label="Show Marketplace" data-i18n-aria-label="showMarketplace" data-showcase-page="5"></button>
                   </div>
                   <button class="showcase-arrow" type="button" aria-label="Next product interface" data-i18n-aria-label="nextInterface" data-showcase-next>
                     <span class="reicon-slot" data-reicon="ArrowRight" data-reicon-size="15" aria-hidden="true"></span>

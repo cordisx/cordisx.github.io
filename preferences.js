@@ -21,8 +21,17 @@ const translations = {
     previewParty: 'Preview Party Popper?', permissionCopy: 'This illustrates a future capability prompt. These permissions are not enforced today.',
     replaceSend: 'Replace the send action', renderEffects: 'Render celebration effects', currentConversation: 'current conversation only',
     saveSettings: 'Save plugin settings', localProfile: 'local profile', cancel: 'Cancel', previewActivation: 'Preview activation',
-    actualProductUi: 'CORDISX / REAL CODEX DESKTOP', showcaseWorkspaceTitle: 'CordisX Manager', showcaseWorkspaceDescription: 'The real Host-owned plugin manager running inside Codex Desktop.',
-    showcaseManagerTitle: 'Extension points', showcaseManagerDescription: 'The real semantic extension catalog exposed by the Codex Desktop Host.',
+    actualProductUi: 'CORDISX / REAL CODEX DESKTOP', showcaseMotionTitle: 'Real CordisX flow', showcaseMotionDescription: 'A scripted walkthrough of the real Codex Host with a visible cursor.',
+    showcaseWorkspaceTitle: 'Codex workspace', showcaseWorkspaceDescription: 'A signed-in, isolated Codex Desktop workspace launched by CordisX.',
+    showcasePluginsTitle: 'Plugins', showcasePluginsDescription: 'Installed CordisX plugins inside the real Codex Manager.',
+    showcaseExtensionPointsTitle: 'Extension points', showcaseExtensionPointsDescription: 'Every Host-owned surface available to plugins.',
+    showcaseRoutesTitle: 'Routes', showcaseRoutesDescription: 'Plugin pages and navigation registered in the real Host.',
+    showcaseMarketplaceTitle: 'Marketplace', showcaseMarketplaceDescription: 'The real local Marketplace view running inside CordisX Manager.',
+    showcaseMotionAlt: 'A real CordisX workflow inside Codex Desktop', showcaseWorkspaceAlt: 'Signed-in Codex Desktop workspace launched by CordisX', showcasePluginsAlt: 'CordisX Manager plugins page inside Codex Desktop',
+    showcaseExtensionPointsAlt: 'CordisX extension points inside Codex Desktop', showcaseRoutesAlt: 'CordisX plugin routes inside Codex Desktop',
+    showcaseMarketplaceAlt: 'CordisX Marketplace inside Codex Desktop',
+    showcaseChoices: 'Choose a Codex Desktop interface', showMotion: 'Show the real CordisX flow', showWorkspace: 'Show Codex workspace', showPlugins: 'Show plugins',
+    showExtensionPoints: 'Show extension points', showRoutes: 'Show routes', showMarketplace: 'Show Marketplace',
     previousInterface: 'Previous product interface', nextInterface: 'Next product interface',
     footerIntro: 'An extensible layer for the AI coding workspace you already trust.', footerTitle: 'Unofficial, local, and opt-in.',
     footerDescription: 'CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.',
@@ -45,8 +54,17 @@ const translations = {
     previewParty: '预览礼花发送？', permissionCopy: '这里演示未来的能力授权提示；当前版本尚未强制执行这些权限。',
     replaceSend: '替换发送操作', renderEffects: '渲染庆祝效果', currentConversation: '仅限当前对话',
     saveSettings: '保存插件设置', localProfile: '本地配置', cancel: '取消', previewActivation: '预览启用效果',
-    actualProductUi: 'CORDISX / 真实 CODEX DESKTOP', showcaseWorkspaceTitle: 'CordisX 管理器', showcaseWorkspaceDescription: '在真实 Codex Desktop 中运行、由 Host 持有的插件管理界面。',
-    showcaseManagerTitle: '扩展点目录', showcaseManagerDescription: '由真实 Codex Desktop Host 暴露的语义扩展点目录。',
+    actualProductUi: 'CORDISX / 真实 CODEX DESKTOP', showcaseMotionTitle: '真实 CordisX 流程', showcaseMotionDescription: '带可见光标演示真实 Codex Host 中的 CordisX 操作流程。',
+    showcaseWorkspaceTitle: 'Codex 工作区', showcaseWorkspaceDescription: '由 CordisX 启动的已登录、隔离 Codex Desktop 工作区。',
+    showcasePluginsTitle: '插件', showcasePluginsDescription: '真实 CordisX 管理器中的已安装插件。',
+    showcaseExtensionPointsTitle: '扩展点', showcaseExtensionPointsDescription: '查看插件可使用的所有 Host 界面扩展点。',
+    showcaseRoutesTitle: '路由', showcaseRoutesDescription: '查看注册到真实 Host 的插件页面和导航。',
+    showcaseMarketplaceTitle: '插件市场', showcaseMarketplaceDescription: '运行在 CordisX 管理器中的真实本地插件市场。',
+    showcaseMotionAlt: 'Codex Desktop 中真实运行的 CordisX 操作流程', showcaseWorkspaceAlt: '由 CordisX 启动的已登录 Codex Desktop 工作区', showcasePluginsAlt: 'Codex Desktop 中的 CordisX 管理器插件页面',
+    showcaseExtensionPointsAlt: 'Codex Desktop 中的 CordisX 扩展点页面', showcaseRoutesAlt: 'Codex Desktop 中的 CordisX 插件路由页面',
+    showcaseMarketplaceAlt: 'Codex Desktop 中的 CordisX 插件市场页面',
+    showcaseChoices: '选择 Codex Desktop 界面', showMotion: '显示真实 CordisX 流程', showWorkspace: '显示 Codex 工作区', showPlugins: '显示插件',
+    showExtensionPoints: '显示扩展点', showRoutes: '显示路由', showMarketplace: '显示插件市场',
     previousInterface: '上一张产品界面', nextInterface: '下一张产品界面',
     footerIntro: '为你已经信任的 AI 编程工作区增加可扩展能力。', footerTitle: '非官方、本地运行、由你启用。',
     footerDescription: 'CordisX 将插件带入 Codex Desktop，同时保留你现有的工具、项目、对话和智能体工作流。',
@@ -81,6 +99,7 @@ function applyLocale() {
   document.documentElement.lang = locale
   document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = copy(element.dataset.i18n) })
   document.querySelectorAll('[data-i18n-aria-label]').forEach(element => { element.setAttribute('aria-label', copy(element.dataset.i18nAriaLabel)) })
+  document.querySelectorAll('[data-i18n-alt]').forEach(element => { element.setAttribute('alt', copy(element.dataset.i18nAlt)) })
   document.querySelectorAll('[data-i18n-value]').forEach(element => { element.value = copy(element.dataset.i18nValue) })
   document.querySelectorAll('[data-i18n-data-text]').forEach(element => { element.dataset.text = copy(element.dataset.i18nDataText) })
   document.querySelectorAll('[data-i18n-showcase-title]').forEach(element => { element.dataset.showcaseTitle = copy(element.dataset.i18nShowcaseTitle) })
@@ -88,14 +107,47 @@ function applyLocale() {
   localeToggle.querySelector('[data-locale-label]').textContent = copy('languageName')
   localeToggle.setAttribute('aria-label', copy('languageAction'))
   localeToggle.title = copy('languageAction')
+  applyShowcaseAssets()
 }
 
 function applyTheme() {
   document.documentElement.dataset.theme = theme
-  themeColor.content = theme === 'light' ? '#e7e7e4' : '#1b1c20'
+  themeColor.content = theme === 'light' ? '#e4e4e7' : '#1b1c20'
   themeToggle.querySelector('[data-theme-label]').textContent = followsSystemTheme ? copy('system') : copy(theme)
   themeToggle.setAttribute('aria-label', copy('themeAction'))
   themeToggle.title = copy('themeAction')
+  applyShowcaseAssets()
+}
+
+function applyShowcaseAssets() {
+  const language = locale === 'zh-CN' ? 'Zh' : 'En'
+  const appearance = theme === 'light' ? 'Light' : 'Dark'
+  const key = `showcaseSrc${language}${appearance}`
+  document.querySelectorAll('.showcase-slide').forEach(media => {
+    if (media instanceof HTMLVideoElement) {
+      const poster = media.dataset[`showcasePoster${language}${appearance}`]
+      const webm = media.dataset[`showcaseVideo${language}${appearance}Webm`]
+      const mp4 = media.dataset[`showcaseVideo${language}${appearance}Mp4`]
+      let changed = false
+      if (poster && media.getAttribute('poster') !== poster) media.setAttribute('poster', poster)
+      for (const [type, source] of [['video/webm', webm], ['video/mp4', mp4]]) {
+        const element = media.querySelector(`source[type="${type}"]`)
+        if (element && source && element.getAttribute('src') !== source) {
+          element.setAttribute('src', source)
+          changed = true
+        }
+      }
+      if (changed) {
+        media.load()
+        if (media.classList.contains('is-active') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          void media.play().catch(() => {})
+        }
+      }
+      return
+    }
+    const source = media.dataset[key]
+    if (source && media.getAttribute('src') !== source) media.setAttribute('src', source)
+  })
 }
 
 localeToggle.addEventListener('click', () => {
