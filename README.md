@@ -50,13 +50,23 @@ confetti effect, then the recording opens CordisX settings and the generated
 plugin's detail page. It does not use a recreated Codex shell, authored Agent
 replies, or caption cards for any of those steps.
 
-[![Real CordisX AI-first plugin demo](assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png)](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/motion/cordisx-ai-plugin-demo-zh-dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="assets/motion/cordisx-ai-plugin-demo-zh-light.gif">
+  <img alt="Real CordisX AI-first plugin demo" src="assets/motion/cordisx-ai-plugin-demo-zh-light.gif" width="900">
+</picture>
 
-[MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
+Dark: [MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
 [WebM](assets/motion/cordisx-ai-plugin-demo-zh-dark.webm) ·
-[inline GIF](assets/motion/cordisx-ai-plugin-demo-zh-dark.gif) ·
-[capture evidence](assets/motion/cordisx-ai-plugin-demo-zh-dark.json) ·
-[captured plugin source](assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx)
+[GIF](assets/motion/cordisx-ai-plugin-demo-zh-dark.gif) ·
+[evidence](assets/motion/cordisx-ai-plugin-demo-zh-dark.json) ·
+[source](assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx)
+
+Light: [MP4](assets/motion/cordisx-ai-plugin-demo-zh-light.mp4) ·
+[WebM](assets/motion/cordisx-ai-plugin-demo-zh-light.webm) ·
+[GIF](assets/motion/cordisx-ai-plugin-demo-zh-light.gif) ·
+[evidence](assets/motion/cordisx-ai-plugin-demo-zh-light.json) ·
+[source](assets/motion/cordisx-ai-plugin-demo-zh-light.plugin.tsx)
 
 Prepare and exercise the workspace plus H.264/VP9 encoders without reading
 authentication or launching Codex:

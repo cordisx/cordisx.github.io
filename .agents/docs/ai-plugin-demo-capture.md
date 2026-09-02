@@ -113,11 +113,17 @@ homepage media.
 ```sh
 npm run capture:ai-plugin-demo -- \
   --cordisx-root /absolute/verified/cordisx \
-  --auth /absolute/isolated-source/auth.json
+  --auth /absolute/isolated-source/auth.json \
+  --theme dark
 ```
 
-The recorder writes these files atomically only after the effect is observed
-and verification passes:
+Run the same command with `--theme light` to create the matching light-theme
+asset set. Theme selection is written into Codex configuration before launch,
+then asserted again in the renderer before any publishable frame is captured.
+
+For each selected theme, the recorder writes the corresponding `zh-dark` or
+`zh-light` files atomically only after the effect is observed and verification
+passes:
 
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4`;
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.webm`;
@@ -125,6 +131,10 @@ and verification passes:
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.json`;
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx`; and
 - `assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png`.
+
+The light capture uses the same six filenames with `zh-light` in place of
+`zh-dark`. README consumers should use `<picture>` with the two GIFs and keep
+the MP4 files as the high-resolution targets.
 
 The verifier requires 1600×1000 H.264/VP9 `yuv420p`, a 900-pixel-wide 10 fps
 GIF, an MP4 `moov` atom before `mdat`, matching durations, an exact prompt, creator/scaffold evidence, a

@@ -42,12 +42,13 @@ function option(name, fallback) {
 const dryRun = process.argv.includes('--dry-run')
 const launchSmoke = process.argv.includes('--launch-smoke')
 const keepTemporaryFiles = process.argv.includes('--keep-temp')
+const captureTheme = option('--theme', aiPluginDemoScene.theme)
 const cordisxRoot = path.resolve(option('--cordisx-root', defaultCordisXRoot))
 const appBundle = path.resolve(option('--app', '/Applications/ChatGPT.app'))
 const authFile = path.resolve(option('--auth', path.join(process.env.CODEX_HOME ?? path.join(os.homedir(), '.codex'), 'auth.json')))
 const outputDirectory = path.resolve(option('--output-dir', path.join(projectRoot, 'assets', 'motion')))
 const posterDirectory = path.resolve(option('--poster-dir', path.join(projectRoot, 'assets', 'screenshots')))
-const outputBasename = option('--output-basename', 'cordisx-ai-plugin-demo-zh-dark')
+const outputBasename = option('--output-basename', `cordisx-ai-plugin-demo-zh-${captureTheme}`)
 const effectSelector = option('--effect-selector', aiPluginDemoScene.selectors.effect)
 const maximumAgentSeconds = Number(option('--max-agent-seconds', String(
   aiPluginDemoScene.timeline.find(item => item.type === 'wait-real-agent-and-generation')?.maximumSourceSeconds ?? 420,
@@ -58,7 +59,7 @@ if (process.argv.includes('--help')) {
   [--cordisx-root /absolute/cordisx] [--app /Applications/ChatGPT.app]
   [--auth /absolute/auth.json] [--output-dir /absolute/motion]
   [--poster-dir /absolute/screenshots] [--output-basename name]
-  [--effect-selector selector] [--max-agent-seconds 420]
+  [--theme dark|light] [--effect-selector selector] [--max-agent-seconds 420]
 
 --dry-run creates and checks the isolated workspace and exercises both encoders.
 It does not read authentication, launch Codex Desktop, send a prompt, or emit a
@@ -71,6 +72,7 @@ temporary codec sample. It does not send the prompt or claim the effect.`)
 }
 
 if (dryRun && launchSmoke) throw new Error('--dry-run and --launch-smoke are mutually exclusive')
+if (!['dark', 'light'].includes(captureTheme)) throw new Error('--theme must be dark or light')
 if (!Number.isFinite(maximumAgentSeconds) || maximumAgentSeconds < 30 || maximumAgentSeconds > 1_800) {
   throw new Error('--max-agent-seconds must be between 30 and 1800')
 }
@@ -80,6 +82,8 @@ if (!/^[a-z0-9][a-z0-9._-]{0,127}$/u.test(outputBasename)) {
 
 const scene = {
   ...aiPluginDemoScene,
+  id: aiPluginDemoScene.id.replace(`.${aiPluginDemoScene.theme}.`, `.${captureTheme}.`),
+  theme: captureTheme,
   selectors: { ...aiPluginDemoScene.selectors, effect: effectSelector },
 }
 const cliEntry = path.join(cordisxRoot, 'packages', 'cli', 'dist', 'src', 'cli.js')
@@ -361,6 +365,7 @@ sandbox_mode = "workspace-write"
 appearanceTheme = "${scene.theme}"
 localeOverride = "${scene.locale}"
 appearanceDarkChromeTheme = { accent = "#339cff", contrast = 60, fonts = { code = "", ui = "" }, ink = "#ffffff", opaqueWindows = true, semanticColors = { diffAdded = "#40c977", diffRemoved = "#fa423e", skill = "#ad7bf9" }, surface = "#181818" }
+appearanceLightChromeTheme = { accent = "#339cff", contrast = 45, fonts = { code = "", ui = "" }, ink = "#1a1c1f", opaqueWindows = true, semanticColors = { diffAdded = "#00a240", diffRemoved = "#ba2623", skill = "#924ff7" }, surface = "#ffffff" }
 `, { mode: 0o600 })
   const sourceRuntimeCache = path.join(os.homedir(), '.cache', 'codex-runtimes')
   const destinationCache = path.join(homeRoot, '.cache')
@@ -463,7 +468,9 @@ async function finishOnboarding(send) {
 }
 
 async function setCapturePresentation(send) {
-  await send('Emulation.setDefaultBackgroundColorOverride', { color: { r: 24, g: 24, b: 24, a: 1 } })
+  await send('Emulation.setDefaultBackgroundColorOverride', {
+    color: scene.theme === 'dark' ? { r: 24, g: 24, b: 24, a: 1 } : { r: 255, g: 255, b: 255, a: 1 },
+  })
   await send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: scene.theme }] })
   await send('Emulation.setLocaleOverride', { locale: scene.locale })
   await send('Emulation.setDeviceMetricsOverride', {
@@ -476,12 +483,12 @@ async function setCapturePresentation(send) {
     document.documentElement.lang = 'zh-CN'
     for (const element of [document.documentElement, document.body]) {
       if (!(element instanceof HTMLElement)) continue
-      element.dataset.theme = 'dark'
-      element.dataset.colorTheme = 'dark'
-      element.dataset.colorScheme = 'dark'
-      element.style.colorScheme = 'dark'
-      element.classList.remove('light', 'electron-light')
-      element.classList.add('dark', 'electron-dark')
+      element.dataset.theme = ${JSON.stringify(scene.theme)}
+      element.dataset.colorTheme = ${JSON.stringify(scene.theme)}
+      element.dataset.colorScheme = ${JSON.stringify(scene.theme)}
+      element.style.colorScheme = ${JSON.stringify(scene.theme)}
+      element.classList.remove('light', 'electron-light', 'dark', 'electron-dark')
+      element.classList.add(${JSON.stringify(scene.theme)}, ${JSON.stringify(`electron-${scene.theme}`)})
     }
     for (const button of document.querySelectorAll('button')) {
       const label = button.getAttribute('aria-label') ?? ''

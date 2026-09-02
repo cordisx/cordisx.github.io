@@ -154,6 +154,7 @@ if (playbackProbe.sourceFrameCount !== 9
 }
 for (const truthMarker of [
   "rendererUrl: 'app://-/index.html'",
+  "option('--theme', aiPluginDemoScene.theme)",
   "execFileSync(process.execPath, [creatorEntry, 'send-confetti']",
   'generationChanged: replacement.replacementGeneration !== baselineGeneration',
   'finalSubmitClicked: true',
@@ -171,8 +172,12 @@ if (!aiPluginWorkflow.includes('Do not replace the Codex shell') || !aiPluginWor
   throw new Error('AI plugin capture workflow is missing its truth or privacy boundary')
 }
 await access(new URL('../scripts/fixtures/ai-plugin-demo/AGENTS.md', import.meta.url))
-await access(new URL('../assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx', import.meta.url))
-await access(new URL('../assets/motion/cordisx-ai-plugin-demo-zh-dark.gif', import.meta.url))
+for (const theme of ['dark', 'light']) {
+  for (const extension of ['gif', 'json', 'mp4', 'plugin.tsx', 'webm']) {
+    await access(new URL(`../assets/motion/cordisx-ai-plugin-demo-zh-${theme}.${extension}`, import.meta.url))
+  }
+  await access(new URL(`../assets/screenshots/cordisx-ai-plugin-demo-zh-${theme}.png`, import.meta.url))
+}
 
 for (const icon of [
   'Activity',
