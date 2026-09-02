@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "scene": "cordisx-ai-plugin-demo.zh-CN.dark.v3",
+  "scene": "cordisx-ai-plugin-demo.zh-CN.dark.v4",
   "realRenderer": true,
   "rendererUrl": "app://-/index.html",
   "prompt": "我要发送按钮在点击的时候全屏放礼花。",
@@ -8,16 +8,17 @@
   "finalSubmitClicked": true,
   "effectObserved": true,
   "effect": {
-    "observedAt": "2026-09-02T06:15:54.655Z",
+    "observedAt": "2026-09-02T09:06:11.576Z",
     "selector": "[data-cordisx-effect=\"confetti\"]",
     "cleanupObserved": true,
-    "cleanedAt": "2026-09-02T06:15:58.873Z"
+    "cleanedAt": "2026-09-02T09:06:16.042Z"
   },
   "settings": {
-    "openedAt": "2026-09-02T06:16:04.186Z",
+    "openedAt": "2026-09-02T09:06:21.273Z",
     "pluginId": "send-confetti",
     "localDevelopment": true,
-    "simplifiedChineseReadme": true,
+    "localizedReadme": true,
+    "readmeLocale": "zh-CN",
     "listSelector": "[data-plugin-id=\"send-confetti\"]",
     "detailSelector": "[data-plugin-detail=\"send-confetti\"]"
   },
@@ -33,31 +34,36 @@
     "id": "send-confetti",
     "sourceChanged": true,
     "sourceMtimeChanged": true,
-    "sourceSha256": "sha256:a139fefd6a6911b123f5204c7eab1b1ed13d0c7df473a71e573a6e9445c27604",
+    "sourceSha256": "sha256:feaf6941864a21153e0e9fa99e208a199cf3246c340edb5eaa22097a7025abea",
     "baselineGeneration": "send-confetti-local-dev-2-8ebb3cdb231f",
-    "replacementGeneration": "send-confetti-local-dev-8-1d8273a406d6",
+    "replacementGeneration": "send-confetti-local-dev-7-b361b3bbaa59",
     "generationChanged": true
   },
   "checkpoints": {
-    "host": "502a07490e2b51a02137a27d4976dd94cde901c1",
+    "host": "56612408807a78b83b455792c425034e694db08c",
     "protocol": "34d2113984882d5c0fa4f0803fb929c8da605eee"
   },
   "capture": {
-    "launchStartedAt": "2026-09-02T06:09:29.166Z",
-    "finishedAt": "2026-09-02T06:16:16.218Z",
-    "sourceDurationSeconds": 309.668,
-    "encodedDurationSeconds": 24.167,
-    "frameCount": 290,
+    "launchStartedAt": "2026-09-02T09:01:12.550Z",
+    "finishedAt": "2026-09-02T09:06:27.866Z",
+    "sourceDurationSeconds": 206.058,
+    "encodedDurationSeconds": 21.167,
+    "frameCount": 254,
+    "sourceFrameCount": 521,
     "frameRate": 12,
     "width": 1600,
     "height": 1000,
     "theme": "dark",
+    "language": "zh",
     "locale": "zh-CN",
+    "acceleratedSegments": {
+      "codex-builds-and-cordisx-loads": 5
+    },
     "timeline": [
       {
         "frame": 0,
         "segment": "opening",
-        "sourceElapsedMs": 44,
+        "sourceElapsedMs": 54,
         "sourceFrame": 0,
         "playbackRate": 1,
         "encodedElapsedMs": 0
@@ -65,7 +71,7 @@
       {
         "frame": 1,
         "segment": "opening",
-        "sourceElapsedMs": 122,
+        "sourceElapsedMs": 108,
         "sourceFrame": 1,
         "playbackRate": 1,
         "encodedElapsedMs": 83
@@ -73,7 +79,7 @@
       {
         "frame": 2,
         "segment": "opening",
-        "sourceElapsedMs": 191,
+        "sourceElapsedMs": 219,
         "sourceFrame": 2,
         "playbackRate": 1,
         "encodedElapsedMs": 167
@@ -81,7 +87,7 @@
       {
         "frame": 3,
         "segment": "opening",
-        "sourceElapsedMs": 296,
+        "sourceElapsedMs": 276,
         "sourceFrame": 3,
         "playbackRate": 1,
         "encodedElapsedMs": 250
@@ -89,7 +95,7 @@
       {
         "frame": 4,
         "segment": "opening",
-        "sourceElapsedMs": 368,
+        "sourceElapsedMs": 362,
         "sourceFrame": 4,
         "playbackRate": 1,
         "encodedElapsedMs": 333
@@ -97,7 +103,7 @@
       {
         "frame": 5,
         "segment": "opening",
-        "sourceElapsedMs": 450,
+        "sourceElapsedMs": 454,
         "sourceFrame": 5,
         "playbackRate": 1,
         "encodedElapsedMs": 417
@@ -105,7 +111,7 @@
       {
         "frame": 6,
         "segment": "opening",
-        "sourceElapsedMs": 549,
+        "sourceElapsedMs": 541,
         "sourceFrame": 6,
         "playbackRate": 1,
         "encodedElapsedMs": 500
@@ -113,7 +119,7 @@
       {
         "frame": 7,
         "segment": "opening",
-        "sourceElapsedMs": 617,
+        "sourceElapsedMs": 626,
         "sourceFrame": 7,
         "playbackRate": 1,
         "encodedElapsedMs": 583
@@ -121,7 +127,7 @@
       {
         "frame": 8,
         "segment": "opening",
-        "sourceElapsedMs": 701,
+        "sourceElapsedMs": 706,
         "sourceFrame": 8,
         "playbackRate": 1,
         "encodedElapsedMs": 667
@@ -129,7 +135,7 @@
       {
         "frame": 9,
         "segment": "opening",
-        "sourceElapsedMs": 790,
+        "sourceElapsedMs": 793,
         "sourceFrame": 9,
         "playbackRate": 1,
         "encodedElapsedMs": 750
@@ -137,7 +143,7 @@
       {
         "frame": 10,
         "segment": "opening",
-        "sourceElapsedMs": 882,
+        "sourceElapsedMs": 878,
         "sourceFrame": 10,
         "playbackRate": 1,
         "encodedElapsedMs": 833
@@ -145,7 +151,7 @@
       {
         "frame": 11,
         "segment": "opening",
-        "sourceElapsedMs": 951,
+        "sourceElapsedMs": 950,
         "sourceFrame": 11,
         "playbackRate": 1,
         "encodedElapsedMs": 917
@@ -153,7 +159,7 @@
       {
         "frame": 12,
         "segment": "baseline-generation",
-        "sourceElapsedMs": 1050,
+        "sourceElapsedMs": 1044,
         "sourceFrame": 12,
         "playbackRate": 1,
         "encodedElapsedMs": 1000
@@ -161,7 +167,7 @@
       {
         "frame": 13,
         "segment": "baseline-generation",
-        "sourceElapsedMs": 1346,
+        "sourceElapsedMs": 1334,
         "sourceFrame": 13,
         "playbackRate": 1,
         "encodedElapsedMs": 1083
@@ -169,7 +175,7 @@
       {
         "frame": 14,
         "segment": "baseline-generation",
-        "sourceElapsedMs": 1625,
+        "sourceElapsedMs": 1627,
         "sourceFrame": 14,
         "playbackRate": 1,
         "encodedElapsedMs": 1167
@@ -177,7 +183,7 @@
       {
         "frame": 15,
         "segment": "user-request:focus:approach",
-        "sourceElapsedMs": 1918,
+        "sourceElapsedMs": 1922,
         "sourceFrame": 15,
         "playbackRate": 1,
         "encodedElapsedMs": 1250
@@ -185,7 +191,7 @@
       {
         "frame": 16,
         "segment": "user-request:focus:approach",
-        "sourceElapsedMs": 1994,
+        "sourceElapsedMs": 2007,
         "sourceFrame": 16,
         "playbackRate": 1,
         "encodedElapsedMs": 1333
@@ -193,7 +199,7 @@
       {
         "frame": 17,
         "segment": "user-request:focus:pressed",
-        "sourceElapsedMs": 2084,
+        "sourceElapsedMs": 2091,
         "sourceFrame": 17,
         "playbackRate": 1,
         "encodedElapsedMs": 1417
@@ -201,7 +207,7 @@
       {
         "frame": 18,
         "segment": "user-request:focus:pressed",
-        "sourceElapsedMs": 2169,
+        "sourceElapsedMs": 2171,
         "sourceFrame": 18,
         "playbackRate": 1,
         "encodedElapsedMs": 1500
@@ -209,7 +215,7 @@
       {
         "frame": 19,
         "segment": "user-request:focus:released",
-        "sourceElapsedMs": 2264,
+        "sourceElapsedMs": 2279,
         "sourceFrame": 19,
         "playbackRate": 1,
         "encodedElapsedMs": 1583
@@ -217,7 +223,7 @@
       {
         "frame": 20,
         "segment": "user-request:focus:released",
-        "sourceElapsedMs": 2348,
+        "sourceElapsedMs": 2365,
         "sourceFrame": 20,
         "playbackRate": 1,
         "encodedElapsedMs": 1667
@@ -225,7 +231,7 @@
       {
         "frame": 21,
         "segment": "user-request",
-        "sourceElapsedMs": 2469,
+        "sourceElapsedMs": 2496,
         "sourceFrame": 21,
         "playbackRate": 1,
         "encodedElapsedMs": 1750
@@ -233,7 +239,7 @@
       {
         "frame": 22,
         "segment": "user-request",
-        "sourceElapsedMs": 2561,
+        "sourceElapsedMs": 2576,
         "sourceFrame": 22,
         "playbackRate": 1,
         "encodedElapsedMs": 1833
@@ -241,7 +247,7 @@
       {
         "frame": 23,
         "segment": "user-request",
-        "sourceElapsedMs": 2650,
+        "sourceElapsedMs": 2669,
         "sourceFrame": 23,
         "playbackRate": 1,
         "encodedElapsedMs": 1917
@@ -249,7 +255,7 @@
       {
         "frame": 24,
         "segment": "user-request",
-        "sourceElapsedMs": 2741,
+        "sourceElapsedMs": 2768,
         "sourceFrame": 24,
         "playbackRate": 1,
         "encodedElapsedMs": 2000
@@ -257,7 +263,7 @@
       {
         "frame": 25,
         "segment": "user-request",
-        "sourceElapsedMs": 2826,
+        "sourceElapsedMs": 2842,
         "sourceFrame": 25,
         "playbackRate": 1,
         "encodedElapsedMs": 2083
@@ -265,7 +271,7 @@
       {
         "frame": 26,
         "segment": "user-request",
-        "sourceElapsedMs": 2914,
+        "sourceElapsedMs": 2940,
         "sourceFrame": 26,
         "playbackRate": 1,
         "encodedElapsedMs": 2167
@@ -273,7 +279,7 @@
       {
         "frame": 27,
         "segment": "user-request",
-        "sourceElapsedMs": 3001,
+        "sourceElapsedMs": 3044,
         "sourceFrame": 27,
         "playbackRate": 1,
         "encodedElapsedMs": 2250
@@ -281,7 +287,7 @@
       {
         "frame": 28,
         "segment": "user-request",
-        "sourceElapsedMs": 3100,
+        "sourceElapsedMs": 3125,
         "sourceFrame": 28,
         "playbackRate": 1,
         "encodedElapsedMs": 2333
@@ -289,7 +295,7 @@
       {
         "frame": 29,
         "segment": "user-request",
-        "sourceElapsedMs": 3189,
+        "sourceElapsedMs": 3224,
         "sourceFrame": 29,
         "playbackRate": 1,
         "encodedElapsedMs": 2417
@@ -297,7 +303,7 @@
       {
         "frame": 30,
         "segment": "user-request",
-        "sourceElapsedMs": 3275,
+        "sourceElapsedMs": 3301,
         "sourceFrame": 30,
         "playbackRate": 1,
         "encodedElapsedMs": 2500
@@ -305,7 +311,7 @@
       {
         "frame": 31,
         "segment": "user-request",
-        "sourceElapsedMs": 3368,
+        "sourceElapsedMs": 3393,
         "sourceFrame": 31,
         "playbackRate": 1,
         "encodedElapsedMs": 2583
@@ -313,7 +319,7 @@
       {
         "frame": 32,
         "segment": "user-request",
-        "sourceElapsedMs": 3459,
+        "sourceElapsedMs": 3486,
         "sourceFrame": 32,
         "playbackRate": 1,
         "encodedElapsedMs": 2667
@@ -321,7 +327,7 @@
       {
         "frame": 33,
         "segment": "user-request",
-        "sourceElapsedMs": 3550,
+        "sourceElapsedMs": 3569,
         "sourceFrame": 33,
         "playbackRate": 1,
         "encodedElapsedMs": 2750
@@ -329,7 +335,7 @@
       {
         "frame": 34,
         "segment": "user-request",
-        "sourceElapsedMs": 3637,
+        "sourceElapsedMs": 3664,
         "sourceFrame": 34,
         "playbackRate": 1,
         "encodedElapsedMs": 2833
@@ -337,7 +343,7 @@
       {
         "frame": 35,
         "segment": "user-request",
-        "sourceElapsedMs": 3723,
+        "sourceElapsedMs": 3745,
         "sourceFrame": 35,
         "playbackRate": 1,
         "encodedElapsedMs": 2917
@@ -345,7 +351,7 @@
       {
         "frame": 36,
         "segment": "user-request",
-        "sourceElapsedMs": 3810,
+        "sourceElapsedMs": 3845,
         "sourceFrame": 36,
         "playbackRate": 1,
         "encodedElapsedMs": 3000
@@ -353,7 +359,7 @@
       {
         "frame": 37,
         "segment": "user-request",
-        "sourceElapsedMs": 3901,
+        "sourceElapsedMs": 3928,
         "sourceFrame": 37,
         "playbackRate": 1,
         "encodedElapsedMs": 3083
@@ -361,7 +367,7 @@
       {
         "frame": 38,
         "segment": "user-request",
-        "sourceElapsedMs": 3990,
+        "sourceElapsedMs": 4017,
         "sourceFrame": 38,
         "playbackRate": 1,
         "encodedElapsedMs": 3167
@@ -369,7 +375,7 @@
       {
         "frame": 39,
         "segment": "submit-request:approach",
-        "sourceElapsedMs": 4086,
+        "sourceElapsedMs": 4104,
         "sourceFrame": 39,
         "playbackRate": 1,
         "encodedElapsedMs": 3250
@@ -377,7 +383,7 @@
       {
         "frame": 40,
         "segment": "submit-request:approach",
-        "sourceElapsedMs": 4173,
+        "sourceElapsedMs": 4191,
         "sourceFrame": 40,
         "playbackRate": 1,
         "encodedElapsedMs": 3333
@@ -385,7 +391,7 @@
       {
         "frame": 41,
         "segment": "submit-request:pressed",
-        "sourceElapsedMs": 4266,
+        "sourceElapsedMs": 4285,
         "sourceFrame": 41,
         "playbackRate": 1,
         "encodedElapsedMs": 3417
@@ -393,7 +399,7 @@
       {
         "frame": 42,
         "segment": "submit-request:pressed",
-        "sourceElapsedMs": 4348,
+        "sourceElapsedMs": 4366,
         "sourceFrame": 42,
         "playbackRate": 1,
         "encodedElapsedMs": 3500
@@ -401,7 +407,7 @@
       {
         "frame": 43,
         "segment": "submit-request:released",
-        "sourceElapsedMs": 4542,
+        "sourceElapsedMs": 4561,
         "sourceFrame": 43,
         "playbackRate": 1,
         "encodedElapsedMs": 3583
@@ -409,7 +415,7 @@
       {
         "frame": 44,
         "segment": "submit-request:released",
-        "sourceElapsedMs": 4601,
+        "sourceElapsedMs": 4616,
         "sourceFrame": 44,
         "playbackRate": 1,
         "encodedElapsedMs": 3667
@@ -417,7 +423,7 @@
       {
         "frame": 45,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 4789,
+        "sourceElapsedMs": 4761,
         "sourceFrame": 45,
         "playbackRate": 5,
         "encodedElapsedMs": 3750
@@ -425,7 +431,7 @@
       {
         "frame": 46,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 7680,
+        "sourceElapsedMs": 7507,
         "sourceFrame": 50,
         "playbackRate": 5,
         "encodedElapsedMs": 3833
@@ -433,7 +439,7 @@
       {
         "frame": 47,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 10417,
+        "sourceElapsedMs": 10220,
         "sourceFrame": 55,
         "playbackRate": 5,
         "encodedElapsedMs": 3917
@@ -441,7 +447,7 @@
       {
         "frame": 48,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 13152,
+        "sourceElapsedMs": 12940,
         "sourceFrame": 60,
         "playbackRate": 5,
         "encodedElapsedMs": 4000
@@ -449,7 +455,7 @@
       {
         "frame": 49,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 15891,
+        "sourceElapsedMs": 15630,
         "sourceFrame": 65,
         "playbackRate": 5,
         "encodedElapsedMs": 4083
@@ -457,7 +463,7 @@
       {
         "frame": 50,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 18620,
+        "sourceElapsedMs": 18358,
         "sourceFrame": 70,
         "playbackRate": 5,
         "encodedElapsedMs": 4167
@@ -465,7 +471,7 @@
       {
         "frame": 51,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 21361,
+        "sourceElapsedMs": 21083,
         "sourceFrame": 75,
         "playbackRate": 5,
         "encodedElapsedMs": 4250
@@ -473,7 +479,7 @@
       {
         "frame": 52,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 24095,
+        "sourceElapsedMs": 23801,
         "sourceFrame": 80,
         "playbackRate": 5,
         "encodedElapsedMs": 4333
@@ -481,7 +487,7 @@
       {
         "frame": 53,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 26824,
+        "sourceElapsedMs": 26516,
         "sourceFrame": 85,
         "playbackRate": 5,
         "encodedElapsedMs": 4417
@@ -489,7 +495,7 @@
       {
         "frame": 54,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 29552,
+        "sourceElapsedMs": 29233,
         "sourceFrame": 90,
         "playbackRate": 5,
         "encodedElapsedMs": 4500
@@ -497,7 +503,7 @@
       {
         "frame": 55,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 32268,
+        "sourceElapsedMs": 31954,
         "sourceFrame": 95,
         "playbackRate": 5,
         "encodedElapsedMs": 4583
@@ -505,7 +511,7 @@
       {
         "frame": 56,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 34996,
+        "sourceElapsedMs": 34686,
         "sourceFrame": 100,
         "playbackRate": 5,
         "encodedElapsedMs": 4667
@@ -513,7 +519,7 @@
       {
         "frame": 57,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 37718,
+        "sourceElapsedMs": 37391,
         "sourceFrame": 105,
         "playbackRate": 5,
         "encodedElapsedMs": 4750
@@ -521,7 +527,7 @@
       {
         "frame": 58,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 40450,
+        "sourceElapsedMs": 40122,
         "sourceFrame": 110,
         "playbackRate": 5,
         "encodedElapsedMs": 4833
@@ -529,7 +535,7 @@
       {
         "frame": 59,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 43189,
+        "sourceElapsedMs": 42852,
         "sourceFrame": 115,
         "playbackRate": 5,
         "encodedElapsedMs": 4917
@@ -537,7 +543,7 @@
       {
         "frame": 60,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 45929,
+        "sourceElapsedMs": 45566,
         "sourceFrame": 120,
         "playbackRate": 5,
         "encodedElapsedMs": 5000
@@ -545,7 +551,7 @@
       {
         "frame": 61,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 48662,
+        "sourceElapsedMs": 48309,
         "sourceFrame": 125,
         "playbackRate": 5,
         "encodedElapsedMs": 5083
@@ -553,7 +559,7 @@
       {
         "frame": 62,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 51398,
+        "sourceElapsedMs": 51041,
         "sourceFrame": 130,
         "playbackRate": 5,
         "encodedElapsedMs": 5167
@@ -561,7 +567,7 @@
       {
         "frame": 63,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 54165,
+        "sourceElapsedMs": 53769,
         "sourceFrame": 135,
         "playbackRate": 5,
         "encodedElapsedMs": 5250
@@ -569,7 +575,7 @@
       {
         "frame": 64,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 56937,
+        "sourceElapsedMs": 56495,
         "sourceFrame": 140,
         "playbackRate": 5,
         "encodedElapsedMs": 5333
@@ -577,7 +583,7 @@
       {
         "frame": 65,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 59705,
+        "sourceElapsedMs": 59224,
         "sourceFrame": 145,
         "playbackRate": 5,
         "encodedElapsedMs": 5417
@@ -585,7 +591,7 @@
       {
         "frame": 66,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 62452,
+        "sourceElapsedMs": 61943,
         "sourceFrame": 150,
         "playbackRate": 5,
         "encodedElapsedMs": 5500
@@ -593,7 +599,7 @@
       {
         "frame": 67,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 65206,
+        "sourceElapsedMs": 64668,
         "sourceFrame": 155,
         "playbackRate": 5,
         "encodedElapsedMs": 5583
@@ -601,7 +607,7 @@
       {
         "frame": 68,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 67945,
+        "sourceElapsedMs": 67367,
         "sourceFrame": 160,
         "playbackRate": 5,
         "encodedElapsedMs": 5667
@@ -609,7 +615,7 @@
       {
         "frame": 69,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 70669,
+        "sourceElapsedMs": 70088,
         "sourceFrame": 165,
         "playbackRate": 5,
         "encodedElapsedMs": 5750
@@ -617,7 +623,7 @@
       {
         "frame": 70,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 73408,
+        "sourceElapsedMs": 72813,
         "sourceFrame": 170,
         "playbackRate": 5,
         "encodedElapsedMs": 5833
@@ -625,7 +631,7 @@
       {
         "frame": 71,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 76152,
+        "sourceElapsedMs": 75533,
         "sourceFrame": 175,
         "playbackRate": 5,
         "encodedElapsedMs": 5917
@@ -633,7 +639,7 @@
       {
         "frame": 72,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 78886,
+        "sourceElapsedMs": 78243,
         "sourceFrame": 180,
         "playbackRate": 5,
         "encodedElapsedMs": 6000
@@ -641,7 +647,7 @@
       {
         "frame": 73,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 81625,
+        "sourceElapsedMs": 80954,
         "sourceFrame": 185,
         "playbackRate": 5,
         "encodedElapsedMs": 6083
@@ -649,7 +655,7 @@
       {
         "frame": 74,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 84359,
+        "sourceElapsedMs": 83679,
         "sourceFrame": 190,
         "playbackRate": 5,
         "encodedElapsedMs": 6167
@@ -657,7 +663,7 @@
       {
         "frame": 75,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 87102,
+        "sourceElapsedMs": 86392,
         "sourceFrame": 195,
         "playbackRate": 5,
         "encodedElapsedMs": 6250
@@ -665,7 +671,7 @@
       {
         "frame": 76,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 89827,
+        "sourceElapsedMs": 89116,
         "sourceFrame": 200,
         "playbackRate": 5,
         "encodedElapsedMs": 6333
@@ -673,7 +679,7 @@
       {
         "frame": 77,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 92568,
+        "sourceElapsedMs": 91833,
         "sourceFrame": 205,
         "playbackRate": 5,
         "encodedElapsedMs": 6417
@@ -681,7 +687,7 @@
       {
         "frame": 78,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 95302,
+        "sourceElapsedMs": 94580,
         "sourceFrame": 210,
         "playbackRate": 5,
         "encodedElapsedMs": 6500
@@ -689,7 +695,7 @@
       {
         "frame": 79,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 98027,
+        "sourceElapsedMs": 97290,
         "sourceFrame": 215,
         "playbackRate": 5,
         "encodedElapsedMs": 6583
@@ -697,7 +703,7 @@
       {
         "frame": 80,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 100787,
+        "sourceElapsedMs": 100011,
         "sourceFrame": 220,
         "playbackRate": 5,
         "encodedElapsedMs": 6667
@@ -705,7 +711,7 @@
       {
         "frame": 81,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 103519,
+        "sourceElapsedMs": 102704,
         "sourceFrame": 225,
         "playbackRate": 5,
         "encodedElapsedMs": 6750
@@ -713,7 +719,7 @@
       {
         "frame": 82,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 106277,
+        "sourceElapsedMs": 105435,
         "sourceFrame": 230,
         "playbackRate": 5,
         "encodedElapsedMs": 6833
@@ -721,7 +727,7 @@
       {
         "frame": 83,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 109006,
+        "sourceElapsedMs": 108139,
         "sourceFrame": 235,
         "playbackRate": 5,
         "encodedElapsedMs": 6917
@@ -729,7 +735,7 @@
       {
         "frame": 84,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 111718,
+        "sourceElapsedMs": 110860,
         "sourceFrame": 240,
         "playbackRate": 5,
         "encodedElapsedMs": 7000
@@ -737,7 +743,7 @@
       {
         "frame": 85,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 114453,
+        "sourceElapsedMs": 113573,
         "sourceFrame": 245,
         "playbackRate": 5,
         "encodedElapsedMs": 7083
@@ -745,7 +751,7 @@
       {
         "frame": 86,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 117183,
+        "sourceElapsedMs": 116329,
         "sourceFrame": 250,
         "playbackRate": 5,
         "encodedElapsedMs": 7167
@@ -753,7 +759,7 @@
       {
         "frame": 87,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 119928,
+        "sourceElapsedMs": 119054,
         "sourceFrame": 255,
         "playbackRate": 5,
         "encodedElapsedMs": 7250
@@ -761,7 +767,7 @@
       {
         "frame": 88,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 122672,
+        "sourceElapsedMs": 121764,
         "sourceFrame": 260,
         "playbackRate": 5,
         "encodedElapsedMs": 7333
@@ -769,7 +775,7 @@
       {
         "frame": 89,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 125425,
+        "sourceElapsedMs": 124487,
         "sourceFrame": 265,
         "playbackRate": 5,
         "encodedElapsedMs": 7417
@@ -777,7 +783,7 @@
       {
         "frame": 90,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 128185,
+        "sourceElapsedMs": 127194,
         "sourceFrame": 270,
         "playbackRate": 5,
         "encodedElapsedMs": 7500
@@ -785,7 +791,7 @@
       {
         "frame": 91,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 130936,
+        "sourceElapsedMs": 129922,
         "sourceFrame": 275,
         "playbackRate": 5,
         "encodedElapsedMs": 7583
@@ -793,7 +799,7 @@
       {
         "frame": 92,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 133694,
+        "sourceElapsedMs": 132639,
         "sourceFrame": 280,
         "playbackRate": 5,
         "encodedElapsedMs": 7667
@@ -801,7 +807,7 @@
       {
         "frame": 93,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 136431,
+        "sourceElapsedMs": 135352,
         "sourceFrame": 285,
         "playbackRate": 5,
         "encodedElapsedMs": 7750
@@ -809,7 +815,7 @@
       {
         "frame": 94,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 139177,
+        "sourceElapsedMs": 138084,
         "sourceFrame": 290,
         "playbackRate": 5,
         "encodedElapsedMs": 7833
@@ -817,7 +823,7 @@
       {
         "frame": 95,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 141909,
+        "sourceElapsedMs": 140810,
         "sourceFrame": 295,
         "playbackRate": 5,
         "encodedElapsedMs": 7917
@@ -825,7 +831,7 @@
       {
         "frame": 96,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 144657,
+        "sourceElapsedMs": 143586,
         "sourceFrame": 300,
         "playbackRate": 5,
         "encodedElapsedMs": 8000
@@ -833,7 +839,7 @@
       {
         "frame": 97,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 147389,
+        "sourceElapsedMs": 146327,
         "sourceFrame": 305,
         "playbackRate": 5,
         "encodedElapsedMs": 8083
@@ -841,7 +847,7 @@
       {
         "frame": 98,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 150136,
+        "sourceElapsedMs": 149070,
         "sourceFrame": 310,
         "playbackRate": 5,
         "encodedElapsedMs": 8167
@@ -849,7 +855,7 @@
       {
         "frame": 99,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 152892,
+        "sourceElapsedMs": 151804,
         "sourceFrame": 315,
         "playbackRate": 5,
         "encodedElapsedMs": 8250
@@ -857,7 +863,7 @@
       {
         "frame": 100,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 155626,
+        "sourceElapsedMs": 154517,
         "sourceFrame": 320,
         "playbackRate": 5,
         "encodedElapsedMs": 8333
@@ -865,7 +871,7 @@
       {
         "frame": 101,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 158367,
+        "sourceElapsedMs": 157245,
         "sourceFrame": 325,
         "playbackRate": 5,
         "encodedElapsedMs": 8417
@@ -873,7 +879,7 @@
       {
         "frame": 102,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 161119,
+        "sourceElapsedMs": 159947,
         "sourceFrame": 330,
         "playbackRate": 5,
         "encodedElapsedMs": 8500
@@ -881,7 +887,7 @@
       {
         "frame": 103,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 163859,
+        "sourceElapsedMs": 162736,
         "sourceFrame": 335,
         "playbackRate": 5,
         "encodedElapsedMs": 8583
@@ -889,7 +895,7 @@
       {
         "frame": 104,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 166589,
+        "sourceElapsedMs": 165484,
         "sourceFrame": 340,
         "playbackRate": 5,
         "encodedElapsedMs": 8667
@@ -897,7 +903,7 @@
       {
         "frame": 105,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 169312,
+        "sourceElapsedMs": 168191,
         "sourceFrame": 345,
         "playbackRate": 5,
         "encodedElapsedMs": 8750
@@ -905,7 +911,7 @@
       {
         "frame": 106,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 172069,
+        "sourceElapsedMs": 170898,
         "sourceFrame": 350,
         "playbackRate": 5,
         "encodedElapsedMs": 8833
@@ -913,7 +919,7 @@
       {
         "frame": 107,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 174815,
+        "sourceElapsedMs": 173619,
         "sourceFrame": 355,
         "playbackRate": 5,
         "encodedElapsedMs": 8917
@@ -921,7 +927,7 @@
       {
         "frame": 108,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 177560,
+        "sourceElapsedMs": 176333,
         "sourceFrame": 360,
         "playbackRate": 5,
         "encodedElapsedMs": 9000
@@ -929,7 +935,7 @@
       {
         "frame": 109,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 180312,
+        "sourceElapsedMs": 179067,
         "sourceFrame": 365,
         "playbackRate": 5,
         "encodedElapsedMs": 9083
@@ -937,7 +943,7 @@
       {
         "frame": 110,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 183043,
+        "sourceElapsedMs": 181798,
         "sourceFrame": 370,
         "playbackRate": 5,
         "encodedElapsedMs": 9167
@@ -945,7 +951,7 @@
       {
         "frame": 111,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 185786,
+        "sourceElapsedMs": 184532,
         "sourceFrame": 375,
         "playbackRate": 5,
         "encodedElapsedMs": 9250
@@ -953,1433 +959,1140 @@
       {
         "frame": 112,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 188533,
-        "sourceFrame": 380,
+        "sourceElapsedMs": 186712,
+        "sourceFrame": 379,
         "playbackRate": 5,
         "encodedElapsedMs": 9333
       },
       {
         "frame": 113,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 191285,
-        "sourceFrame": 385,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 186744,
+        "sourceFrame": 380,
+        "playbackRate": 1,
         "encodedElapsedMs": 9417
       },
       {
         "frame": 114,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 193989,
-        "sourceFrame": 390,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 186820,
+        "sourceFrame": 381,
+        "playbackRate": 1,
         "encodedElapsedMs": 9500
       },
       {
         "frame": 115,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 196730,
-        "sourceFrame": 395,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 186901,
+        "sourceFrame": 382,
+        "playbackRate": 1,
         "encodedElapsedMs": 9583
       },
       {
         "frame": 116,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 199459,
-        "sourceFrame": 400,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187002,
+        "sourceFrame": 383,
+        "playbackRate": 1,
         "encodedElapsedMs": 9667
       },
       {
         "frame": 117,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 202196,
-        "sourceFrame": 405,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187078,
+        "sourceFrame": 384,
+        "playbackRate": 1,
         "encodedElapsedMs": 9750
       },
       {
         "frame": 118,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 204914,
-        "sourceFrame": 410,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187170,
+        "sourceFrame": 385,
+        "playbackRate": 1,
         "encodedElapsedMs": 9833
       },
       {
         "frame": 119,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 207642,
-        "sourceFrame": 415,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187256,
+        "sourceFrame": 386,
+        "playbackRate": 1,
         "encodedElapsedMs": 9917
       },
       {
         "frame": 120,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 210373,
-        "sourceFrame": 420,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187350,
+        "sourceFrame": 387,
+        "playbackRate": 1,
         "encodedElapsedMs": 10000
       },
       {
         "frame": 121,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 213114,
-        "sourceFrame": 425,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187432,
+        "sourceFrame": 388,
+        "playbackRate": 1,
         "encodedElapsedMs": 10083
       },
       {
         "frame": 122,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 215859,
-        "sourceFrame": 430,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187511,
+        "sourceFrame": 389,
+        "playbackRate": 1,
         "encodedElapsedMs": 10167
       },
       {
         "frame": 123,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 218594,
-        "sourceFrame": 435,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187594,
+        "sourceFrame": 390,
+        "playbackRate": 1,
         "encodedElapsedMs": 10250
       },
       {
         "frame": 124,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 221344,
-        "sourceFrame": 440,
-        "playbackRate": 5,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 187692,
+        "sourceFrame": 391,
+        "playbackRate": 1,
         "encodedElapsedMs": 10333
       },
       {
         "frame": 125,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 224060,
-        "sourceFrame": 445,
-        "playbackRate": 5,
+        "segment": "proof-message:focus:approach",
+        "sourceElapsedMs": 187781,
+        "sourceFrame": 392,
+        "playbackRate": 1,
         "encodedElapsedMs": 10417
       },
       {
         "frame": 126,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 226807,
-        "sourceFrame": 450,
-        "playbackRate": 5,
+        "segment": "proof-message:focus:approach",
+        "sourceElapsedMs": 187877,
+        "sourceFrame": 393,
+        "playbackRate": 1,
         "encodedElapsedMs": 10500
       },
       {
         "frame": 127,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 229554,
-        "sourceFrame": 455,
-        "playbackRate": 5,
+        "segment": "proof-message:focus:pressed",
+        "sourceElapsedMs": 187944,
+        "sourceFrame": 394,
+        "playbackRate": 1,
         "encodedElapsedMs": 10583
       },
       {
         "frame": 128,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 232292,
-        "sourceFrame": 460,
-        "playbackRate": 5,
+        "segment": "proof-message:focus:pressed",
+        "sourceElapsedMs": 188044,
+        "sourceFrame": 395,
+        "playbackRate": 1,
         "encodedElapsedMs": 10667
       },
       {
         "frame": 129,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 235028,
-        "sourceFrame": 465,
-        "playbackRate": 5,
+        "segment": "proof-message:focus:released",
+        "sourceElapsedMs": 188152,
+        "sourceFrame": 396,
+        "playbackRate": 1,
         "encodedElapsedMs": 10750
       },
       {
         "frame": 130,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 237758,
-        "sourceFrame": 470,
-        "playbackRate": 5,
+        "segment": "proof-message:focus:released",
+        "sourceElapsedMs": 188242,
+        "sourceFrame": 397,
+        "playbackRate": 1,
         "encodedElapsedMs": 10833
       },
       {
         "frame": 131,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 240481,
-        "sourceFrame": 475,
-        "playbackRate": 5,
+        "segment": "proof-message",
+        "sourceElapsedMs": 188328,
+        "sourceFrame": 398,
+        "playbackRate": 1,
         "encodedElapsedMs": 10917
       },
       {
         "frame": 132,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 243183,
-        "sourceFrame": 480,
-        "playbackRate": 5,
+        "segment": "proof-message",
+        "sourceElapsedMs": 188412,
+        "sourceFrame": 399,
+        "playbackRate": 1,
         "encodedElapsedMs": 11000
       },
       {
         "frame": 133,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 245919,
-        "sourceFrame": 485,
-        "playbackRate": 5,
+        "segment": "proof-message",
+        "sourceElapsedMs": 188503,
+        "sourceFrame": 400,
+        "playbackRate": 1,
         "encodedElapsedMs": 11083
       },
       {
         "frame": 134,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 248670,
-        "sourceFrame": 490,
-        "playbackRate": 5,
+        "segment": "proof-message",
+        "sourceElapsedMs": 188581,
+        "sourceFrame": 401,
+        "playbackRate": 1,
         "encodedElapsedMs": 11167
       },
       {
         "frame": 135,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 251404,
-        "sourceFrame": 495,
-        "playbackRate": 5,
+        "segment": "proof-message",
+        "sourceElapsedMs": 188684,
+        "sourceFrame": 402,
+        "playbackRate": 1,
         "encodedElapsedMs": 11250
       },
       {
         "frame": 136,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 254167,
-        "sourceFrame": 500,
-        "playbackRate": 5,
+        "segment": "proof-message",
+        "sourceElapsedMs": 188744,
+        "sourceFrame": 403,
+        "playbackRate": 1,
         "encodedElapsedMs": 11333
       },
       {
         "frame": 137,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 256949,
-        "sourceFrame": 505,
-        "playbackRate": 5,
+        "segment": "proof-message",
+        "sourceElapsedMs": 188853,
+        "sourceFrame": 404,
+        "playbackRate": 1,
         "encodedElapsedMs": 11417
       },
       {
         "frame": 138,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 259718,
-        "sourceFrame": 510,
-        "playbackRate": 5,
+        "segment": "proof-message",
+        "sourceElapsedMs": 188932,
+        "sourceFrame": 405,
+        "playbackRate": 1,
         "encodedElapsedMs": 11500
       },
       {
         "frame": 139,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 262462,
-        "sourceFrame": 515,
-        "playbackRate": 5,
+        "segment": "submit-proof:approach",
+        "sourceElapsedMs": 189023,
+        "sourceFrame": 406,
+        "playbackRate": 1,
         "encodedElapsedMs": 11583
       },
       {
         "frame": 140,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 265232,
-        "sourceFrame": 520,
-        "playbackRate": 5,
+        "segment": "submit-proof:approach",
+        "sourceElapsedMs": 189101,
+        "sourceFrame": 407,
+        "playbackRate": 1,
         "encodedElapsedMs": 11667
       },
       {
         "frame": 141,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 268001,
-        "sourceFrame": 525,
-        "playbackRate": 5,
+        "segment": "submit-proof:pressed",
+        "sourceElapsedMs": 189201,
+        "sourceFrame": 408,
+        "playbackRate": 1,
         "encodedElapsedMs": 11750
       },
       {
         "frame": 142,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 270777,
-        "sourceFrame": 530,
-        "playbackRate": 5,
+        "segment": "submit-proof:pressed",
+        "sourceElapsedMs": 189283,
+        "sourceFrame": 409,
+        "playbackRate": 1,
         "encodedElapsedMs": 11833
       },
       {
         "frame": 143,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 273555,
-        "sourceFrame": 535,
-        "playbackRate": 5,
+        "segment": "submit-proof:released",
+        "sourceElapsedMs": 189543,
+        "sourceFrame": 410,
+        "playbackRate": 1,
         "encodedElapsedMs": 11917
       },
       {
         "frame": 144,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 276333,
-        "sourceFrame": 540,
-        "playbackRate": 5,
+        "segment": "submit-proof:released",
+        "sourceElapsedMs": 189662,
+        "sourceFrame": 411,
+        "playbackRate": 1,
         "encodedElapsedMs": 12000
       },
       {
         "frame": 145,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 279099,
-        "sourceFrame": 545,
-        "playbackRate": 5,
+        "segment": "fullscreen-confetti:waiting",
+        "sourceElapsedMs": 189764,
+        "sourceFrame": 412,
+        "playbackRate": 1,
         "encodedElapsedMs": 12083
       },
       {
         "frame": 146,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 281852,
-        "sourceFrame": 550,
-        "playbackRate": 5,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190037,
+        "sourceFrame": 413,
+        "playbackRate": 1,
         "encodedElapsedMs": 12167
       },
       {
         "frame": 147,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 284586,
-        "sourceFrame": 555,
-        "playbackRate": 5,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190152,
+        "sourceFrame": 414,
+        "playbackRate": 1,
         "encodedElapsedMs": 12250
       },
       {
         "frame": 148,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 285128,
-        "sourceFrame": 556,
-        "playbackRate": 5,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190274,
+        "sourceFrame": 415,
+        "playbackRate": 1,
         "encodedElapsedMs": 12333
       },
       {
         "frame": 149,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285168,
-        "sourceFrame": 557,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190345,
+        "sourceFrame": 416,
         "playbackRate": 1,
         "encodedElapsedMs": 12417
       },
       {
         "frame": 150,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285243,
-        "sourceFrame": 558,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190448,
+        "sourceFrame": 417,
         "playbackRate": 1,
         "encodedElapsedMs": 12500
       },
       {
         "frame": 151,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285325,
-        "sourceFrame": 559,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190537,
+        "sourceFrame": 418,
         "playbackRate": 1,
         "encodedElapsedMs": 12583
       },
       {
         "frame": 152,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285421,
-        "sourceFrame": 560,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190621,
+        "sourceFrame": 419,
         "playbackRate": 1,
         "encodedElapsedMs": 12667
       },
       {
         "frame": 153,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285507,
-        "sourceFrame": 561,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190691,
+        "sourceFrame": 420,
         "playbackRate": 1,
         "encodedElapsedMs": 12750
       },
       {
         "frame": 154,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285594,
-        "sourceFrame": 562,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190818,
+        "sourceFrame": 421,
         "playbackRate": 1,
         "encodedElapsedMs": 12833
       },
       {
         "frame": 155,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285676,
-        "sourceFrame": 563,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 190907,
+        "sourceFrame": 422,
         "playbackRate": 1,
         "encodedElapsedMs": 12917
       },
       {
         "frame": 156,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285750,
-        "sourceFrame": 564,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191008,
+        "sourceFrame": 423,
         "playbackRate": 1,
         "encodedElapsedMs": 13000
       },
       {
         "frame": 157,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285849,
-        "sourceFrame": 565,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191097,
+        "sourceFrame": 424,
         "playbackRate": 1,
         "encodedElapsedMs": 13083
       },
       {
         "frame": 158,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285935,
-        "sourceFrame": 566,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191209,
+        "sourceFrame": 425,
         "playbackRate": 1,
         "encodedElapsedMs": 13167
       },
       {
         "frame": 159,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 286012,
-        "sourceFrame": 567,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191317,
+        "sourceFrame": 426,
         "playbackRate": 1,
         "encodedElapsedMs": 13250
       },
       {
         "frame": 160,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 286104,
-        "sourceFrame": 568,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191400,
+        "sourceFrame": 427,
         "playbackRate": 1,
         "encodedElapsedMs": 13333
       },
       {
         "frame": 161,
-        "segment": "proof-message:focus:approach",
-        "sourceElapsedMs": 286186,
-        "sourceFrame": 569,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191496,
+        "sourceFrame": 428,
         "playbackRate": 1,
         "encodedElapsedMs": 13417
       },
       {
         "frame": 162,
-        "segment": "proof-message:focus:approach",
-        "sourceElapsedMs": 286269,
-        "sourceFrame": 570,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191611,
+        "sourceFrame": 429,
         "playbackRate": 1,
         "encodedElapsedMs": 13500
       },
       {
         "frame": 163,
-        "segment": "proof-message:focus:pressed",
-        "sourceElapsedMs": 286358,
-        "sourceFrame": 571,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191705,
+        "sourceFrame": 430,
         "playbackRate": 1,
         "encodedElapsedMs": 13583
       },
       {
         "frame": 164,
-        "segment": "proof-message:focus:pressed",
-        "sourceElapsedMs": 286445,
-        "sourceFrame": 572,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191783,
+        "sourceFrame": 431,
         "playbackRate": 1,
         "encodedElapsedMs": 13667
       },
       {
         "frame": 165,
-        "segment": "proof-message:focus:released",
-        "sourceElapsedMs": 286544,
-        "sourceFrame": 573,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191827,
+        "sourceFrame": 432,
         "playbackRate": 1,
         "encodedElapsedMs": 13750
       },
       {
         "frame": 166,
-        "segment": "proof-message:focus:released",
-        "sourceElapsedMs": 286631,
-        "sourceFrame": 574,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191916,
+        "sourceFrame": 433,
         "playbackRate": 1,
         "encodedElapsedMs": 13833
       },
       {
         "frame": 167,
-        "segment": "proof-message",
-        "sourceElapsedMs": 286726,
-        "sourceFrame": 575,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 191994,
+        "sourceFrame": 434,
         "playbackRate": 1,
         "encodedElapsedMs": 13917
       },
       {
         "frame": 168,
-        "segment": "proof-message",
-        "sourceElapsedMs": 286806,
-        "sourceFrame": 576,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192086,
+        "sourceFrame": 435,
         "playbackRate": 1,
         "encodedElapsedMs": 14000
       },
       {
         "frame": 169,
-        "segment": "proof-message",
-        "sourceElapsedMs": 286886,
-        "sourceFrame": 577,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192161,
+        "sourceFrame": 436,
         "playbackRate": 1,
         "encodedElapsedMs": 14083
       },
       {
         "frame": 170,
-        "segment": "proof-message",
-        "sourceElapsedMs": 286976,
-        "sourceFrame": 578,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192246,
+        "sourceFrame": 437,
         "playbackRate": 1,
         "encodedElapsedMs": 14167
       },
       {
         "frame": 171,
-        "segment": "proof-message",
-        "sourceElapsedMs": 287068,
-        "sourceFrame": 579,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192329,
+        "sourceFrame": 438,
         "playbackRate": 1,
         "encodedElapsedMs": 14250
       },
       {
         "frame": 172,
-        "segment": "proof-message",
-        "sourceElapsedMs": 287152,
-        "sourceFrame": 580,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192421,
+        "sourceFrame": 439,
         "playbackRate": 1,
         "encodedElapsedMs": 14333
       },
       {
         "frame": 173,
-        "segment": "proof-message",
-        "sourceElapsedMs": 287244,
-        "sourceFrame": 581,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192505,
+        "sourceFrame": 440,
         "playbackRate": 1,
         "encodedElapsedMs": 14417
       },
       {
         "frame": 174,
-        "segment": "proof-message",
-        "sourceElapsedMs": 287333,
-        "sourceFrame": 582,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192591,
+        "sourceFrame": 441,
         "playbackRate": 1,
         "encodedElapsedMs": 14500
       },
       {
         "frame": 175,
-        "segment": "submit-proof:approach",
-        "sourceElapsedMs": 287419,
-        "sourceFrame": 583,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192673,
+        "sourceFrame": 442,
         "playbackRate": 1,
         "encodedElapsedMs": 14583
       },
       {
         "frame": 176,
-        "segment": "submit-proof:approach",
-        "sourceElapsedMs": 287498,
-        "sourceFrame": 584,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192755,
+        "sourceFrame": 443,
         "playbackRate": 1,
         "encodedElapsedMs": 14667
       },
       {
         "frame": 177,
-        "segment": "submit-proof:pressed",
-        "sourceElapsedMs": 287591,
-        "sourceFrame": 585,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192836,
+        "sourceFrame": 444,
         "playbackRate": 1,
         "encodedElapsedMs": 14750
       },
       {
         "frame": 178,
-        "segment": "submit-proof:pressed",
-        "sourceElapsedMs": 287669,
-        "sourceFrame": 586,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 192921,
+        "sourceFrame": 445,
         "playbackRate": 1,
         "encodedElapsedMs": 14833
       },
       {
         "frame": 179,
-        "segment": "submit-proof:released",
-        "sourceElapsedMs": 287885,
-        "sourceFrame": 587,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 193009,
+        "sourceFrame": 446,
         "playbackRate": 1,
         "encodedElapsedMs": 14917
       },
       {
         "frame": 180,
-        "segment": "submit-proof:released",
-        "sourceElapsedMs": 288025,
-        "sourceFrame": 588,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 193091,
+        "sourceFrame": 447,
         "playbackRate": 1,
         "encodedElapsedMs": 15000
       },
       {
         "frame": 181,
-        "segment": "fullscreen-confetti:waiting",
-        "sourceElapsedMs": 288103,
-        "sourceFrame": 589,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 193183,
+        "sourceFrame": 448,
         "playbackRate": 1,
         "encodedElapsedMs": 15083
       },
       {
         "frame": 182,
         "segment": "confetti-visible",
-        "sourceElapsedMs": 288283,
-        "sourceFrame": 590,
+        "sourceElapsedMs": 193265,
+        "sourceFrame": 449,
         "playbackRate": 1,
         "encodedElapsedMs": 15167
       },
       {
         "frame": 183,
         "segment": "confetti-visible",
-        "sourceElapsedMs": 288375,
-        "sourceFrame": 591,
+        "sourceElapsedMs": 193347,
+        "sourceFrame": 450,
         "playbackRate": 1,
         "encodedElapsedMs": 15250
       },
       {
         "frame": 184,
         "segment": "confetti-visible",
-        "sourceElapsedMs": 288455,
-        "sourceFrame": 592,
+        "sourceElapsedMs": 193429,
+        "sourceFrame": 451,
         "playbackRate": 1,
         "encodedElapsedMs": 15333
       },
       {
         "frame": 185,
         "segment": "confetti-visible",
-        "sourceElapsedMs": 288550,
-        "sourceFrame": 593,
+        "sourceElapsedMs": 193503,
+        "sourceFrame": 452,
         "playbackRate": 1,
         "encodedElapsedMs": 15417
       },
       {
         "frame": 186,
         "segment": "confetti-visible",
-        "sourceElapsedMs": 288632,
-        "sourceFrame": 594,
+        "sourceElapsedMs": 193584,
+        "sourceFrame": 453,
         "playbackRate": 1,
         "encodedElapsedMs": 15500
       },
       {
         "frame": 187,
         "segment": "confetti-visible",
-        "sourceElapsedMs": 288715,
-        "sourceFrame": 595,
+        "sourceElapsedMs": 193674,
+        "sourceFrame": 454,
         "playbackRate": 1,
         "encodedElapsedMs": 15583
       },
       {
         "frame": 188,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288797,
-        "sourceFrame": 596,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 193761,
+        "sourceFrame": 455,
         "playbackRate": 1,
         "encodedElapsedMs": 15667
       },
       {
         "frame": 189,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288882,
-        "sourceFrame": 597,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 193845,
+        "sourceFrame": 456,
         "playbackRate": 1,
         "encodedElapsedMs": 15750
       },
       {
         "frame": 190,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288967,
-        "sourceFrame": 598,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 193941,
+        "sourceFrame": 457,
         "playbackRate": 1,
         "encodedElapsedMs": 15833
       },
       {
         "frame": 191,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289056,
-        "sourceFrame": 599,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 194017,
+        "sourceFrame": 458,
         "playbackRate": 1,
         "encodedElapsedMs": 15917
       },
       {
         "frame": 192,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289145,
-        "sourceFrame": 600,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 194095,
+        "sourceFrame": 459,
         "playbackRate": 1,
         "encodedElapsedMs": 16000
       },
       {
         "frame": 193,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289225,
-        "sourceFrame": 601,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 194183,
+        "sourceFrame": 460,
         "playbackRate": 1,
         "encodedElapsedMs": 16083
       },
       {
         "frame": 194,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289307,
-        "sourceFrame": 602,
+        "segment": "settings-open:approach",
+        "sourceElapsedMs": 194274,
+        "sourceFrame": 461,
         "playbackRate": 1,
         "encodedElapsedMs": 16167
       },
       {
         "frame": 195,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289392,
-        "sourceFrame": 603,
+        "segment": "settings-open:approach",
+        "sourceElapsedMs": 194351,
+        "sourceFrame": 462,
         "playbackRate": 1,
         "encodedElapsedMs": 16250
       },
       {
         "frame": 196,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289474,
-        "sourceFrame": 604,
+        "segment": "settings-open:pressed",
+        "sourceElapsedMs": 194441,
+        "sourceFrame": 463,
         "playbackRate": 1,
         "encodedElapsedMs": 16333
       },
       {
         "frame": 197,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289568,
-        "sourceFrame": 605,
+        "segment": "settings-open:pressed",
+        "sourceElapsedMs": 194527,
+        "sourceFrame": 464,
         "playbackRate": 1,
         "encodedElapsedMs": 16417
       },
       {
         "frame": 198,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289653,
-        "sourceFrame": 606,
+        "segment": "settings-open:released",
+        "sourceElapsedMs": 194686,
+        "sourceFrame": 465,
         "playbackRate": 1,
         "encodedElapsedMs": 16500
       },
       {
         "frame": 199,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289736,
-        "sourceFrame": 607,
+        "segment": "settings-open:released",
+        "sourceElapsedMs": 194757,
+        "sourceFrame": 466,
         "playbackRate": 1,
         "encodedElapsedMs": 16583
       },
       {
         "frame": 200,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289828,
-        "sourceFrame": 608,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 194840,
+        "sourceFrame": 467,
         "playbackRate": 1,
         "encodedElapsedMs": 16667
       },
       {
         "frame": 201,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289907,
-        "sourceFrame": 609,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 194939,
+        "sourceFrame": 468,
         "playbackRate": 1,
         "encodedElapsedMs": 16750
       },
       {
         "frame": 202,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289987,
-        "sourceFrame": 610,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195018,
+        "sourceFrame": 469,
         "playbackRate": 1,
         "encodedElapsedMs": 16833
       },
       {
         "frame": 203,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290077,
-        "sourceFrame": 611,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195104,
+        "sourceFrame": 470,
         "playbackRate": 1,
         "encodedElapsedMs": 16917
       },
       {
         "frame": 204,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290155,
-        "sourceFrame": 612,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195168,
+        "sourceFrame": 471,
         "playbackRate": 1,
         "encodedElapsedMs": 17000
       },
       {
         "frame": 205,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290237,
-        "sourceFrame": 613,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195267,
+        "sourceFrame": 472,
         "playbackRate": 1,
         "encodedElapsedMs": 17083
       },
       {
         "frame": 206,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290327,
-        "sourceFrame": 614,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195345,
+        "sourceFrame": 473,
         "playbackRate": 1,
         "encodedElapsedMs": 17167
       },
       {
         "frame": 207,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290412,
-        "sourceFrame": 615,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195441,
+        "sourceFrame": 474,
         "playbackRate": 1,
         "encodedElapsedMs": 17250
       },
       {
         "frame": 208,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290486,
-        "sourceFrame": 616,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195513,
+        "sourceFrame": 475,
         "playbackRate": 1,
         "encodedElapsedMs": 17333
       },
       {
         "frame": 209,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290567,
-        "sourceFrame": 617,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195591,
+        "sourceFrame": 476,
         "playbackRate": 1,
         "encodedElapsedMs": 17417
       },
       {
         "frame": 210,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290661,
-        "sourceFrame": 618,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195687,
+        "sourceFrame": 477,
         "playbackRate": 1,
         "encodedElapsedMs": 17500
       },
       {
         "frame": 211,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290737,
-        "sourceFrame": 619,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195778,
+        "sourceFrame": 478,
         "playbackRate": 1,
         "encodedElapsedMs": 17583
       },
       {
         "frame": 212,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290815,
-        "sourceFrame": 620,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195851,
+        "sourceFrame": 479,
         "playbackRate": 1,
         "encodedElapsedMs": 17667
       },
       {
         "frame": 213,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290908,
-        "sourceFrame": 621,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 195942,
+        "sourceFrame": 480,
         "playbackRate": 1,
         "encodedElapsedMs": 17750
       },
       {
         "frame": 214,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291003,
-        "sourceFrame": 622,
+        "segment": "settings-plugin-open:approach",
+        "sourceElapsedMs": 196025,
+        "sourceFrame": 481,
         "playbackRate": 1,
         "encodedElapsedMs": 17833
       },
       {
         "frame": 215,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291086,
-        "sourceFrame": 623,
+        "segment": "settings-plugin-open:approach",
+        "sourceElapsedMs": 196112,
+        "sourceFrame": 482,
         "playbackRate": 1,
         "encodedElapsedMs": 17917
       },
       {
         "frame": 216,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291169,
-        "sourceFrame": 624,
+        "segment": "settings-plugin-open:pressed",
+        "sourceElapsedMs": 196187,
+        "sourceFrame": 483,
         "playbackRate": 1,
         "encodedElapsedMs": 18000
       },
       {
         "frame": 217,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291244,
-        "sourceFrame": 625,
+        "segment": "settings-plugin-open:pressed",
+        "sourceElapsedMs": 196263,
+        "sourceFrame": 484,
         "playbackRate": 1,
         "encodedElapsedMs": 18083
       },
       {
         "frame": 218,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291323,
-        "sourceFrame": 626,
+        "segment": "settings-plugin-open:released",
+        "sourceElapsedMs": 196493,
+        "sourceFrame": 485,
         "playbackRate": 1,
         "encodedElapsedMs": 18167
       },
       {
         "frame": 219,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291425,
-        "sourceFrame": 627,
+        "segment": "settings-plugin-open:released",
+        "sourceElapsedMs": 196551,
+        "sourceFrame": 486,
         "playbackRate": 1,
         "encodedElapsedMs": 18250
       },
       {
         "frame": 220,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291505,
-        "sourceFrame": 628,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 196646,
+        "sourceFrame": 487,
         "playbackRate": 1,
         "encodedElapsedMs": 18333
       },
       {
         "frame": 221,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291594,
-        "sourceFrame": 629,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 196725,
+        "sourceFrame": 488,
         "playbackRate": 1,
         "encodedElapsedMs": 18417
       },
       {
         "frame": 222,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291681,
-        "sourceFrame": 630,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 196812,
+        "sourceFrame": 489,
         "playbackRate": 1,
         "encodedElapsedMs": 18500
       },
       {
         "frame": 223,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291769,
-        "sourceFrame": 631,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 196892,
+        "sourceFrame": 490,
         "playbackRate": 1,
         "encodedElapsedMs": 18583
       },
       {
         "frame": 224,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 291842,
-        "sourceFrame": 632,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 196985,
+        "sourceFrame": 491,
         "playbackRate": 1,
         "encodedElapsedMs": 18667
       },
       {
         "frame": 225,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 291936,
-        "sourceFrame": 633,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197067,
+        "sourceFrame": 492,
         "playbackRate": 1,
         "encodedElapsedMs": 18750
       },
       {
         "frame": 226,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 292003,
-        "sourceFrame": 634,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197144,
+        "sourceFrame": 493,
         "playbackRate": 1,
         "encodedElapsedMs": 18833
       },
       {
         "frame": 227,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 292102,
-        "sourceFrame": 635,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197230,
+        "sourceFrame": 494,
         "playbackRate": 1,
         "encodedElapsedMs": 18917
       },
       {
         "frame": 228,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 292181,
-        "sourceFrame": 636,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197319,
+        "sourceFrame": 495,
         "playbackRate": 1,
         "encodedElapsedMs": 19000
       },
       {
         "frame": 229,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 292266,
-        "sourceFrame": 637,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197393,
+        "sourceFrame": 496,
         "playbackRate": 1,
         "encodedElapsedMs": 19083
       },
       {
         "frame": 230,
-        "segment": "settings-open:approach",
-        "sourceElapsedMs": 292359,
-        "sourceFrame": 638,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197484,
+        "sourceFrame": 497,
         "playbackRate": 1,
         "encodedElapsedMs": 19167
       },
       {
         "frame": 231,
-        "segment": "settings-open:approach",
-        "sourceElapsedMs": 292445,
-        "sourceFrame": 639,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197569,
+        "sourceFrame": 498,
         "playbackRate": 1,
         "encodedElapsedMs": 19250
       },
       {
         "frame": 232,
-        "segment": "settings-open:pressed",
-        "sourceElapsedMs": 292535,
-        "sourceFrame": 640,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197655,
+        "sourceFrame": 499,
         "playbackRate": 1,
         "encodedElapsedMs": 19333
       },
       {
         "frame": 233,
-        "segment": "settings-open:pressed",
-        "sourceElapsedMs": 292618,
-        "sourceFrame": 641,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197737,
+        "sourceFrame": 500,
         "playbackRate": 1,
         "encodedElapsedMs": 19417
       },
       {
         "frame": 234,
-        "segment": "settings-open:released",
-        "sourceElapsedMs": 292779,
-        "sourceFrame": 642,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197811,
+        "sourceFrame": 501,
         "playbackRate": 1,
         "encodedElapsedMs": 19500
       },
       {
         "frame": 235,
-        "segment": "settings-open:released",
-        "sourceElapsedMs": 292843,
-        "sourceFrame": 643,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197910,
+        "sourceFrame": 502,
         "playbackRate": 1,
         "encodedElapsedMs": 19583
       },
       {
         "frame": 236,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 292936,
-        "sourceFrame": 644,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 197979,
+        "sourceFrame": 503,
         "playbackRate": 1,
         "encodedElapsedMs": 19667
       },
       {
         "frame": 237,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293025,
-        "sourceFrame": 645,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198078,
+        "sourceFrame": 504,
         "playbackRate": 1,
         "encodedElapsedMs": 19750
       },
       {
         "frame": 238,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293120,
-        "sourceFrame": 646,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198160,
+        "sourceFrame": 505,
         "playbackRate": 1,
         "encodedElapsedMs": 19833
       },
       {
         "frame": 239,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293196,
-        "sourceFrame": 647,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198246,
+        "sourceFrame": 506,
         "playbackRate": 1,
         "encodedElapsedMs": 19917
       },
       {
         "frame": 240,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293285,
-        "sourceFrame": 648,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198326,
+        "sourceFrame": 507,
         "playbackRate": 1,
         "encodedElapsedMs": 20000
       },
       {
         "frame": 241,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293369,
-        "sourceFrame": 649,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198413,
+        "sourceFrame": 508,
         "playbackRate": 1,
         "encodedElapsedMs": 20083
       },
       {
         "frame": 242,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293459,
-        "sourceFrame": 650,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198501,
+        "sourceFrame": 509,
         "playbackRate": 1,
         "encodedElapsedMs": 20167
       },
       {
         "frame": 243,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293539,
-        "sourceFrame": 651,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198586,
+        "sourceFrame": 510,
         "playbackRate": 1,
         "encodedElapsedMs": 20250
       },
       {
         "frame": 244,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293628,
-        "sourceFrame": 652,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198659,
+        "sourceFrame": 511,
         "playbackRate": 1,
         "encodedElapsedMs": 20333
       },
       {
         "frame": 245,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293710,
-        "sourceFrame": 653,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198751,
+        "sourceFrame": 512,
         "playbackRate": 1,
         "encodedElapsedMs": 20417
       },
       {
         "frame": 246,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293805,
-        "sourceFrame": 654,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198835,
+        "sourceFrame": 513,
         "playbackRate": 1,
         "encodedElapsedMs": 20500
       },
       {
         "frame": 247,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293889,
-        "sourceFrame": 655,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 198917,
+        "sourceFrame": 514,
         "playbackRate": 1,
         "encodedElapsedMs": 20583
       },
       {
         "frame": 248,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293978,
-        "sourceFrame": 656,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 199000,
+        "sourceFrame": 515,
         "playbackRate": 1,
         "encodedElapsedMs": 20667
       },
       {
         "frame": 249,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 294059,
-        "sourceFrame": 657,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 199082,
+        "sourceFrame": 516,
         "playbackRate": 1,
         "encodedElapsedMs": 20750
       },
       {
         "frame": 250,
-        "segment": "settings-plugin-open:approach",
-        "sourceElapsedMs": 294152,
-        "sourceFrame": 658,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 199177,
+        "sourceFrame": 517,
         "playbackRate": 1,
         "encodedElapsedMs": 20833
       },
       {
         "frame": 251,
-        "segment": "settings-plugin-open:approach",
-        "sourceElapsedMs": 294240,
-        "sourceFrame": 659,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 199251,
+        "sourceFrame": 518,
         "playbackRate": 1,
         "encodedElapsedMs": 20917
       },
       {
         "frame": 252,
-        "segment": "settings-plugin-open:pressed",
-        "sourceElapsedMs": 294328,
-        "sourceFrame": 660,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 199333,
+        "sourceFrame": 519,
         "playbackRate": 1,
         "encodedElapsedMs": 21000
       },
       {
         "frame": 253,
-        "segment": "settings-plugin-open:pressed",
-        "sourceElapsedMs": 294411,
-        "sourceFrame": 661,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 199424,
+        "sourceFrame": 520,
         "playbackRate": 1,
         "encodedElapsedMs": 21083
-      },
-      {
-        "frame": 254,
-        "segment": "settings-plugin-open:released",
-        "sourceElapsedMs": 294609,
-        "sourceFrame": 662,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21167
-      },
-      {
-        "frame": 255,
-        "segment": "settings-plugin-open:released",
-        "sourceElapsedMs": 294679,
-        "sourceFrame": 663,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21250
-      },
-      {
-        "frame": 256,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 294791,
-        "sourceFrame": 664,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21333
-      },
-      {
-        "frame": 257,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 294869,
-        "sourceFrame": 665,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21417
-      },
-      {
-        "frame": 258,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 294952,
-        "sourceFrame": 666,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21500
-      },
-      {
-        "frame": 259,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295043,
-        "sourceFrame": 667,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21583
-      },
-      {
-        "frame": 260,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295125,
-        "sourceFrame": 668,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21667
-      },
-      {
-        "frame": 261,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295202,
-        "sourceFrame": 669,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21750
-      },
-      {
-        "frame": 262,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295297,
-        "sourceFrame": 670,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21833
-      },
-      {
-        "frame": 263,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295377,
-        "sourceFrame": 671,
-        "playbackRate": 1,
-        "encodedElapsedMs": 21917
-      },
-      {
-        "frame": 264,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295457,
-        "sourceFrame": 672,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22000
-      },
-      {
-        "frame": 265,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295551,
-        "sourceFrame": 673,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22083
-      },
-      {
-        "frame": 266,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295626,
-        "sourceFrame": 674,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22167
-      },
-      {
-        "frame": 267,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295711,
-        "sourceFrame": 675,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22250
-      },
-      {
-        "frame": 268,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295795,
-        "sourceFrame": 676,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22333
-      },
-      {
-        "frame": 269,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295883,
-        "sourceFrame": 677,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22417
-      },
-      {
-        "frame": 270,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295973,
-        "sourceFrame": 678,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22500
-      },
-      {
-        "frame": 271,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296057,
-        "sourceFrame": 679,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22583
-      },
-      {
-        "frame": 272,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296135,
-        "sourceFrame": 680,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22667
-      },
-      {
-        "frame": 273,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296225,
-        "sourceFrame": 681,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22750
-      },
-      {
-        "frame": 274,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296306,
-        "sourceFrame": 682,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22833
-      },
-      {
-        "frame": 275,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296392,
-        "sourceFrame": 683,
-        "playbackRate": 1,
-        "encodedElapsedMs": 22917
-      },
-      {
-        "frame": 276,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296479,
-        "sourceFrame": 684,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23000
-      },
-      {
-        "frame": 277,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296560,
-        "sourceFrame": 685,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23083
-      },
-      {
-        "frame": 278,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296643,
-        "sourceFrame": 686,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23167
-      },
-      {
-        "frame": 279,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296727,
-        "sourceFrame": 687,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23250
-      },
-      {
-        "frame": 280,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296820,
-        "sourceFrame": 688,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23333
-      },
-      {
-        "frame": 281,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296898,
-        "sourceFrame": 689,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23417
-      },
-      {
-        "frame": 282,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296993,
-        "sourceFrame": 690,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23500
-      },
-      {
-        "frame": 283,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297073,
-        "sourceFrame": 691,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23583
-      },
-      {
-        "frame": 284,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297155,
-        "sourceFrame": 692,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23667
-      },
-      {
-        "frame": 285,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297240,
-        "sourceFrame": 693,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23750
-      },
-      {
-        "frame": 286,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297333,
-        "sourceFrame": 694,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23833
-      },
-      {
-        "frame": 287,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297417,
-        "sourceFrame": 695,
-        "playbackRate": 1,
-        "encodedElapsedMs": 23917
-      },
-      {
-        "frame": 288,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297498,
-        "sourceFrame": 696,
-        "playbackRate": 1,
-        "encodedElapsedMs": 24000
-      },
-      {
-        "frame": 289,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297583,
-        "sourceFrame": 697,
-        "playbackRate": 1,
-        "encodedElapsedMs": 24083
       }
-    ],
-    "retimedAt": "2026-09-02T06:58:06.260Z",
-    "sourceFrameCount": 698,
-    "acceleratedSegments": {
-      "codex-builds-and-cordisx-loads": 5
-    }
+    ]
   },
   "privacy": {
     "isolatedHome": true,

@@ -21,7 +21,7 @@ import path from 'node:path'
 import process from 'node:process'
 import {
   AI_PLUGIN_DEMO_HOST_COMMIT,
-  AI_PLUGIN_DEMO_PROMPT,
+  AI_PLUGIN_DEMO_PRESENTATIONS,
   AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
   aiPluginDemoScene,
 } from './ai-plugin-demo-scene.mjs'
@@ -42,13 +42,14 @@ function option(name, fallback) {
 const dryRun = process.argv.includes('--dry-run')
 const launchSmoke = process.argv.includes('--launch-smoke')
 const keepTemporaryFiles = process.argv.includes('--keep-temp')
+const captureLanguage = option('--language', 'zh')
 const captureTheme = option('--theme', aiPluginDemoScene.theme)
 const cordisxRoot = path.resolve(option('--cordisx-root', defaultCordisXRoot))
 const appBundle = path.resolve(option('--app', '/Applications/ChatGPT.app'))
 const authFile = path.resolve(option('--auth', path.join(process.env.CODEX_HOME ?? path.join(os.homedir(), '.codex'), 'auth.json')))
 const outputDirectory = path.resolve(option('--output-dir', path.join(projectRoot, 'assets', 'motion')))
 const posterDirectory = path.resolve(option('--poster-dir', path.join(projectRoot, 'assets', 'screenshots')))
-const outputBasename = option('--output-basename', `cordisx-ai-plugin-demo-zh-${captureTheme}`)
+const outputBasename = option('--output-basename', `cordisx-ai-plugin-demo-${captureLanguage}-${captureTheme}`)
 const effectSelector = option('--effect-selector', aiPluginDemoScene.selectors.effect)
 const maximumAgentSeconds = Number(option('--max-agent-seconds', String(
   aiPluginDemoScene.timeline.find(item => item.type === 'wait-real-agent-and-generation')?.maximumSourceSeconds ?? 420,
@@ -59,7 +60,7 @@ if (process.argv.includes('--help')) {
   [--cordisx-root /absolute/cordisx] [--app /Applications/ChatGPT.app]
   [--auth /absolute/auth.json] [--output-dir /absolute/motion]
   [--poster-dir /absolute/screenshots] [--output-basename name]
-  [--theme dark|light] [--effect-selector selector] [--max-agent-seconds 420]
+  [--language en|zh] [--theme dark|light] [--effect-selector selector] [--max-agent-seconds 420]
 
 --dry-run creates and checks the isolated workspace and exercises both encoders.
 It does not read authentication, launch Codex Desktop, send a prompt, or emit a
@@ -72,6 +73,7 @@ temporary codec sample. It does not send the prompt or claim the effect.`)
 }
 
 if (dryRun && launchSmoke) throw new Error('--dry-run and --launch-smoke are mutually exclusive')
+if (!['en', 'zh'].includes(captureLanguage)) throw new Error('--language must be en or zh')
 if (!['dark', 'light'].includes(captureTheme)) throw new Error('--theme must be dark or light')
 if (!Number.isFinite(maximumAgentSeconds) || maximumAgentSeconds < 30 || maximumAgentSeconds > 1_800) {
   throw new Error('--max-agent-seconds must be between 30 and 1800')
@@ -80,11 +82,19 @@ if (!/^[a-z0-9][a-z0-9._-]{0,127}$/u.test(outputBasename)) {
   throw new Error('--output-basename must be a filesystem-safe lowercase name')
 }
 
+const presentation = AI_PLUGIN_DEMO_PRESENTATIONS[captureLanguage]
 const scene = {
   ...aiPluginDemoScene,
-  id: aiPluginDemoScene.id.replace(`.${aiPluginDemoScene.theme}.`, `.${captureTheme}.`),
+  id: `cordisx-ai-plugin-demo.${presentation.locale}.${captureTheme}.v4`,
+  locale: presentation.locale,
+  language: presentation.language,
   theme: captureTheme,
   selectors: { ...aiPluginDemoScene.selectors, effect: effectSelector },
+  timeline: aiPluginDemoScene.timeline.map(item => item.id === 'user-request'
+    ? { ...item, text: presentation.prompt }
+    : item.id === 'proof-message'
+      ? { ...item, text: presentation.proofMessage }
+      : item),
 }
 const cliEntry = path.join(cordisxRoot, 'packages', 'cli', 'dist', 'src', 'cli.js')
 const creatorEntry = path.join(cordisxRoot, 'packages', 'create-cordisx-plugin', 'dist', 'cli.js')
@@ -243,9 +253,9 @@ function isolatedEnvironment() {
     HOME: homeRoot,
     CODEX_HOME: codexHome,
     CORDISX_HOME: cordisxHome,
-    LANG: 'zh_CN.UTF-8',
-    LC_ALL: 'zh_CN.UTF-8',
-    LANGUAGE: 'zh-CN',
+    LANG: presentation.environmentLocale,
+    LC_ALL: presentation.environmentLocale,
+    LANGUAGE: presentation.locale,
     CORDISX_CDP_INJECTION_TIMEOUT_MS: '300000',
     CODEX_ELECTRON_SKIP_COMPUTER_USE_CANONICAL_REFRESH: '1',
     CODEX_ELECTRON_COMPUTER_USE_APP_PATH: computerUseApp,
@@ -480,7 +490,7 @@ async function setCapturePresentation(send) {
     mobile: false,
   })
   await evaluate(send, `(() => {
-    document.documentElement.lang = 'zh-CN'
+    document.documentElement.lang = ${JSON.stringify(scene.locale)}
     for (const element of [document.documentElement, document.body]) {
       if (!(element instanceof HTMLElement)) continue
       element.dataset.theme = ${JSON.stringify(scene.theme)}
@@ -692,12 +702,12 @@ async function openScaffoldedPluginDetails(send, recorder) {
     return {
       id: detail.dataset.pluginDetail,
       text: detail.innerText,
-      localDevelopment: detail.innerText.includes('本地开发'),
-      simplifiedChineseReadme: detail.innerText.includes('全屏礼花'),
+      localDevelopment: detail.innerText.includes(${JSON.stringify(presentation.localDevelopmentMarker)}),
+      localizedReadme: detail.innerText.toLocaleLowerCase().includes(${JSON.stringify(presentation.readmeMarker.toLocaleLowerCase())}),
     }
   })()`)
   if (projection?.id !== 'send-confetti' || !projection.text.includes('send-confetti')
-    || !projection.localDevelopment || !projection.simplifiedChineseReadme) {
+    || !projection.localDevelopment || !projection.localizedReadme) {
     throw new Error(`Scaffolded plugin details projection is invalid: ${JSON.stringify(projection)}`)
   }
   await recorder.hold(34, 'settings-plugin-detail')
@@ -705,7 +715,8 @@ async function openScaffoldedPluginDetails(send, recorder) {
     openedAt: new Date().toISOString(),
     pluginId: projection.id,
     localDevelopment: projection.localDevelopment,
-    simplifiedChineseReadme: projection.simplifiedChineseReadme,
+    localizedReadme: projection.localizedReadme,
+    readmeLocale: scene.locale,
     listSelector: pluginSelector,
     detailSelector,
   }
@@ -729,10 +740,17 @@ async function waitForAgentAndReplacement(send, recorder, baselineGeneration, in
   while (Date.now() < deadline) {
     await recorder.frame('codex-builds-and-cordisx-loads')
     const [source, generation, state] = await Promise.all([
-      readFile(pluginEntry, 'utf8'),
+      readFile(pluginEntry, 'utf8').catch(error => {
+        if (error?.code === 'ENOENT') return null
+        throw error
+      }),
       pluginGeneration(send),
       composerState(send),
     ])
+    if (source === null) {
+      await new Promise(resolve => setTimeout(resolve, 200))
+      continue
+    }
     sourceChanged ||= source !== initialSource
     if (generation !== null && generation !== baselineGeneration) {
       if (replacementGeneration !== generation) {
@@ -865,7 +883,7 @@ try {
       '--executable', appLauncher,
       '--debug-port', String(port),
       '--profile-dir', profileDirectory,
-      '--', '--start-minimized', '--lang=zh-CN', '--window-size=1600,1000', '--force-color-profile=srgb',
+      '--', '--start-minimized', `--lang=${scene.locale}`, '--window-size=1600,1000', '--force-color-profile=srgb',
     ], {
       cwd: workspaceDirectory,
       env: isolatedEnvironment(),
@@ -904,7 +922,7 @@ try {
       await mkdir(smokeDirectory, { recursive: true })
       const smokeOutputs = encodeFrames(framesDirectory, smokeDirectory, 'real-renderer-infrastructure-only')
       execFileSync(process.execPath, [path.join(import.meta.dirname, 'verify-ai-plugin-demo.mjs'),
-        '--mp4', smokeOutputs.mp4, '--webm', smokeOutputs.webm, '--infrastructure-only'], { stdio: 'inherit' })
+        '--mp4', smokeOutputs.mp4, '--webm', smokeOutputs.webm, '--gif', smokeOutputs.gif, '--infrastructure-only'], { stdio: 'inherit' })
       console.log(JSON.stringify({
         status: 'ready',
         mode: 'real-renderer-launch-smoke',
@@ -921,10 +939,10 @@ try {
         ...(keepTemporaryFiles ? { temporaryRoot: captureRoot } : {}),
       }, null, 2))
     } else {
-      await typeIntoComposer(send, recorder, AI_PLUGIN_DEMO_PROMPT, 'user-request', 1)
+      await typeIntoComposer(send, recorder, presentation.prompt, 'user-request', 1)
       await clickNativeSubmit(send, recorder, 'submit-request')
-      const submitted = await evaluate(send, `document.body.innerText.includes(${JSON.stringify(AI_PLUGIN_DEMO_PROMPT)})`)
-      if (!submitted) throw new Error('The exact Chinese request was not visible after the real native submit click')
+      const submitted = await evaluate(send, `document.body.innerText.includes(${JSON.stringify(presentation.prompt)})`)
+      if (!submitted) throw new Error('The exact localized request was not visible after the real native submit click')
 
       const replacement = await waitForAgentAndReplacement(send, recorder, baselineGeneration, sourceBefore)
       await recorder.hold(12, 'generation-ready')
@@ -950,7 +968,7 @@ try {
         scene: scene.id,
         realRenderer: true,
         rendererUrl: 'app://-/index.html',
-        prompt: AI_PLUGIN_DEMO_PROMPT,
+        prompt: presentation.prompt,
         promptSubmitted: true,
         finalSubmitClicked: true,
         effectObserved: true,
@@ -981,6 +999,7 @@ try {
           width: scene.output.width,
           height: scene.output.height,
           theme: scene.theme,
+          language: scene.language,
           locale: scene.locale,
           acceleratedSegments: scene.playback.acceleratedSegments,
           timeline: playback.timeline,

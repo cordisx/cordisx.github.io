@@ -6,7 +6,7 @@ import path from 'node:path'
 import process from 'node:process'
 import {
   AI_PLUGIN_DEMO_HOST_COMMIT,
-  AI_PLUGIN_DEMO_PROMPT,
+  AI_PLUGIN_DEMO_PRESENTATIONS,
   AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
   aiPluginDemoScene,
 } from './ai-plugin-demo-scene.mjs'
@@ -114,12 +114,15 @@ if (!infrastructureOnly) {
   metadata = JSON.parse(await readFile(files.metadata, 'utf8'))
   source = await readFile(files.source, 'utf8')
   assert(metadata.schemaVersion === 2, 'capture metadata schema version is not 2')
+  const captureLanguage = metadata.capture?.language
+  assert(['en', 'zh'].includes(captureLanguage), 'capture language is not en or zh')
+  const presentation = AI_PLUGIN_DEMO_PRESENTATIONS[captureLanguage]
   const captureTheme = metadata.capture?.theme
   assert(['dark', 'light'].includes(captureTheme), 'capture theme is not dark or light')
-  assert(metadata.scene === aiPluginDemoScene.id.replace(`.${aiPluginDemoScene.theme}.`, `.${captureTheme}.`), 'capture metadata scene drifted')
+  assert(metadata.scene === `cordisx-ai-plugin-demo.${presentation.locale}.${captureTheme}.v4`, 'capture metadata scene drifted')
   assert(metadata.realRenderer === true, 'capture metadata does not prove a real renderer')
   assert(metadata.rendererUrl === 'app://-/index.html', 'capture metadata renderer URL is not the real Codex app target')
-  assert(metadata.prompt === AI_PLUGIN_DEMO_PROMPT, 'capture metadata does not contain the exact required Chinese prompt')
+  assert(metadata.prompt === presentation.prompt, 'capture metadata does not contain the exact required localized prompt')
   assert(metadata.promptSubmitted === true, 'capture metadata does not prove prompt submission')
   assert(metadata.finalSubmitClicked === true, 'capture metadata does not prove the final native submit click')
   assert(metadata.effectObserved === true, 'capture metadata does not prove the full-screen effect')
@@ -139,7 +142,8 @@ if (!infrastructureOnly) {
   assert(metadata.plugin?.sourceSha256 === `sha256:${createHash('sha256').update(source).digest('hex')}`, 'published plugin source does not match capture metadata')
   assert(metadata.settings?.pluginId === 'send-confetti', 'capture metadata does not prove the scaffolded plugin detail was opened')
   assert(metadata.settings?.localDevelopment === true, 'plugin detail does not identify the project as local development')
-  assert(metadata.settings?.simplifiedChineseReadme === true, 'plugin detail did not render the Simplified Chinese README')
+  assert(metadata.settings?.localizedReadme === true, 'plugin detail did not render the matching localized README')
+  assert(metadata.settings?.readmeLocale === presentation.locale, 'plugin detail README locale drifted')
   assert(metadata.settings?.listSelector === '[data-plugin-id="send-confetti"]', 'plugin list evidence selector drifted')
   assert(metadata.settings?.detailSelector === '[data-plugin-detail="send-confetti"]', 'plugin detail evidence selector drifted')
   assert(metadata.checkpoints?.host === AI_PLUGIN_DEMO_HOST_COMMIT, 'capture metadata Host checkpoint drifted')
@@ -151,7 +155,7 @@ if (!infrastructureOnly) {
   assert(metadata.capture?.width === aiPluginDemoScene.output.width, 'capture metadata width drifted')
   assert(metadata.capture?.height === aiPluginDemoScene.output.height, 'capture metadata height drifted')
   assert(metadata.capture?.frameRate === aiPluginDemoScene.output.frameRate, 'capture metadata frame rate drifted')
-  assert(metadata.capture?.locale === 'zh-CN', 'capture presentation is not explicitly zh-CN')
+  assert(metadata.capture?.locale === presentation.locale, 'capture presentation locale does not match its language')
   assert(Array.isArray(metadata.capture?.timeline) && metadata.capture.timeline.length === metadata.capture.frameCount, 'capture timeline does not account for every frame')
   assert(metadata.capture.acceleratedSegments?.['codex-builds-and-cordisx-loads'] === 5, 'Agent work segment is not encoded at 5x')
   assert(metadata.capture.timeline.every((item, index) => item.frame === index), 'encoded frame ledger is not contiguous')

@@ -6,16 +6,37 @@
  * responses for the Codex renderer. Every encoded frame comes from the same
  * isolated app://-/index.html target.
  */
-export const AI_PLUGIN_DEMO_PROMPT = '我要发送按钮在点击的时候全屏放礼花。'
+export const AI_PLUGIN_DEMO_PRESENTATIONS = Object.freeze({
+  en: Object.freeze({
+    language: 'en',
+    locale: 'en-US',
+    environmentLocale: 'en_US.UTF-8',
+    prompt: 'Make the send button launch full-screen confetti when clicked.',
+    proofMessage: 'Done!',
+    localDevelopmentMarker: 'Local development',
+    readmeMarker: 'full-screen confetti',
+  }),
+  zh: Object.freeze({
+    language: 'zh',
+    locale: 'zh-CN',
+    environmentLocale: 'zh_CN.UTF-8',
+    prompt: '我要发送按钮在点击的时候全屏放礼花。',
+    proofMessage: '完成啦！',
+    localDevelopmentMarker: '本地开发',
+    readmeMarker: '全屏礼花',
+  }),
+})
 
-export const AI_PLUGIN_DEMO_PROOF_MESSAGE = '完成啦！'
+export const AI_PLUGIN_DEMO_PROMPT = AI_PLUGIN_DEMO_PRESENTATIONS.zh.prompt
 
-export const AI_PLUGIN_DEMO_HOST_COMMIT = '502a07490e2b51a02137a27d4976dd94cde901c1'
+export const AI_PLUGIN_DEMO_PROOF_MESSAGE = AI_PLUGIN_DEMO_PRESENTATIONS.zh.proofMessage
+
+export const AI_PLUGIN_DEMO_HOST_COMMIT = '56612408807a78b83b455792c425034e694db08c'
 
 export const AI_PLUGIN_DEMO_PROTOCOL_COMMIT = '34d2113984882d5c0fa4f0803fb929c8da605eee'
 
 export const aiPluginDemoScene = Object.freeze({
-  id: 'cordisx-ai-plugin-demo.zh-CN.dark.v3',
+  id: 'cordisx-ai-plugin-demo.zh-CN.dark.v4',
   locale: 'zh-CN',
   theme: 'dark',
   checkpoints: Object.freeze({

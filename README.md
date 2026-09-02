@@ -42,8 +42,8 @@ can change without touching the interaction timeline.
 ## Record the AI-first plugin demo
 
 The AI-first capture is a separate, truthful workflow: one isolated real Codex
-Desktop renderer receives the exact Chinese request and edits an independent
-plugin project created by the public CordisX scaffolder. The running
+Desktop renderer receives the localized natural-language request and edits an
+independent plugin project created by the public CordisX scaffolder. The running
 `cordisx dev <entry>` watcher publishes the replacement without restarting the
 renderer. A second real native Send click activates the Host-owned full-screen
 confetti effect, then the recording opens CordisX settings and the generated
@@ -51,22 +51,25 @@ plugin's detail page. It does not use a recreated Codex shell, authored Agent
 replies, or caption cards for any of those steps.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/motion/cordisx-ai-plugin-demo-zh-dark.gif">
-  <source media="(prefers-color-scheme: light)" srcset="assets/motion/cordisx-ai-plugin-demo-zh-light.gif">
-  <img alt="Real CordisX AI-first plugin demo" src="assets/motion/cordisx-ai-plugin-demo-zh-light.gif" width="900">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/motion/cordisx-ai-plugin-demo-en-dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="assets/motion/cordisx-ai-plugin-demo-en-light.gif">
+  <img alt="Real CordisX AI-first plugin demo" src="assets/motion/cordisx-ai-plugin-demo-en-light.gif" width="900">
 </picture>
 
-Dark: [MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
-[WebM](assets/motion/cordisx-ai-plugin-demo-zh-dark.webm) ·
-[GIF](assets/motion/cordisx-ai-plugin-demo-zh-dark.gif) ·
-[evidence](assets/motion/cordisx-ai-plugin-demo-zh-dark.json) ·
-[source](assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx)
+English dark: [MP4](assets/motion/cordisx-ai-plugin-demo-en-dark.mp4) ·
+[WebM](assets/motion/cordisx-ai-plugin-demo-en-dark.webm) ·
+[GIF](assets/motion/cordisx-ai-plugin-demo-en-dark.gif) ·
+[evidence](assets/motion/cordisx-ai-plugin-demo-en-dark.json) ·
+[source](assets/motion/cordisx-ai-plugin-demo-en-dark.plugin.tsx)
 
-Light: [MP4](assets/motion/cordisx-ai-plugin-demo-zh-light.mp4) ·
-[WebM](assets/motion/cordisx-ai-plugin-demo-zh-light.webm) ·
-[GIF](assets/motion/cordisx-ai-plugin-demo-zh-light.gif) ·
-[evidence](assets/motion/cordisx-ai-plugin-demo-zh-light.json) ·
-[source](assets/motion/cordisx-ai-plugin-demo-zh-light.plugin.tsx)
+English light: [MP4](assets/motion/cordisx-ai-plugin-demo-en-light.mp4) ·
+[WebM](assets/motion/cordisx-ai-plugin-demo-en-light.webm) ·
+[GIF](assets/motion/cordisx-ai-plugin-demo-en-light.gif) ·
+[evidence](assets/motion/cordisx-ai-plugin-demo-en-light.json) ·
+[source](assets/motion/cordisx-ai-plugin-demo-en-light.plugin.tsx)
+
+Chinese: [dark MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
+[light MP4](assets/motion/cordisx-ai-plugin-demo-zh-light.mp4)
 
 Prepare and exercise the workspace plus H.264/VP9 encoders without reading
 authentication or launching Codex:

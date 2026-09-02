@@ -23,8 +23,10 @@ Use the installed `cordisx-plugin-development` skill for this plugin task.
   product copy, package metadata, localized READMEs, and project tests.
 - Update both `README.md` and `README.zh-Hans.md` so the plugin details page
   describes this send-confetti behavior instead of the starter counter
-  example. Include the natural phrase `全屏礼花` in the Chinese README so the
-  Chinese Host visibly proves that it selected the localized document.
+  example. Include the natural phrase `full-screen confetti` in the English
+  README and `全屏礼花` in the Chinese README so each Host visibly proves that
+  it selected the matching localized document. Respond in the language used
+  by the current user request.
 - This request creates and validates the plugin; it does not request
   publication. Preserve `private: true` and `UNLICENSED`, and do not ask for
   publication metadata or confirmation.

@@ -25,6 +25,7 @@ export function apply(ctx: Context): void {
     namespace: 'send-confetti', locale: 'zh-CN',
     messages: { 'command.observe-submit': '发送后播放礼花' },
   })
+
   const title = { key: 'command.observe-submit', fallback: 'Celebrate after sending' }
   ctx.commands.register({ id: 'celebration-proxy', title }, () => undefined)
   const contribution = ctx.slots.register({
@@ -42,11 +43,13 @@ export function apply(ctx: Context): void {
     anchor: 'submit', placement: 'before', label: title, ariaLabel: title,
     icon: 'host:info', command: { id: 'celebration-proxy' },
   })
+
   const control = contribution.control
   if (control === undefined) {
     console.warn('[send-confetti] celebration unavailable: control lease missing')
     return
   }
+
   let lastEvent = 0
   let nextRequest = 0
   const consume = (): void => {
@@ -58,6 +61,7 @@ export function apply(ctx: Context): void {
     lastEvent = event.sequence
     const activationId = event.payload.activationId
     if (typeof activationId !== 'string') return
+
     const requestId = `send-confetti:${Date.now().toString(36)}:${++nextRequest}`
     void control.invoke('presentCelebration', {
       requestId, activationId, effect: 'confetti', durationMs: 2400,

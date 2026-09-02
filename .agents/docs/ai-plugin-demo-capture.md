@@ -9,8 +9,10 @@ code and must not be copied into the CordisX Host repository.
 Every publishable frame comes from the same `app://-/index.html` renderer. The
 capture and its machine-readable evidence must prove, in order:
 
-1. the exact request `我要发送按钮在点击的时候全屏放礼花。` typed into the
-   real Codex composer and sent through its native submit control;
+1. the exact localized request—`Make the send button launch full-screen
+   confetti when clicked.` for English or `我要发送按钮在点击的时候全屏放礼花。`
+   for Chinese—typed into the real Codex composer and sent through its native
+   submit control;
 2. the public `create-cordisx-plugin` CLI creating an independent, private
    `send-confetti` project before the session, without exposing that
    implementation detail in the user-facing flow;
@@ -53,7 +55,7 @@ fixed plugin DOM overlay, canvas, custom CSS, native selector listener, or a
 second reload API to unblock the recording.
 
 This capture is pinned to Host commit
-`502a07490e2b51a02137a27d4976dd94cde901c1` and protocol commit
+`56612408807a78b83b455792c425034e694db08c` and protocol commit
 `34d2113984882d5c0fa4f0803fb929c8da605eee`. The recorder fails closed when
 the selected CordisX checkout does not match the Host checkpoint.
 
@@ -70,7 +72,8 @@ published.
 
 The installed `cordisx-plugin-development` skill and fixture `AGENTS.md` direct
 the real Agent to the public Host-owned seam. The visible user prompt remains
-the exact sentence above. The scaffold starts private and `UNLICENSED`; the
+the exact sentence for the selected language. The scaffold starts private and
+`UNLICENSED`; the
 workflow does not ask publication questions because the request does not ask
 to publish. Temporary dependency paths live outside the repository and are
 removed with all owned processes after success, failure, or interruption. The
@@ -114,16 +117,17 @@ homepage media.
 npm run capture:ai-plugin-demo -- \
   --cordisx-root /absolute/verified/cordisx \
   --auth /absolute/isolated-source/auth.json \
+  --language zh \
   --theme dark
 ```
 
-Run the same command with `--theme light` to create the matching light-theme
-asset set. Theme selection is written into Codex configuration before launch,
-then asserted again in the renderer before any publishable frame is captured.
+Run the command for the complete `en|zh` × `dark|light` matrix. Language and
+theme are written into Codex configuration before launch, then asserted again
+in the renderer before any publishable frame is captured.
 
-For each selected theme, the recorder writes the corresponding `zh-dark` or
-`zh-light` files atomically only after the effect is observed and verification
-passes:
+For each selected language and theme, the recorder writes the corresponding
+`en-dark`, `en-light`, `zh-dark`, or `zh-light` files atomically only after the
+effect is observed and verification passes:
 
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4`;
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.webm`;
@@ -132,12 +136,13 @@ passes:
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx`; and
 - `assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png`.
 
-The light capture uses the same six filenames with `zh-light` in place of
-`zh-dark`. README consumers should use `<picture>` with the two GIFs and keep
-the MP4 files as the high-resolution targets.
+The other three variants use the same six filenames with the matching
+language-theme stem. Each README should use `<picture>` with its language's two
+GIFs and keep the corresponding MP4 files as the high-resolution targets.
 
 The verifier requires 1600×1000 H.264/VP9 `yuv420p`, a 900-pixel-wide 10 fps
-GIF, an MP4 `moov` atom before `mdat`, matching durations, an exact prompt, creator/scaffold evidence, a
+GIF, an MP4 `moov` atom before `mdat`, matching durations, the exact prompt and
+Manager locale for the selected language, creator/scaffold evidence, a
 changed and hash-matched independent source, English and Chinese localization,
 different local plugin generations, the final native submit click, the
 full-screen Host marker, the settings/plugin-detail segment, an exact 5× Agent

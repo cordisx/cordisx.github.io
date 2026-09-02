@@ -136,6 +136,9 @@ if (!products.includes('https://github.com/cordisx/marketplace')) throw new Erro
 if (!aiPluginScene.includes('我要发送按钮在点击的时候全屏放礼花。')) {
   throw new Error('AI plugin demo scene is missing the exact Chinese request')
 }
+if (!aiPluginScene.includes('Make the send button launch full-screen confetti when clicked.')) {
+  throw new Error('AI plugin demo scene is missing the exact English request')
+}
 if (!aiPluginPlayback.includes('sourceFrame') || !aiPluginPlayback.includes('encodedElapsedMs')) {
   throw new Error('AI plugin playback helper is missing auditable source/encoded frame mapping')
 }
@@ -155,6 +158,7 @@ if (playbackProbe.sourceFrameCount !== 9
 for (const truthMarker of [
   "rendererUrl: 'app://-/index.html'",
   "option('--theme', aiPluginDemoScene.theme)",
+  "option('--language', 'zh')",
   "execFileSync(process.execPath, [creatorEntry, 'send-confetti']",
   'generationChanged: replacement.replacementGeneration !== baselineGeneration',
   'finalSubmitClicked: true',
@@ -172,11 +176,13 @@ if (!aiPluginWorkflow.includes('Do not replace the Codex shell') || !aiPluginWor
   throw new Error('AI plugin capture workflow is missing its truth or privacy boundary')
 }
 await access(new URL('../scripts/fixtures/ai-plugin-demo/AGENTS.md', import.meta.url))
-for (const theme of ['dark', 'light']) {
-  for (const extension of ['gif', 'json', 'mp4', 'plugin.tsx', 'webm']) {
-    await access(new URL(`../assets/motion/cordisx-ai-plugin-demo-zh-${theme}.${extension}`, import.meta.url))
+for (const language of ['en', 'zh']) {
+  for (const theme of ['dark', 'light']) {
+    for (const extension of ['gif', 'json', 'mp4', 'plugin.tsx', 'webm']) {
+      await access(new URL(`../assets/motion/cordisx-ai-plugin-demo-${language}-${theme}.${extension}`, import.meta.url))
+    }
+    await access(new URL(`../assets/screenshots/cordisx-ai-plugin-demo-${language}-${theme}.png`, import.meta.url))
   }
-  await access(new URL(`../assets/screenshots/cordisx-ai-plugin-demo-zh-${theme}.png`, import.meta.url))
 }
 
 for (const icon of [
