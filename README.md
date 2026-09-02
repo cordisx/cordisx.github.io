@@ -42,18 +42,20 @@ can change without touching the interaction timeline.
 ## Record the AI-first plugin demo
 
 The AI-first capture is a separate, truthful workflow: one isolated real Codex
-Desktop renderer receives the exact Chinese request, performs the plugin edit,
-publishes a replacement through the running `cordisx dev --natural-language`
-generation watcher,
-and receives a second real native Send click that activates the Host-owned
-full-screen confetti effect. It does not use a recreated Codex shell, authored
-Agent replies, or caption cards for any of those steps.
+Desktop renderer receives the exact Chinese request and edits an independent
+plugin project created by the public CordisX scaffolder. The running
+`cordisx dev <entry>` watcher publishes the replacement without restarting the
+renderer. A second real native Send click activates the Host-owned full-screen
+confetti effect, then the recording opens CordisX settings and the generated
+plugin's detail page. It does not use a recreated Codex shell, authored Agent
+replies, or caption cards for any of those steps.
 
 [![Real CordisX AI-first plugin demo](assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png)](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4)
 
 [MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
 [WebM](assets/motion/cordisx-ai-plugin-demo-zh-dark.webm) ·
-[capture evidence](assets/motion/cordisx-ai-plugin-demo-zh-dark.json)
+[capture evidence](assets/motion/cordisx-ai-plugin-demo-zh-dark.json) ·
+[captured plugin source](assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx)
 
 Prepare and exercise the workspace plus H.264/VP9 encoders without reading
 authentication or launching Codex:
@@ -76,7 +78,8 @@ npm run verify:ai-plugin-demo -- \
   --mp4 assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4 \
   --webm assets/motion/cordisx-ai-plugin-demo-zh-dark.webm \
   --poster assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png \
-  --metadata assets/motion/cordisx-ai-plugin-demo-zh-dark.json
+  --metadata assets/motion/cordisx-ai-plugin-demo-zh-dark.json \
+  --source assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx
 ```
 
 The MP4 is H.264 `yuv420p` with a front-loaded `moov` atom; the paired WebM is

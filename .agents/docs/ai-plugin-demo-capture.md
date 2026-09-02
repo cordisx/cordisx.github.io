@@ -7,15 +7,21 @@ code and must not be copied into the CordisX Host repository.
 ## Truth contract
 
 Every publishable frame comes from the same `app://-/index.html` renderer. The
-video must show, in order:
+capture and its machine-readable evidence must prove, in order:
 
 1. the exact request `我要发送按钮在点击的时候全屏放礼花。` typed into the
    real Codex composer and sent through its native submit control;
-2. the real Codex Agent turn editing the isolated plugin workspace;
-3. the running `cordisx dev --natural-language` service publishing a replacement plugin
+2. the public `create-cordisx-plugin` CLI creating an independent, private
+   `send-confetti` project before the session, without exposing that
+   implementation detail in the user-facing flow;
+3. the real Codex Agent turn editing that scaffolded project's exact entry,
+   README, localization, package metadata, and tests;
+4. the running `cordisx dev <entry>` service publishing a replacement plugin
    generation without restarting the Codex renderer;
-4. a second real native submit click; and
-5. a Host-owned full-screen confetti effect in that renderer.
+5. a second real native submit click;
+6. a Host-owned full-screen confetti effect in that renderer; and
+7. CordisX settings opening the plugin list and the real `send-confetti`
+   detail page, including its local-development identity and README.
 
 Do not replace the Codex shell, Agent response, tool activity, plugin reload, or
 effect with HTML, captions, staged chat text, a mock renderer, or an edited-in
@@ -27,7 +33,8 @@ time and encoded time for that reason.
 ## Product boundary and checkpoint gate
 
 The homepage capture owns the isolated workspace, installed plugin-development
-skill, CDP recorder, visible pointer, scene timing, encoding, generated media,
+skill, invocation of the published project creator, CDP recorder, visible
+pointer, scene timing, encoding, generated media, preserved final plugin source,
 and evidence. CordisX owns:
 
 - the public structured celebration contribution/control-event contract;
@@ -45,7 +52,7 @@ fixed plugin DOM overlay, canvas, custom CSS, native selector listener, or a
 second reload API to unblock the recording.
 
 This capture is pinned to Host commit
-`b53d7ddc324c7bbdb476becb96bf5813a4b6b3c2` and protocol commit
+`502a07490e2b51a02137a27d4976dd94cde901c1` and protocol commit
 `34d2113984882d5c0fa4f0803fb929c8da605eee`. The recorder fails closed when
 the selected CordisX checkout does not match the Host checkpoint.
 
@@ -62,9 +69,12 @@ published.
 
 The installed `cordisx-plugin-development` skill and fixture `AGENTS.md` direct
 the real Agent to the public Host-owned seam. The visible user prompt remains
-the exact sentence above. Temporary source and dependency paths live outside
-the repository and are removed with all owned processes after success,
-failure, or interruption.
+the exact sentence above. The scaffold starts private and `UNLICENSED`; the
+workflow does not ask publication questions because the request does not ask
+to publish. Temporary dependency paths live outside the repository and are
+removed with all owned processes after success, failure, or interruption. The
+final entry source is copied into the evidence set before cleanup so the
+recording can be audited without preserving the disposable profile.
 
 ## Dry run
 
@@ -110,14 +120,17 @@ and verification passes:
 
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4`;
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.webm`;
-- `assets/motion/cordisx-ai-plugin-demo-zh-dark.json`; and
+- `assets/motion/cordisx-ai-plugin-demo-zh-dark.json`;
+- `assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx`; and
 - `assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png`.
 
 The verifier requires 1600×1000 H.264/VP9 `yuv420p`, an MP4 `moov` atom before
-`mdat`, matching durations, an exact prompt, a changed source, different local
-plugin generations, the final native submit click, the full-screen Host marker,
-and a monotonic frame ledger. After the machine gate, inspect at least one
-frame from the initial prompt, Agent work, generation-ready boundary, native
-proof submit, early confetti, and late confetti. Confirm the absence of personal
-projects, threads, profile details, accounts, credentials, or absolute operator
-paths before committing generated media.
+`mdat`, matching durations, an exact prompt, creator/scaffold evidence, a
+changed and hash-matched independent source, English and Chinese localization,
+different local plugin generations, the final native submit click, the
+full-screen Host marker, the settings/plugin-detail segment, and a monotonic
+frame ledger. After the machine gate, inspect at least one frame from the
+initial prompt, Agent work, generation-ready boundary, native proof submit,
+early and late confetti, the plugin list, and the final plugin detail. Confirm
+the absence of personal projects, threads, profile details, accounts,
+credentials, or absolute operator paths before committing generated media.

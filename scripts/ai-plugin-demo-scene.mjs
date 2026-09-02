@@ -10,12 +10,12 @@ export const AI_PLUGIN_DEMO_PROMPT = '我要发送按钮在点击的时候全屏
 
 export const AI_PLUGIN_DEMO_PROOF_MESSAGE = '完成啦！'
 
-export const AI_PLUGIN_DEMO_HOST_COMMIT = 'b53d7ddc324c7bbdb476becb96bf5813a4b6b3c2'
+export const AI_PLUGIN_DEMO_HOST_COMMIT = '502a07490e2b51a02137a27d4976dd94cde901c1'
 
 export const AI_PLUGIN_DEMO_PROTOCOL_COMMIT = '34d2113984882d5c0fa4f0803fb929c8da605eee'
 
 export const aiPluginDemoScene = Object.freeze({
-  id: 'cordisx-ai-plugin-demo.zh-CN.dark.v1',
+  id: 'cordisx-ai-plugin-demo.zh-CN.dark.v2',
   locale: 'zh-CN',
   theme: 'dark',
   checkpoints: Object.freeze({
@@ -53,5 +53,10 @@ export const aiPluginDemoScene = Object.freeze({
     Object.freeze({ type: 'click-native-submit', id: 'submit-proof' }),
     Object.freeze({ type: 'wait-selector', id: 'fullscreen-confetti', selector: '[data-cordisx-effect="confetti"]', maximumSourceSeconds: 10 }),
     Object.freeze({ type: 'hold', id: 'confetti-visible', frames: 42 }),
+    Object.freeze({ type: 'wait-selector-removed', id: 'confetti-cleared', selector: '[data-cordisx-effect="confetti"]', maximumSourceSeconds: 8 }),
+    Object.freeze({ type: 'click', id: 'settings-open', selector: '[data-cordisx-manager-trigger]' }),
+    Object.freeze({ type: 'hold', id: 'settings-plugins', frames: 14 }),
+    Object.freeze({ type: 'click', id: 'settings-plugin-open', selector: '[data-plugin-id="send-confetti"]' }),
+    Object.freeze({ type: 'hold', id: 'settings-plugin-detail', frames: 34 }),
   ]),
 })

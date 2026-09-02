@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
@@ -19,7 +20,7 @@ function option(name) {
 }
 
 if (process.argv.includes('--help')) {
-  console.log('Usage: node scripts/verify-ai-plugin-demo.mjs --mp4 file --webm file [--poster file --metadata file] [--infrastructure-only]')
+  console.log('Usage: node scripts/verify-ai-plugin-demo.mjs --mp4 file --webm file [--poster file --metadata file --source file] [--infrastructure-only]')
   process.exit(0)
 }
 
@@ -29,10 +30,11 @@ const files = {
   webm: option('--webm'),
   poster: option('--poster'),
   metadata: option('--metadata'),
+  source: option('--source'),
 }
 if (files.mp4 === undefined || files.webm === undefined) throw new Error('--mp4 and --webm are required')
-if (!infrastructureOnly && (files.poster === undefined || files.metadata === undefined)) {
-  throw new Error('Real demo verification requires --poster and --metadata')
+if (!infrastructureOnly && (files.poster === undefined || files.metadata === undefined || files.source === undefined)) {
+  throw new Error('Real demo verification requires --poster, --metadata, and --source')
 }
 
 function probe(file) {
@@ -87,6 +89,7 @@ assert(moov >= 0 && mdat >= 0 && moov < mdat, `${files.mp4} does not place the m
 
 let poster
 let metadata
+let source
 if (!infrastructureOnly) {
   const posterProbe = probe(files.poster)
   const posterStream = posterProbe.streams?.[0]
@@ -96,7 +99,9 @@ if (!infrastructureOnly) {
   poster = { codec: 'png', width: Number(posterStream.width), height: Number(posterStream.height) }
 
   metadata = JSON.parse(await readFile(files.metadata, 'utf8'))
-  assert(metadata.schemaVersion === 1, 'capture metadata schema version is not 1')
+  source = await readFile(files.source, 'utf8')
+  assert(metadata.schemaVersion === 2, 'capture metadata schema version is not 2')
+  assert(metadata.scene === aiPluginDemoScene.id, 'capture metadata scene drifted')
   assert(metadata.realRenderer === true, 'capture metadata does not prove a real renderer')
   assert(metadata.rendererUrl === 'app://-/index.html', 'capture metadata renderer URL is not the real Codex app target')
   assert(metadata.prompt === AI_PLUGIN_DEMO_PROMPT, 'capture metadata does not contain the exact required Chinese prompt')
@@ -106,10 +111,22 @@ if (!infrastructureOnly) {
   assert(metadata.effect?.selector === '[data-cordisx-effect="confetti"]', 'capture metadata effect marker drifted')
   assert(metadata.effect?.cleanupObserved === true, 'capture metadata does not prove Host effect cleanup')
   assert(typeof metadata.effect?.cleanedAt === 'string', 'capture metadata is missing the Host effect cleanup timestamp')
-  assert(metadata.plugin?.id === 'natural-language', 'capture metadata plugin id drifted')
+  assert(metadata.scaffold?.generator === 'create-cordisx-plugin', 'capture metadata does not prove the public creator was used')
+  assert(metadata.scaffold?.project === 'send-confetti', 'capture scaffold project drifted')
+  assert(metadata.scaffold?.packageName === 'send-confetti', 'capture scaffold package name drifted')
+  assert(metadata.scaffold?.entry === 'send-confetti/src/send-confetti.tsx', 'capture scaffold entry drifted')
+  assert(metadata.scaffold?.private === true, 'new scaffold must remain private until publication is requested')
+  assert(metadata.plugin?.id === 'send-confetti', 'capture metadata plugin id drifted')
   assert(metadata.plugin?.sourceChanged === true, 'capture metadata does not prove a real source edit')
+  assert(metadata.plugin?.sourceMtimeChanged === true, 'capture metadata does not prove the scaffold entry was rewritten')
   assert(metadata.plugin?.generationChanged === true, 'capture metadata does not prove a replacement generation')
   assert(metadata.plugin?.baselineGeneration !== metadata.plugin?.replacementGeneration, 'plugin generations are identical')
+  assert(metadata.plugin?.sourceSha256 === `sha256:${createHash('sha256').update(source).digest('hex')}`, 'published plugin source does not match capture metadata')
+  assert(metadata.settings?.pluginId === 'send-confetti', 'capture metadata does not prove the scaffolded plugin detail was opened')
+  assert(metadata.settings?.localDevelopment === true, 'plugin detail does not identify the project as local development')
+  assert(metadata.settings?.simplifiedChineseReadme === true, 'plugin detail did not render the Simplified Chinese README')
+  assert(metadata.settings?.listSelector === '[data-plugin-id="send-confetti"]', 'plugin list evidence selector drifted')
+  assert(metadata.settings?.detailSelector === '[data-plugin-detail="send-confetti"]', 'plugin detail evidence selector drifted')
   assert(metadata.checkpoints?.host === AI_PLUGIN_DEMO_HOST_COMMIT, 'capture metadata Host checkpoint drifted')
   assert(metadata.checkpoints?.protocol === AI_PLUGIN_DEMO_PROTOCOL_COMMIT, 'capture metadata protocol checkpoint drifted')
   assert(metadata.privacy?.authenticationPublished === false, 'capture metadata claims authentication was published')
@@ -121,6 +138,15 @@ if (!infrastructureOnly) {
   assert(metadata.capture?.theme === 'dark' && metadata.capture?.locale === 'zh-CN', 'capture presentation is not explicit zh-CN/dark')
   assert(Array.isArray(metadata.capture?.timeline) && metadata.capture.timeline.length === metadata.capture.frameCount, 'capture timeline does not account for every frame')
   assert(metadata.capture.timeline.every((item, index, items) => index === 0 || item.sourceElapsedMs >= items[index - 1].sourceElapsedMs), 'capture source timeline is not monotonic')
+  for (const segment of ['settings-open', 'settings-plugins', 'settings-plugin-open', 'settings-plugin-detail']) {
+    assert(metadata.capture.timeline.some(item => item.segment === segment || item.segment.startsWith(`${segment}:`)), `capture timeline is missing ${segment}`)
+  }
+  assert(/\bid\s*:\s*['"]send-confetti['"]/u.test(source), 'published source does not declare the independent plugin id')
+  assert(/\blocale\s*:\s*['"]en['"]/u.test(source), 'published source is missing English localization')
+  assert(/\blocale\s*:\s*['"]zh-CN['"]/u.test(source), 'published source is missing zh-CN localization')
+  assert(source.includes('cordisx.composer-submit-celebration/v1'), 'published source does not use the public celebration profile')
+  assert(!source.includes('natural-language'), 'published source retains the removed proof-of-concept entry name')
+  assert(!/querySelector|addEventListener\s*\(/u.test(source), 'published plugin source bypasses Host-owned structured UI')
   assert(Math.abs(mp4.duration - webm.duration) < 0.15, 'MP4 and WebM durations differ materially')
   assert(Math.abs(mp4.duration - metadata.capture.encodedDurationSeconds) < 0.15, 'encoded duration differs from capture metadata')
 }
@@ -137,9 +163,11 @@ console.log(JSON.stringify({
       promptSubmitted: metadata.promptSubmitted,
       sourceChanged: metadata.plugin.sourceChanged,
       generationChanged: metadata.plugin.generationChanged,
+      scaffold: metadata.scaffold,
       finalSubmitClicked: metadata.finalSubmitClicked,
       effectObserved: metadata.effectObserved,
       effectCleanupObserved: metadata.effect.cleanupObserved,
+      settings: metadata.settings,
       checkpoints: metadata.checkpoints,
       privacy: metadata.privacy,
     },

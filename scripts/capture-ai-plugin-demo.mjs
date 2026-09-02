@@ -82,6 +82,7 @@ const scene = {
   selectors: { ...aiPluginDemoScene.selectors, effect: effectSelector },
 }
 const cliEntry = path.join(cordisxRoot, 'packages', 'cli', 'dist', 'src', 'cli.js')
+const creatorEntry = path.join(cordisxRoot, 'packages', 'create-cordisx-plugin', 'dist', 'cli.js')
 const cordisxNodeModules = path.join(cordisxRoot, 'node_modules')
 const pluginSkill = path.join(cordisxRoot, 'skills', 'cordisx-plugin-development')
 const motionCursorSvg = await readFile(path.join(projectRoot, 'assets', 'capture', 'cordisx-motion-cursor.svg'), 'utf8')
@@ -91,9 +92,10 @@ const codexHome = path.join(captureRoot, 'codex-home')
 const cordisxHome = path.join(captureRoot, 'cordisx-home')
 const profileDirectory = path.join(captureRoot, 'chromium-profile')
 const workspaceDirectory = path.join(captureRoot, 'ai-plugin-demo')
+const pluginDirectory = path.join(workspaceDirectory, 'send-confetti')
 const framesDirectory = path.join(captureRoot, 'frames')
 const smokeDirectory = path.join(captureRoot, 'codec-smoke')
-const pluginEntry = path.join(workspaceDirectory, '.cordisx', 'plugins', 'natural-language.ts')
+const pluginEntry = path.join(pluginDirectory, 'src', 'send-confetti.tsx')
 const appLauncher = path.join(captureRoot, 'launch-codex-app')
 const computerUseApp = path.join(codexHome, 'computer-use', 'Codex Computer Use.app')
 const computerUseExecutable = path.join(computerUseApp, 'Contents', 'MacOS', 'SkyComputerUseService')
@@ -196,6 +198,11 @@ async function prepareWorkspace() {
   ])
   await writeFile(path.join(fixtureBin, 'cordisx'), `#!/bin/sh\nexec ${JSON.stringify(process.execPath)} ${JSON.stringify(cliEntry)} "$@"\n`, { mode: 0o700 })
   await writeFile(path.join(fixtureBin, 'tsc'), `#!/bin/sh\nexec ${JSON.stringify(process.execPath)} ${JSON.stringify(path.join(cordisxNodeModules, 'typescript', 'bin', 'tsc'))} "$@"\n`, { mode: 0o700 })
+  execFileSync(process.execPath, [creatorEntry, 'send-confetti'], {
+    cwd: workspaceDirectory,
+    env: isolatedEnvironment(),
+    stdio: ['ignore', 'pipe', 'pipe'],
+  })
   await cp(pluginSkill, path.join(codexHome, 'skills', 'cordisx-plugin-development'), { recursive: true })
   await writeFile(computerUseExecutable, '#!/bin/sh\nexec /bin/sleep 3600\n', { mode: 0o700 })
   await chmod(computerUseExecutable, 0o700)
@@ -212,6 +219,16 @@ exec /usr/bin/open -n -F -W \\
   ${JSON.stringify(appBundle)} --args "$@"
 `, { mode: 0o700 })
   await chmod(appLauncher, 0o700)
+  const creatorManifest = JSON.parse(await readFile(path.join(cordisxRoot, 'packages', 'create-cordisx-plugin', 'package.json'), 'utf8'))
+  const generatedManifest = JSON.parse(await readFile(path.join(pluginDirectory, 'package.json'), 'utf8'))
+  return Object.freeze({
+    generator: 'create-cordisx-plugin',
+    generatorVersion: creatorManifest.version,
+    project: 'send-confetti',
+    packageName: generatedManifest.name,
+    entry: 'send-confetti/src/send-confetti.tsx',
+    private: generatedManifest.private === true,
+  })
 }
 
 function isolatedEnvironment() {
@@ -230,14 +247,20 @@ function isolatedEnvironment() {
 }
 
 function runFixtureCheck() {
-  const output = execFileSync('npm', ['run', 'check'], {
-    cwd: workspaceDirectory,
+  execFileSync('npm', ['run', 'check'], {
+    cwd: pluginDirectory,
     env: isolatedEnvironment(),
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
   })
-  if (!output.includes('"status": "ready"') || !output.includes('"pluginId": "natural-language"')) {
-    throw new Error(`CordisX dry-run did not report the managed natural-language entry as ready:\n${output}`)
+  const output = execFileSync('npm', ['run', 'dev:dry-run'], {
+    cwd: pluginDirectory,
+    env: isolatedEnvironment(),
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+  })
+  if (!output.includes('"status": "ready"') || !output.includes('"pluginId": "send-confetti"')) {
+    throw new Error(`CordisX dry-run did not report the scaffolded send-confetti entry as ready:\n${output}`)
   }
   return output
 }
@@ -532,12 +555,12 @@ async function composerState(send) {
 
 async function pluginGeneration(send) {
   return await evaluate(send, `(() => {
-    const plugin = globalThis.__cordisxRuntime?.snapshot?.().plugins?.find(item => item.id === 'natural-language')
+    const plugin = globalThis.__cordisxRuntime?.snapshot?.().plugins?.find(item => item.id === 'send-confetti')
     if (plugin === undefined || plugin.status !== 'active') return null
     return plugin.package?.moduleGeneration ?? plugin.artifactGeneration ?? JSON.stringify({
       source: plugin.source,
       status: plugin.status,
-      registrations: globalThis.__cordisxRuntime.snapshot().registrations.filter(item => item.owner === 'natural-language').map(item => item.qualifiedId),
+      registrations: globalThis.__cordisxRuntime.snapshot().registrations.filter(item => item.owner === 'send-confetti').map(item => item.qualifiedId),
     })
   })()`)
 }
@@ -607,6 +630,56 @@ async function clickNativeSubmit(send, recorder, segment) {
   await clickPoint(send, recorder, state.submit, segment)
 }
 
+async function visibleCenter(send, selector, label) {
+  for (let attempt = 0; attempt < 160; attempt += 1) {
+    const point = await evaluate(send, `(() => {
+      const target = document.querySelector(${JSON.stringify(selector)})
+      if (!(target instanceof HTMLElement)) return null
+      const rect = target.getBoundingClientRect()
+      const style = getComputedStyle(target)
+      if (rect.width <= 0 || rect.height <= 0 || style.visibility === 'hidden' || style.display === 'none') return null
+      return { x: Math.round(rect.left + rect.width / 2), y: Math.round(rect.top + rect.height / 2) }
+    })()`)
+    if (point !== null) return point
+    await new Promise(resolve => setTimeout(resolve, 100))
+  }
+  throw new Error(`${label} did not become visible: ${selector}`)
+}
+
+async function openScaffoldedPluginDetails(send, recorder) {
+  const triggerSelector = '[data-cordisx-manager-trigger]'
+  const pluginSelector = '[data-plugin-id="send-confetti"]'
+  const detailSelector = '[data-plugin-detail="send-confetti"]'
+  await clickPoint(send, recorder, await visibleCenter(send, triggerSelector, 'CordisX settings trigger'), 'settings-open')
+  await visibleCenter(send, '[data-tab="plugins"]', 'CordisX plugins settings page')
+  await recorder.hold(14, 'settings-plugins')
+  await clickPoint(send, recorder, await visibleCenter(send, pluginSelector, 'send-confetti plugin card'), 'settings-plugin-open')
+  await visibleCenter(send, detailSelector, 'send-confetti plugin details')
+  const projection = await evaluate(send, `(() => {
+    const detail = document.querySelector(${JSON.stringify(detailSelector)})
+    if (!(detail instanceof HTMLElement)) return null
+    return {
+      id: detail.dataset.pluginDetail,
+      text: detail.innerText,
+      localDevelopment: detail.innerText.includes('本地开发'),
+      simplifiedChineseReadme: detail.innerText.includes('全屏礼花'),
+    }
+  })()`)
+  if (projection?.id !== 'send-confetti' || !projection.text.includes('send-confetti')
+    || !projection.localDevelopment || !projection.simplifiedChineseReadme) {
+    throw new Error(`Scaffolded plugin details projection is invalid: ${JSON.stringify(projection)}`)
+  }
+  await recorder.hold(34, 'settings-plugin-detail')
+  return {
+    openedAt: new Date().toISOString(),
+    pluginId: projection.id,
+    localDevelopment: projection.localDevelopment,
+    simplifiedChineseReadme: projection.simplifiedChineseReadme,
+    listSelector: pluginSelector,
+    detailSelector,
+  }
+}
+
 async function waitForInitialGeneration(send, recorder) {
   for (let attempt = 0; attempt < 600; attempt += 1) {
     const generation = await pluginGeneration(send)
@@ -614,7 +687,7 @@ async function waitForInitialGeneration(send, recorder) {
     await recorder.frame('baseline-generation')
     await new Promise(resolve => setTimeout(resolve, 250))
   }
-  throw new Error('Baseline natural-language local-development generation did not become active')
+  throw new Error('Baseline scaffolded-plugin local-development generation did not become active')
 }
 
 async function waitForAgentAndReplacement(send, recorder, baselineGeneration, initialSource) {
@@ -713,6 +786,7 @@ try {
   executable('ffprobe')
   await Promise.all([
     requirePath(cliEntry, 'built CordisX CLI (run npm ci && npm run build in the CordisX checkout)'),
+    requirePath(creatorEntry, 'built create-cordisx-plugin CLI (run npm ci && npm run build in the CordisX checkout)'),
     requirePath(cordisxNodeModules, 'CordisX node_modules (run npm ci in the CordisX checkout)'),
     requirePath(pluginSkill, 'CordisX plugin-development skill'),
     requirePath(fixtureRoot, 'AI plugin demo fixture'),
@@ -724,7 +798,7 @@ try {
   if (cordisxCommit !== AI_PLUGIN_DEMO_HOST_COMMIT) {
     throw new Error(`CordisX checkpoint mismatch: expected ${AI_PLUGIN_DEMO_HOST_COMMIT}, received ${cordisxCommit}`)
   }
-  await prepareWorkspace()
+  const scaffold = await prepareWorkspace()
   runFixtureCheck()
 
   if (dryRun) {
@@ -736,6 +810,7 @@ try {
       promptSent: false,
       effectClaimed: false,
       scene: scene.id,
+      scaffold,
       workspaceCheck: 'passed',
       codecSmoke: ['h264/yuv420p/faststart', 'vp9/yuv420p'],
       temporaryFilesRetained: keepTemporaryFiles,
@@ -755,7 +830,7 @@ try {
     const launchStartedAt = new Date().toISOString()
     launcher = spawn(process.execPath, [
       cliEntry,
-      'dev', '--natural-language',
+      'dev', pluginEntry,
       '--executable', appLauncher,
       '--debug-port', String(port),
       '--profile-dir', profileDirectory,
@@ -832,56 +907,62 @@ try {
       await capturePoster(send, stagedPoster)
       await recorder.hold(42, 'confetti-visible')
       Object.assign(effect, await waitForEffectCleanup(send, recorder))
+      const settings = await openScaffoldedPluginDetails(send, recorder)
       const encoded = encodeFrames(framesDirectory, stagingDirectory, outputBasename)
       const sourceAfter = await readFile(pluginEntry, 'utf8')
       const sourceMetadataAfter = await stat(pluginEntry)
+      const stagedSource = path.join(stagingDirectory, `${outputBasename}.plugin.tsx`)
+      await writeFile(stagedSource, sourceAfter)
       const metadata = {
-      schemaVersion: 1,
-      scene: scene.id,
-      realRenderer: true,
-      rendererUrl: 'app://-/index.html',
-      prompt: AI_PLUGIN_DEMO_PROMPT,
-      promptSubmitted: true,
-      finalSubmitClicked: true,
-      effectObserved: true,
-      effect,
-      plugin: {
-        id: 'natural-language',
-        sourceChanged: sourceAfter !== sourceBefore,
-        sourceMtimeChanged: sourceMetadataAfter.mtimeMs !== sourceMetadataBefore.mtimeMs,
-        baselineGeneration,
-        replacementGeneration: replacement.replacementGeneration,
-        generationChanged: replacement.replacementGeneration !== baselineGeneration,
-      },
-      checkpoints: {
-        host: cordisxCommit,
-        protocol: AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
-      },
-      capture: {
-        launchStartedAt,
-        finishedAt: new Date().toISOString(),
-        sourceDurationSeconds: Number(((Date.now() - recorder.startedAt) / 1_000).toFixed(3)),
-        encodedDurationSeconds: Number((recorder.frameCount / scene.output.frameRate).toFixed(3)),
-        frameCount: recorder.frameCount,
-        frameRate: scene.output.frameRate,
-        width: scene.output.width,
-        height: scene.output.height,
-        theme: scene.theme,
-        locale: scene.locale,
-        timeline: recorder.timeline,
-      },
-      privacy: {
-        isolatedHome: true,
-        isolatedCodexHome: true,
-        isolatedCordisXHome: true,
-        isolatedChromiumProfile: true,
-        emptyProjectAndThreadState: true,
-        visibleProfileIdentity: 'CordisX Demo',
-        authenticationCopiedForRuntimeOnly: true,
-        authenticationPublished: false,
-      },
-      onboarding,
-    }
+        schemaVersion: 2,
+        scene: scene.id,
+        realRenderer: true,
+        rendererUrl: 'app://-/index.html',
+        prompt: AI_PLUGIN_DEMO_PROMPT,
+        promptSubmitted: true,
+        finalSubmitClicked: true,
+        effectObserved: true,
+        effect,
+        settings,
+        scaffold,
+        plugin: {
+          id: 'send-confetti',
+          sourceChanged: sourceAfter !== sourceBefore,
+          sourceMtimeChanged: sourceMetadataAfter.mtimeMs !== sourceMetadataBefore.mtimeMs,
+          sourceSha256: `sha256:${createHash('sha256').update(sourceAfter).digest('hex')}`,
+          baselineGeneration,
+          replacementGeneration: replacement.replacementGeneration,
+          generationChanged: replacement.replacementGeneration !== baselineGeneration,
+        },
+        checkpoints: {
+          host: cordisxCommit,
+          protocol: AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
+        },
+        capture: {
+          launchStartedAt,
+          finishedAt: new Date().toISOString(),
+          sourceDurationSeconds: Number(((Date.now() - recorder.startedAt) / 1_000).toFixed(3)),
+          encodedDurationSeconds: Number((recorder.frameCount / scene.output.frameRate).toFixed(3)),
+          frameCount: recorder.frameCount,
+          frameRate: scene.output.frameRate,
+          width: scene.output.width,
+          height: scene.output.height,
+          theme: scene.theme,
+          locale: scene.locale,
+          timeline: recorder.timeline,
+        },
+        privacy: {
+          isolatedHome: true,
+          isolatedCodexHome: true,
+          isolatedCordisXHome: true,
+          isolatedChromiumProfile: true,
+          emptyProjectAndThreadState: true,
+          visibleProfileIdentity: 'CordisX Demo',
+          authenticationCopiedForRuntimeOnly: true,
+          authenticationPublished: false,
+        },
+        onboarding,
+      }
       const stagedMetadata = path.join(stagingDirectory, `${outputBasename}.json`)
       await writeFile(stagedMetadata, `${JSON.stringify(metadata, null, 2)}\n`)
       execFileSync(process.execPath, [path.join(import.meta.dirname, 'verify-ai-plugin-demo.mjs'),
@@ -889,34 +970,40 @@ try {
         '--webm', encoded.webm,
         '--poster', stagedPoster,
         '--metadata', stagedMetadata,
+        '--source', stagedSource,
       ], { stdio: 'inherit' })
 
       await Promise.all([mkdir(outputDirectory, { recursive: true }), mkdir(posterDirectory, { recursive: true })])
       const final = {
-      mp4: path.join(outputDirectory, `${outputBasename}.mp4`),
-      webm: path.join(outputDirectory, `${outputBasename}.webm`),
-      metadata: path.join(outputDirectory, `${outputBasename}.json`),
-      poster: path.join(posterDirectory, `${outputBasename}.png`),
-    }
+        mp4: path.join(outputDirectory, `${outputBasename}.mp4`),
+        webm: path.join(outputDirectory, `${outputBasename}.webm`),
+        metadata: path.join(outputDirectory, `${outputBasename}.json`),
+        source: path.join(outputDirectory, `${outputBasename}.plugin.tsx`),
+        poster: path.join(posterDirectory, `${outputBasename}.png`),
+      }
       await Promise.all([
-      rename(encoded.mp4, final.mp4),
-      rename(encoded.webm, final.webm),
-      rename(stagedMetadata, final.metadata),
-      rename(stagedPoster, final.poster),
-    ])
+        rename(encoded.mp4, final.mp4),
+        rename(encoded.webm, final.webm),
+        rename(stagedMetadata, final.metadata),
+        rename(stagedSource, final.source),
+        rename(stagedPoster, final.poster),
+      ])
       console.log(JSON.stringify({
-      status: 'captured',
-      outputs: final,
-      frameCount: recorder.frameCount,
-      sourceDurationSeconds: metadata.capture.sourceDurationSeconds,
-      encodedDurationSeconds: metadata.capture.encodedDurationSeconds,
-      resolution: `${scene.output.width}x${scene.output.height}`,
-      mp4: { codec: 'h264', pixelFormat: scene.output.pixelFormat, faststart: true, sha256: await sha256(final.mp4) },
-      webm: { codec: 'vp9', pixelFormat: scene.output.pixelFormat, sha256: await sha256(final.webm) },
-      effect,
-      privacy: metadata.privacy,
-      temporaryFilesRetained: keepTemporaryFiles,
-      ...(keepTemporaryFiles ? { temporaryRoot: captureRoot } : {}),
+        status: 'captured',
+        outputs: final,
+        frameCount: recorder.frameCount,
+        sourceDurationSeconds: metadata.capture.sourceDurationSeconds,
+        encodedDurationSeconds: metadata.capture.encodedDurationSeconds,
+        resolution: `${scene.output.width}x${scene.output.height}`,
+        mp4: { codec: 'h264', pixelFormat: scene.output.pixelFormat, faststart: true, sha256: await sha256(final.mp4) },
+        webm: { codec: 'vp9', pixelFormat: scene.output.pixelFormat, sha256: await sha256(final.webm) },
+        source: { sha256: metadata.plugin.sourceSha256 },
+        effect,
+        settings,
+        scaffold,
+        privacy: metadata.privacy,
+        temporaryFilesRetained: keepTemporaryFiles,
+        ...(keepTemporaryFiles ? { temporaryRoot: captureRoot } : {}),
       }, null, 2))
     }
   }

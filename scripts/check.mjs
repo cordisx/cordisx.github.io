@@ -136,9 +136,12 @@ if (!aiPluginScene.includes('我要发送按钮在点击的时候全屏放礼花
 }
 for (const truthMarker of [
   "rendererUrl: 'app://-/index.html'",
+  "execFileSync(process.execPath, [creatorEntry, 'send-confetti']",
   'generationChanged: replacement.replacementGeneration !== baselineGeneration',
   'finalSubmitClicked: true',
   'effectObserved: true',
+  'openScaffoldedPluginDetails(send, recorder)',
+  "`${outputBasename}.plugin.tsx`",
   "'-movflags', '+faststart'",
   "'-pix_fmt', scene.output.pixelFormat",
 ]) {
@@ -147,12 +150,8 @@ for (const truthMarker of [
 if (!aiPluginWorkflow.includes('Do not replace the Codex shell') || !aiPluginWorkflow.includes('Dry run never reads authentication')) {
   throw new Error('AI plugin capture workflow is missing its truth or privacy boundary')
 }
-for (const fixture of [
-  '../scripts/fixtures/ai-plugin-demo/AGENTS.md',
-  '../scripts/fixtures/ai-plugin-demo/package.json',
-  '../scripts/fixtures/ai-plugin-demo/tsconfig.json',
-  '../scripts/fixtures/ai-plugin-demo/.cordisx/plugins/natural-language.ts',
-]) await access(new URL(fixture, import.meta.url))
+await access(new URL('../scripts/fixtures/ai-plugin-demo/AGENTS.md', import.meta.url))
+await access(new URL('../assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx', import.meta.url))
 
 for (const icon of [
   'Activity',
