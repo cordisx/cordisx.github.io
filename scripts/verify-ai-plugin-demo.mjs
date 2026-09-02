@@ -132,11 +132,16 @@ if (!infrastructureOnly) {
   assert(metadata.privacy?.authenticationPublished === false, 'capture metadata claims authentication was published')
   assert(metadata.privacy?.emptyProjectAndThreadState === true, 'capture metadata does not prove empty private UI state')
   assert(metadata.capture?.frameCount >= 36, 'capture metadata frame count is too small')
+  assert(metadata.capture?.sourceFrameCount > metadata.capture?.frameCount, 'capture metadata does not prove an accelerated source segment')
   assert(metadata.capture?.width === aiPluginDemoScene.output.width, 'capture metadata width drifted')
   assert(metadata.capture?.height === aiPluginDemoScene.output.height, 'capture metadata height drifted')
   assert(metadata.capture?.frameRate === aiPluginDemoScene.output.frameRate, 'capture metadata frame rate drifted')
   assert(metadata.capture?.theme === 'dark' && metadata.capture?.locale === 'zh-CN', 'capture presentation is not explicit zh-CN/dark')
   assert(Array.isArray(metadata.capture?.timeline) && metadata.capture.timeline.length === metadata.capture.frameCount, 'capture timeline does not account for every frame')
+  assert(metadata.capture.acceleratedSegments?.['codex-builds-and-cordisx-loads'] === 5, 'Agent work segment is not encoded at 5x')
+  assert(metadata.capture.timeline.every((item, index) => item.frame === index), 'encoded frame ledger is not contiguous')
+  assert(metadata.capture.timeline.every((item, index, items) => index === 0 || item.sourceFrame > items[index - 1].sourceFrame), 'source frame ledger is not strictly increasing')
+  assert(metadata.capture.timeline.some(item => item.segment === 'codex-builds-and-cordisx-loads' && item.playbackRate === 5), 'frame ledger does not identify the 5x Agent work segment')
   assert(metadata.capture.timeline.every((item, index, items) => index === 0 || item.sourceElapsedMs >= items[index - 1].sourceElapsedMs), 'capture source timeline is not monotonic')
   for (const segment of ['settings-open', 'settings-plugins', 'settings-plugin-open', 'settings-plugin-detail']) {
     assert(metadata.capture.timeline.some(item => item.segment === segment || item.segment.startsWith(`${segment}:`)), `capture timeline is missing ${segment}`)
@@ -149,6 +154,7 @@ if (!infrastructureOnly) {
   assert(!/querySelector|addEventListener\s*\(/u.test(source), 'published plugin source bypasses Host-owned structured UI')
   assert(Math.abs(mp4.duration - webm.duration) < 0.15, 'MP4 and WebM durations differ materially')
   assert(Math.abs(mp4.duration - metadata.capture.encodedDurationSeconds) < 0.15, 'encoded duration differs from capture metadata')
+  if (mp4.frames !== undefined) assert(mp4.frames === metadata.capture.frameCount, 'MP4 frame count differs from capture metadata')
 }
 
 console.log(JSON.stringify({

@@ -15,7 +15,7 @@ export const AI_PLUGIN_DEMO_HOST_COMMIT = '502a07490e2b51a02137a27d4976dd94cde90
 export const AI_PLUGIN_DEMO_PROTOCOL_COMMIT = '34d2113984882d5c0fa4f0803fb929c8da605eee'
 
 export const aiPluginDemoScene = Object.freeze({
-  id: 'cordisx-ai-plugin-demo.zh-CN.dark.v2',
+  id: 'cordisx-ai-plugin-demo.zh-CN.dark.v3',
   locale: 'zh-CN',
   theme: 'dark',
   checkpoints: Object.freeze({
@@ -27,6 +27,11 @@ export const aiPluginDemoScene = Object.freeze({
     height: 1000,
     frameRate: 12,
     pixelFormat: 'yuv420p',
+  }),
+  playback: Object.freeze({
+    acceleratedSegments: Object.freeze({
+      'codex-builds-and-cordisx-loads': 5,
+    }),
   }),
   privacy: Object.freeze({
     profileLabel: 'CordisX Demo',

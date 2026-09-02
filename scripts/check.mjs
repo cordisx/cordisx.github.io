@@ -1,4 +1,5 @@
 import { access, readFile } from 'node:fs/promises'
+import { selectPlaybackTimeline } from './ai-plugin-demo-playback.mjs'
 
 const homepage = await readFile(new URL('../index.html', import.meta.url), 'utf8')
 const homepageStyles = await readFile(new URL('../styles.css', import.meta.url), 'utf8')
@@ -14,6 +15,7 @@ const pluginDetailScript = await readFile(new URL('../marketplace/plugin/app.js'
 const reicons = await readFile(new URL('../reicons.js', import.meta.url), 'utf8')
 const products = await readFile(new URL('../products.yaml', import.meta.url), 'utf8')
 const aiPluginScene = await readFile(new URL('./ai-plugin-demo-scene.mjs', import.meta.url), 'utf8')
+const aiPluginPlayback = await readFile(new URL('./ai-plugin-demo-playback.mjs', import.meta.url), 'utf8')
 const aiPluginCapture = await readFile(new URL('./capture-ai-plugin-demo.mjs', import.meta.url), 'utf8')
 const aiPluginWorkflow = await readFile(new URL('../.agents/docs/ai-plugin-demo-capture.md', import.meta.url), 'utf8')
 
@@ -134,6 +136,22 @@ if (!products.includes('https://github.com/cordisx/marketplace')) throw new Erro
 if (!aiPluginScene.includes('我要发送按钮在点击的时候全屏放礼花。')) {
   throw new Error('AI plugin demo scene is missing the exact Chinese request')
 }
+if (!aiPluginPlayback.includes('sourceFrame') || !aiPluginPlayback.includes('encodedElapsedMs')) {
+  throw new Error('AI plugin playback helper is missing auditable source/encoded frame mapping')
+}
+if (!aiPluginScene.includes("'codex-builds-and-cordisx-loads': 5")) {
+  throw new Error('AI plugin demo scene is missing the exact 5x Agent work rate')
+}
+const playbackProbe = selectPlaybackTimeline(
+  Array.from({ length: 9 }, (_, frame) => ({ frame, segment: frame < 7 ? 'work' : 'finish', sourceElapsedMs: frame * 500 })),
+  { work: 5 },
+  12,
+)
+if (playbackProbe.sourceFrameCount !== 9
+  || playbackProbe.frameCount !== 5
+  || playbackProbe.timeline.map(item => item.sourceFrame).join(',') !== '0,5,6,7,8') {
+  throw new Error('AI plugin playback helper does not preserve accelerated boundaries')
+}
 for (const truthMarker of [
   "rendererUrl: 'app://-/index.html'",
   "execFileSync(process.execPath, [creatorEntry, 'send-confetti']",
@@ -141,6 +159,7 @@ for (const truthMarker of [
   'finalSubmitClicked: true',
   'effectObserved: true',
   'openScaffoldedPluginDetails(send, recorder)',
+  'materializePlaybackFrames(recorder.timeline)',
   "`${outputBasename}.plugin.tsx`",
   "'-movflags', '+faststart'",
   "'-pix_fmt', scene.output.pixelFormat",

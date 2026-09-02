@@ -25,6 +25,7 @@ import {
   AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
   aiPluginDemoScene,
 } from './ai-plugin-demo-scene.mjs'
+import { selectPlaybackTimeline } from './ai-plugin-demo-playback.mjs'
 
 const projectRoot = path.resolve(import.meta.dirname, '..')
 const fixtureRoot = path.join(import.meta.dirname, 'fixtures', 'ai-plugin-demo')
@@ -97,6 +98,7 @@ const framesDirectory = path.join(captureRoot, 'frames')
 const smokeDirectory = path.join(captureRoot, 'codec-smoke')
 const pluginEntry = path.join(pluginDirectory, 'src', 'send-confetti.tsx')
 const appLauncher = path.join(captureRoot, 'launch-codex-app')
+const playbackFramesDirectory = path.join(captureRoot, 'playback-frames')
 const computerUseApp = path.join(codexHome, 'computer-use', 'Codex Computer Use.app')
 const computerUseExecutable = path.join(computerUseApp, 'Contents', 'MacOS', 'SkyComputerUseService')
 
@@ -282,6 +284,22 @@ function encodeFrames(sourceDirectory, destinationDirectory, basename, frameRate
     webm,
   ], { stdio: 'inherit' })
   return { mp4, webm }
+}
+
+async function materializePlaybackFrames(timeline) {
+  await mkdir(playbackFramesDirectory, { recursive: true })
+  const playback = selectPlaybackTimeline(
+    timeline,
+    scene.playback.acceleratedSegments,
+    scene.output.frameRate,
+  )
+  for (const item of playback.timeline) {
+    await copyFile(
+      path.join(framesDirectory, `frame-${String(item.sourceFrame).padStart(6, '0')}.jpg`),
+      path.join(playbackFramesDirectory, `frame-${String(item.frame).padStart(6, '0')}.jpg`),
+    )
+  }
+  return playback
 }
 
 async function codecSmoke() {
@@ -908,7 +926,8 @@ try {
       await recorder.hold(42, 'confetti-visible')
       Object.assign(effect, await waitForEffectCleanup(send, recorder))
       const settings = await openScaffoldedPluginDetails(send, recorder)
-      const encoded = encodeFrames(framesDirectory, stagingDirectory, outputBasename)
+      const playback = await materializePlaybackFrames(recorder.timeline)
+      const encoded = encodeFrames(playbackFramesDirectory, stagingDirectory, outputBasename)
       const sourceAfter = await readFile(pluginEntry, 'utf8')
       const sourceMetadataAfter = await stat(pluginEntry)
       const stagedSource = path.join(stagingDirectory, `${outputBasename}.plugin.tsx`)
@@ -942,14 +961,16 @@ try {
           launchStartedAt,
           finishedAt: new Date().toISOString(),
           sourceDurationSeconds: Number(((Date.now() - recorder.startedAt) / 1_000).toFixed(3)),
-          encodedDurationSeconds: Number((recorder.frameCount / scene.output.frameRate).toFixed(3)),
-          frameCount: recorder.frameCount,
+          encodedDurationSeconds: Number((playback.frameCount / scene.output.frameRate).toFixed(3)),
+          frameCount: playback.frameCount,
+          sourceFrameCount: playback.sourceFrameCount,
           frameRate: scene.output.frameRate,
           width: scene.output.width,
           height: scene.output.height,
           theme: scene.theme,
           locale: scene.locale,
-          timeline: recorder.timeline,
+          acceleratedSegments: scene.playback.acceleratedSegments,
+          timeline: playback.timeline,
         },
         privacy: {
           isolatedHome: true,
@@ -991,7 +1012,8 @@ try {
       console.log(JSON.stringify({
         status: 'captured',
         outputs: final,
-        frameCount: recorder.frameCount,
+        frameCount: playback.frameCount,
+        sourceFrameCount: playback.sourceFrameCount,
         sourceDurationSeconds: metadata.capture.sourceDurationSeconds,
         encodedDurationSeconds: metadata.capture.encodedDurationSeconds,
         resolution: `${scene.output.width}x${scene.output.height}`,

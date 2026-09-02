@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "scene": "cordisx-ai-plugin-demo.zh-CN.dark.v2",
+  "scene": "cordisx-ai-plugin-demo.zh-CN.dark.v3",
   "realRenderer": true,
   "rendererUrl": "app://-/index.html",
   "prompt": "我要发送按钮在点击的时候全屏放礼花。",
@@ -46,8 +46,8 @@
     "launchStartedAt": "2026-09-02T06:09:29.166Z",
     "finishedAt": "2026-09-02T06:16:16.218Z",
     "sourceDurationSeconds": 309.668,
-    "encodedDurationSeconds": 58.167,
-    "frameCount": 698,
+    "encodedDurationSeconds": 24.167,
+    "frameCount": 290,
     "frameRate": 12,
     "width": 1600,
     "height": 1000,
@@ -57,3494 +57,2329 @@
       {
         "frame": 0,
         "segment": "opening",
-        "sourceElapsedMs": 44
+        "sourceElapsedMs": 44,
+        "sourceFrame": 0,
+        "playbackRate": 1,
+        "encodedElapsedMs": 0
       },
       {
         "frame": 1,
         "segment": "opening",
-        "sourceElapsedMs": 122
+        "sourceElapsedMs": 122,
+        "sourceFrame": 1,
+        "playbackRate": 1,
+        "encodedElapsedMs": 83
       },
       {
         "frame": 2,
         "segment": "opening",
-        "sourceElapsedMs": 191
+        "sourceElapsedMs": 191,
+        "sourceFrame": 2,
+        "playbackRate": 1,
+        "encodedElapsedMs": 167
       },
       {
         "frame": 3,
         "segment": "opening",
-        "sourceElapsedMs": 296
+        "sourceElapsedMs": 296,
+        "sourceFrame": 3,
+        "playbackRate": 1,
+        "encodedElapsedMs": 250
       },
       {
         "frame": 4,
         "segment": "opening",
-        "sourceElapsedMs": 368
+        "sourceElapsedMs": 368,
+        "sourceFrame": 4,
+        "playbackRate": 1,
+        "encodedElapsedMs": 333
       },
       {
         "frame": 5,
         "segment": "opening",
-        "sourceElapsedMs": 450
+        "sourceElapsedMs": 450,
+        "sourceFrame": 5,
+        "playbackRate": 1,
+        "encodedElapsedMs": 417
       },
       {
         "frame": 6,
         "segment": "opening",
-        "sourceElapsedMs": 549
+        "sourceElapsedMs": 549,
+        "sourceFrame": 6,
+        "playbackRate": 1,
+        "encodedElapsedMs": 500
       },
       {
         "frame": 7,
         "segment": "opening",
-        "sourceElapsedMs": 617
+        "sourceElapsedMs": 617,
+        "sourceFrame": 7,
+        "playbackRate": 1,
+        "encodedElapsedMs": 583
       },
       {
         "frame": 8,
         "segment": "opening",
-        "sourceElapsedMs": 701
+        "sourceElapsedMs": 701,
+        "sourceFrame": 8,
+        "playbackRate": 1,
+        "encodedElapsedMs": 667
       },
       {
         "frame": 9,
         "segment": "opening",
-        "sourceElapsedMs": 790
+        "sourceElapsedMs": 790,
+        "sourceFrame": 9,
+        "playbackRate": 1,
+        "encodedElapsedMs": 750
       },
       {
         "frame": 10,
         "segment": "opening",
-        "sourceElapsedMs": 882
+        "sourceElapsedMs": 882,
+        "sourceFrame": 10,
+        "playbackRate": 1,
+        "encodedElapsedMs": 833
       },
       {
         "frame": 11,
         "segment": "opening",
-        "sourceElapsedMs": 951
+        "sourceElapsedMs": 951,
+        "sourceFrame": 11,
+        "playbackRate": 1,
+        "encodedElapsedMs": 917
       },
       {
         "frame": 12,
         "segment": "baseline-generation",
-        "sourceElapsedMs": 1050
+        "sourceElapsedMs": 1050,
+        "sourceFrame": 12,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1000
       },
       {
         "frame": 13,
         "segment": "baseline-generation",
-        "sourceElapsedMs": 1346
+        "sourceElapsedMs": 1346,
+        "sourceFrame": 13,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1083
       },
       {
         "frame": 14,
         "segment": "baseline-generation",
-        "sourceElapsedMs": 1625
+        "sourceElapsedMs": 1625,
+        "sourceFrame": 14,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1167
       },
       {
         "frame": 15,
         "segment": "user-request:focus:approach",
-        "sourceElapsedMs": 1918
+        "sourceElapsedMs": 1918,
+        "sourceFrame": 15,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1250
       },
       {
         "frame": 16,
         "segment": "user-request:focus:approach",
-        "sourceElapsedMs": 1994
+        "sourceElapsedMs": 1994,
+        "sourceFrame": 16,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1333
       },
       {
         "frame": 17,
         "segment": "user-request:focus:pressed",
-        "sourceElapsedMs": 2084
+        "sourceElapsedMs": 2084,
+        "sourceFrame": 17,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1417
       },
       {
         "frame": 18,
         "segment": "user-request:focus:pressed",
-        "sourceElapsedMs": 2169
+        "sourceElapsedMs": 2169,
+        "sourceFrame": 18,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1500
       },
       {
         "frame": 19,
         "segment": "user-request:focus:released",
-        "sourceElapsedMs": 2264
+        "sourceElapsedMs": 2264,
+        "sourceFrame": 19,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1583
       },
       {
         "frame": 20,
         "segment": "user-request:focus:released",
-        "sourceElapsedMs": 2348
+        "sourceElapsedMs": 2348,
+        "sourceFrame": 20,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1667
       },
       {
         "frame": 21,
         "segment": "user-request",
-        "sourceElapsedMs": 2469
+        "sourceElapsedMs": 2469,
+        "sourceFrame": 21,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1750
       },
       {
         "frame": 22,
         "segment": "user-request",
-        "sourceElapsedMs": 2561
+        "sourceElapsedMs": 2561,
+        "sourceFrame": 22,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1833
       },
       {
         "frame": 23,
         "segment": "user-request",
-        "sourceElapsedMs": 2650
+        "sourceElapsedMs": 2650,
+        "sourceFrame": 23,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1917
       },
       {
         "frame": 24,
         "segment": "user-request",
-        "sourceElapsedMs": 2741
+        "sourceElapsedMs": 2741,
+        "sourceFrame": 24,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2000
       },
       {
         "frame": 25,
         "segment": "user-request",
-        "sourceElapsedMs": 2826
+        "sourceElapsedMs": 2826,
+        "sourceFrame": 25,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2083
       },
       {
         "frame": 26,
         "segment": "user-request",
-        "sourceElapsedMs": 2914
+        "sourceElapsedMs": 2914,
+        "sourceFrame": 26,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2167
       },
       {
         "frame": 27,
         "segment": "user-request",
-        "sourceElapsedMs": 3001
+        "sourceElapsedMs": 3001,
+        "sourceFrame": 27,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2250
       },
       {
         "frame": 28,
         "segment": "user-request",
-        "sourceElapsedMs": 3100
+        "sourceElapsedMs": 3100,
+        "sourceFrame": 28,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2333
       },
       {
         "frame": 29,
         "segment": "user-request",
-        "sourceElapsedMs": 3189
+        "sourceElapsedMs": 3189,
+        "sourceFrame": 29,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2417
       },
       {
         "frame": 30,
         "segment": "user-request",
-        "sourceElapsedMs": 3275
+        "sourceElapsedMs": 3275,
+        "sourceFrame": 30,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2500
       },
       {
         "frame": 31,
         "segment": "user-request",
-        "sourceElapsedMs": 3368
+        "sourceElapsedMs": 3368,
+        "sourceFrame": 31,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2583
       },
       {
         "frame": 32,
         "segment": "user-request",
-        "sourceElapsedMs": 3459
+        "sourceElapsedMs": 3459,
+        "sourceFrame": 32,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2667
       },
       {
         "frame": 33,
         "segment": "user-request",
-        "sourceElapsedMs": 3550
+        "sourceElapsedMs": 3550,
+        "sourceFrame": 33,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2750
       },
       {
         "frame": 34,
         "segment": "user-request",
-        "sourceElapsedMs": 3637
+        "sourceElapsedMs": 3637,
+        "sourceFrame": 34,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2833
       },
       {
         "frame": 35,
         "segment": "user-request",
-        "sourceElapsedMs": 3723
+        "sourceElapsedMs": 3723,
+        "sourceFrame": 35,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2917
       },
       {
         "frame": 36,
         "segment": "user-request",
-        "sourceElapsedMs": 3810
+        "sourceElapsedMs": 3810,
+        "sourceFrame": 36,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3000
       },
       {
         "frame": 37,
         "segment": "user-request",
-        "sourceElapsedMs": 3901
+        "sourceElapsedMs": 3901,
+        "sourceFrame": 37,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3083
       },
       {
         "frame": 38,
         "segment": "user-request",
-        "sourceElapsedMs": 3990
+        "sourceElapsedMs": 3990,
+        "sourceFrame": 38,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3167
       },
       {
         "frame": 39,
         "segment": "submit-request:approach",
-        "sourceElapsedMs": 4086
+        "sourceElapsedMs": 4086,
+        "sourceFrame": 39,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3250
       },
       {
         "frame": 40,
         "segment": "submit-request:approach",
-        "sourceElapsedMs": 4173
+        "sourceElapsedMs": 4173,
+        "sourceFrame": 40,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3333
       },
       {
         "frame": 41,
         "segment": "submit-request:pressed",
-        "sourceElapsedMs": 4266
+        "sourceElapsedMs": 4266,
+        "sourceFrame": 41,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3417
       },
       {
         "frame": 42,
         "segment": "submit-request:pressed",
-        "sourceElapsedMs": 4348
+        "sourceElapsedMs": 4348,
+        "sourceFrame": 42,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3500
       },
       {
         "frame": 43,
         "segment": "submit-request:released",
-        "sourceElapsedMs": 4542
+        "sourceElapsedMs": 4542,
+        "sourceFrame": 43,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3583
       },
       {
         "frame": 44,
         "segment": "submit-request:released",
-        "sourceElapsedMs": 4601
+        "sourceElapsedMs": 4601,
+        "sourceFrame": 44,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3667
       },
       {
         "frame": 45,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 4789
+        "sourceElapsedMs": 4789,
+        "sourceFrame": 45,
+        "playbackRate": 5,
+        "encodedElapsedMs": 3750
       },
       {
         "frame": 46,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 5442
+        "sourceElapsedMs": 7680,
+        "sourceFrame": 50,
+        "playbackRate": 5,
+        "encodedElapsedMs": 3833
       },
       {
         "frame": 47,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 6002
+        "sourceElapsedMs": 10417,
+        "sourceFrame": 55,
+        "playbackRate": 5,
+        "encodedElapsedMs": 3917
       },
       {
         "frame": 48,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 6568
+        "sourceElapsedMs": 13152,
+        "sourceFrame": 60,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4000
       },
       {
         "frame": 49,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 7131
+        "sourceElapsedMs": 15891,
+        "sourceFrame": 65,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4083
       },
       {
         "frame": 50,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 7680
+        "sourceElapsedMs": 18620,
+        "sourceFrame": 70,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4167
       },
       {
         "frame": 51,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 8237
+        "sourceElapsedMs": 21361,
+        "sourceFrame": 75,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4250
       },
       {
         "frame": 52,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 8786
+        "sourceElapsedMs": 24095,
+        "sourceFrame": 80,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4333
       },
       {
         "frame": 53,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 9324
+        "sourceElapsedMs": 26824,
+        "sourceFrame": 85,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4417
       },
       {
         "frame": 54,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 9872
+        "sourceElapsedMs": 29552,
+        "sourceFrame": 90,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4500
       },
       {
         "frame": 55,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 10417
+        "sourceElapsedMs": 32268,
+        "sourceFrame": 95,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4583
       },
       {
         "frame": 56,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 10960
+        "sourceElapsedMs": 34996,
+        "sourceFrame": 100,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4667
       },
       {
         "frame": 57,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 11503
+        "sourceElapsedMs": 37718,
+        "sourceFrame": 105,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4750
       },
       {
         "frame": 58,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 12054
+        "sourceElapsedMs": 40450,
+        "sourceFrame": 110,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4833
       },
       {
         "frame": 59,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 12605
+        "sourceElapsedMs": 43189,
+        "sourceFrame": 115,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4917
       },
       {
         "frame": 60,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 13152
+        "sourceElapsedMs": 45929,
+        "sourceFrame": 120,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5000
       },
       {
         "frame": 61,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 13708
+        "sourceElapsedMs": 48662,
+        "sourceFrame": 125,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5083
       },
       {
         "frame": 62,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 14252
+        "sourceElapsedMs": 51398,
+        "sourceFrame": 130,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5167
       },
       {
         "frame": 63,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 14800
+        "sourceElapsedMs": 54165,
+        "sourceFrame": 135,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5250
       },
       {
         "frame": 64,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 15342
+        "sourceElapsedMs": 56937,
+        "sourceFrame": 140,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5333
       },
       {
         "frame": 65,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 15891
+        "sourceElapsedMs": 59705,
+        "sourceFrame": 145,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5417
       },
       {
         "frame": 66,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 16440
+        "sourceElapsedMs": 62452,
+        "sourceFrame": 150,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5500
       },
       {
         "frame": 67,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 16994
+        "sourceElapsedMs": 65206,
+        "sourceFrame": 155,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5583
       },
       {
         "frame": 68,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 17535
+        "sourceElapsedMs": 67945,
+        "sourceFrame": 160,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5667
       },
       {
         "frame": 69,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 18077
+        "sourceElapsedMs": 70669,
+        "sourceFrame": 165,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5750
       },
       {
         "frame": 70,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 18620
+        "sourceElapsedMs": 73408,
+        "sourceFrame": 170,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5833
       },
       {
         "frame": 71,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 19165
+        "sourceElapsedMs": 76152,
+        "sourceFrame": 175,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5917
       },
       {
         "frame": 72,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 19718
+        "sourceElapsedMs": 78886,
+        "sourceFrame": 180,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6000
       },
       {
         "frame": 73,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 20261
+        "sourceElapsedMs": 81625,
+        "sourceFrame": 185,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6083
       },
       {
         "frame": 74,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 20803
+        "sourceElapsedMs": 84359,
+        "sourceFrame": 190,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6167
       },
       {
         "frame": 75,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 21361
+        "sourceElapsedMs": 87102,
+        "sourceFrame": 195,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6250
       },
       {
         "frame": 76,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 21905
+        "sourceElapsedMs": 89827,
+        "sourceFrame": 200,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6333
       },
       {
         "frame": 77,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 22462
+        "sourceElapsedMs": 92568,
+        "sourceFrame": 205,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6417
       },
       {
         "frame": 78,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 23004
+        "sourceElapsedMs": 95302,
+        "sourceFrame": 210,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6500
       },
       {
         "frame": 79,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 23550
+        "sourceElapsedMs": 98027,
+        "sourceFrame": 215,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6583
       },
       {
         "frame": 80,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 24095
+        "sourceElapsedMs": 100787,
+        "sourceFrame": 220,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6667
       },
       {
         "frame": 81,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 24643
+        "sourceElapsedMs": 103519,
+        "sourceFrame": 225,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6750
       },
       {
         "frame": 82,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 25185
+        "sourceElapsedMs": 106277,
+        "sourceFrame": 230,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6833
       },
       {
         "frame": 83,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 25725
+        "sourceElapsedMs": 109006,
+        "sourceFrame": 235,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6917
       },
       {
         "frame": 84,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 26273
+        "sourceElapsedMs": 111718,
+        "sourceFrame": 240,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7000
       },
       {
         "frame": 85,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 26824
+        "sourceElapsedMs": 114453,
+        "sourceFrame": 245,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7083
       },
       {
         "frame": 86,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 27371
+        "sourceElapsedMs": 117183,
+        "sourceFrame": 250,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7167
       },
       {
         "frame": 87,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 27917
+        "sourceElapsedMs": 119928,
+        "sourceFrame": 255,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7250
       },
       {
         "frame": 88,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 28479
+        "sourceElapsedMs": 122672,
+        "sourceFrame": 260,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7333
       },
       {
         "frame": 89,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 29014
+        "sourceElapsedMs": 125425,
+        "sourceFrame": 265,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7417
       },
       {
         "frame": 90,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 29552
+        "sourceElapsedMs": 128185,
+        "sourceFrame": 270,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7500
       },
       {
         "frame": 91,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 30089
+        "sourceElapsedMs": 130936,
+        "sourceFrame": 275,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7583
       },
       {
         "frame": 92,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 30627
+        "sourceElapsedMs": 133694,
+        "sourceFrame": 280,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7667
       },
       {
         "frame": 93,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 31168
+        "sourceElapsedMs": 136431,
+        "sourceFrame": 285,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7750
       },
       {
         "frame": 94,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 31714
+        "sourceElapsedMs": 139177,
+        "sourceFrame": 290,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7833
       },
       {
         "frame": 95,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 32268
+        "sourceElapsedMs": 141909,
+        "sourceFrame": 295,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7917
       },
       {
         "frame": 96,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 32812
+        "sourceElapsedMs": 144657,
+        "sourceFrame": 300,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8000
       },
       {
         "frame": 97,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 33363
+        "sourceElapsedMs": 147389,
+        "sourceFrame": 305,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8083
       },
       {
         "frame": 98,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 33915
+        "sourceElapsedMs": 150136,
+        "sourceFrame": 310,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8167
       },
       {
         "frame": 99,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 34456
+        "sourceElapsedMs": 152892,
+        "sourceFrame": 315,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8250
       },
       {
         "frame": 100,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 34996
+        "sourceElapsedMs": 155626,
+        "sourceFrame": 320,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8333
       },
       {
         "frame": 101,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 35544
+        "sourceElapsedMs": 158367,
+        "sourceFrame": 325,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8417
       },
       {
         "frame": 102,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 36088
+        "sourceElapsedMs": 161119,
+        "sourceFrame": 330,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8500
       },
       {
         "frame": 103,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 36630
+        "sourceElapsedMs": 163859,
+        "sourceFrame": 335,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8583
       },
       {
         "frame": 104,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 37173
+        "sourceElapsedMs": 166589,
+        "sourceFrame": 340,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8667
       },
       {
         "frame": 105,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 37718
+        "sourceElapsedMs": 169312,
+        "sourceFrame": 345,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8750
       },
       {
         "frame": 106,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 38264
+        "sourceElapsedMs": 172069,
+        "sourceFrame": 350,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8833
       },
       {
         "frame": 107,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 38803
+        "sourceElapsedMs": 174815,
+        "sourceFrame": 355,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8917
       },
       {
         "frame": 108,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 39355
+        "sourceElapsedMs": 177560,
+        "sourceFrame": 360,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9000
       },
       {
         "frame": 109,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 39907
+        "sourceElapsedMs": 180312,
+        "sourceFrame": 365,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9083
       },
       {
         "frame": 110,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 40450
+        "sourceElapsedMs": 183043,
+        "sourceFrame": 370,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9167
       },
       {
         "frame": 111,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 40998
+        "sourceElapsedMs": 185786,
+        "sourceFrame": 375,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9250
       },
       {
         "frame": 112,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 41551
+        "sourceElapsedMs": 188533,
+        "sourceFrame": 380,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9333
       },
       {
         "frame": 113,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 42092
+        "sourceElapsedMs": 191285,
+        "sourceFrame": 385,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9417
       },
       {
         "frame": 114,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 42639
+        "sourceElapsedMs": 193989,
+        "sourceFrame": 390,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9500
       },
       {
         "frame": 115,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 43189
+        "sourceElapsedMs": 196730,
+        "sourceFrame": 395,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9583
       },
       {
         "frame": 116,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 43734
+        "sourceElapsedMs": 199459,
+        "sourceFrame": 400,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9667
       },
       {
         "frame": 117,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 44297
+        "sourceElapsedMs": 202196,
+        "sourceFrame": 405,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9750
       },
       {
         "frame": 118,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 44844
+        "sourceElapsedMs": 204914,
+        "sourceFrame": 410,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9833
       },
       {
         "frame": 119,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 45381
+        "sourceElapsedMs": 207642,
+        "sourceFrame": 415,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9917
       },
       {
         "frame": 120,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 45929
+        "sourceElapsedMs": 210373,
+        "sourceFrame": 420,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10000
       },
       {
         "frame": 121,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 46474
+        "sourceElapsedMs": 213114,
+        "sourceFrame": 425,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10083
       },
       {
         "frame": 122,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 47016
+        "sourceElapsedMs": 215859,
+        "sourceFrame": 430,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10167
       },
       {
         "frame": 123,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 47561
+        "sourceElapsedMs": 218594,
+        "sourceFrame": 435,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10250
       },
       {
         "frame": 124,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 48109
+        "sourceElapsedMs": 221344,
+        "sourceFrame": 440,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10333
       },
       {
         "frame": 125,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 48662
+        "sourceElapsedMs": 224060,
+        "sourceFrame": 445,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10417
       },
       {
         "frame": 126,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 49210
+        "sourceElapsedMs": 226807,
+        "sourceFrame": 450,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10500
       },
       {
         "frame": 127,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 49751
+        "sourceElapsedMs": 229554,
+        "sourceFrame": 455,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10583
       },
       {
         "frame": 128,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 50288
+        "sourceElapsedMs": 232292,
+        "sourceFrame": 460,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10667
       },
       {
         "frame": 129,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 50855
+        "sourceElapsedMs": 235028,
+        "sourceFrame": 465,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10750
       },
       {
         "frame": 130,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 51398
+        "sourceElapsedMs": 237758,
+        "sourceFrame": 470,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10833
       },
       {
         "frame": 131,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 51953
+        "sourceElapsedMs": 240481,
+        "sourceFrame": 475,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10917
       },
       {
         "frame": 132,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 52511
+        "sourceElapsedMs": 243183,
+        "sourceFrame": 480,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11000
       },
       {
         "frame": 133,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 53060
+        "sourceElapsedMs": 245919,
+        "sourceFrame": 485,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11083
       },
       {
         "frame": 134,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 53620
+        "sourceElapsedMs": 248670,
+        "sourceFrame": 490,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11167
       },
       {
         "frame": 135,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 54165
+        "sourceElapsedMs": 251404,
+        "sourceFrame": 495,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11250
       },
       {
         "frame": 136,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 54718
+        "sourceElapsedMs": 254167,
+        "sourceFrame": 500,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11333
       },
       {
         "frame": 137,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 55268
+        "sourceElapsedMs": 256949,
+        "sourceFrame": 505,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11417
       },
       {
         "frame": 138,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 55829
+        "sourceElapsedMs": 259718,
+        "sourceFrame": 510,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11500
       },
       {
         "frame": 139,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 56379
+        "sourceElapsedMs": 262462,
+        "sourceFrame": 515,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11583
       },
       {
         "frame": 140,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 56937
+        "sourceElapsedMs": 265232,
+        "sourceFrame": 520,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11667
       },
       {
         "frame": 141,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 57504
+        "sourceElapsedMs": 268001,
+        "sourceFrame": 525,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11750
       },
       {
         "frame": 142,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 58054
+        "sourceElapsedMs": 270777,
+        "sourceFrame": 530,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11833
       },
       {
         "frame": 143,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 58599
+        "sourceElapsedMs": 273555,
+        "sourceFrame": 535,
+        "playbackRate": 5,
+        "encodedElapsedMs": 11917
       },
       {
         "frame": 144,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 59149
+        "sourceElapsedMs": 276333,
+        "sourceFrame": 540,
+        "playbackRate": 5,
+        "encodedElapsedMs": 12000
       },
       {
         "frame": 145,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 59705
+        "sourceElapsedMs": 279099,
+        "sourceFrame": 545,
+        "playbackRate": 5,
+        "encodedElapsedMs": 12083
       },
       {
         "frame": 146,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 60254
+        "sourceElapsedMs": 281852,
+        "sourceFrame": 550,
+        "playbackRate": 5,
+        "encodedElapsedMs": 12167
       },
       {
         "frame": 147,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 60796
+        "sourceElapsedMs": 284586,
+        "sourceFrame": 555,
+        "playbackRate": 5,
+        "encodedElapsedMs": 12250
       },
       {
         "frame": 148,
         "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 61344
+        "sourceElapsedMs": 285128,
+        "sourceFrame": 556,
+        "playbackRate": 5,
+        "encodedElapsedMs": 12333
       },
       {
         "frame": 149,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 61904
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285168,
+        "sourceFrame": 557,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12417
       },
       {
         "frame": 150,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 62452
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285243,
+        "sourceFrame": 558,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12500
       },
       {
         "frame": 151,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 63001
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285325,
+        "sourceFrame": 559,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12583
       },
       {
         "frame": 152,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 63551
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285421,
+        "sourceFrame": 560,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12667
       },
       {
         "frame": 153,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 64103
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285507,
+        "sourceFrame": 561,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12750
       },
       {
         "frame": 154,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 64649
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285594,
+        "sourceFrame": 562,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12833
       },
       {
         "frame": 155,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 65206
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285676,
+        "sourceFrame": 563,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12917
       },
       {
         "frame": 156,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 65750
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285750,
+        "sourceFrame": 564,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13000
       },
       {
         "frame": 157,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 66295
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285849,
+        "sourceFrame": 565,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13083
       },
       {
         "frame": 158,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 66841
+        "segment": "generation-ready",
+        "sourceElapsedMs": 285935,
+        "sourceFrame": 566,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13167
       },
       {
         "frame": 159,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 67394
+        "segment": "generation-ready",
+        "sourceElapsedMs": 286012,
+        "sourceFrame": 567,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13250
       },
       {
         "frame": 160,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 67945
+        "segment": "generation-ready",
+        "sourceElapsedMs": 286104,
+        "sourceFrame": 568,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13333
       },
       {
         "frame": 161,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 68491
+        "segment": "proof-message:focus:approach",
+        "sourceElapsedMs": 286186,
+        "sourceFrame": 569,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13417
       },
       {
         "frame": 162,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 69039
+        "segment": "proof-message:focus:approach",
+        "sourceElapsedMs": 286269,
+        "sourceFrame": 570,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13500
       },
       {
         "frame": 163,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 69577
+        "segment": "proof-message:focus:pressed",
+        "sourceElapsedMs": 286358,
+        "sourceFrame": 571,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13583
       },
       {
         "frame": 164,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 70128
+        "segment": "proof-message:focus:pressed",
+        "sourceElapsedMs": 286445,
+        "sourceFrame": 572,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13667
       },
       {
         "frame": 165,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 70669
+        "segment": "proof-message:focus:released",
+        "sourceElapsedMs": 286544,
+        "sourceFrame": 573,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13750
       },
       {
         "frame": 166,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 71220
+        "segment": "proof-message:focus:released",
+        "sourceElapsedMs": 286631,
+        "sourceFrame": 574,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13833
       },
       {
         "frame": 167,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 71765
+        "segment": "proof-message",
+        "sourceElapsedMs": 286726,
+        "sourceFrame": 575,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13917
       },
       {
         "frame": 168,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 72321
+        "segment": "proof-message",
+        "sourceElapsedMs": 286806,
+        "sourceFrame": 576,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14000
       },
       {
         "frame": 169,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 72863
+        "segment": "proof-message",
+        "sourceElapsedMs": 286886,
+        "sourceFrame": 577,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14083
       },
       {
         "frame": 170,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 73408
+        "segment": "proof-message",
+        "sourceElapsedMs": 286976,
+        "sourceFrame": 578,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14167
       },
       {
         "frame": 171,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 73966
+        "segment": "proof-message",
+        "sourceElapsedMs": 287068,
+        "sourceFrame": 579,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14250
       },
       {
         "frame": 172,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 74515
+        "segment": "proof-message",
+        "sourceElapsedMs": 287152,
+        "sourceFrame": 580,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14333
       },
       {
         "frame": 173,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 75063
+        "segment": "proof-message",
+        "sourceElapsedMs": 287244,
+        "sourceFrame": 581,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14417
       },
       {
         "frame": 174,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 75612
+        "segment": "proof-message",
+        "sourceElapsedMs": 287333,
+        "sourceFrame": 582,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14500
       },
       {
         "frame": 175,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 76152
+        "segment": "submit-proof:approach",
+        "sourceElapsedMs": 287419,
+        "sourceFrame": 583,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14583
       },
       {
         "frame": 176,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 76700
+        "segment": "submit-proof:approach",
+        "sourceElapsedMs": 287498,
+        "sourceFrame": 584,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14667
       },
       {
         "frame": 177,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 77246
+        "segment": "submit-proof:pressed",
+        "sourceElapsedMs": 287591,
+        "sourceFrame": 585,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14750
       },
       {
         "frame": 178,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 77797
+        "segment": "submit-proof:pressed",
+        "sourceElapsedMs": 287669,
+        "sourceFrame": 586,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14833
       },
       {
         "frame": 179,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 78345
+        "segment": "submit-proof:released",
+        "sourceElapsedMs": 287885,
+        "sourceFrame": 587,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14917
       },
       {
         "frame": 180,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 78886
+        "segment": "submit-proof:released",
+        "sourceElapsedMs": 288025,
+        "sourceFrame": 588,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15000
       },
       {
         "frame": 181,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 79438
+        "segment": "fullscreen-confetti:waiting",
+        "sourceElapsedMs": 288103,
+        "sourceFrame": 589,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15083
       },
       {
         "frame": 182,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 79981
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288283,
+        "sourceFrame": 590,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15167
       },
       {
         "frame": 183,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 80527
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288375,
+        "sourceFrame": 591,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15250
       },
       {
         "frame": 184,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 81071
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288455,
+        "sourceFrame": 592,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15333
       },
       {
         "frame": 185,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 81625
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288550,
+        "sourceFrame": 593,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15417
       },
       {
         "frame": 186,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 82171
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288632,
+        "sourceFrame": 594,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15500
       },
       {
         "frame": 187,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 82714
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288715,
+        "sourceFrame": 595,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15583
       },
       {
         "frame": 188,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 83258
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288797,
+        "sourceFrame": 596,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15667
       },
       {
         "frame": 189,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 83812
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288882,
+        "sourceFrame": 597,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15750
       },
       {
         "frame": 190,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 84359
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 288967,
+        "sourceFrame": 598,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15833
       },
       {
         "frame": 191,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 84914
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289056,
+        "sourceFrame": 599,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15917
       },
       {
         "frame": 192,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 85456
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289145,
+        "sourceFrame": 600,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16000
       },
       {
         "frame": 193,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 86002
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289225,
+        "sourceFrame": 601,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16083
       },
       {
         "frame": 194,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 86553
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289307,
+        "sourceFrame": 602,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16167
       },
       {
         "frame": 195,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 87102
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289392,
+        "sourceFrame": 603,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16250
       },
       {
         "frame": 196,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 87651
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289474,
+        "sourceFrame": 604,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16333
       },
       {
         "frame": 197,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 88185
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289568,
+        "sourceFrame": 605,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16417
       },
       {
         "frame": 198,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 88737
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289653,
+        "sourceFrame": 606,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16500
       },
       {
         "frame": 199,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 89277
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289736,
+        "sourceFrame": 607,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16583
       },
       {
         "frame": 200,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 89827
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289828,
+        "sourceFrame": 608,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16667
       },
       {
         "frame": 201,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 90375
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289907,
+        "sourceFrame": 609,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16750
       },
       {
         "frame": 202,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 90917
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 289987,
+        "sourceFrame": 610,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16833
       },
       {
         "frame": 203,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 91462
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290077,
+        "sourceFrame": 611,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16917
       },
       {
         "frame": 204,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 92012
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290155,
+        "sourceFrame": 612,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17000
       },
       {
         "frame": 205,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 92568
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290237,
+        "sourceFrame": 613,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17083
       },
       {
         "frame": 206,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 93121
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290327,
+        "sourceFrame": 614,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17167
       },
       {
         "frame": 207,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 93662
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290412,
+        "sourceFrame": 615,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17250
       },
       {
         "frame": 208,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 94207
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290486,
+        "sourceFrame": 616,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17333
       },
       {
         "frame": 209,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 94754
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290567,
+        "sourceFrame": 617,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17417
       },
       {
         "frame": 210,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 95302
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290661,
+        "sourceFrame": 618,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17500
       },
       {
         "frame": 211,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 95848
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290737,
+        "sourceFrame": 619,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17583
       },
       {
         "frame": 212,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 96390
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290815,
+        "sourceFrame": 620,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17667
       },
       {
         "frame": 213,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 96932
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 290908,
+        "sourceFrame": 621,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17750
       },
       {
         "frame": 214,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 97482
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291003,
+        "sourceFrame": 622,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17833
       },
       {
         "frame": 215,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 98027
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291086,
+        "sourceFrame": 623,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17917
       },
       {
         "frame": 216,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 98585
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291169,
+        "sourceFrame": 624,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18000
       },
       {
         "frame": 217,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 99136
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291244,
+        "sourceFrame": 625,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18083
       },
       {
         "frame": 218,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 99686
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291323,
+        "sourceFrame": 626,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18167
       },
       {
         "frame": 219,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 100233
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291425,
+        "sourceFrame": 627,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18250
       },
       {
         "frame": 220,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 100787
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291505,
+        "sourceFrame": 628,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18333
       },
       {
         "frame": 221,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 101335
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291594,
+        "sourceFrame": 629,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18417
       },
       {
         "frame": 222,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 101881
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291681,
+        "sourceFrame": 630,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18500
       },
       {
         "frame": 223,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 102423
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 291769,
+        "sourceFrame": 631,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18583
       },
       {
         "frame": 224,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 102969
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 291842,
+        "sourceFrame": 632,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18667
       },
       {
         "frame": 225,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 103519
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 291936,
+        "sourceFrame": 633,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18750
       },
       {
         "frame": 226,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 104072
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 292003,
+        "sourceFrame": 634,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18833
       },
       {
         "frame": 227,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 104623
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 292102,
+        "sourceFrame": 635,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18917
       },
       {
         "frame": 228,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 105177
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 292181,
+        "sourceFrame": 636,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19000
       },
       {
         "frame": 229,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 105729
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 292266,
+        "sourceFrame": 637,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19083
       },
       {
         "frame": 230,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 106277
+        "segment": "settings-open:approach",
+        "sourceElapsedMs": 292359,
+        "sourceFrame": 638,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19167
       },
       {
         "frame": 231,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 106829
+        "segment": "settings-open:approach",
+        "sourceElapsedMs": 292445,
+        "sourceFrame": 639,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19250
       },
       {
         "frame": 232,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 107378
+        "segment": "settings-open:pressed",
+        "sourceElapsedMs": 292535,
+        "sourceFrame": 640,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19333
       },
       {
         "frame": 233,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 107920
+        "segment": "settings-open:pressed",
+        "sourceElapsedMs": 292618,
+        "sourceFrame": 641,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19417
       },
       {
         "frame": 234,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 108467
+        "segment": "settings-open:released",
+        "sourceElapsedMs": 292779,
+        "sourceFrame": 642,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19500
       },
       {
         "frame": 235,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 109006
+        "segment": "settings-open:released",
+        "sourceElapsedMs": 292843,
+        "sourceFrame": 643,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19583
       },
       {
         "frame": 236,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 109551
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 292936,
+        "sourceFrame": 644,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19667
       },
       {
         "frame": 237,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 110089
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293025,
+        "sourceFrame": 645,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19750
       },
       {
         "frame": 238,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 110634
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293120,
+        "sourceFrame": 646,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19833
       },
       {
         "frame": 239,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 111173
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293196,
+        "sourceFrame": 647,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19917
       },
       {
         "frame": 240,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 111718
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293285,
+        "sourceFrame": 648,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20000
       },
       {
         "frame": 241,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 112259
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293369,
+        "sourceFrame": 649,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20083
       },
       {
         "frame": 242,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 112812
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293459,
+        "sourceFrame": 650,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20167
       },
       {
         "frame": 243,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 113358
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293539,
+        "sourceFrame": 651,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20250
       },
       {
         "frame": 244,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 113900
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293628,
+        "sourceFrame": 652,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20333
       },
       {
         "frame": 245,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 114453
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293710,
+        "sourceFrame": 653,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20417
       },
       {
         "frame": 246,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 115003
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293805,
+        "sourceFrame": 654,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20500
       },
       {
         "frame": 247,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 115550
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293889,
+        "sourceFrame": 655,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20583
       },
       {
         "frame": 248,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 116097
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 293978,
+        "sourceFrame": 656,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20667
       },
       {
         "frame": 249,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 116638
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 294059,
+        "sourceFrame": 657,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20750
       },
       {
         "frame": 250,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 117183
+        "segment": "settings-plugin-open:approach",
+        "sourceElapsedMs": 294152,
+        "sourceFrame": 658,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20833
       },
       {
         "frame": 251,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 117726
+        "segment": "settings-plugin-open:approach",
+        "sourceElapsedMs": 294240,
+        "sourceFrame": 659,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20917
       },
       {
         "frame": 252,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 118277
+        "segment": "settings-plugin-open:pressed",
+        "sourceElapsedMs": 294328,
+        "sourceFrame": 660,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21000
       },
       {
         "frame": 253,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 118828
+        "segment": "settings-plugin-open:pressed",
+        "sourceElapsedMs": 294411,
+        "sourceFrame": 661,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21083
       },
       {
         "frame": 254,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 119374
+        "segment": "settings-plugin-open:released",
+        "sourceElapsedMs": 294609,
+        "sourceFrame": 662,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21167
       },
       {
         "frame": 255,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 119928
+        "segment": "settings-plugin-open:released",
+        "sourceElapsedMs": 294679,
+        "sourceFrame": 663,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21250
       },
       {
         "frame": 256,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 120477
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 294791,
+        "sourceFrame": 664,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21333
       },
       {
         "frame": 257,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 121035
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 294869,
+        "sourceFrame": 665,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21417
       },
       {
         "frame": 258,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 121589
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 294952,
+        "sourceFrame": 666,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21500
       },
       {
         "frame": 259,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 122125
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295043,
+        "sourceFrame": 667,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21583
       },
       {
         "frame": 260,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 122672
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295125,
+        "sourceFrame": 668,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21667
       },
       {
         "frame": 261,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 123217
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295202,
+        "sourceFrame": 669,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21750
       },
       {
         "frame": 262,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 123770
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295297,
+        "sourceFrame": 670,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21833
       },
       {
         "frame": 263,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 124321
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295377,
+        "sourceFrame": 671,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21917
       },
       {
         "frame": 264,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 124864
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295457,
+        "sourceFrame": 672,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22000
       },
       {
         "frame": 265,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 125425
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295551,
+        "sourceFrame": 673,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22083
       },
       {
         "frame": 266,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 125978
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295626,
+        "sourceFrame": 674,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22167
       },
       {
         "frame": 267,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 126522
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295711,
+        "sourceFrame": 675,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22250
       },
       {
         "frame": 268,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 127069
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295795,
+        "sourceFrame": 676,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22333
       },
       {
         "frame": 269,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 127632
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295883,
+        "sourceFrame": 677,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22417
       },
       {
         "frame": 270,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 128185
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 295973,
+        "sourceFrame": 678,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22500
       },
       {
         "frame": 271,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 128736
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296057,
+        "sourceFrame": 679,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22583
       },
       {
         "frame": 272,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 129285
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296135,
+        "sourceFrame": 680,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22667
       },
       {
         "frame": 273,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 129837
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296225,
+        "sourceFrame": 681,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22750
       },
       {
         "frame": 274,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 130384
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296306,
+        "sourceFrame": 682,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22833
       },
       {
         "frame": 275,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 130936
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296392,
+        "sourceFrame": 683,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22917
       },
       {
         "frame": 276,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 131483
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296479,
+        "sourceFrame": 684,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23000
       },
       {
         "frame": 277,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 132053
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296560,
+        "sourceFrame": 685,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23083
       },
       {
         "frame": 278,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 132600
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296643,
+        "sourceFrame": 686,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23167
       },
       {
         "frame": 279,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 133139
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296727,
+        "sourceFrame": 687,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23250
       },
       {
         "frame": 280,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 133694
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296820,
+        "sourceFrame": 688,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23333
       },
       {
         "frame": 281,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 134235
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296898,
+        "sourceFrame": 689,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23417
       },
       {
         "frame": 282,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 134778
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 296993,
+        "sourceFrame": 690,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23500
       },
       {
         "frame": 283,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 135329
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 297073,
+        "sourceFrame": 691,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23583
       },
       {
         "frame": 284,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 135880
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 297155,
+        "sourceFrame": 692,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23667
       },
       {
         "frame": 285,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 136431
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 297240,
+        "sourceFrame": 693,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23750
       },
       {
         "frame": 286,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 136978
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 297333,
+        "sourceFrame": 694,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23833
       },
       {
         "frame": 287,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 137531
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 297417,
+        "sourceFrame": 695,
+        "playbackRate": 1,
+        "encodedElapsedMs": 23917
       },
       {
         "frame": 288,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 138085
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 297498,
+        "sourceFrame": 696,
+        "playbackRate": 1,
+        "encodedElapsedMs": 24000
       },
       {
         "frame": 289,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 138631
-      },
-      {
-        "frame": 290,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 139177
-      },
-      {
-        "frame": 291,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 139727
-      },
-      {
-        "frame": 292,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 140269
-      },
-      {
-        "frame": 293,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 140813
-      },
-      {
-        "frame": 294,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 141357
-      },
-      {
-        "frame": 295,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 141909
-      },
-      {
-        "frame": 296,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 142459
-      },
-      {
-        "frame": 297,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 143014
-      },
-      {
-        "frame": 298,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 143565
-      },
-      {
-        "frame": 299,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 144111
-      },
-      {
-        "frame": 300,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 144657
-      },
-      {
-        "frame": 301,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 145211
-      },
-      {
-        "frame": 302,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 145752
-      },
-      {
-        "frame": 303,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 146302
-      },
-      {
-        "frame": 304,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 146845
-      },
-      {
-        "frame": 305,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 147389
-      },
-      {
-        "frame": 306,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 147933
-      },
-      {
-        "frame": 307,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 148482
-      },
-      {
-        "frame": 308,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 149025
-      },
-      {
-        "frame": 309,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 149583
-      },
-      {
-        "frame": 310,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 150136
-      },
-      {
-        "frame": 311,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 150685
-      },
-      {
-        "frame": 312,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 151229
-      },
-      {
-        "frame": 313,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 151778
-      },
-      {
-        "frame": 314,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 152333
-      },
-      {
-        "frame": 315,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 152892
-      },
-      {
-        "frame": 316,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 153434
-      },
-      {
-        "frame": 317,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 153976
-      },
-      {
-        "frame": 318,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 154519
-      },
-      {
-        "frame": 319,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 155079
-      },
-      {
-        "frame": 320,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 155626
-      },
-      {
-        "frame": 321,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 156179
-      },
-      {
-        "frame": 322,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 156728
-      },
-      {
-        "frame": 323,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 157270
-      },
-      {
-        "frame": 324,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 157823
-      },
-      {
-        "frame": 325,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 158367
-      },
-      {
-        "frame": 326,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 158916
-      },
-      {
-        "frame": 327,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 159473
-      },
-      {
-        "frame": 328,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 160018
-      },
-      {
-        "frame": 329,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 160572
-      },
-      {
-        "frame": 330,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 161119
-      },
-      {
-        "frame": 331,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 161661
-      },
-      {
-        "frame": 332,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 162205
-      },
-      {
-        "frame": 333,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 162759
-      },
-      {
-        "frame": 334,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 163310
-      },
-      {
-        "frame": 335,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 163859
-      },
-      {
-        "frame": 336,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 164411
-      },
-      {
-        "frame": 337,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 164956
-      },
-      {
-        "frame": 338,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 165497
-      },
-      {
-        "frame": 339,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 166043
-      },
-      {
-        "frame": 340,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 166589
-      },
-      {
-        "frame": 341,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 167140
-      },
-      {
-        "frame": 342,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 167683
-      },
-      {
-        "frame": 343,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 168222
-      },
-      {
-        "frame": 344,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 168769
-      },
-      {
-        "frame": 345,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 169312
-      },
-      {
-        "frame": 346,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 169868
-      },
-      {
-        "frame": 347,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 170420
-      },
-      {
-        "frame": 348,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 170968
-      },
-      {
-        "frame": 349,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 171515
-      },
-      {
-        "frame": 350,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 172069
-      },
-      {
-        "frame": 351,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 172617
-      },
-      {
-        "frame": 352,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 173168
-      },
-      {
-        "frame": 353,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 173719
-      },
-      {
-        "frame": 354,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 174265
-      },
-      {
-        "frame": 355,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 174815
-      },
-      {
-        "frame": 356,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 175360
-      },
-      {
-        "frame": 357,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 175910
-      },
-      {
-        "frame": 358,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 176460
-      },
-      {
-        "frame": 359,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 177014
-      },
-      {
-        "frame": 360,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 177560
-      },
-      {
-        "frame": 361,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 178111
-      },
-      {
-        "frame": 362,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 178659
-      },
-      {
-        "frame": 363,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 179206
-      },
-      {
-        "frame": 364,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 179752
-      },
-      {
-        "frame": 365,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 180312
-      },
-      {
-        "frame": 366,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 180861
-      },
-      {
-        "frame": 367,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 181402
-      },
-      {
-        "frame": 368,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 181942
-      },
-      {
-        "frame": 369,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 182501
-      },
-      {
-        "frame": 370,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 183043
-      },
-      {
-        "frame": 371,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 183586
-      },
-      {
-        "frame": 372,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 184132
-      },
-      {
-        "frame": 373,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 184692
-      },
-      {
-        "frame": 374,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 185242
-      },
-      {
-        "frame": 375,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 185786
-      },
-      {
-        "frame": 376,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 186325
-      },
-      {
-        "frame": 377,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 186876
-      },
-      {
-        "frame": 378,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 187427
-      },
-      {
-        "frame": 379,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 187986
-      },
-      {
-        "frame": 380,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 188533
-      },
-      {
-        "frame": 381,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 189086
-      },
-      {
-        "frame": 382,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 189636
-      },
-      {
-        "frame": 383,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 190185
-      },
-      {
-        "frame": 384,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 190733
-      },
-      {
-        "frame": 385,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 191285
-      },
-      {
-        "frame": 386,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 191836
-      },
-      {
-        "frame": 387,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 192374
-      },
-      {
-        "frame": 388,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 192919
-      },
-      {
-        "frame": 389,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 193454
-      },
-      {
-        "frame": 390,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 193989
-      },
-      {
-        "frame": 391,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 194537
-      },
-      {
-        "frame": 392,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 195085
-      },
-      {
-        "frame": 393,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 195634
-      },
-      {
-        "frame": 394,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 196183
-      },
-      {
-        "frame": 395,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 196730
-      },
-      {
-        "frame": 396,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 197270
-      },
-      {
-        "frame": 397,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 197818
-      },
-      {
-        "frame": 398,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 198369
-      },
-      {
-        "frame": 399,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 198910
-      },
-      {
-        "frame": 400,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 199459
-      },
-      {
-        "frame": 401,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 200005
-      },
-      {
-        "frame": 402,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 200548
-      },
-      {
-        "frame": 403,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 201094
-      },
-      {
-        "frame": 404,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 201644
-      },
-      {
-        "frame": 405,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 202196
-      },
-      {
-        "frame": 406,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 202742
-      },
-      {
-        "frame": 407,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 203272
-      },
-      {
-        "frame": 408,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 203821
-      },
-      {
-        "frame": 409,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 204368
-      },
-      {
-        "frame": 410,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 204914
-      },
-      {
-        "frame": 411,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 205453
-      },
-      {
-        "frame": 412,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 206000
-      },
-      {
-        "frame": 413,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 206545
-      },
-      {
-        "frame": 414,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 207094
-      },
-      {
-        "frame": 415,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 207642
-      },
-      {
-        "frame": 416,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 208184
-      },
-      {
-        "frame": 417,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 208736
-      },
-      {
-        "frame": 418,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 209286
-      },
-      {
-        "frame": 419,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 209830
-      },
-      {
-        "frame": 420,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 210373
-      },
-      {
-        "frame": 421,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 210918
-      },
-      {
-        "frame": 422,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 211469
-      },
-      {
-        "frame": 423,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 212019
-      },
-      {
-        "frame": 424,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 212566
-      },
-      {
-        "frame": 425,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 213114
-      },
-      {
-        "frame": 426,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 213671
-      },
-      {
-        "frame": 427,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 214218
-      },
-      {
-        "frame": 428,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 214764
-      },
-      {
-        "frame": 429,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 215318
-      },
-      {
-        "frame": 430,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 215859
-      },
-      {
-        "frame": 431,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 216403
-      },
-      {
-        "frame": 432,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 216943
-      },
-      {
-        "frame": 433,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 217495
-      },
-      {
-        "frame": 434,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 218040
-      },
-      {
-        "frame": 435,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 218594
-      },
-      {
-        "frame": 436,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 219145
-      },
-      {
-        "frame": 437,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 219699
-      },
-      {
-        "frame": 438,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 220251
-      },
-      {
-        "frame": 439,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 220800
-      },
-      {
-        "frame": 440,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 221344
-      },
-      {
-        "frame": 441,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 221884
-      },
-      {
-        "frame": 442,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 222422
-      },
-      {
-        "frame": 443,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 222961
-      },
-      {
-        "frame": 444,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 223509
-      },
-      {
-        "frame": 445,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 224060
-      },
-      {
-        "frame": 446,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 224605
-      },
-      {
-        "frame": 447,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 225161
-      },
-      {
-        "frame": 448,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 225706
-      },
-      {
-        "frame": 449,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 226259
-      },
-      {
-        "frame": 450,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 226807
-      },
-      {
-        "frame": 451,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 227357
-      },
-      {
-        "frame": 452,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 227907
-      },
-      {
-        "frame": 453,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 228462
-      },
-      {
-        "frame": 454,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 229012
-      },
-      {
-        "frame": 455,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 229554
-      },
-      {
-        "frame": 456,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 230101
-      },
-      {
-        "frame": 457,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 230653
-      },
-      {
-        "frame": 458,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 231198
-      },
-      {
-        "frame": 459,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 231743
-      },
-      {
-        "frame": 460,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 232292
-      },
-      {
-        "frame": 461,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 232832
-      },
-      {
-        "frame": 462,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 233384
-      },
-      {
-        "frame": 463,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 233932
-      },
-      {
-        "frame": 464,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 234482
-      },
-      {
-        "frame": 465,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 235028
-      },
-      {
-        "frame": 466,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 235573
-      },
-      {
-        "frame": 467,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 236124
-      },
-      {
-        "frame": 468,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 236673
-      },
-      {
-        "frame": 469,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 237217
-      },
-      {
-        "frame": 470,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 237758
-      },
-      {
-        "frame": 471,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 238302
-      },
-      {
-        "frame": 472,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 238849
-      },
-      {
-        "frame": 473,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 239403
-      },
-      {
-        "frame": 474,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 239941
-      },
-      {
-        "frame": 475,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 240481
-      },
-      {
-        "frame": 476,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 241015
-      },
-      {
-        "frame": 477,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 241550
-      },
-      {
-        "frame": 478,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 242085
-      },
-      {
-        "frame": 479,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 242632
-      },
-      {
-        "frame": 480,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 243183
-      },
-      {
-        "frame": 481,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 243735
-      },
-      {
-        "frame": 482,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 244279
-      },
-      {
-        "frame": 483,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 244826
-      },
-      {
-        "frame": 484,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 245378
-      },
-      {
-        "frame": 485,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 245919
-      },
-      {
-        "frame": 486,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 246477
-      },
-      {
-        "frame": 487,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 247022
-      },
-      {
-        "frame": 488,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 247578
-      },
-      {
-        "frame": 489,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 248121
-      },
-      {
-        "frame": 490,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 248670
-      },
-      {
-        "frame": 491,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 249219
-      },
-      {
-        "frame": 492,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 249760
-      },
-      {
-        "frame": 493,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 250302
-      },
-      {
-        "frame": 494,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 250864
-      },
-      {
-        "frame": 495,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 251404
-      },
-      {
-        "frame": 496,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 251963
-      },
-      {
-        "frame": 497,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 252501
-      },
-      {
-        "frame": 498,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 253053
-      },
-      {
-        "frame": 499,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 253606
-      },
-      {
-        "frame": 500,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 254167
-      },
-      {
-        "frame": 501,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 254725
-      },
-      {
-        "frame": 502,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 255287
-      },
-      {
-        "frame": 503,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 255840
-      },
-      {
-        "frame": 504,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 256399
-      },
-      {
-        "frame": 505,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 256949
-      },
-      {
-        "frame": 506,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 257513
-      },
-      {
-        "frame": 507,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 258082
-      },
-      {
-        "frame": 508,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 258645
-      },
-      {
-        "frame": 509,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 259181
-      },
-      {
-        "frame": 510,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 259718
-      },
-      {
-        "frame": 511,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 260261
-      },
-      {
-        "frame": 512,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 260809
-      },
-      {
-        "frame": 513,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 261360
-      },
-      {
-        "frame": 514,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 261908
-      },
-      {
-        "frame": 515,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 262462
-      },
-      {
-        "frame": 516,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 263018
-      },
-      {
-        "frame": 517,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 263572
-      },
-      {
-        "frame": 518,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 264126
-      },
-      {
-        "frame": 519,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 264676
-      },
-      {
-        "frame": 520,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 265232
-      },
-      {
-        "frame": 521,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 265790
-      },
-      {
-        "frame": 522,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 266347
-      },
-      {
-        "frame": 523,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 266895
-      },
-      {
-        "frame": 524,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 267454
-      },
-      {
-        "frame": 525,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 268001
-      },
-      {
-        "frame": 526,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 268543
-      },
-      {
-        "frame": 527,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 269102
-      },
-      {
-        "frame": 528,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 269659
-      },
-      {
-        "frame": 529,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 270217
-      },
-      {
-        "frame": 530,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 270777
-      },
-      {
-        "frame": 531,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 271326
-      },
-      {
-        "frame": 532,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 271888
-      },
-      {
-        "frame": 533,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 272435
-      },
-      {
-        "frame": 534,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 272994
-      },
-      {
-        "frame": 535,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 273555
-      },
-      {
-        "frame": 536,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 274117
-      },
-      {
-        "frame": 537,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 274675
-      },
-      {
-        "frame": 538,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 275229
-      },
-      {
-        "frame": 539,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 275786
-      },
-      {
-        "frame": 540,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 276333
-      },
-      {
-        "frame": 541,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 276896
-      },
-      {
-        "frame": 542,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 277442
-      },
-      {
-        "frame": 543,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 277996
-      },
-      {
-        "frame": 544,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 278550
-      },
-      {
-        "frame": 545,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 279099
-      },
-      {
-        "frame": 546,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 279657
-      },
-      {
-        "frame": 547,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 280209
-      },
-      {
-        "frame": 548,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 280761
-      },
-      {
-        "frame": 549,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 281304
-      },
-      {
-        "frame": 550,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 281852
-      },
-      {
-        "frame": 551,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 282402
-      },
-      {
-        "frame": 552,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 282951
-      },
-      {
-        "frame": 553,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 283506
-      },
-      {
-        "frame": 554,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 284040
-      },
-      {
-        "frame": 555,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 284586
-      },
-      {
-        "frame": 556,
-        "segment": "codex-builds-and-cordisx-loads",
-        "sourceElapsedMs": 285128
-      },
-      {
-        "frame": 557,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285168
-      },
-      {
-        "frame": 558,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285243
-      },
-      {
-        "frame": 559,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285325
-      },
-      {
-        "frame": 560,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285421
-      },
-      {
-        "frame": 561,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285507
-      },
-      {
-        "frame": 562,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285594
-      },
-      {
-        "frame": 563,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285676
-      },
-      {
-        "frame": 564,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285750
-      },
-      {
-        "frame": 565,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285849
-      },
-      {
-        "frame": 566,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 285935
-      },
-      {
-        "frame": 567,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 286012
-      },
-      {
-        "frame": 568,
-        "segment": "generation-ready",
-        "sourceElapsedMs": 286104
-      },
-      {
-        "frame": 569,
-        "segment": "proof-message:focus:approach",
-        "sourceElapsedMs": 286186
-      },
-      {
-        "frame": 570,
-        "segment": "proof-message:focus:approach",
-        "sourceElapsedMs": 286269
-      },
-      {
-        "frame": 571,
-        "segment": "proof-message:focus:pressed",
-        "sourceElapsedMs": 286358
-      },
-      {
-        "frame": 572,
-        "segment": "proof-message:focus:pressed",
-        "sourceElapsedMs": 286445
-      },
-      {
-        "frame": 573,
-        "segment": "proof-message:focus:released",
-        "sourceElapsedMs": 286544
-      },
-      {
-        "frame": 574,
-        "segment": "proof-message:focus:released",
-        "sourceElapsedMs": 286631
-      },
-      {
-        "frame": 575,
-        "segment": "proof-message",
-        "sourceElapsedMs": 286726
-      },
-      {
-        "frame": 576,
-        "segment": "proof-message",
-        "sourceElapsedMs": 286806
-      },
-      {
-        "frame": 577,
-        "segment": "proof-message",
-        "sourceElapsedMs": 286886
-      },
-      {
-        "frame": 578,
-        "segment": "proof-message",
-        "sourceElapsedMs": 286976
-      },
-      {
-        "frame": 579,
-        "segment": "proof-message",
-        "sourceElapsedMs": 287068
-      },
-      {
-        "frame": 580,
-        "segment": "proof-message",
-        "sourceElapsedMs": 287152
-      },
-      {
-        "frame": 581,
-        "segment": "proof-message",
-        "sourceElapsedMs": 287244
-      },
-      {
-        "frame": 582,
-        "segment": "proof-message",
-        "sourceElapsedMs": 287333
-      },
-      {
-        "frame": 583,
-        "segment": "submit-proof:approach",
-        "sourceElapsedMs": 287419
-      },
-      {
-        "frame": 584,
-        "segment": "submit-proof:approach",
-        "sourceElapsedMs": 287498
-      },
-      {
-        "frame": 585,
-        "segment": "submit-proof:pressed",
-        "sourceElapsedMs": 287591
-      },
-      {
-        "frame": 586,
-        "segment": "submit-proof:pressed",
-        "sourceElapsedMs": 287669
-      },
-      {
-        "frame": 587,
-        "segment": "submit-proof:released",
-        "sourceElapsedMs": 287885
-      },
-      {
-        "frame": 588,
-        "segment": "submit-proof:released",
-        "sourceElapsedMs": 288025
-      },
-      {
-        "frame": 589,
-        "segment": "fullscreen-confetti:waiting",
-        "sourceElapsedMs": 288103
-      },
-      {
-        "frame": 590,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288283
-      },
-      {
-        "frame": 591,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288375
-      },
-      {
-        "frame": 592,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288455
-      },
-      {
-        "frame": 593,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288550
-      },
-      {
-        "frame": 594,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288632
-      },
-      {
-        "frame": 595,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288715
-      },
-      {
-        "frame": 596,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288797
-      },
-      {
-        "frame": 597,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288882
-      },
-      {
-        "frame": 598,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 288967
-      },
-      {
-        "frame": 599,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289056
-      },
-      {
-        "frame": 600,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289145
-      },
-      {
-        "frame": 601,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289225
-      },
-      {
-        "frame": 602,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289307
-      },
-      {
-        "frame": 603,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289392
-      },
-      {
-        "frame": 604,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289474
-      },
-      {
-        "frame": 605,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289568
-      },
-      {
-        "frame": 606,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289653
-      },
-      {
-        "frame": 607,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289736
-      },
-      {
-        "frame": 608,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289828
-      },
-      {
-        "frame": 609,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289907
-      },
-      {
-        "frame": 610,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 289987
-      },
-      {
-        "frame": 611,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290077
-      },
-      {
-        "frame": 612,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290155
-      },
-      {
-        "frame": 613,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290237
-      },
-      {
-        "frame": 614,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290327
-      },
-      {
-        "frame": 615,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290412
-      },
-      {
-        "frame": 616,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290486
-      },
-      {
-        "frame": 617,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290567
-      },
-      {
-        "frame": 618,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290661
-      },
-      {
-        "frame": 619,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290737
-      },
-      {
-        "frame": 620,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290815
-      },
-      {
-        "frame": 621,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 290908
-      },
-      {
-        "frame": 622,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291003
-      },
-      {
-        "frame": 623,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291086
-      },
-      {
-        "frame": 624,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291169
-      },
-      {
-        "frame": 625,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291244
-      },
-      {
-        "frame": 626,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291323
-      },
-      {
-        "frame": 627,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291425
-      },
-      {
-        "frame": 628,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291505
-      },
-      {
-        "frame": 629,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291594
-      },
-      {
-        "frame": 630,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291681
-      },
-      {
-        "frame": 631,
-        "segment": "confetti-visible",
-        "sourceElapsedMs": 291769
-      },
-      {
-        "frame": 632,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 291842
-      },
-      {
-        "frame": 633,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 291936
-      },
-      {
-        "frame": 634,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 292003
-      },
-      {
-        "frame": 635,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 292102
-      },
-      {
-        "frame": 636,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 292181
-      },
-      {
-        "frame": 637,
-        "segment": "confetti-cleared",
-        "sourceElapsedMs": 292266
-      },
-      {
-        "frame": 638,
-        "segment": "settings-open:approach",
-        "sourceElapsedMs": 292359
-      },
-      {
-        "frame": 639,
-        "segment": "settings-open:approach",
-        "sourceElapsedMs": 292445
-      },
-      {
-        "frame": 640,
-        "segment": "settings-open:pressed",
-        "sourceElapsedMs": 292535
-      },
-      {
-        "frame": 641,
-        "segment": "settings-open:pressed",
-        "sourceElapsedMs": 292618
-      },
-      {
-        "frame": 642,
-        "segment": "settings-open:released",
-        "sourceElapsedMs": 292779
-      },
-      {
-        "frame": 643,
-        "segment": "settings-open:released",
-        "sourceElapsedMs": 292843
-      },
-      {
-        "frame": 644,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 292936
-      },
-      {
-        "frame": 645,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293025
-      },
-      {
-        "frame": 646,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293120
-      },
-      {
-        "frame": 647,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293196
-      },
-      {
-        "frame": 648,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293285
-      },
-      {
-        "frame": 649,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293369
-      },
-      {
-        "frame": 650,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293459
-      },
-      {
-        "frame": 651,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293539
-      },
-      {
-        "frame": 652,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293628
-      },
-      {
-        "frame": 653,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293710
-      },
-      {
-        "frame": 654,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293805
-      },
-      {
-        "frame": 655,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293889
-      },
-      {
-        "frame": 656,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 293978
-      },
-      {
-        "frame": 657,
-        "segment": "settings-plugins",
-        "sourceElapsedMs": 294059
-      },
-      {
-        "frame": 658,
-        "segment": "settings-plugin-open:approach",
-        "sourceElapsedMs": 294152
-      },
-      {
-        "frame": 659,
-        "segment": "settings-plugin-open:approach",
-        "sourceElapsedMs": 294240
-      },
-      {
-        "frame": 660,
-        "segment": "settings-plugin-open:pressed",
-        "sourceElapsedMs": 294328
-      },
-      {
-        "frame": 661,
-        "segment": "settings-plugin-open:pressed",
-        "sourceElapsedMs": 294411
-      },
-      {
-        "frame": 662,
-        "segment": "settings-plugin-open:released",
-        "sourceElapsedMs": 294609
-      },
-      {
-        "frame": 663,
-        "segment": "settings-plugin-open:released",
-        "sourceElapsedMs": 294679
-      },
-      {
-        "frame": 664,
         "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 294791
-      },
-      {
-        "frame": 665,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 294869
-      },
-      {
-        "frame": 666,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 294952
-      },
-      {
-        "frame": 667,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295043
-      },
-      {
-        "frame": 668,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295125
-      },
-      {
-        "frame": 669,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295202
-      },
-      {
-        "frame": 670,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295297
-      },
-      {
-        "frame": 671,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295377
-      },
-      {
-        "frame": 672,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295457
-      },
-      {
-        "frame": 673,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295551
-      },
-      {
-        "frame": 674,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295626
-      },
-      {
-        "frame": 675,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295711
-      },
-      {
-        "frame": 676,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295795
-      },
-      {
-        "frame": 677,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295883
-      },
-      {
-        "frame": 678,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 295973
-      },
-      {
-        "frame": 679,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296057
-      },
-      {
-        "frame": 680,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296135
-      },
-      {
-        "frame": 681,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296225
-      },
-      {
-        "frame": 682,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296306
-      },
-      {
-        "frame": 683,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296392
-      },
-      {
-        "frame": 684,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296479
-      },
-      {
-        "frame": 685,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296560
-      },
-      {
-        "frame": 686,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296643
-      },
-      {
-        "frame": 687,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296727
-      },
-      {
-        "frame": 688,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296820
-      },
-      {
-        "frame": 689,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296898
-      },
-      {
-        "frame": 690,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 296993
-      },
-      {
-        "frame": 691,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297073
-      },
-      {
-        "frame": 692,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297155
-      },
-      {
-        "frame": 693,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297240
-      },
-      {
-        "frame": 694,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297333
-      },
-      {
-        "frame": 695,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297417
-      },
-      {
-        "frame": 696,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297498
-      },
-      {
-        "frame": 697,
-        "segment": "settings-plugin-detail",
-        "sourceElapsedMs": 297583
+        "sourceElapsedMs": 297583,
+        "sourceFrame": 697,
+        "playbackRate": 1,
+        "encodedElapsedMs": 24083
       }
-    ]
+    ],
+    "retimedAt": "2026-09-02T06:58:06.260Z",
+    "sourceFrameCount": 698,
+    "acceleratedSegments": {
+      "codex-builds-and-cordisx-loads": 5
+    }
   },
   "privacy": {
     "isolatedHome": true,

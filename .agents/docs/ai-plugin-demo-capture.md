@@ -25,10 +25,11 @@ capture and its machine-readable evidence must prove, in order:
 
 Do not replace the Codex shell, Agent response, tool activity, plugin reload, or
 effect with HTML, captions, staged chat text, a mock renderer, or an edited-in
-animation. The long Agent-work segment may sample the real renderer at a lower
-rate so the README preview remains short, but frames remain ordered and no
-synthetic transition is inserted. Capture metadata records both source elapsed
-time and encoded time for that reason.
+animation. The long Agent-work segment is played at 5× by selecting ordered
+frames from the real renderer so the README preview remains short. Every other
+segment stays at 1×, frames remain ordered, and no synthetic transition is
+inserted. Capture metadata records source frame/time, encoded frame/time, and
+the applied playback rate for that reason.
 
 ## Product boundary and checkpoint gate
 
@@ -128,8 +129,9 @@ The verifier requires 1600×1000 H.264/VP9 `yuv420p`, an MP4 `moov` atom before
 `mdat`, matching durations, an exact prompt, creator/scaffold evidence, a
 changed and hash-matched independent source, English and Chinese localization,
 different local plugin generations, the final native submit click, the
-full-screen Host marker, the settings/plugin-detail segment, and a monotonic
-frame ledger. After the machine gate, inspect at least one frame from the
+full-screen Host marker, the settings/plugin-detail segment, an exact 5× Agent
+work segment, and monotonic source/encoded frame ledgers. After the machine
+gate, inspect at least one frame from the
 initial prompt, Agent work, generation-ready boundary, native proof submit,
 early and late confetti, the plugin list, and the final plugin detail. Confirm
 the absence of personal projects, threads, profile details, accounts,
