@@ -162,6 +162,7 @@ for (const truthMarker of [
   'materializePlaybackFrames(recorder.timeline)',
   "`${outputBasename}.plugin.tsx`",
   "'-movflags', '+faststart'",
+  'palettegen=max_colors=',
   "'-pix_fmt', scene.output.pixelFormat",
 ]) {
   if (!aiPluginCapture.includes(truthMarker)) throw new Error(`AI plugin capture is missing ${truthMarker}`)
@@ -171,6 +172,7 @@ if (!aiPluginWorkflow.includes('Do not replace the Codex shell') || !aiPluginWor
 }
 await access(new URL('../scripts/fixtures/ai-plugin-demo/AGENTS.md', import.meta.url))
 await access(new URL('../assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx', import.meta.url))
+await access(new URL('../assets/motion/cordisx-ai-plugin-demo-zh-dark.gif', import.meta.url))
 
 for (const icon of [
   'Activity',

@@ -27,6 +27,12 @@ export const aiPluginDemoScene = Object.freeze({
     height: 1000,
     frameRate: 12,
     pixelFormat: 'yuv420p',
+    gif: Object.freeze({
+      width: 900,
+      height: 562,
+      frameRate: 10,
+      maxColors: 128,
+    }),
   }),
   playback: Object.freeze({
     acceleratedSegments: Object.freeze({

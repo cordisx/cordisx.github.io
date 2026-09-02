@@ -121,12 +121,13 @@ and verification passes:
 
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4`;
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.webm`;
+- `assets/motion/cordisx-ai-plugin-demo-zh-dark.gif` for inline README playback;
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.json`;
 - `assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx`; and
 - `assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png`.
 
-The verifier requires 1600×1000 H.264/VP9 `yuv420p`, an MP4 `moov` atom before
-`mdat`, matching durations, an exact prompt, creator/scaffold evidence, a
+The verifier requires 1600×1000 H.264/VP9 `yuv420p`, a 900-pixel-wide 10 fps
+GIF, an MP4 `moov` atom before `mdat`, matching durations, an exact prompt, creator/scaffold evidence, a
 changed and hash-matched independent source, English and Chinese localization,
 different local plugin generations, the final native submit click, the
 full-screen Host marker, the settings/plugin-detail segment, an exact 5× Agent

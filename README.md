@@ -54,6 +54,7 @@ replies, or caption cards for any of those steps.
 
 [MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
 [WebM](assets/motion/cordisx-ai-plugin-demo-zh-dark.webm) ·
+[inline GIF](assets/motion/cordisx-ai-plugin-demo-zh-dark.gif) ·
 [capture evidence](assets/motion/cordisx-ai-plugin-demo-zh-dark.json) ·
 [captured plugin source](assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx)
 
@@ -77,6 +78,7 @@ npm run capture:ai-plugin-demo -- --cordisx-root /absolute/cordisx
 npm run verify:ai-plugin-demo -- \
   --mp4 assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4 \
   --webm assets/motion/cordisx-ai-plugin-demo-zh-dark.webm \
+  --gif assets/motion/cordisx-ai-plugin-demo-zh-dark.gif \
   --poster assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png \
   --metadata assets/motion/cordisx-ai-plugin-demo-zh-dark.json \
   --source assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx

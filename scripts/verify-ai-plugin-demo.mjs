@@ -20,7 +20,7 @@ function option(name) {
 }
 
 if (process.argv.includes('--help')) {
-  console.log('Usage: node scripts/verify-ai-plugin-demo.mjs --mp4 file --webm file [--poster file --metadata file --source file] [--infrastructure-only]')
+  console.log('Usage: node scripts/verify-ai-plugin-demo.mjs --mp4 file --webm file --gif file [--poster file --metadata file --source file] [--infrastructure-only]')
   process.exit(0)
 }
 
@@ -28,11 +28,12 @@ const infrastructureOnly = process.argv.includes('--infrastructure-only')
 const files = {
   mp4: option('--mp4'),
   webm: option('--webm'),
+  gif: option('--gif'),
   poster: option('--poster'),
   metadata: option('--metadata'),
   source: option('--source'),
 }
-if (files.mp4 === undefined || files.webm === undefined) throw new Error('--mp4 and --webm are required')
+if (files.mp4 === undefined || files.webm === undefined || files.gif === undefined) throw new Error('--mp4, --webm, and --gif are required')
 if (!infrastructureOnly && (files.poster === undefined || files.metadata === undefined || files.source === undefined)) {
   throw new Error('Real demo verification requires --poster, --metadata, and --source')
 }
@@ -56,14 +57,18 @@ function number(value) {
   return Number.isFinite(result) ? result : undefined
 }
 
-function video(file, expectedCodec) {
+function video(file, expectedCodec, {
+  pixelFormat = 'yuv420p',
+  minimumWidth = 1280,
+  minimumHeight = 720,
+} = {}) {
   const result = probe(file)
   const stream = result.streams?.[0]
   assert(stream !== undefined, `${file} has no video stream`)
   assert(stream.codec_name === expectedCodec, `${file} codec is ${String(stream.codec_name)}, expected ${expectedCodec}`)
-  assert(stream.pix_fmt === 'yuv420p', `${file} pixel format is ${String(stream.pix_fmt)}, expected yuv420p`)
-  assert(number(stream.width) >= 1280, `${file} width is below 1280`)
-  assert(number(stream.height) >= 720, `${file} height is below 720`)
+  if (pixelFormat !== null) assert(stream.pix_fmt === pixelFormat, `${file} pixel format is ${String(stream.pix_fmt)}, expected ${pixelFormat}`)
+  assert(number(stream.width) >= minimumWidth, `${file} width is below ${minimumWidth}`)
+  assert(number(stream.height) >= minimumHeight, `${file} height is below ${minimumHeight}`)
   const duration = number(result.format?.duration) ?? number(stream.duration)
   assert(duration !== undefined && duration >= (infrastructureOnly ? 0.8 : 3), `${file} duration is invalid`)
   const frames = number(stream.nb_frames)
@@ -82,6 +87,14 @@ function video(file, expectedCodec) {
 
 const mp4 = video(files.mp4, 'h264')
 const webm = video(files.webm, 'vp9')
+const gif = video(files.gif, 'gif', {
+  pixelFormat: null,
+  minimumWidth: aiPluginDemoScene.output.gif.width,
+  minimumHeight: aiPluginDemoScene.output.gif.height,
+})
+assert(gif.width === aiPluginDemoScene.output.gif.width, `${files.gif} width drifted from the scene`)
+assert(gif.height === aiPluginDemoScene.output.gif.height, `${files.gif} height drifted from the scene`)
+assert(gif.frameRate === `${aiPluginDemoScene.output.gif.frameRate}/1`, `${files.gif} frame rate drifted from the scene`)
 const mp4Bytes = await readFile(files.mp4)
 const moov = mp4Bytes.indexOf(Buffer.from('moov'))
 const mdat = mp4Bytes.indexOf(Buffer.from('mdat'))
@@ -153,6 +166,7 @@ if (!infrastructureOnly) {
   assert(!source.includes('natural-language'), 'published source retains the removed proof-of-concept entry name')
   assert(!/querySelector|addEventListener\s*\(/u.test(source), 'published plugin source bypasses Host-owned structured UI')
   assert(Math.abs(mp4.duration - webm.duration) < 0.15, 'MP4 and WebM durations differ materially')
+  assert(Math.abs(mp4.duration - gif.duration) < 0.15, 'MP4 and GIF durations differ materially')
   assert(Math.abs(mp4.duration - metadata.capture.encodedDurationSeconds) < 0.15, 'encoded duration differs from capture metadata')
   if (mp4.frames !== undefined) assert(mp4.frames === metadata.capture.frameCount, 'MP4 frame count differs from capture metadata')
 }
@@ -162,6 +176,7 @@ console.log(JSON.stringify({
   mode: infrastructureOnly ? 'infrastructure-only' : 'real-ai-plugin-demo',
   mp4: { ...mp4, faststart: true },
   webm,
+  gif,
   ...(poster === undefined ? {} : { poster }),
   ...(metadata === undefined ? {} : {
     evidence: {

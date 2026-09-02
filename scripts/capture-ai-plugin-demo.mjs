@@ -271,6 +271,7 @@ function encodeFrames(sourceDirectory, destinationDirectory, basename, frameRate
   const pattern = path.join(sourceDirectory, 'frame-%06d.jpg')
   const mp4 = path.join(destinationDirectory, `${basename}.mp4`)
   const webm = path.join(destinationDirectory, `${basename}.webm`)
+  const gif = path.join(destinationDirectory, `${basename}.gif`)
   execFileSync('ffmpeg', [
     '-y', '-hide_banner', '-loglevel', 'error', '-framerate', String(frameRate), '-i', pattern,
     '-vf', `scale=${scene.output.width}:${scene.output.height}:force_original_aspect_ratio=decrease:flags=lanczos:in_range=full:out_range=tv,pad=${scene.output.width}:${scene.output.height}:(ow-iw)/2:(oh-ih)/2:color=black,format=${scene.output.pixelFormat},setsar=1`,
@@ -283,7 +284,12 @@ function encodeFrames(sourceDirectory, destinationDirectory, basename, frameRate
     '-c:v', 'libvpx-vp9', '-crf', '31', '-b:v', '0', '-row-mt', '1', '-pix_fmt', scene.output.pixelFormat,
     webm,
   ], { stdio: 'inherit' })
-  return { mp4, webm }
+  execFileSync('ffmpeg', [
+    '-y', '-hide_banner', '-loglevel', 'error', '-framerate', String(frameRate), '-i', pattern,
+    '-filter_complex', `[0:v]fps=${scene.output.gif.frameRate},scale=${scene.output.gif.width}:-2:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=${scene.output.gif.maxColors}:stats_mode=diff[p];[s1][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle`,
+    '-loop', '0', gif,
+  ], { stdio: 'inherit' })
+  return { mp4, webm, gif }
 }
 
 async function materializePlaybackFrames(timeline) {
@@ -311,7 +317,7 @@ async function codecSmoke() {
   ], { stdio: 'inherit' })
   const outputs = encodeFrames(smokeDirectory, smokeDirectory, 'infrastructure-only')
   execFileSync(process.execPath, [path.join(import.meta.dirname, 'verify-ai-plugin-demo.mjs'),
-    '--mp4', outputs.mp4, '--webm', outputs.webm, '--infrastructure-only'], { stdio: 'inherit' })
+    '--mp4', outputs.mp4, '--webm', outputs.webm, '--gif', outputs.gif, '--infrastructure-only'], { stdio: 'inherit' })
 }
 
 async function prepareAuthentication() {
@@ -989,6 +995,7 @@ try {
       execFileSync(process.execPath, [path.join(import.meta.dirname, 'verify-ai-plugin-demo.mjs'),
         '--mp4', encoded.mp4,
         '--webm', encoded.webm,
+        '--gif', encoded.gif,
         '--poster', stagedPoster,
         '--metadata', stagedMetadata,
         '--source', stagedSource,
@@ -998,6 +1005,7 @@ try {
       const final = {
         mp4: path.join(outputDirectory, `${outputBasename}.mp4`),
         webm: path.join(outputDirectory, `${outputBasename}.webm`),
+        gif: path.join(outputDirectory, `${outputBasename}.gif`),
         metadata: path.join(outputDirectory, `${outputBasename}.json`),
         source: path.join(outputDirectory, `${outputBasename}.plugin.tsx`),
         poster: path.join(posterDirectory, `${outputBasename}.png`),
@@ -1005,6 +1013,7 @@ try {
       await Promise.all([
         rename(encoded.mp4, final.mp4),
         rename(encoded.webm, final.webm),
+        rename(encoded.gif, final.gif),
         rename(stagedMetadata, final.metadata),
         rename(stagedSource, final.source),
         rename(stagedPoster, final.poster),
@@ -1019,6 +1028,7 @@ try {
         resolution: `${scene.output.width}x${scene.output.height}`,
         mp4: { codec: 'h264', pixelFormat: scene.output.pixelFormat, faststart: true, sha256: await sha256(final.mp4) },
         webm: { codec: 'vp9', pixelFormat: scene.output.pixelFormat, sha256: await sha256(final.webm) },
+        gif: { codec: 'gif', width: scene.output.gif.width, frameRate: scene.output.gif.frameRate, sha256: await sha256(final.gif) },
         source: { sha256: metadata.plugin.sourceSha256 },
         effect,
         settings,
