@@ -20,14 +20,16 @@ npm run capture:codex-showcase
 npm run capture:codex-motion
 ```
 
-The reusable capture produces signed-in Codex workspace screenshots plus the
-Plugins, Extension points, Routes, and Marketplace pages of the real CordisX
-Manager in English and Chinese, for light and dark themes. Outputs are written
-to `assets/screenshots/`. Use `npm run capture:codex-showcase -- --help` for
-avatar, profile name, app bundle, locale, authentication file, CordisX checkout,
+The reusable capture starts a separate disposable Codex instance for every
+English/Chinese and light/dark variant, then produces the signed-in workspace
+and the Plugins, Extension points, Routes, and Marketplace pages of the real
+CordisX Manager. Outputs are written to `assets/screenshots/`. Use
+`npm run capture:codex-showcase -- --help` for
+avatar, profile name, app bundle, authentication file, CordisX checkout,
 and output-directory overrides. The command requires macOS,
 `/Applications/ChatGPT.app`, a signed-in Codex auth file, and a built sibling
-CordisX checkout.
+CordisX checkout. It also requires `ffmpeg` to normalize the full-canvas
+workspace screenshots to opaque RGB output.
 
 `capture:codex-motion` runs the declarative timeline in
 `scripts/showcase-motion-scene.mjs`. It performs real Host clicks while a
@@ -36,3 +38,66 @@ and GIF variants to `assets/motion/`. Edit the scene instead of manually
 recording a new demo after Codex or CordisX upgrades. The cursor artwork lives
 separately at `assets/capture/cordisx-motion-cursor.svg`, so its visual design
 can change without touching the interaction timeline.
+
+## Record the AI-first plugin demo
+
+The AI-first capture is a separate, truthful workflow: one isolated real Codex
+Desktop renderer receives the localized natural-language request and edits an
+independent plugin project created by the public CordisX scaffolder. The running
+`cordisx dev <entry>` watcher publishes the replacement without restarting the
+renderer. A second real native Send click activates the Host-owned full-screen
+confetti effect, then the recording opens CordisX settings and the generated
+plugin's detail page. It does not use a recreated Codex shell, authored Agent
+replies, or caption cards for any of those steps.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/motion/cordisx-ai-plugin-demo-en-dark.gif">
+  <source media="(prefers-color-scheme: light)" srcset="assets/motion/cordisx-ai-plugin-demo-en-light.gif">
+  <img alt="Real CordisX AI-first plugin demo" src="assets/motion/cordisx-ai-plugin-demo-en-light.gif" width="900">
+</picture>
+
+English dark: [MP4](assets/motion/cordisx-ai-plugin-demo-en-dark.mp4) ·
+[WebM](assets/motion/cordisx-ai-plugin-demo-en-dark.webm) ·
+[GIF](assets/motion/cordisx-ai-plugin-demo-en-dark.gif) ·
+[evidence](assets/motion/cordisx-ai-plugin-demo-en-dark.json) ·
+[source](assets/motion/cordisx-ai-plugin-demo-en-dark.plugin.tsx)
+
+English light: [MP4](assets/motion/cordisx-ai-plugin-demo-en-light.mp4) ·
+[WebM](assets/motion/cordisx-ai-plugin-demo-en-light.webm) ·
+[GIF](assets/motion/cordisx-ai-plugin-demo-en-light.gif) ·
+[evidence](assets/motion/cordisx-ai-plugin-demo-en-light.json) ·
+[source](assets/motion/cordisx-ai-plugin-demo-en-light.plugin.tsx)
+
+Chinese: [dark MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
+[light MP4](assets/motion/cordisx-ai-plugin-demo-zh-light.mp4)
+
+Prepare and exercise the workspace plus H.264/VP9 encoders without reading
+authentication or launching Codex:
+
+```sh
+npm run capture:ai-plugin-demo -- --dry-run
+npm run capture:ai-plugin-demo -- --launch-smoke
+```
+
+`--launch-smoke` goes one step further: it opens the isolated real renderer and
+proves the baseline plugin generation plus composer/submit targeting, but sends
+no prompt and publishes no media.
+
+After selecting a CordisX checkout whose public plugin contract and Host both
+support the structured celebration effect, record and verify the real demo:
+
+```sh
+npm run capture:ai-plugin-demo -- --cordisx-root /absolute/cordisx
+npm run verify:ai-plugin-demo -- \
+  --mp4 assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4 \
+  --webm assets/motion/cordisx-ai-plugin-demo-zh-dark.webm \
+  --gif assets/motion/cordisx-ai-plugin-demo-zh-dark.gif \
+  --poster assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png \
+  --metadata assets/motion/cordisx-ai-plugin-demo-zh-dark.json \
+  --source assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx
+```
+
+The MP4 is H.264 `yuv420p` with a front-loaded `moov` atom; the paired WebM is
+VP9 `yuv420p`. Both are 1600×1000. See
+`.agents/docs/ai-plugin-demo-capture.md` for the storyboard, privacy boundary,
+checkpoint gate, and evidence requirements.

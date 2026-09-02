@@ -1,0 +1,2236 @@
+{
+  "schemaVersion": 2,
+  "scene": "cordisx-ai-plugin-demo.zh-CN.light.v4",
+  "realRenderer": true,
+  "rendererUrl": "app://-/index.html",
+  "prompt": "我要发送按钮在点击的时候全屏放礼花。",
+  "promptSubmitted": true,
+  "finalSubmitClicked": true,
+  "effectObserved": true,
+  "effect": {
+    "observedAt": "2026-09-02T09:00:34.573Z",
+    "selector": "[data-cordisx-effect=\"confetti\"]",
+    "cleanupObserved": true,
+    "cleanedAt": "2026-09-02T09:00:38.822Z"
+  },
+  "settings": {
+    "openedAt": "2026-09-02T09:00:44.145Z",
+    "pluginId": "send-confetti",
+    "localDevelopment": true,
+    "localizedReadme": true,
+    "readmeLocale": "zh-CN",
+    "listSelector": "[data-plugin-id=\"send-confetti\"]",
+    "detailSelector": "[data-plugin-detail=\"send-confetti\"]"
+  },
+  "scaffold": {
+    "generator": "create-cordisx-plugin",
+    "generatorVersion": "0.1.0-beta.2",
+    "project": "send-confetti",
+    "packageName": "send-confetti",
+    "entry": "send-confetti/src/send-confetti.tsx",
+    "private": true
+  },
+  "plugin": {
+    "id": "send-confetti",
+    "sourceChanged": true,
+    "sourceMtimeChanged": true,
+    "sourceSha256": "sha256:4b8119b84e854b8e3cfda8fe6b96850fa402c026ce6f91161444b177486b8059",
+    "baselineGeneration": "send-confetti-local-dev-2-8ebb3cdb231f",
+    "replacementGeneration": "send-confetti-local-dev-6-3039ae59edad",
+    "generationChanged": true
+  },
+  "checkpoints": {
+    "host": "56612408807a78b83b455792c425034e694db08c",
+    "protocol": "34d2113984882d5c0fa4f0803fb929c8da605eee"
+  },
+  "capture": {
+    "launchStartedAt": "2026-09-02T08:54:50.254Z",
+    "finishedAt": "2026-09-02T09:00:50.402Z",
+    "sourceDurationSeconds": 246.779,
+    "encodedDurationSeconds": 22.5,
+    "frameCount": 270,
+    "sourceFrameCount": 597,
+    "frameRate": 12,
+    "width": 1600,
+    "height": 1000,
+    "theme": "light",
+    "language": "zh",
+    "locale": "zh-CN",
+    "acceleratedSegments": {
+      "codex-builds-and-cordisx-loads": 5
+    },
+    "timeline": [
+      {
+        "frame": 0,
+        "segment": "opening",
+        "sourceElapsedMs": 41,
+        "sourceFrame": 0,
+        "playbackRate": 1,
+        "encodedElapsedMs": 0
+      },
+      {
+        "frame": 1,
+        "segment": "opening",
+        "sourceElapsedMs": 134,
+        "sourceFrame": 1,
+        "playbackRate": 1,
+        "encodedElapsedMs": 83
+      },
+      {
+        "frame": 2,
+        "segment": "opening",
+        "sourceElapsedMs": 188,
+        "sourceFrame": 2,
+        "playbackRate": 1,
+        "encodedElapsedMs": 167
+      },
+      {
+        "frame": 3,
+        "segment": "opening",
+        "sourceElapsedMs": 313,
+        "sourceFrame": 3,
+        "playbackRate": 1,
+        "encodedElapsedMs": 250
+      },
+      {
+        "frame": 4,
+        "segment": "opening",
+        "sourceElapsedMs": 363,
+        "sourceFrame": 4,
+        "playbackRate": 1,
+        "encodedElapsedMs": 333
+      },
+      {
+        "frame": 5,
+        "segment": "opening",
+        "sourceElapsedMs": 447,
+        "sourceFrame": 5,
+        "playbackRate": 1,
+        "encodedElapsedMs": 417
+      },
+      {
+        "frame": 6,
+        "segment": "opening",
+        "sourceElapsedMs": 551,
+        "sourceFrame": 6,
+        "playbackRate": 1,
+        "encodedElapsedMs": 500
+      },
+      {
+        "frame": 7,
+        "segment": "opening",
+        "sourceElapsedMs": 613,
+        "sourceFrame": 7,
+        "playbackRate": 1,
+        "encodedElapsedMs": 583
+      },
+      {
+        "frame": 8,
+        "segment": "opening",
+        "sourceElapsedMs": 709,
+        "sourceFrame": 8,
+        "playbackRate": 1,
+        "encodedElapsedMs": 667
+      },
+      {
+        "frame": 9,
+        "segment": "opening",
+        "sourceElapsedMs": 780,
+        "sourceFrame": 9,
+        "playbackRate": 1,
+        "encodedElapsedMs": 750
+      },
+      {
+        "frame": 10,
+        "segment": "opening",
+        "sourceElapsedMs": 884,
+        "sourceFrame": 10,
+        "playbackRate": 1,
+        "encodedElapsedMs": 833
+      },
+      {
+        "frame": 11,
+        "segment": "opening",
+        "sourceElapsedMs": 958,
+        "sourceFrame": 11,
+        "playbackRate": 1,
+        "encodedElapsedMs": 917
+      },
+      {
+        "frame": 12,
+        "segment": "baseline-generation",
+        "sourceElapsedMs": 1045,
+        "sourceFrame": 12,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1000
+      },
+      {
+        "frame": 13,
+        "segment": "baseline-generation",
+        "sourceElapsedMs": 1322,
+        "sourceFrame": 13,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1083
+      },
+      {
+        "frame": 14,
+        "segment": "baseline-generation",
+        "sourceElapsedMs": 1606,
+        "sourceFrame": 14,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1167
+      },
+      {
+        "frame": 15,
+        "segment": "baseline-generation",
+        "sourceElapsedMs": 1889,
+        "sourceFrame": 15,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1250
+      },
+      {
+        "frame": 16,
+        "segment": "user-request:focus:approach",
+        "sourceElapsedMs": 2197,
+        "sourceFrame": 16,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1333
+      },
+      {
+        "frame": 17,
+        "segment": "user-request:focus:approach",
+        "sourceElapsedMs": 2278,
+        "sourceFrame": 17,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1417
+      },
+      {
+        "frame": 18,
+        "segment": "user-request:focus:pressed",
+        "sourceElapsedMs": 2370,
+        "sourceFrame": 18,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1500
+      },
+      {
+        "frame": 19,
+        "segment": "user-request:focus:pressed",
+        "sourceElapsedMs": 2444,
+        "sourceFrame": 19,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1583
+      },
+      {
+        "frame": 20,
+        "segment": "user-request:focus:released",
+        "sourceElapsedMs": 2557,
+        "sourceFrame": 20,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1667
+      },
+      {
+        "frame": 21,
+        "segment": "user-request:focus:released",
+        "sourceElapsedMs": 2647,
+        "sourceFrame": 21,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1750
+      },
+      {
+        "frame": 22,
+        "segment": "user-request",
+        "sourceElapsedMs": 2763,
+        "sourceFrame": 22,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1833
+      },
+      {
+        "frame": 23,
+        "segment": "user-request",
+        "sourceElapsedMs": 2860,
+        "sourceFrame": 23,
+        "playbackRate": 1,
+        "encodedElapsedMs": 1917
+      },
+      {
+        "frame": 24,
+        "segment": "user-request",
+        "sourceElapsedMs": 2940,
+        "sourceFrame": 24,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2000
+      },
+      {
+        "frame": 25,
+        "segment": "user-request",
+        "sourceElapsedMs": 3035,
+        "sourceFrame": 25,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2083
+      },
+      {
+        "frame": 26,
+        "segment": "user-request",
+        "sourceElapsedMs": 3122,
+        "sourceFrame": 26,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2167
+      },
+      {
+        "frame": 27,
+        "segment": "user-request",
+        "sourceElapsedMs": 3223,
+        "sourceFrame": 27,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2250
+      },
+      {
+        "frame": 28,
+        "segment": "user-request",
+        "sourceElapsedMs": 3309,
+        "sourceFrame": 28,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2333
+      },
+      {
+        "frame": 29,
+        "segment": "user-request",
+        "sourceElapsedMs": 3393,
+        "sourceFrame": 29,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2417
+      },
+      {
+        "frame": 30,
+        "segment": "user-request",
+        "sourceElapsedMs": 3480,
+        "sourceFrame": 30,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2500
+      },
+      {
+        "frame": 31,
+        "segment": "user-request",
+        "sourceElapsedMs": 3572,
+        "sourceFrame": 31,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2583
+      },
+      {
+        "frame": 32,
+        "segment": "user-request",
+        "sourceElapsedMs": 3654,
+        "sourceFrame": 32,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2667
+      },
+      {
+        "frame": 33,
+        "segment": "user-request",
+        "sourceElapsedMs": 3747,
+        "sourceFrame": 33,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2750
+      },
+      {
+        "frame": 34,
+        "segment": "user-request",
+        "sourceElapsedMs": 3834,
+        "sourceFrame": 34,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2833
+      },
+      {
+        "frame": 35,
+        "segment": "user-request",
+        "sourceElapsedMs": 3925,
+        "sourceFrame": 35,
+        "playbackRate": 1,
+        "encodedElapsedMs": 2917
+      },
+      {
+        "frame": 36,
+        "segment": "user-request",
+        "sourceElapsedMs": 4019,
+        "sourceFrame": 36,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3000
+      },
+      {
+        "frame": 37,
+        "segment": "user-request",
+        "sourceElapsedMs": 4107,
+        "sourceFrame": 37,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3083
+      },
+      {
+        "frame": 38,
+        "segment": "user-request",
+        "sourceElapsedMs": 4203,
+        "sourceFrame": 38,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3167
+      },
+      {
+        "frame": 39,
+        "segment": "user-request",
+        "sourceElapsedMs": 4294,
+        "sourceFrame": 39,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3250
+      },
+      {
+        "frame": 40,
+        "segment": "submit-request:approach",
+        "sourceElapsedMs": 4382,
+        "sourceFrame": 40,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3333
+      },
+      {
+        "frame": 41,
+        "segment": "submit-request:approach",
+        "sourceElapsedMs": 4457,
+        "sourceFrame": 41,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3417
+      },
+      {
+        "frame": 42,
+        "segment": "submit-request:pressed",
+        "sourceElapsedMs": 4547,
+        "sourceFrame": 42,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3500
+      },
+      {
+        "frame": 43,
+        "segment": "submit-request:pressed",
+        "sourceElapsedMs": 4630,
+        "sourceFrame": 43,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3583
+      },
+      {
+        "frame": 44,
+        "segment": "submit-request:released",
+        "sourceElapsedMs": 4881,
+        "sourceFrame": 44,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3667
+      },
+      {
+        "frame": 45,
+        "segment": "submit-request:released",
+        "sourceElapsedMs": 4940,
+        "sourceFrame": 45,
+        "playbackRate": 1,
+        "encodedElapsedMs": 3750
+      },
+      {
+        "frame": 46,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 5220,
+        "sourceFrame": 46,
+        "playbackRate": 5,
+        "encodedElapsedMs": 3833
+      },
+      {
+        "frame": 47,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 8004,
+        "sourceFrame": 51,
+        "playbackRate": 5,
+        "encodedElapsedMs": 3917
+      },
+      {
+        "frame": 48,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 10700,
+        "sourceFrame": 56,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4000
+      },
+      {
+        "frame": 49,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 13416,
+        "sourceFrame": 61,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4083
+      },
+      {
+        "frame": 50,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 16153,
+        "sourceFrame": 66,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4167
+      },
+      {
+        "frame": 51,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 18868,
+        "sourceFrame": 71,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4250
+      },
+      {
+        "frame": 52,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 21547,
+        "sourceFrame": 76,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4333
+      },
+      {
+        "frame": 53,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 24260,
+        "sourceFrame": 81,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4417
+      },
+      {
+        "frame": 54,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 26980,
+        "sourceFrame": 86,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4500
+      },
+      {
+        "frame": 55,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 29695,
+        "sourceFrame": 91,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4583
+      },
+      {
+        "frame": 56,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 32422,
+        "sourceFrame": 96,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4667
+      },
+      {
+        "frame": 57,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 35159,
+        "sourceFrame": 101,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4750
+      },
+      {
+        "frame": 58,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 37871,
+        "sourceFrame": 106,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4833
+      },
+      {
+        "frame": 59,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 40586,
+        "sourceFrame": 111,
+        "playbackRate": 5,
+        "encodedElapsedMs": 4917
+      },
+      {
+        "frame": 60,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 43313,
+        "sourceFrame": 116,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5000
+      },
+      {
+        "frame": 61,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 46033,
+        "sourceFrame": 121,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5083
+      },
+      {
+        "frame": 62,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 48746,
+        "sourceFrame": 126,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5167
+      },
+      {
+        "frame": 63,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 51476,
+        "sourceFrame": 131,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5250
+      },
+      {
+        "frame": 64,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 54199,
+        "sourceFrame": 136,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5333
+      },
+      {
+        "frame": 65,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 56922,
+        "sourceFrame": 141,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5417
+      },
+      {
+        "frame": 66,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 59654,
+        "sourceFrame": 146,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5500
+      },
+      {
+        "frame": 67,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 62399,
+        "sourceFrame": 151,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5583
+      },
+      {
+        "frame": 68,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 65122,
+        "sourceFrame": 156,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5667
+      },
+      {
+        "frame": 69,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 67846,
+        "sourceFrame": 161,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5750
+      },
+      {
+        "frame": 70,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 70564,
+        "sourceFrame": 166,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5833
+      },
+      {
+        "frame": 71,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 73306,
+        "sourceFrame": 171,
+        "playbackRate": 5,
+        "encodedElapsedMs": 5917
+      },
+      {
+        "frame": 72,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 76010,
+        "sourceFrame": 176,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6000
+      },
+      {
+        "frame": 73,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 78713,
+        "sourceFrame": 181,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6083
+      },
+      {
+        "frame": 74,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 81432,
+        "sourceFrame": 186,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6167
+      },
+      {
+        "frame": 75,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 84145,
+        "sourceFrame": 191,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6250
+      },
+      {
+        "frame": 76,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 86883,
+        "sourceFrame": 196,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6333
+      },
+      {
+        "frame": 77,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 89583,
+        "sourceFrame": 201,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6417
+      },
+      {
+        "frame": 78,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 92324,
+        "sourceFrame": 206,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6500
+      },
+      {
+        "frame": 79,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 95046,
+        "sourceFrame": 211,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6583
+      },
+      {
+        "frame": 80,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 97773,
+        "sourceFrame": 216,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6667
+      },
+      {
+        "frame": 81,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 100497,
+        "sourceFrame": 221,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6750
+      },
+      {
+        "frame": 82,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 103235,
+        "sourceFrame": 226,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6833
+      },
+      {
+        "frame": 83,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 105962,
+        "sourceFrame": 231,
+        "playbackRate": 5,
+        "encodedElapsedMs": 6917
+      },
+      {
+        "frame": 84,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 108673,
+        "sourceFrame": 236,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7000
+      },
+      {
+        "frame": 85,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 111374,
+        "sourceFrame": 241,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7083
+      },
+      {
+        "frame": 86,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 114080,
+        "sourceFrame": 246,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7167
+      },
+      {
+        "frame": 87,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 116808,
+        "sourceFrame": 251,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7250
+      },
+      {
+        "frame": 88,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 119524,
+        "sourceFrame": 256,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7333
+      },
+      {
+        "frame": 89,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 122228,
+        "sourceFrame": 261,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7417
+      },
+      {
+        "frame": 90,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 124941,
+        "sourceFrame": 266,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7500
+      },
+      {
+        "frame": 91,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 127673,
+        "sourceFrame": 271,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7583
+      },
+      {
+        "frame": 92,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 130388,
+        "sourceFrame": 276,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7667
+      },
+      {
+        "frame": 93,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 133115,
+        "sourceFrame": 281,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7750
+      },
+      {
+        "frame": 94,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 135836,
+        "sourceFrame": 286,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7833
+      },
+      {
+        "frame": 95,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 138541,
+        "sourceFrame": 291,
+        "playbackRate": 5,
+        "encodedElapsedMs": 7917
+      },
+      {
+        "frame": 96,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 141267,
+        "sourceFrame": 296,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8000
+      },
+      {
+        "frame": 97,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 143976,
+        "sourceFrame": 301,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8083
+      },
+      {
+        "frame": 98,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 146692,
+        "sourceFrame": 306,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8167
+      },
+      {
+        "frame": 99,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 149403,
+        "sourceFrame": 311,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8250
+      },
+      {
+        "frame": 100,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 152141,
+        "sourceFrame": 316,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8333
+      },
+      {
+        "frame": 101,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 154863,
+        "sourceFrame": 321,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8417
+      },
+      {
+        "frame": 102,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 157584,
+        "sourceFrame": 326,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8500
+      },
+      {
+        "frame": 103,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 160307,
+        "sourceFrame": 331,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8583
+      },
+      {
+        "frame": 104,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 163025,
+        "sourceFrame": 336,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8667
+      },
+      {
+        "frame": 105,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 165731,
+        "sourceFrame": 341,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8750
+      },
+      {
+        "frame": 106,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 168434,
+        "sourceFrame": 346,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8833
+      },
+      {
+        "frame": 107,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 171166,
+        "sourceFrame": 351,
+        "playbackRate": 5,
+        "encodedElapsedMs": 8917
+      },
+      {
+        "frame": 108,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 173913,
+        "sourceFrame": 356,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9000
+      },
+      {
+        "frame": 109,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 176622,
+        "sourceFrame": 361,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9083
+      },
+      {
+        "frame": 110,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 179341,
+        "sourceFrame": 366,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9167
+      },
+      {
+        "frame": 111,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 182070,
+        "sourceFrame": 371,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9250
+      },
+      {
+        "frame": 112,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 184797,
+        "sourceFrame": 376,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9333
+      },
+      {
+        "frame": 113,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 187525,
+        "sourceFrame": 381,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9417
+      },
+      {
+        "frame": 114,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 190236,
+        "sourceFrame": 386,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9500
+      },
+      {
+        "frame": 115,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 192950,
+        "sourceFrame": 391,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9583
+      },
+      {
+        "frame": 116,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 195669,
+        "sourceFrame": 396,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9667
+      },
+      {
+        "frame": 117,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 198446,
+        "sourceFrame": 401,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9750
+      },
+      {
+        "frame": 118,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 201144,
+        "sourceFrame": 406,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9833
+      },
+      {
+        "frame": 119,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 203871,
+        "sourceFrame": 411,
+        "playbackRate": 5,
+        "encodedElapsedMs": 9917
+      },
+      {
+        "frame": 120,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 206593,
+        "sourceFrame": 416,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10000
+      },
+      {
+        "frame": 121,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 209332,
+        "sourceFrame": 421,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10083
+      },
+      {
+        "frame": 122,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 212065,
+        "sourceFrame": 426,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10167
+      },
+      {
+        "frame": 123,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 214800,
+        "sourceFrame": 431,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10250
+      },
+      {
+        "frame": 124,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 217536,
+        "sourceFrame": 436,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10333
+      },
+      {
+        "frame": 125,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 220264,
+        "sourceFrame": 441,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10417
+      },
+      {
+        "frame": 126,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 223016,
+        "sourceFrame": 446,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10500
+      },
+      {
+        "frame": 127,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 225794,
+        "sourceFrame": 451,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10583
+      },
+      {
+        "frame": 128,
+        "segment": "codex-builds-and-cordisx-loads",
+        "sourceElapsedMs": 227965,
+        "sourceFrame": 455,
+        "playbackRate": 5,
+        "encodedElapsedMs": 10667
+      },
+      {
+        "frame": 129,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228002,
+        "sourceFrame": 456,
+        "playbackRate": 1,
+        "encodedElapsedMs": 10750
+      },
+      {
+        "frame": 130,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228082,
+        "sourceFrame": 457,
+        "playbackRate": 1,
+        "encodedElapsedMs": 10833
+      },
+      {
+        "frame": 131,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228171,
+        "sourceFrame": 458,
+        "playbackRate": 1,
+        "encodedElapsedMs": 10917
+      },
+      {
+        "frame": 132,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228255,
+        "sourceFrame": 459,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11000
+      },
+      {
+        "frame": 133,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228339,
+        "sourceFrame": 460,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11083
+      },
+      {
+        "frame": 134,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228424,
+        "sourceFrame": 461,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11167
+      },
+      {
+        "frame": 135,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228514,
+        "sourceFrame": 462,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11250
+      },
+      {
+        "frame": 136,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228599,
+        "sourceFrame": 463,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11333
+      },
+      {
+        "frame": 137,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228680,
+        "sourceFrame": 464,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11417
+      },
+      {
+        "frame": 138,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228769,
+        "sourceFrame": 465,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11500
+      },
+      {
+        "frame": 139,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228845,
+        "sourceFrame": 466,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11583
+      },
+      {
+        "frame": 140,
+        "segment": "generation-ready",
+        "sourceElapsedMs": 228936,
+        "sourceFrame": 467,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11667
+      },
+      {
+        "frame": 141,
+        "segment": "proof-message:focus:approach",
+        "sourceElapsedMs": 229035,
+        "sourceFrame": 468,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11750
+      },
+      {
+        "frame": 142,
+        "segment": "proof-message:focus:approach",
+        "sourceElapsedMs": 229115,
+        "sourceFrame": 469,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11833
+      },
+      {
+        "frame": 143,
+        "segment": "proof-message:focus:pressed",
+        "sourceElapsedMs": 229197,
+        "sourceFrame": 470,
+        "playbackRate": 1,
+        "encodedElapsedMs": 11917
+      },
+      {
+        "frame": 144,
+        "segment": "proof-message:focus:pressed",
+        "sourceElapsedMs": 229283,
+        "sourceFrame": 471,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12000
+      },
+      {
+        "frame": 145,
+        "segment": "proof-message:focus:released",
+        "sourceElapsedMs": 229389,
+        "sourceFrame": 472,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12083
+      },
+      {
+        "frame": 146,
+        "segment": "proof-message:focus:released",
+        "sourceElapsedMs": 229477,
+        "sourceFrame": 473,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12167
+      },
+      {
+        "frame": 147,
+        "segment": "proof-message",
+        "sourceElapsedMs": 229579,
+        "sourceFrame": 474,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12250
+      },
+      {
+        "frame": 148,
+        "segment": "proof-message",
+        "sourceElapsedMs": 229670,
+        "sourceFrame": 475,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12333
+      },
+      {
+        "frame": 149,
+        "segment": "proof-message",
+        "sourceElapsedMs": 229743,
+        "sourceFrame": 476,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12417
+      },
+      {
+        "frame": 150,
+        "segment": "proof-message",
+        "sourceElapsedMs": 229827,
+        "sourceFrame": 477,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12500
+      },
+      {
+        "frame": 151,
+        "segment": "proof-message",
+        "sourceElapsedMs": 229931,
+        "sourceFrame": 478,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12583
+      },
+      {
+        "frame": 152,
+        "segment": "proof-message",
+        "sourceElapsedMs": 230006,
+        "sourceFrame": 479,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12667
+      },
+      {
+        "frame": 153,
+        "segment": "proof-message",
+        "sourceElapsedMs": 230117,
+        "sourceFrame": 480,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12750
+      },
+      {
+        "frame": 154,
+        "segment": "proof-message",
+        "sourceElapsedMs": 230192,
+        "sourceFrame": 481,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12833
+      },
+      {
+        "frame": 155,
+        "segment": "submit-proof:approach",
+        "sourceElapsedMs": 230280,
+        "sourceFrame": 482,
+        "playbackRate": 1,
+        "encodedElapsedMs": 12917
+      },
+      {
+        "frame": 156,
+        "segment": "submit-proof:approach",
+        "sourceElapsedMs": 230363,
+        "sourceFrame": 483,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13000
+      },
+      {
+        "frame": 157,
+        "segment": "submit-proof:pressed",
+        "sourceElapsedMs": 230465,
+        "sourceFrame": 484,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13083
+      },
+      {
+        "frame": 158,
+        "segment": "submit-proof:pressed",
+        "sourceElapsedMs": 230532,
+        "sourceFrame": 485,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13167
+      },
+      {
+        "frame": 159,
+        "segment": "submit-proof:released",
+        "sourceElapsedMs": 230729,
+        "sourceFrame": 486,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13250
+      },
+      {
+        "frame": 160,
+        "segment": "submit-proof:released",
+        "sourceElapsedMs": 230832,
+        "sourceFrame": 487,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13333
+      },
+      {
+        "frame": 161,
+        "segment": "fullscreen-confetti:waiting",
+        "sourceElapsedMs": 230946,
+        "sourceFrame": 488,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13417
+      },
+      {
+        "frame": 162,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231141,
+        "sourceFrame": 489,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13500
+      },
+      {
+        "frame": 163,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231224,
+        "sourceFrame": 490,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13583
+      },
+      {
+        "frame": 164,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231308,
+        "sourceFrame": 491,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13667
+      },
+      {
+        "frame": 165,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231393,
+        "sourceFrame": 492,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13750
+      },
+      {
+        "frame": 166,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231475,
+        "sourceFrame": 493,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13833
+      },
+      {
+        "frame": 167,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231557,
+        "sourceFrame": 494,
+        "playbackRate": 1,
+        "encodedElapsedMs": 13917
+      },
+      {
+        "frame": 168,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231656,
+        "sourceFrame": 495,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14000
+      },
+      {
+        "frame": 169,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231741,
+        "sourceFrame": 496,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14083
+      },
+      {
+        "frame": 170,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231827,
+        "sourceFrame": 497,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14167
+      },
+      {
+        "frame": 171,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231915,
+        "sourceFrame": 498,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14250
+      },
+      {
+        "frame": 172,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 231998,
+        "sourceFrame": 499,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14333
+      },
+      {
+        "frame": 173,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232082,
+        "sourceFrame": 500,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14417
+      },
+      {
+        "frame": 174,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232164,
+        "sourceFrame": 501,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14500
+      },
+      {
+        "frame": 175,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232246,
+        "sourceFrame": 502,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14583
+      },
+      {
+        "frame": 176,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232333,
+        "sourceFrame": 503,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14667
+      },
+      {
+        "frame": 177,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232426,
+        "sourceFrame": 504,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14750
+      },
+      {
+        "frame": 178,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232507,
+        "sourceFrame": 505,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14833
+      },
+      {
+        "frame": 179,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232589,
+        "sourceFrame": 506,
+        "playbackRate": 1,
+        "encodedElapsedMs": 14917
+      },
+      {
+        "frame": 180,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232674,
+        "sourceFrame": 507,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15000
+      },
+      {
+        "frame": 181,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232755,
+        "sourceFrame": 508,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15083
+      },
+      {
+        "frame": 182,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232841,
+        "sourceFrame": 509,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15167
+      },
+      {
+        "frame": 183,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 232932,
+        "sourceFrame": 510,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15250
+      },
+      {
+        "frame": 184,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233017,
+        "sourceFrame": 511,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15333
+      },
+      {
+        "frame": 185,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233089,
+        "sourceFrame": 512,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15417
+      },
+      {
+        "frame": 186,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233167,
+        "sourceFrame": 513,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15500
+      },
+      {
+        "frame": 187,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233266,
+        "sourceFrame": 514,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15583
+      },
+      {
+        "frame": 188,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233350,
+        "sourceFrame": 515,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15667
+      },
+      {
+        "frame": 189,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233436,
+        "sourceFrame": 516,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15750
+      },
+      {
+        "frame": 190,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233535,
+        "sourceFrame": 517,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15833
+      },
+      {
+        "frame": 191,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233610,
+        "sourceFrame": 518,
+        "playbackRate": 1,
+        "encodedElapsedMs": 15917
+      },
+      {
+        "frame": 192,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233686,
+        "sourceFrame": 519,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16000
+      },
+      {
+        "frame": 193,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233768,
+        "sourceFrame": 520,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16083
+      },
+      {
+        "frame": 194,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233853,
+        "sourceFrame": 521,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16167
+      },
+      {
+        "frame": 195,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 233946,
+        "sourceFrame": 522,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16250
+      },
+      {
+        "frame": 196,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 234030,
+        "sourceFrame": 523,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16333
+      },
+      {
+        "frame": 197,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 234123,
+        "sourceFrame": 524,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16417
+      },
+      {
+        "frame": 198,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 234211,
+        "sourceFrame": 525,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16500
+      },
+      {
+        "frame": 199,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 234286,
+        "sourceFrame": 526,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16583
+      },
+      {
+        "frame": 200,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 234372,
+        "sourceFrame": 527,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16667
+      },
+      {
+        "frame": 201,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 234461,
+        "sourceFrame": 528,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16750
+      },
+      {
+        "frame": 202,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 234553,
+        "sourceFrame": 529,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16833
+      },
+      {
+        "frame": 203,
+        "segment": "confetti-visible",
+        "sourceElapsedMs": 234632,
+        "sourceFrame": 530,
+        "playbackRate": 1,
+        "encodedElapsedMs": 16917
+      },
+      {
+        "frame": 204,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 234718,
+        "sourceFrame": 531,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17000
+      },
+      {
+        "frame": 205,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 234803,
+        "sourceFrame": 532,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17083
+      },
+      {
+        "frame": 206,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 234891,
+        "sourceFrame": 533,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17167
+      },
+      {
+        "frame": 207,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 234974,
+        "sourceFrame": 534,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17250
+      },
+      {
+        "frame": 208,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 235050,
+        "sourceFrame": 535,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17333
+      },
+      {
+        "frame": 209,
+        "segment": "confetti-cleared",
+        "sourceElapsedMs": 235139,
+        "sourceFrame": 536,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17417
+      },
+      {
+        "frame": 210,
+        "segment": "settings-open:approach",
+        "sourceElapsedMs": 235244,
+        "sourceFrame": 537,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17500
+      },
+      {
+        "frame": 211,
+        "segment": "settings-open:approach",
+        "sourceElapsedMs": 235324,
+        "sourceFrame": 538,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17583
+      },
+      {
+        "frame": 212,
+        "segment": "settings-open:pressed",
+        "sourceElapsedMs": 235411,
+        "sourceFrame": 539,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17667
+      },
+      {
+        "frame": 213,
+        "segment": "settings-open:pressed",
+        "sourceElapsedMs": 235497,
+        "sourceFrame": 540,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17750
+      },
+      {
+        "frame": 214,
+        "segment": "settings-open:released",
+        "sourceElapsedMs": 235659,
+        "sourceFrame": 541,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17833
+      },
+      {
+        "frame": 215,
+        "segment": "settings-open:released",
+        "sourceElapsedMs": 235735,
+        "sourceFrame": 542,
+        "playbackRate": 1,
+        "encodedElapsedMs": 17917
+      },
+      {
+        "frame": 216,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 235819,
+        "sourceFrame": 543,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18000
+      },
+      {
+        "frame": 217,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 235915,
+        "sourceFrame": 544,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18083
+      },
+      {
+        "frame": 218,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 235998,
+        "sourceFrame": 545,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18167
+      },
+      {
+        "frame": 219,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236075,
+        "sourceFrame": 546,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18250
+      },
+      {
+        "frame": 220,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236170,
+        "sourceFrame": 547,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18333
+      },
+      {
+        "frame": 221,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236252,
+        "sourceFrame": 548,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18417
+      },
+      {
+        "frame": 222,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236344,
+        "sourceFrame": 549,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18500
+      },
+      {
+        "frame": 223,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236425,
+        "sourceFrame": 550,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18583
+      },
+      {
+        "frame": 224,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236512,
+        "sourceFrame": 551,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18667
+      },
+      {
+        "frame": 225,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236592,
+        "sourceFrame": 552,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18750
+      },
+      {
+        "frame": 226,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236682,
+        "sourceFrame": 553,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18833
+      },
+      {
+        "frame": 227,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236771,
+        "sourceFrame": 554,
+        "playbackRate": 1,
+        "encodedElapsedMs": 18917
+      },
+      {
+        "frame": 228,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236845,
+        "sourceFrame": 555,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19000
+      },
+      {
+        "frame": 229,
+        "segment": "settings-plugins",
+        "sourceElapsedMs": 236934,
+        "sourceFrame": 556,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19083
+      },
+      {
+        "frame": 230,
+        "segment": "settings-plugin-open:approach",
+        "sourceElapsedMs": 237026,
+        "sourceFrame": 557,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19167
+      },
+      {
+        "frame": 231,
+        "segment": "settings-plugin-open:approach",
+        "sourceElapsedMs": 237108,
+        "sourceFrame": 558,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19250
+      },
+      {
+        "frame": 232,
+        "segment": "settings-plugin-open:pressed",
+        "sourceElapsedMs": 237198,
+        "sourceFrame": 559,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19333
+      },
+      {
+        "frame": 233,
+        "segment": "settings-plugin-open:pressed",
+        "sourceElapsedMs": 237284,
+        "sourceFrame": 560,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19417
+      },
+      {
+        "frame": 234,
+        "segment": "settings-plugin-open:released",
+        "sourceElapsedMs": 237496,
+        "sourceFrame": 561,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19500
+      },
+      {
+        "frame": 235,
+        "segment": "settings-plugin-open:released",
+        "sourceElapsedMs": 237570,
+        "sourceFrame": 562,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19583
+      },
+      {
+        "frame": 236,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 237655,
+        "sourceFrame": 563,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19667
+      },
+      {
+        "frame": 237,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 237739,
+        "sourceFrame": 564,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19750
+      },
+      {
+        "frame": 238,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 237828,
+        "sourceFrame": 565,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19833
+      },
+      {
+        "frame": 239,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 237916,
+        "sourceFrame": 566,
+        "playbackRate": 1,
+        "encodedElapsedMs": 19917
+      },
+      {
+        "frame": 240,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 237999,
+        "sourceFrame": 567,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20000
+      },
+      {
+        "frame": 241,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238093,
+        "sourceFrame": 568,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20083
+      },
+      {
+        "frame": 242,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238171,
+        "sourceFrame": 569,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20167
+      },
+      {
+        "frame": 243,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238252,
+        "sourceFrame": 570,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20250
+      },
+      {
+        "frame": 244,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238343,
+        "sourceFrame": 571,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20333
+      },
+      {
+        "frame": 245,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238433,
+        "sourceFrame": 572,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20417
+      },
+      {
+        "frame": 246,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238513,
+        "sourceFrame": 573,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20500
+      },
+      {
+        "frame": 247,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238591,
+        "sourceFrame": 574,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20583
+      },
+      {
+        "frame": 248,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238689,
+        "sourceFrame": 575,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20667
+      },
+      {
+        "frame": 249,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238777,
+        "sourceFrame": 576,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20750
+      },
+      {
+        "frame": 250,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238852,
+        "sourceFrame": 577,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20833
+      },
+      {
+        "frame": 251,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 238939,
+        "sourceFrame": 578,
+        "playbackRate": 1,
+        "encodedElapsedMs": 20917
+      },
+      {
+        "frame": 252,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239022,
+        "sourceFrame": 579,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21000
+      },
+      {
+        "frame": 253,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239109,
+        "sourceFrame": 580,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21083
+      },
+      {
+        "frame": 254,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239195,
+        "sourceFrame": 581,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21167
+      },
+      {
+        "frame": 255,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239282,
+        "sourceFrame": 582,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21250
+      },
+      {
+        "frame": 256,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239368,
+        "sourceFrame": 583,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21333
+      },
+      {
+        "frame": 257,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239443,
+        "sourceFrame": 584,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21417
+      },
+      {
+        "frame": 258,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239534,
+        "sourceFrame": 585,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21500
+      },
+      {
+        "frame": 259,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239635,
+        "sourceFrame": 586,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21583
+      },
+      {
+        "frame": 260,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239705,
+        "sourceFrame": 587,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21667
+      },
+      {
+        "frame": 261,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239785,
+        "sourceFrame": 588,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21750
+      },
+      {
+        "frame": 262,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239874,
+        "sourceFrame": 589,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21833
+      },
+      {
+        "frame": 263,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 239958,
+        "sourceFrame": 590,
+        "playbackRate": 1,
+        "encodedElapsedMs": 21917
+      },
+      {
+        "frame": 264,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 240051,
+        "sourceFrame": 591,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22000
+      },
+      {
+        "frame": 265,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 240130,
+        "sourceFrame": 592,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22083
+      },
+      {
+        "frame": 266,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 240211,
+        "sourceFrame": 593,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22167
+      },
+      {
+        "frame": 267,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 240300,
+        "sourceFrame": 594,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22250
+      },
+      {
+        "frame": 268,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 240385,
+        "sourceFrame": 595,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22333
+      },
+      {
+        "frame": 269,
+        "segment": "settings-plugin-detail",
+        "sourceElapsedMs": 240474,
+        "sourceFrame": 596,
+        "playbackRate": 1,
+        "encodedElapsedMs": 22417
+      }
+    ]
+  },
+  "privacy": {
+    "isolatedHome": true,
+    "isolatedCodexHome": true,
+    "isolatedCordisXHome": true,
+    "isolatedChromiumProfile": true,
+    "emptyProjectAndThreadState": true,
+    "visibleProfileIdentity": "CordisX Demo",
+    "authenticationCopiedForRuntimeOnly": true,
+    "authenticationPublished": false
+  },
+  "onboarding": []
+}

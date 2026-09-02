@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execFileSync, spawn } from 'node:child_process'
-import { chmod, copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { chmod, copyFile, mkdir, mkdtemp, readFile, rename, rm, writeFile } from 'node:fs/promises'
 import net from 'node:net'
 import os from 'node:os'
 import path from 'node:path'
@@ -22,16 +22,41 @@ const avatarFile = path.resolve(option('--avatar', path.join(projectRoot, 'asset
 const outputFile = path.resolve(option('--output', path.join(projectRoot, 'assets', 'screenshots', 'codex-workspace-real.png')))
 const outputDir = path.resolve(option('--output-dir', path.join(projectRoot, 'assets', 'screenshots')))
 const profileName = option('--name', 'CordisX')
-const locale = option('--locale', 'en-US')
 const motionEnabled = process.argv.includes('--motion')
 const motionOutputDir = path.resolve(option('--motion-output-dir', path.join(projectRoot, 'assets', 'motion')))
 const motionFrameRate = 12
-const motionCursorSvg = await readFile(path.join(projectRoot, 'assets', 'capture', 'cordisx-motion-cursor.svg'), 'utf8')
 
 if (process.argv.includes('--help')) {
-  console.log('Usage: npm run capture:codex-showcase -- [--motion] [--motion-output-dir /absolute/motion] [--name CordisX] [--avatar /absolute/avatar.png] [--auth /absolute/auth.json] [--output /absolute/workspace.png] [--output-dir /absolute/screenshots] [--locale en-US] [--app /Applications/ChatGPT.app]')
+  console.log('Usage: npm run capture:codex-showcase -- [--motion] [--motion-output-dir /absolute/motion] [--name CordisX] [--avatar /absolute/avatar.png] [--auth /absolute/auth.json] [--output /absolute/workspace.png] [--output-dir /absolute/screenshots] [--app /Applications/ChatGPT.app]')
   process.exit(0)
 }
+
+const captureTheme = option('--capture-theme')
+const captureLanguage = option('--capture-language')
+if (captureTheme === undefined && captureLanguage === undefined) {
+  for (const theme of ['dark', 'light']) {
+    for (const language of ['en', 'zh']) {
+      console.log(`[showcase] starting isolated ${language}/${theme} Codex capture`)
+      execFileSync(process.execPath, [
+        path.resolve(process.argv[1]), ...process.argv.slice(2),
+        '--capture-theme', theme, '--capture-language', language,
+      ], { stdio: 'inherit' })
+    }
+  }
+  process.exit(0)
+}
+if (captureTheme === undefined || captureLanguage === undefined) {
+  throw new Error('Internal capture variants require both --capture-theme and --capture-language')
+}
+if (!['dark', 'light'].includes(captureTheme)) throw new Error(`Unsupported capture theme: ${captureTheme}`)
+if (!['en', 'zh'].includes(captureLanguage)) throw new Error(`Unsupported capture language: ${captureLanguage}`)
+
+const motionCursorSvg = await readFile(path.join(projectRoot, 'assets', 'capture', 'cordisx-motion-cursor.svg'), 'utf8')
+const documentLocale = captureLanguage === 'zh' ? 'zh-CN' : 'en'
+const locale = captureLanguage === 'zh' ? 'zh-CN' : 'en-US'
+const workspaceOutputFile = captureLanguage === 'en'
+  ? captureTheme === 'dark' ? outputFile : path.join(outputDir, 'codex-workspace-real-light.png')
+  : captureTheme === 'dark' ? path.join(outputDir, 'codex-workspace-real-zh.png') : path.join(outputDir, 'codex-workspace-real-zh-light.png')
 
 async function availablePort() {
   const server = net.createServer()
@@ -150,13 +175,32 @@ async function evaluate(send, expression) {
   return result.result?.value
 }
 
-async function capture(send, file) {
+async function capture(send, file, opaque = false) {
   const screenshot = await send('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false })
   await mkdir(path.dirname(file), { recursive: true })
-  await writeFile(file, Buffer.from(screenshot.data, 'base64'))
+  if (!opaque) {
+    await writeFile(file, Buffer.from(screenshot.data, 'base64'))
+    return
+  }
+  const source = path.join(path.dirname(file), `.${path.basename(file, '.png')}-rgba-${process.pid}.png`)
+  const normalized = `${source}.opaque.png`
+  try {
+    await writeFile(source, Buffer.from(screenshot.data, 'base64'))
+    execFileSync('ffmpeg', [
+      '-y', '-hide_banner', '-loglevel', 'error', '-i', source,
+      '-vf', 'format=rgb24', '-frames:v', '1', normalized,
+    ], { stdio: 'inherit' })
+    await rename(normalized, file)
+  } finally {
+    await Promise.all([rm(source, { force: true }), rm(normalized, { force: true })])
+  }
 }
 
 async function setCaptureTheme(send, theme) {
+  const background = theme === 'dark'
+    ? { r: 24, g: 24, b: 24, a: 1 }
+    : { r: 255, g: 255, b: 255, a: 1 }
+  await send('Emulation.setDefaultBackgroundColorOverride', { color: background })
   await send('Emulation.setEmulatedMedia', {
     features: [{ name: 'prefers-color-scheme', value: theme }],
   })
@@ -363,11 +407,13 @@ await writeFile(path.join(codexHome, '.codex-global-state.json'), `${JSON.string
   'thread-workspace-root-hints': {},
   'thread-writable-roots': {},
 }, null, 2)}\n`, { mode: 0o600 })
-await writeFile(path.join(codexHome, 'config.toml'), `appearanceTheme = "system"
+await writeFile(path.join(codexHome, 'config.toml'), `[desktop]
+appearanceTheme = ${JSON.stringify(captureTheme)}
+localeOverride = ${JSON.stringify(locale)}
 appearanceDarkChromeTheme = { accent = "#339cff", contrast = 60, fonts = { code = "", ui = "" }, ink = "#ffffff", opaqueWindows = true, semanticColors = { diffAdded = "#40c977", diffRemoved = "#fa423e", skill = "#ad7bf9" }, surface = "#181818" }
 appearanceLightChromeTheme = { accent = "#339cff", contrast = 45, fonts = { code = "", ui = "" }, ink = "#1a1c1f", opaqueWindows = true, semanticColors = { diffAdded = "#00a240", diffRemoved = "#ba2623", skill = "#924ff7" }, surface = "#ffffff" }
 `, { mode: 0o600 })
-console.log('[showcase] opaque Codex chrome configured for isolated capture profile')
+console.log(`[showcase] ${captureLanguage}/${captureTheme} Codex locale and opaque chrome configured before launch`)
 await writeFile(configFile, `${JSON.stringify({
   version: 1,
   defaultApp: 'codex',
@@ -474,6 +520,7 @@ try {
   await new Promise(resolve => setTimeout(resolve, 4_000))
 
   const projection = await evaluate(send, `(() => {
+    const translateHostToEnglish = ${JSON.stringify(captureLanguage === 'en')}
     const translations = new Map(${JSON.stringify([
       ['新对话', 'New conversation'], ['快速聊天', 'Quick chat'], ['拉取请求', 'Pull requests'], ['站点', 'Sites'],
       ['已安排', 'Scheduled'], ['插件', 'Plugins'], ['项目', 'Projects'], ['没有项目', 'No projects'],
@@ -482,6 +529,7 @@ try {
       ['审查代码并提出修改建议', 'Review code and suggest changes'], ['修复问题和失败', 'Fix issues and failures'],
       ['选择项目', 'Select a project'], ['随心输入', 'Ask anything'], ['请求批准', 'Ask for approval'],
       ['语音', 'Voice'], ['开始使用', 'Get started'], ['轻度', 'Low'], ['极高', 'X-high'],
+      ['更多', 'More'],
       ['新建本地工作树', 'New local worktree'], ['无环境', 'No environment'], ['完全访问', 'Full access'],
       ['试试 ChatGPT 语音', 'Try ChatGPT Voice'], ['编排任务，连接工具，探索代码', 'Plan tasks, connect tools, and explore code'],
       ['开始语音', 'Start voice'],
@@ -494,23 +542,25 @@ try {
       return value.replaceAll('极高', 'X-high')
     }
     let translated = 0
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
-    for (let node = walker.nextNode(); node !== null; node = walker.nextNode()) {
-      const current = node.nodeValue ?? ''
-      const trimmed = current.trim()
-      const replacement = translate(trimmed)
-      if (replacement === trimmed) continue
-      node.nodeValue = current.replace(trimmed, replacement)
-      translated += 1
-    }
-    for (const element of document.querySelectorAll('[placeholder], [aria-label], [title]')) {
-      for (const attribute of ['placeholder', 'aria-label', 'title']) {
-        const current = element.getAttribute(attribute)
-        if (current === null) continue
-        const replacement = translate(current.trim())
-        if (replacement === current.trim()) continue
-        element.setAttribute(attribute, current.replace(current.trim(), replacement))
+    if (translateHostToEnglish) {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
+      for (let node = walker.nextNode(); node !== null; node = walker.nextNode()) {
+        const current = node.nodeValue ?? ''
+        const trimmed = current.trim()
+        const replacement = translate(trimmed)
+        if (replacement === trimmed) continue
+        node.nodeValue = current.replace(trimmed, replacement)
         translated += 1
+      }
+      for (const element of document.querySelectorAll('[placeholder], [aria-label], [title]')) {
+        for (const attribute of ['placeholder', 'aria-label', 'title']) {
+          const current = element.getAttribute(attribute)
+          if (current === null) continue
+          const replacement = translate(current.trim())
+          if (replacement === current.trim()) continue
+          element.setAttribute(attribute, current.replace(current.trim(), replacement))
+          translated += 1
+        }
       }
     }
 
@@ -528,14 +578,14 @@ try {
       label.textContent = ${JSON.stringify(profileName)}
       label.style.cssText = 'font:500 13px/1.2 system-ui,sans-serif;white-space:nowrap'
       profile.append(image, label)
-      profile.setAttribute('aria-label', ${JSON.stringify(`${profileName} profile`)})
+      profile.setAttribute('aria-label', ${JSON.stringify(captureLanguage === 'zh' ? `${profileName} 个人资料` : `${profileName} profile`)})
       profile.style.cssText += ';display:flex!important;align-items:center!important;gap:8px!important;width:auto!important;min-width:112px!important;padding:5px 9px!important'
     }
 
     const trigger = document.querySelector('[data-cordisx-manager-trigger]')
-    if (trigger instanceof HTMLElement) trigger.setAttribute('aria-label', 'Open CordisX Manager')
+    if (trigger instanceof HTMLElement) trigger.setAttribute('aria-label', ${JSON.stringify(captureLanguage === 'zh' ? '打开 CordisX 管理器' : 'Open CordisX Manager')})
 
-    document.querySelectorAll('button').forEach(button => {
+    if (translateHostToEnglish) document.querySelectorAll('button').forEach(button => {
       const label = button.getAttribute('aria-label') ?? ''
       if (label.includes('个人资料')) button.setAttribute('aria-label', label.replace('打开个人资料菜单', 'Open profile menu'))
     })
@@ -545,27 +595,41 @@ try {
       translated,
       profile: profile instanceof HTMLElement,
       cordisxEntry: trigger instanceof HTMLElement,
+      managerTargets: [...document.querySelectorAll('button[aria-haspopup="menu"]')]
+        .filter(button => button instanceof HTMLElement && button.offsetParent !== null)
+        .map(button => ({
+          text: (button.textContent ?? '').trim(),
+          ariaLabel: button.getAttribute('aria-label'),
+          title: button.getAttribute('title'),
+          className: button.className,
+        })),
       onboardingVisible: /个性化|personalization/i.test(visibleText),
-      remainingCjk: [...new Set(visibleText.split('\\n').map(line => line.trim()).filter(line => /[\u3400-\u9fff]/u.test(line)))].slice(0, 12),
+      remainingCjk: translateHostToEnglish
+        ? [...new Set(visibleText.split('\\n').map(line => line.trim()).filter(line => /[\u3400-\u9fff]/u.test(line)))].slice(0, 12)
+        : [],
     }
   })()`)
 
   if (!projection.profile) throw new Error('Could not project the CordisX profile identity')
-  if (!projection.cordisxEntry) throw new Error('Could not expose the CordisX extension entry')
+  if (!projection.cordisxEntry) throw new Error(`Could not expose the CordisX extension entry; manager targets: ${JSON.stringify(projection.managerTargets)}`)
   if (projection.remainingCjk.length > 0) throw new Error(`Codex workspace still contains untranslated text: ${projection.remainingCjk.join(' | ')}`)
   await new Promise(resolve => setTimeout(resolve, 800))
 
   const finalLocalization = await evaluate(send, `(() => {
+    const translateHostToEnglish = ${JSON.stringify(captureLanguage === 'en')}
+    const placeholderText = ${JSON.stringify(captureLanguage === 'zh' ? '随心输入' : 'Ask anything')}
     const cjk = /[\u3400-\u9fff]/u
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
-    for (let node = walker.nextNode(); node !== null; node = walker.nextNode()) {
-      const current = node.nodeValue ?? ''
-      if (current.trim() === '随心输入') node.nodeValue = current.replace('随心输入', 'Ask anything')
-    }
-    for (const element of document.querySelectorAll('*')) {
-      for (const attribute of [...element.attributes]) {
-        if (!/placeholder/u.test(attribute.name) || !cjk.test(attribute.value)) continue
-        element.setAttribute(attribute.name, 'Ask anything')
+    if (translateHostToEnglish) {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
+      for (let node = walker.nextNode(); node !== null; node = walker.nextNode()) {
+        const current = node.nodeValue ?? ''
+        if (current.trim() === '随心输入') node.nodeValue = current.replace('随心输入', placeholderText)
+      }
+      for (const element of document.querySelectorAll('*')) {
+        for (const attribute of [...element.attributes]) {
+          if (!/placeholder/u.test(attribute.name) || !cjk.test(attribute.value)) continue
+          element.setAttribute(attribute.name, placeholderText)
+        }
       }
     }
     const composer = document.querySelector('textarea, [contenteditable="true"]')
@@ -579,13 +643,16 @@ try {
       if (surface instanceof HTMLElement) {
         surface.style.position = 'relative'
         const overlay = document.createElement('span')
-        overlay.textContent = 'Ask anything'
+        overlay.textContent = placeholderText
         overlay.setAttribute('data-cordisx-capture-placeholder', 'true')
-        overlay.style.cssText = 'position:absolute;z-index:20;left:0;top:18px;width:400px;box-sizing:border-box;padding:4px 72px 5px 20px;background:#2b2b2b;color:rgba(235,235,235,.46);font:400 16px/1.4 system-ui,sans-serif;pointer-events:none'
+        overlay.style.cssText = ${JSON.stringify(captureTheme === 'dark'
+          ? 'position:absolute;z-index:20;left:0;top:18px;width:400px;box-sizing:border-box;padding:4px 72px 5px 20px;background:#2b2b2b;color:rgba(235,235,235,.46);font:400 16px/1.4 system-ui,sans-serif;pointer-events:none'
+          : 'position:absolute;z-index:20;left:0;top:18px;width:400px;box-sizing:border-box;padding:4px 72px 5px 20px;background:#fff;color:rgba(20,24,32,.46);font:400 16px/1.4 system-ui,sans-serif;pointer-events:none')}
         surface.append(overlay)
       }
     }
-    const voiceLabel = [...document.querySelectorAll('*')].find(element => (element.textContent ?? '').trim() === 'Try ChatGPT Voice')
+    const voiceLabel = [...document.querySelectorAll('*')]
+      .find(element => ['Try ChatGPT Voice', '试试 ChatGPT 语音'].includes((element.textContent ?? '').trim()))
     if (voiceLabel instanceof HTMLElement) {
       let banner = voiceLabel
       while (banner.parentElement instanceof HTMLElement) {
@@ -603,12 +670,12 @@ try {
       .filter(value => cjk.test(value))
     return { visibleCjk, placeholderCjk, placeholderOverlay: document.querySelector('[data-cordisx-capture-placeholder]') !== null }
   })()`)
-  if (finalLocalization.visibleCjk.length > 0 || finalLocalization.placeholderCjk.length > 0) {
+  if (captureLanguage === 'en' && (finalLocalization.visibleCjk.length > 0 || finalLocalization.placeholderCjk.length > 0)) {
     throw new Error(`Codex workspace language drifted before capture: ${[...finalLocalization.visibleCjk, ...finalLocalization.placeholderCjk].join(' | ')}`)
   }
 
   const welcome = await evaluate(send, `(async () => {
-    document.documentElement.lang = 'en'
+    document.documentElement.lang = ${JSON.stringify(documentLocale)}
     let navigationError = null
     let settled = false
     void globalThis.__cordisxRuntime.navigate('slot-showcase', { id: 'main.welcome' }).then(
@@ -629,19 +696,15 @@ try {
   })()`)
   if (!welcome) throw new Error('CordisX welcome page did not become visible')
   await new Promise(resolve => setTimeout(resolve, 700))
-  await setCaptureTheme(send, 'dark')
-  await capture(send, outputFile)
-  const workspaceLightFile = path.join(outputDir, 'codex-workspace-real-light.png')
-  await setCaptureTheme(send, 'light')
-  await capture(send, workspaceLightFile)
-  await setCaptureTheme(send, 'dark')
+  await setCaptureTheme(send, captureTheme)
+  await capture(send, workspaceOutputFile, true)
 
   const motionOutputs = {}
   if (motionEnabled) {
-    for (const [language, documentLocale] of [['en', 'en'], ['zh', 'zh-CN']]) {
-      for (const theme of ['dark', 'light']) {
+    for (const [language, motionDocumentLocale] of [[captureLanguage, documentLocale]]) {
+      for (const theme of [captureTheme]) {
         await evaluate(send, `(async () => {
-          document.documentElement.lang = ${JSON.stringify(documentLocale)}
+          document.documentElement.lang = ${JSON.stringify(motionDocumentLocale)}
           document.querySelector('[data-cordisx-motion-cursor]')?.remove()
           const close = document.querySelector(
             '[data-cordisx-manager-modal] button[aria-label="关闭"], ' +
@@ -696,11 +759,11 @@ try {
     'routes',
     'marketplace',
   ]
-  const captured = [outputFile, workspaceLightFile]
-  for (const [language, documentLocale] of [['en', 'en'], ['zh', 'zh-CN']]) {
-    await evaluate(send, `document.documentElement.lang = ${JSON.stringify(documentLocale)}`)
+  const captured = [workspaceOutputFile]
+  for (const [language, managerDocumentLocale] of [[captureLanguage, documentLocale]]) {
+    await evaluate(send, `document.documentElement.lang = ${JSON.stringify(managerDocumentLocale)}`)
     await new Promise(resolve => setTimeout(resolve, 500))
-    for (const theme of ['dark', 'light']) {
+    for (const theme of [captureTheme]) {
       await setCaptureTheme(send, theme)
       for (const pageId of managerPages) {
         const selected = await evaluate(send, `(async () => {
@@ -718,7 +781,7 @@ try {
     }
   }
 
-  console.log(JSON.stringify({ outputs: captured, motionOutputs, locale, name: profileName, onboarding, projection, finalLocalization }, null, 2))
+  console.log(JSON.stringify({ outputs: captured, motionOutputs, locale, language: captureLanguage, name: profileName, theme: captureTheme, onboarding, projection, finalLocalization }, null, 2))
   socket.close()
 } finally {
   process.off('SIGINT', onSigint)
