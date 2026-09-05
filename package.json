@@ -8,9 +8,14 @@
     "capture:ai-plugin-demo": "node scripts/capture-ai-plugin-demo.mjs",
     "capture:codex-showcase": "node scripts/capture-codex-showcase.mjs",
     "capture:codex-motion": "node scripts/capture-codex-showcase.mjs --motion",
-    "verify:ai-plugin-demo": "node scripts/verify-ai-plugin-demo.mjs"
+    "verify:ai-plugin-demo": "node scripts/verify-ai-plugin-demo.mjs",
+    "format": "dprint fmt",
+    "format:check": "dprint check"
   },
   "engines": {
     "node": ">=22.19"
+  },
+  "devDependencies": {
+    "dprint": "0.57.1"
   }
 }

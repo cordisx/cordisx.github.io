@@ -1,5 +1,6 @@
 # Homepage Maintenance Rules
 
+- Follow the [organization file-size rule](https://github.com/cordisx/cordisxmono/blob/main/.agents/rules/file-size.md) for formatting and responsibility-based splitting guidance.
 - Keep claims aligned with released product capabilities.
 - State clearly that CordisX is an unofficial local extension host for Codex Desktop.
 - Do not publish roadmap or private planning material.
@@ -20,3 +21,7 @@
   theme explicitly before capture. Verify the Codex shell, CordisX surfaces,
   and the homepage presentation all use the expected theme and color tokens;
   do not rely on inherited system theme or a stale isolated profile.
+
+The quality tools preserve the verified third-party modules under
+[`assets/reicon`](../../assets/reicon/README.md). The handwritten `reicons.js`
+entry remains in formatting checks.
