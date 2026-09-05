@@ -1,54 +1,36 @@
 # CordisX Homepage
 
-Homepage source for `https://cordisx.github.io/`.
+Source for the [CordisX homepage](https://cordisx.github.io/).
 
-The site introduces CordisX and links to projects and documentation. It does not duplicate product documentation.
+CordisX is an unofficial local extension host for Codex Desktop. This site
+introduces the project and links to documentation owned by the product
+repositories.
 
+- [Find product documentation](https://cordisx.github.io/docs/)
 - [Browse the CordisX Marketplace](https://cordisx.github.io/marketplace/)
+
+## Maintenance entry points
+
+The static site source lives at the repository root, with Marketplace pages
+under `marketplace/`. Read the [maintenance rules](.agents/rules/README.md)
+before making changes. The [maintenance index](.agents/docs/README.md) routes
+design, Marketplace, and media work to their owning documents; checks are
+defined in [`package.json`](package.json).
 
 ## Regenerate the real Codex showcase
 
-The homepage uses a real, signed-in Codex Desktop instance with the real CordisX
-runtime attached. The capture command creates disposable `HOME`, `CODEX_HOME`,
-Chromium profile, and workspace directories, copies the authentication file and
-non-personal migration markers, and uses an APFS copy-on-write clone of the
-installed Codex runtime so a fresh capture does not repeat the 1.5 GB runtime
-installation. It removes the isolated instance after the capture is written.
-
-```sh
-npm run capture:codex-showcase
-npm run capture:codex-motion
-```
-
-The reusable capture starts a separate disposable Codex instance for every
-English/Chinese and light/dark variant, then produces the signed-in workspace
-and the Plugins, Extension points, Routes, and Marketplace pages of the real
-CordisX Manager. Outputs are written to `assets/screenshots/`. Use
-`npm run capture:codex-showcase -- --help` for
-avatar, profile name, app bundle, authentication file, CordisX checkout,
-and output-directory overrides. The command requires macOS,
-`/Applications/ChatGPT.app`, a signed-in Codex auth file, and a built sibling
-CordisX checkout. It also requires `ffmpeg` to normalize the full-canvas
-workspace screenshots to opaque RGB output.
-
-`capture:codex-motion` runs the declarative timeline in
-`scripts/showcase-motion-scene.mjs`. It performs real Host clicks while a
-scripted virtual cursor is rendered into the capture, then writes MP4, WebM,
-and GIF variants to `assets/motion/`. Edit the scene instead of manually
-recording a new demo after Codex or CordisX upgrades. The cursor artwork lives
-separately at `assets/capture/cordisx-motion-cursor.svg`, so its visual design
-can change without touching the interaction timeline.
+The [showcase capture workflow](.agents/docs/showcase-capture.md) owns
+prerequisites, commands, isolation, and verification for real Codex workspace
+and CordisX Manager screenshots and recordings in English and Chinese,
+light and dark themes.
 
 ## Record the AI-first plugin demo
 
-The AI-first capture is a separate, truthful workflow: one isolated real Codex
-Desktop renderer receives the localized natural-language request and edits an
-independent plugin project created by the public CordisX scaffolder. The running
-`cordisx dev <entry>` watcher publishes the replacement without restarting the
-renderer. A second real native Send click activates the Host-owned full-screen
-confetti effect, then the recording opens CordisX settings and the generated
-plugin's detail page. It does not use a recreated Codex shell, authored Agent
-replies, or caption cards for any of those steps.
+The AI-first demo records a real Codex Agent editing an independent plugin,
+the development watcher replacing its generation, and a native Send click
+activating a Host-owned full-screen confetti effect. Read the dedicated
+[capture workflow](.agents/docs/ai-plugin-demo-capture.md) for its exact
+checkpoint, commands, privacy boundary, and evidence requirements.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/motion/cordisx-ai-plugin-demo-en-dark.gif">
@@ -71,33 +53,9 @@ English light: [MP4](assets/motion/cordisx-ai-plugin-demo-en-light.mp4) ·
 Chinese: [dark MP4](assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4) ·
 [light MP4](assets/motion/cordisx-ai-plugin-demo-zh-light.mp4)
 
-Prepare and exercise the workspace plus H.264/VP9 encoders without reading
-authentication or launching Codex:
-
-```sh
-npm run capture:ai-plugin-demo -- --dry-run
-npm run capture:ai-plugin-demo -- --launch-smoke
-```
-
-`--launch-smoke` goes one step further: it opens the isolated real renderer and
-proves the baseline plugin generation plus composer/submit targeting, but sends
-no prompt and publishes no media.
-
-After selecting a CordisX checkout whose public plugin contract and Host both
-support the structured celebration effect, record and verify the real demo:
-
-```sh
-npm run capture:ai-plugin-demo -- --cordisx-root /absolute/cordisx
-npm run verify:ai-plugin-demo -- \
-  --mp4 assets/motion/cordisx-ai-plugin-demo-zh-dark.mp4 \
-  --webm assets/motion/cordisx-ai-plugin-demo-zh-dark.webm \
-  --gif assets/motion/cordisx-ai-plugin-demo-zh-dark.gif \
-  --poster assets/screenshots/cordisx-ai-plugin-demo-zh-dark.png \
-  --metadata assets/motion/cordisx-ai-plugin-demo-zh-dark.json \
-  --source assets/motion/cordisx-ai-plugin-demo-zh-dark.plugin.tsx
-```
-
-The MP4 is H.264 `yuv420p` with a front-loaded `moov` atom; the paired WebM is
-VP9 `yuv420p`. Both are 1600×1000. See
-`.agents/docs/ai-plugin-demo-capture.md` for the storyboard, privacy boundary,
-checkpoint gate, and evidence requirements.
+The workflow distinguishes two preliminary checks: `--dry-run` exercises the
+workspace and encoders without reading authentication or launching Codex;
+`--launch-smoke` reads the selected authentication into a disposable profile
+and starts an isolated real renderer. Launch smoke sends no prompt and
+publishes no media. Use the [runbook's instructions](.agents/docs/ai-plugin-demo-capture.md#dry-run)
+for either check.
