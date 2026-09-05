@@ -20,4 +20,3 @@ export const showcaseMotionScene = [
   { type: 'click', selector: '[data-tab="marketplace"]' },
   { type: 'hold', frames: 16 },
 ]
-

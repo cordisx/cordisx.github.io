@@ -2,29 +2,31 @@ import { Microphone } from './reicons.js?v=33'
 
 const liveComposer = document.querySelector('[data-live-composer]')
 const zh = document.documentElement.lang === 'zh-CN'
-const copy = zh ? {
-  voiceInput: '语音输入',
-  stopVoiceInput: '停止语音输入',
-  voiceStarted: '语音输入已开始。',
-  voiceStopped: '语音输入已停止。',
-  voiceAdded: '语音输入已添加',
-  done: '完成',
-  runAgain: '再次运行演示',
-  addedStatus: '语音输入按钮已添加到发送按钮左侧。',
-  generating: '正在生成',
-  fallbackRequest: '在发送按钮左侧增加一个语音输入按钮。',
-} : {
-  voiceInput: 'Voice input',
-  stopVoiceInput: 'Stop voice input',
-  voiceStarted: 'Voice input started.',
-  voiceStopped: 'Voice input stopped.',
-  voiceAdded: 'Voice input added',
-  done: 'DONE',
-  runAgain: 'Run the demo again',
-  addedStatus: 'The voice input button was added to the left of send.',
-  generating: 'Generating',
-  fallbackRequest: 'Add a voice input button to the left of my send button.',
-}
+const copy = zh
+  ? {
+    voiceInput: '语音输入',
+    stopVoiceInput: '停止语音输入',
+    voiceStarted: '语音输入已开始。',
+    voiceStopped: '语音输入已停止。',
+    voiceAdded: '语音输入已添加',
+    done: '完成',
+    runAgain: '再次运行演示',
+    addedStatus: '语音输入按钮已添加到发送按钮左侧。',
+    generating: '正在生成',
+    fallbackRequest: '在发送按钮左侧增加一个语音输入按钮。',
+  }
+  : {
+    voiceInput: 'Voice input',
+    stopVoiceInput: 'Stop voice input',
+    voiceStarted: 'Voice input started.',
+    voiceStopped: 'Voice input stopped.',
+    voiceAdded: 'Voice input added',
+    done: 'DONE',
+    runAgain: 'Run the demo again',
+    addedStatus: 'The voice input button was added to the left of send.',
+    generating: 'Generating',
+    fallbackRequest: 'Add a voice input button to the left of my send button.',
+  }
 
 if (liveComposer instanceof HTMLFormElement) {
   const output = document.querySelector('[data-conversation-output]')
@@ -61,7 +63,8 @@ if (liveComposer instanceof HTMLFormElement) {
     ['success', 'mounted', 'voice input is ready'],
   ]
 
-  const wait = milliseconds => new Promise(resolve => window.setTimeout(resolve, prefersReducedMotion ? 0 : milliseconds))
+  const wait = milliseconds =>
+    new Promise(resolve => window.setTimeout(resolve, prefersReducedMotion ? 0 : milliseconds))
   const timestamp = index => {
     const seconds = String((index * 3) % 60).padStart(2, '0')
     const millis = String((index * 37) % 1000).padStart(3, '0')
@@ -71,7 +74,9 @@ if (liveComposer instanceof HTMLFormElement) {
   const addLog = (entry, index, stream) => {
     const line = document.createElement('div')
     const [kind, action, message] = entry
-    line.className = `build-line${kind === 'code' ? ' is-code' : ''}${kind === 'success' ? ' is-success is-accent' : ''}${kind === 'commit' ? ' is-accent' : ''}`
+    line.className = `build-line${kind === 'code' ? ' is-code' : ''}${
+      kind === 'success' ? ' is-success is-accent' : ''
+    }${kind === 'commit' ? ' is-accent' : ''}`
     const time = document.createElement('time')
     const label = document.createElement('b')
     const text = document.createElement('span')

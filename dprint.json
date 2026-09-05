@@ -1,0 +1,32 @@
+{
+  "indentWidth": 2,
+  "newLineKind": "lf",
+  "typescript": {
+    "quoteStyle": "preferSingle",
+    "module.sortImportDeclarations": "maintain",
+    "module.sortExportDeclarations": "maintain",
+    "semiColons": "asi"
+  },
+  "markdown": {
+    "textWrap": "maintain"
+  },
+  "includes": [
+    "**/*.{ts,tsx,js,jsx,mjs,cjs,json,md}"
+  ],
+  "excludes": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/.cache/**",
+    "**/package-lock.json",
+    "assets/motion/cordisx-ai-plugin-demo-*.json",
+    "assets/motion/cordisx-ai-plugin-demo-*.plugin.tsx",
+    "assets/reicon/**"
+  ],
+  "plugins": [
+    "npm:@dprint/typescript@0.96.1",
+    "npm:@dprint/json@0.23.0",
+    "npm:@dprint/markdown@0.23.3"
+  ]
+}

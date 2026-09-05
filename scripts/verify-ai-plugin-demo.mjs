@@ -20,7 +20,9 @@ function option(name) {
 }
 
 if (process.argv.includes('--help')) {
-  console.log('Usage: node scripts/verify-ai-plugin-demo.mjs --mp4 file --webm file --gif file [--poster file --metadata file --source file] [--infrastructure-only]')
+  console.log(
+    'Usage: node scripts/verify-ai-plugin-demo.mjs --mp4 file --webm file --gif file [--poster file --metadata file --source file] [--infrastructure-only]',
+  )
   process.exit(0)
 }
 
@@ -33,17 +35,23 @@ const files = {
   metadata: option('--metadata'),
   source: option('--source'),
 }
-if (files.mp4 === undefined || files.webm === undefined || files.gif === undefined) throw new Error('--mp4, --webm, and --gif are required')
+if (files.mp4 === undefined || files.webm === undefined || files.gif === undefined) {
+  throw new Error('--mp4, --webm, and --gif are required')
+}
 if (!infrastructureOnly && (files.poster === undefined || files.metadata === undefined || files.source === undefined)) {
   throw new Error('Real demo verification requires --poster, --metadata, and --source')
 }
 
 function probe(file) {
   return JSON.parse(execFileSync('ffprobe', [
-    '-v', 'error',
-    '-select_streams', 'v:0',
-    '-show_entries', 'stream=codec_name,width,height,pix_fmt,nb_frames,r_frame_rate,duration:format=format_name,duration',
-    '-of', 'json',
+    '-v',
+    'error',
+    '-select_streams',
+    'v:0',
+    '-show_entries',
+    'stream=codec_name,width,height,pix_fmt,nb_frames,r_frame_rate,duration:format=format_name,duration',
+    '-of',
+    'json',
     file,
   ], { encoding: 'utf8' }))
 }
@@ -65,8 +73,13 @@ function video(file, expectedCodec, {
   const result = probe(file)
   const stream = result.streams?.[0]
   assert(stream !== undefined, `${file} has no video stream`)
-  assert(stream.codec_name === expectedCodec, `${file} codec is ${String(stream.codec_name)}, expected ${expectedCodec}`)
-  if (pixelFormat !== null) assert(stream.pix_fmt === pixelFormat, `${file} pixel format is ${String(stream.pix_fmt)}, expected ${pixelFormat}`)
+  assert(
+    stream.codec_name === expectedCodec,
+    `${file} codec is ${String(stream.codec_name)}, expected ${expectedCodec}`,
+  )
+  if (pixelFormat !== null) {
+    assert(stream.pix_fmt === pixelFormat, `${file} pixel format is ${String(stream.pix_fmt)}, expected ${pixelFormat}`)
+  }
   assert(number(stream.width) >= minimumWidth, `${file} width is below ${minimumWidth}`)
   assert(number(stream.height) >= minimumHeight, `${file} height is below ${minimumHeight}`)
   const duration = number(result.format?.duration) ?? number(stream.duration)
@@ -94,7 +107,10 @@ const gif = video(files.gif, 'gif', {
 })
 assert(gif.width === aiPluginDemoScene.output.gif.width, `${files.gif} width drifted from the scene`)
 assert(gif.height === aiPluginDemoScene.output.gif.height, `${files.gif} height drifted from the scene`)
-assert(gif.frameRate === `${aiPluginDemoScene.output.gif.frameRate}/1`, `${files.gif} frame rate drifted from the scene`)
+assert(
+  gif.frameRate === `${aiPluginDemoScene.output.gif.frameRate}/1`,
+  `${files.gif} frame rate drifted from the scene`,
+)
 const mp4Bytes = await readFile(files.mp4)
 const moov = mp4Bytes.indexOf(Buffer.from('moov'))
 const mdat = mp4Bytes.indexOf(Buffer.from('mdat'))
@@ -108,7 +124,10 @@ if (!infrastructureOnly) {
   const posterStream = posterProbe.streams?.[0]
   assert(posterStream?.codec_name === 'png', `${files.poster} is not a PNG poster`)
   assert(Number(posterStream.width) === aiPluginDemoScene.output.width, `${files.poster} width drifted from the scene`)
-  assert(Number(posterStream.height) === aiPluginDemoScene.output.height, `${files.poster} height drifted from the scene`)
+  assert(
+    Number(posterStream.height) === aiPluginDemoScene.output.height,
+    `${files.poster} height drifted from the scene`,
+  )
   poster = { codec: 'png', width: Number(posterStream.width), height: Number(posterStream.height) }
 
   metadata = JSON.parse(await readFile(files.metadata, 'utf8'))
@@ -119,84 +138,174 @@ if (!infrastructureOnly) {
   const presentation = AI_PLUGIN_DEMO_PRESENTATIONS[captureLanguage]
   const captureTheme = metadata.capture?.theme
   assert(['dark', 'light'].includes(captureTheme), 'capture theme is not dark or light')
-  assert(metadata.scene === `cordisx-ai-plugin-demo.${presentation.locale}.${captureTheme}.v4`, 'capture metadata scene drifted')
+  assert(
+    metadata.scene === `cordisx-ai-plugin-demo.${presentation.locale}.${captureTheme}.v4`,
+    'capture metadata scene drifted',
+  )
   assert(metadata.realRenderer === true, 'capture metadata does not prove a real renderer')
-  assert(metadata.rendererUrl === 'app://-/index.html', 'capture metadata renderer URL is not the real Codex app target')
-  assert(metadata.prompt === presentation.prompt, 'capture metadata does not contain the exact required localized prompt')
+  assert(
+    metadata.rendererUrl === 'app://-/index.html',
+    'capture metadata renderer URL is not the real Codex app target',
+  )
+  assert(
+    metadata.prompt === presentation.prompt,
+    'capture metadata does not contain the exact required localized prompt',
+  )
   assert(metadata.promptSubmitted === true, 'capture metadata does not prove prompt submission')
   assert(metadata.finalSubmitClicked === true, 'capture metadata does not prove the final native submit click')
   assert(metadata.effectObserved === true, 'capture metadata does not prove the full-screen effect')
   assert(metadata.effect?.selector === '[data-cordisx-effect="confetti"]', 'capture metadata effect marker drifted')
   assert(metadata.effect?.cleanupObserved === true, 'capture metadata does not prove Host effect cleanup')
-  assert(typeof metadata.effect?.cleanedAt === 'string', 'capture metadata is missing the Host effect cleanup timestamp')
-  assert(metadata.scaffold?.generator === 'create-cordisx-plugin', 'capture metadata does not prove the public creator was used')
+  assert(
+    typeof metadata.effect?.cleanedAt === 'string',
+    'capture metadata is missing the Host effect cleanup timestamp',
+  )
+  assert(
+    metadata.scaffold?.generator === 'create-cordisx-plugin',
+    'capture metadata does not prove the public creator was used',
+  )
   assert(metadata.scaffold?.project === 'send-confetti', 'capture scaffold project drifted')
   assert(metadata.scaffold?.packageName === 'send-confetti', 'capture scaffold package name drifted')
   assert(metadata.scaffold?.entry === 'send-confetti/src/send-confetti.tsx', 'capture scaffold entry drifted')
   assert(metadata.scaffold?.private === true, 'new scaffold must remain private until publication is requested')
   assert(metadata.plugin?.id === 'send-confetti', 'capture metadata plugin id drifted')
   assert(metadata.plugin?.sourceChanged === true, 'capture metadata does not prove a real source edit')
-  assert(metadata.plugin?.sourceMtimeChanged === true, 'capture metadata does not prove the scaffold entry was rewritten')
+  assert(
+    metadata.plugin?.sourceMtimeChanged === true,
+    'capture metadata does not prove the scaffold entry was rewritten',
+  )
   assert(metadata.plugin?.generationChanged === true, 'capture metadata does not prove a replacement generation')
-  assert(metadata.plugin?.baselineGeneration !== metadata.plugin?.replacementGeneration, 'plugin generations are identical')
-  assert(metadata.plugin?.sourceSha256 === `sha256:${createHash('sha256').update(source).digest('hex')}`, 'published plugin source does not match capture metadata')
-  assert(metadata.settings?.pluginId === 'send-confetti', 'capture metadata does not prove the scaffolded plugin detail was opened')
-  assert(metadata.settings?.localDevelopment === true, 'plugin detail does not identify the project as local development')
+  assert(
+    metadata.plugin?.baselineGeneration !== metadata.plugin?.replacementGeneration,
+    'plugin generations are identical',
+  )
+  assert(
+    metadata.plugin?.sourceSha256 === `sha256:${createHash('sha256').update(source).digest('hex')}`,
+    'published plugin source does not match capture metadata',
+  )
+  assert(
+    metadata.settings?.pluginId === 'send-confetti',
+    'capture metadata does not prove the scaffolded plugin detail was opened',
+  )
+  assert(
+    metadata.settings?.localDevelopment === true,
+    'plugin detail does not identify the project as local development',
+  )
   assert(metadata.settings?.localizedReadme === true, 'plugin detail did not render the matching localized README')
   assert(metadata.settings?.readmeLocale === presentation.locale, 'plugin detail README locale drifted')
-  assert(metadata.settings?.listSelector === '[data-plugin-id="send-confetti"]', 'plugin list evidence selector drifted')
-  assert(metadata.settings?.detailSelector === '[data-plugin-detail="send-confetti"]', 'plugin detail evidence selector drifted')
+  assert(
+    metadata.settings?.listSelector === '[data-plugin-id="send-confetti"]',
+    'plugin list evidence selector drifted',
+  )
+  assert(
+    metadata.settings?.detailSelector === '[data-plugin-detail="send-confetti"]',
+    'plugin detail evidence selector drifted',
+  )
   assert(metadata.checkpoints?.host === AI_PLUGIN_DEMO_HOST_COMMIT, 'capture metadata Host checkpoint drifted')
-  assert(metadata.checkpoints?.protocol === AI_PLUGIN_DEMO_PROTOCOL_COMMIT, 'capture metadata protocol checkpoint drifted')
+  assert(
+    metadata.checkpoints?.protocol === AI_PLUGIN_DEMO_PROTOCOL_COMMIT,
+    'capture metadata protocol checkpoint drifted',
+  )
   assert(metadata.privacy?.authenticationPublished === false, 'capture metadata claims authentication was published')
-  assert(metadata.privacy?.emptyProjectAndThreadState === true, 'capture metadata does not prove empty private UI state')
+  assert(
+    metadata.privacy?.emptyProjectAndThreadState === true,
+    'capture metadata does not prove empty private UI state',
+  )
   assert(metadata.capture?.frameCount >= 36, 'capture metadata frame count is too small')
-  assert(metadata.capture?.sourceFrameCount > metadata.capture?.frameCount, 'capture metadata does not prove an accelerated source segment')
+  assert(
+    metadata.capture?.sourceFrameCount > metadata.capture?.frameCount,
+    'capture metadata does not prove an accelerated source segment',
+  )
   assert(metadata.capture?.width === aiPluginDemoScene.output.width, 'capture metadata width drifted')
   assert(metadata.capture?.height === aiPluginDemoScene.output.height, 'capture metadata height drifted')
   assert(metadata.capture?.frameRate === aiPluginDemoScene.output.frameRate, 'capture metadata frame rate drifted')
   assert(metadata.capture?.locale === presentation.locale, 'capture presentation locale does not match its language')
-  assert(Array.isArray(metadata.capture?.timeline) && metadata.capture.timeline.length === metadata.capture.frameCount, 'capture timeline does not account for every frame')
-  assert(metadata.capture.acceleratedSegments?.['codex-builds-and-cordisx-loads'] === 5, 'Agent work segment is not encoded at 5x')
-  assert(metadata.capture.timeline.every((item, index) => item.frame === index), 'encoded frame ledger is not contiguous')
-  assert(metadata.capture.timeline.every((item, index, items) => index === 0 || item.sourceFrame > items[index - 1].sourceFrame), 'source frame ledger is not strictly increasing')
-  assert(metadata.capture.timeline.some(item => item.segment === 'codex-builds-and-cordisx-loads' && item.playbackRate === 5), 'frame ledger does not identify the 5x Agent work segment')
-  assert(metadata.capture.timeline.every((item, index, items) => index === 0 || item.sourceElapsedMs >= items[index - 1].sourceElapsedMs), 'capture source timeline is not monotonic')
+  assert(
+    Array.isArray(metadata.capture?.timeline) && metadata.capture.timeline.length === metadata.capture.frameCount,
+    'capture timeline does not account for every frame',
+  )
+  assert(
+    metadata.capture.acceleratedSegments?.['codex-builds-and-cordisx-loads'] === 5,
+    'Agent work segment is not encoded at 5x',
+  )
+  assert(
+    metadata.capture.timeline.every((item, index) => item.frame === index),
+    'encoded frame ledger is not contiguous',
+  )
+  assert(
+    metadata.capture.timeline.every((item, index, items) =>
+      index === 0 || item.sourceFrame > items[index - 1].sourceFrame
+    ),
+    'source frame ledger is not strictly increasing',
+  )
+  assert(
+    metadata.capture.timeline.some(item =>
+      item.segment === 'codex-builds-and-cordisx-loads' && item.playbackRate === 5
+    ),
+    'frame ledger does not identify the 5x Agent work segment',
+  )
+  assert(
+    metadata.capture.timeline.every((item, index, items) =>
+      index === 0 || item.sourceElapsedMs >= items[index - 1].sourceElapsedMs
+    ),
+    'capture source timeline is not monotonic',
+  )
   for (const segment of ['settings-open', 'settings-plugins', 'settings-plugin-open', 'settings-plugin-detail']) {
-    assert(metadata.capture.timeline.some(item => item.segment === segment || item.segment.startsWith(`${segment}:`)), `capture timeline is missing ${segment}`)
+    assert(
+      metadata.capture.timeline.some(item => item.segment === segment || item.segment.startsWith(`${segment}:`)),
+      `capture timeline is missing ${segment}`,
+    )
   }
-  assert(/\bid\s*:\s*['"]send-confetti['"]/u.test(source), 'published source does not declare the independent plugin id')
+  assert(
+    /\bid\s*:\s*['"]send-confetti['"]/u.test(source),
+    'published source does not declare the independent plugin id',
+  )
   assert(/\blocale\s*:\s*['"]en['"]/u.test(source), 'published source is missing English localization')
   assert(/\blocale\s*:\s*['"]zh-CN['"]/u.test(source), 'published source is missing zh-CN localization')
-  assert(source.includes('cordisx.composer-submit-celebration/v1'), 'published source does not use the public celebration profile')
+  assert(
+    source.includes('cordisx.composer-submit-celebration/v1'),
+    'published source does not use the public celebration profile',
+  )
   assert(!source.includes('natural-language'), 'published source retains the removed proof-of-concept entry name')
-  assert(!/querySelector|addEventListener\s*\(/u.test(source), 'published plugin source bypasses Host-owned structured UI')
+  assert(
+    !/querySelector|addEventListener\s*\(/u.test(source),
+    'published plugin source bypasses Host-owned structured UI',
+  )
   assert(Math.abs(mp4.duration - webm.duration) < 0.15, 'MP4 and WebM durations differ materially')
   assert(Math.abs(mp4.duration - gif.duration) < 0.15, 'MP4 and GIF durations differ materially')
-  assert(Math.abs(mp4.duration - metadata.capture.encodedDurationSeconds) < 0.15, 'encoded duration differs from capture metadata')
-  if (mp4.frames !== undefined) assert(mp4.frames === metadata.capture.frameCount, 'MP4 frame count differs from capture metadata')
+  assert(
+    Math.abs(mp4.duration - metadata.capture.encodedDurationSeconds) < 0.15,
+    'encoded duration differs from capture metadata',
+  )
+  if (mp4.frames !== undefined) {
+    assert(mp4.frames === metadata.capture.frameCount, 'MP4 frame count differs from capture metadata')
+  }
 }
 
-console.log(JSON.stringify({
-  status: 'verified',
-  mode: infrastructureOnly ? 'infrastructure-only' : 'real-ai-plugin-demo',
-  mp4: { ...mp4, faststart: true },
-  webm,
-  gif,
-  ...(poster === undefined ? {} : { poster }),
-  ...(metadata === undefined ? {} : {
-    evidence: {
-      realRenderer: metadata.realRenderer,
-      promptSubmitted: metadata.promptSubmitted,
-      sourceChanged: metadata.plugin.sourceChanged,
-      generationChanged: metadata.plugin.generationChanged,
-      scaffold: metadata.scaffold,
-      finalSubmitClicked: metadata.finalSubmitClicked,
-      effectObserved: metadata.effectObserved,
-      effectCleanupObserved: metadata.effect.cleanupObserved,
-      settings: metadata.settings,
-      checkpoints: metadata.checkpoints,
-      privacy: metadata.privacy,
-    },
-  }),
-}, null, 2))
+console.log(JSON.stringify(
+  {
+    status: 'verified',
+    mode: infrastructureOnly ? 'infrastructure-only' : 'real-ai-plugin-demo',
+    mp4: { ...mp4, faststart: true },
+    webm,
+    gif,
+    ...(poster === undefined ? {} : { poster }),
+    ...(metadata === undefined ? {} : {
+      evidence: {
+        realRenderer: metadata.realRenderer,
+        promptSubmitted: metadata.promptSubmitted,
+        sourceChanged: metadata.plugin.sourceChanged,
+        generationChanged: metadata.plugin.generationChanged,
+        scaffold: metadata.scaffold,
+        finalSubmitClicked: metadata.finalSubmitClicked,
+        effectObserved: metadata.effectObserved,
+        effectCleanupObserved: metadata.effect.cleanupObserved,
+        settings: metadata.settings,
+        checkpoints: metadata.checkpoints,
+        privacy: metadata.privacy,
+      },
+    }),
+  },
+  null,
+  2,
+))
