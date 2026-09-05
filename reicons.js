@@ -49,4 +49,4 @@ const hydrateReicons = (root = document) => {
 
 hydrateReicons()
 
-export { Confetti, Microphone, hydrateReicons }
+export { Confetti, hydrateReicons, Microphone }

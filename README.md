@@ -33,9 +33,19 @@ activating a Host-owned full-screen confetti effect. Read the dedicated
 checkpoint, commands, privacy boundary, and evidence requirements.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/motion/cordisx-ai-plugin-demo-en-dark.gif">
-  <source media="(prefers-color-scheme: light)" srcset="assets/motion/cordisx-ai-plugin-demo-en-light.gif">
-  <img alt="Real CordisX AI-first plugin demo" src="assets/motion/cordisx-ai-plugin-demo-en-light.gif" width="900">
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="assets/motion/cordisx-ai-plugin-demo-en-dark.gif"
+  >
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="assets/motion/cordisx-ai-plugin-demo-en-light.gif"
+  >
+  <img
+    alt="Real CordisX AI-first plugin demo"
+    src="assets/motion/cordisx-ai-plugin-demo-en-light.gif"
+    width="900"
+  >
 </picture>
 
 English dark: [MP4](assets/motion/cordisx-ai-plugin-demo-en-dark.mp4) ·

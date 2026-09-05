@@ -2,17 +2,19 @@ import { hydrateReicons } from './reicons.js?v=33'
 
 const marketplace = document.querySelector('[data-marketplace-demo]')
 const zh = document.documentElement.lang === 'zh-CN'
-const copy = zh ? {
-  searchTerms: ['发送按钮', '庆祝效果', '礼花按钮'],
-  previewing: '正在预览…',
-  liveWorkspace: 'CordisX · 实时工作区',
-  partyMode: '概念 · 礼花发送',
-} : {
-  searchTerms: ['send button', 'celebration', 'party popper'],
-  previewing: 'Previewing…',
-  liveWorkspace: 'CordisX · Live workspace',
-  partyMode: 'CONCEPT · PARTY POPPER',
-}
+const copy = zh
+  ? {
+    searchTerms: ['发送按钮', '庆祝效果', '礼花按钮'],
+    previewing: '正在预览…',
+    liveWorkspace: 'CordisX · 实时工作区',
+    partyMode: '概念 · 礼花发送',
+  }
+  : {
+    searchTerms: ['send button', 'celebration', 'party popper'],
+    previewing: 'Previewing…',
+    liveWorkspace: 'CordisX · Live workspace',
+    partyMode: 'CONCEPT · PARTY POPPER',
+  }
 
 if (marketplace instanceof HTMLElement) {
   const searchView = marketplace.querySelector('[data-market-search-view]')
@@ -35,7 +37,8 @@ if (marketplace instanceof HTMLElement) {
   const partyHint = marketplace.querySelector('[data-party-hint]')
   const confettiLayer = marketplace.querySelector('[data-confetti-layer]')
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  const wait = milliseconds => new Promise(resolve => window.setTimeout(resolve, prefersReducedMotion ? 0 : milliseconds))
+  const wait = milliseconds =>
+    new Promise(resolve => window.setTimeout(resolve, prefersReducedMotion ? 0 : milliseconds))
   const searchTerms = copy.searchTerms
   let typingStopped = false
   let searchComplete = false

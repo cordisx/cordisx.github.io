@@ -11,28 +11,72 @@ const systemTheme = matchMedia('(prefers-color-scheme: light)')
 
 const translations = {
   en: {
-    product: 'Product', docs: 'Docs', marketplace: 'Marketplace', protocol: 'Protocol', homeLabel: 'CordisX home',
-    loading: 'Loading plugin…', back: 'All plugins', source: 'Source', homepage: 'Homepage', about: 'About this plugin', metadata: 'Metadata',
-    version: 'Version', compatibility: 'CordisX', license: 'License', authors: 'Authors', pluginId: 'Plugin ID',
+    product: 'Product',
+    docs: 'Docs',
+    marketplace: 'Marketplace',
+    protocol: 'Protocol',
+    homeLabel: 'CordisX home',
+    loading: 'Loading plugin…',
+    back: 'All plugins',
+    source: 'Source',
+    homepage: 'Homepage',
+    about: 'About this plugin',
+    metadata: 'Metadata',
+    version: 'Version',
+    compatibility: 'CordisX',
+    license: 'License',
+    authors: 'Authors',
+    pluginId: 'Plugin ID',
     discoveryNote: 'This marketplace page presents published metadata. Review the source before enabling an extension.',
-    missing: 'This plugin could not be found in the marketplace feed.', loadError: 'The plugin details could not be loaded.',
-    footerIntro: 'An extensible layer for the AI coding workspace you already trust.', footerTitle: 'Unofficial, local, and opt-in.',
-    footerDescription: 'CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.',
-    footerSafety: 'Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.',
-    copyright: '© 2026 CordisX. Open source.', preferencesLabel: 'Display preferences', languageName: 'EN', languageAction: 'Switch language to Chinese',
-    system: 'System', dark: 'Dark', light: 'Light', themeAction: 'Switch color theme',
+    missing: 'This plugin could not be found in the marketplace feed.',
+    loadError: 'The plugin details could not be loaded.',
+    footerIntro: 'An extensible layer for the AI coding workspace you already trust.',
+    footerTitle: 'Unofficial, local, and opt-in.',
+    footerDescription:
+      'CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.',
+    footerSafety:
+      'Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.',
+    copyright: '© 2026 CordisX. Open source.',
+    preferencesLabel: 'Display preferences',
+    languageName: 'EN',
+    languageAction: 'Switch language to Chinese',
+    system: 'System',
+    dark: 'Dark',
+    light: 'Light',
+    themeAction: 'Switch color theme',
   },
   'zh-CN': {
-    product: '产品', docs: '文档', marketplace: '插件市场', protocol: '协议', homeLabel: '返回 CordisX 首页',
-    loading: '正在加载插件…', back: '全部插件', source: '源码', homepage: '主页', about: '关于这个插件', metadata: '插件信息',
-    version: '版本', compatibility: 'CordisX', license: '许可证', authors: '作者', pluginId: '插件 ID',
+    product: '产品',
+    docs: '文档',
+    marketplace: '插件市场',
+    protocol: '协议',
+    homeLabel: '返回 CordisX 首页',
+    loading: '正在加载插件…',
+    back: '全部插件',
+    source: '源码',
+    homepage: '主页',
+    about: '关于这个插件',
+    metadata: '插件信息',
+    version: '版本',
+    compatibility: 'CordisX',
+    license: '许可证',
+    authors: '作者',
+    pluginId: '插件 ID',
     discoveryNote: '此详情页展示插件发布的元数据。启用扩展前请先审查源码。',
-    missing: '插件市场数据源中找不到这个插件。', loadError: '插件详情加载失败。',
-    footerIntro: '为你已经信任的 AI 编程工作区增加可扩展能力。', footerTitle: '非官方、本地运行、由你启用。',
+    missing: '插件市场数据源中找不到这个插件。',
+    loadError: '插件详情加载失败。',
+    footerIntro: '为你已经信任的 AI 编程工作区增加可扩展能力。',
+    footerTitle: '非官方、本地运行、由你启用。',
     footerDescription: 'CordisX 将插件带入 Codex Desktop，同时保留你现有的工具、项目、对话和智能体工作流。',
     footerSafety: '插件目前以受信任的渲染器代码运行，暂不提供沙箱、签名包或强制权限控制；启用扩展前请先审查源码。',
-    copyright: '© 2026 CordisX。开源项目。', preferencesLabel: '显示偏好', languageName: '中文', languageAction: '切换语言为英文',
-    system: '跟随系统', dark: '深色', light: '浅色', themeAction: '切换颜色主题',
+    copyright: '© 2026 CordisX。开源项目。',
+    preferencesLabel: '显示偏好',
+    languageName: '中文',
+    languageAction: '切换语言为英文',
+    system: '跟随系统',
+    dark: '深色',
+    light: '浅色',
+    themeAction: '切换颜色主题',
   },
 }
 
@@ -44,15 +88,23 @@ let followsSystemTheme = storedTheme !== 'light' && storedTheme !== 'dark'
 let theme = followsSystemTheme ? (systemTheme.matches ? 'light' : 'dark') : storedTheme
 
 function storedValue(key) {
-  try { return localStorage.getItem(key) } catch { return null }
+  try {
+    return localStorage.getItem(key)
+  } catch {
+    return null
+  }
 }
 
 function storeValue(key, value) {
-  try { localStorage.setItem(key, value) } catch {}
+  try {
+    localStorage.setItem(key, value)
+  } catch {}
 }
 
 function clearValue(key) {
-  try { localStorage.removeItem(key) } catch {}
+  try {
+    localStorage.removeItem(key)
+  } catch {}
 }
 
 function copy(key) {
@@ -117,8 +169,12 @@ function localizedPlugin(value) {
 
 function applyLocale() {
   document.documentElement.lang = locale
-  document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = copy(element.dataset.i18n) })
-  document.querySelectorAll('[data-i18n-aria-label]').forEach(element => { element.setAttribute('aria-label', copy(element.dataset.i18nAriaLabel)) })
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    element.textContent = copy(element.dataset.i18n)
+  })
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(element => {
+    element.setAttribute('aria-label', copy(element.dataset.i18nAriaLabel))
+  })
   localeToggle.querySelector('[data-locale-label]').textContent = copy('languageName')
   localeToggle.setAttribute('aria-label', copy('languageAction'))
   localeToggle.title = copy('languageAction')
@@ -159,7 +215,11 @@ function renderPlugin() {
   const hero = create('div', 'plugin-detail-hero')
   const icon = create('div', 'plugin-detail-icon', initials(value.name))
   const title = create('div', 'plugin-detail-title')
-  title.append(create('h1', undefined, value.name), create('div', 'plugin-detail-id', value.id), create('p', 'plugin-detail-description', value.description))
+  title.append(
+    create('h1', undefined, value.name),
+    create('div', 'plugin-detail-id', value.id),
+    create('p', 'plugin-detail-description', value.description),
+  )
   const actions = create('div', 'plugin-detail-actions')
   const source = safeLink(value.source)
   const homepage = safeLink(value.homepage)

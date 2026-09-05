@@ -17,9 +17,15 @@ function option(name, fallback) {
 
 const cordisxRoot = path.resolve(option('--cordisx-root', defaultCordisXRoot))
 const appBundle = path.resolve(option('--app', '/Applications/ChatGPT.app'))
-const authFile = path.resolve(option('--auth', path.join(process.env.CODEX_HOME ?? path.join(os.homedir(), '.codex'), 'auth.json')))
-const avatarFile = path.resolve(option('--avatar', path.join(projectRoot, 'assets', 'capture', 'cordisx-profile-avatar.png')))
-const outputFile = path.resolve(option('--output', path.join(projectRoot, 'assets', 'screenshots', 'codex-workspace-real.png')))
+const authFile = path.resolve(
+  option('--auth', path.join(process.env.CODEX_HOME ?? path.join(os.homedir(), '.codex'), 'auth.json')),
+)
+const avatarFile = path.resolve(
+  option('--avatar', path.join(projectRoot, 'assets', 'capture', 'cordisx-profile-avatar.png')),
+)
+const outputFile = path.resolve(
+  option('--output', path.join(projectRoot, 'assets', 'screenshots', 'codex-workspace-real.png')),
+)
 const outputDir = path.resolve(option('--output-dir', path.join(projectRoot, 'assets', 'screenshots')))
 const profileName = option('--name', 'CordisX')
 const motionEnabled = process.argv.includes('--motion')
@@ -27,7 +33,9 @@ const motionOutputDir = path.resolve(option('--motion-output-dir', path.join(pro
 const motionFrameRate = 12
 
 if (process.argv.includes('--help')) {
-  console.log('Usage: npm run capture:codex-showcase -- [--motion] [--motion-output-dir /absolute/motion] [--name CordisX] [--avatar /absolute/avatar.png] [--auth /absolute/auth.json] [--output /absolute/workspace.png] [--output-dir /absolute/screenshots] [--app /Applications/ChatGPT.app]')
+  console.log(
+    'Usage: npm run capture:codex-showcase -- [--motion] [--motion-output-dir /absolute/motion] [--name CordisX] [--avatar /absolute/avatar.png] [--auth /absolute/auth.json] [--output /absolute/workspace.png] [--output-dir /absolute/screenshots] [--app /Applications/ChatGPT.app]',
+  )
   process.exit(0)
 }
 
@@ -38,8 +46,12 @@ if (captureTheme === undefined && captureLanguage === undefined) {
     for (const language of ['en', 'zh']) {
       console.log(`[showcase] starting isolated ${language}/${theme} Codex capture`)
       execFileSync(process.execPath, [
-        path.resolve(process.argv[1]), ...process.argv.slice(2),
-        '--capture-theme', theme, '--capture-language', language,
+        path.resolve(process.argv[1]),
+        ...process.argv.slice(2),
+        '--capture-theme',
+        theme,
+        '--capture-language',
+        language,
       ], { stdio: 'inherit' })
     }
   }
@@ -56,7 +68,9 @@ const documentLocale = captureLanguage === 'zh' ? 'zh-CN' : 'en'
 const locale = captureLanguage === 'zh' ? 'zh-CN' : 'en-US'
 const workspaceOutputFile = captureLanguage === 'en'
   ? captureTheme === 'dark' ? outputFile : path.join(outputDir, 'codex-workspace-real-light.png')
-  : captureTheme === 'dark' ? path.join(outputDir, 'codex-workspace-real-zh.png') : path.join(outputDir, 'codex-workspace-real-zh-light.png')
+  : captureTheme === 'dark'
+  ? path.join(outputDir, 'codex-workspace-real-zh.png')
+  : path.join(outputDir, 'codex-workspace-real-zh-light.png')
 
 async function availablePort() {
   const server = net.createServer()
@@ -78,8 +92,14 @@ function exited(child) {
 async function waitForExit(child, timeout) {
   if (exited(child)) return true
   return await new Promise(resolve => {
-    const timer = setTimeout(() => { child.off('exit', onExit); resolve(false) }, timeout)
-    const onExit = () => { clearTimeout(timer); resolve(true) }
+    const timer = setTimeout(() => {
+      child.off('exit', onExit)
+      resolve(false)
+    }, timeout)
+    const onExit = () => {
+      clearTimeout(timer)
+      resolve(true)
+    }
     child.once('exit', onExit)
   })
 }
@@ -87,7 +107,11 @@ async function waitForExit(child, timeout) {
 async function stop(child) {
   if (exited(child)) return
   for (const [signal, timeout] of [['SIGINT', 5_000], ['SIGTERM', 5_000], ['SIGKILL', 2_000]]) {
-    try { process.kill(-child.pid, signal) } catch (error) { if (error?.code !== 'ESRCH') throw error }
+    try {
+      process.kill(-child.pid, signal)
+    } catch (error) {
+      if (error?.code !== 'ESRCH') throw error
+    }
     if (await waitForExit(child, timeout)) return
   }
 }
@@ -109,7 +133,11 @@ async function stopProfileProcesses(profilePath) {
       const pids = profileProcessIds(profilePath)
       if (pids.length === 0) return
       for (const pid of pids) {
-        try { process.kill(pid, signal) } catch (error) { if (error?.code !== 'ESRCH') throw error }
+        try {
+          process.kill(pid, signal)
+        } catch (error) {
+          if (error?.code !== 'ESRCH') throw error
+        }
       }
       await new Promise(resolve => setTimeout(resolve, 100))
     }
@@ -171,12 +199,18 @@ function connect(url) {
 
 async function evaluate(send, expression) {
   const result = await send('Runtime.evaluate', { expression, awaitPromise: true, returnByValue: true })
-  if (result.exceptionDetails) throw new Error(result.exceptionDetails.exception?.description ?? result.exceptionDetails.text)
+  if (result.exceptionDetails) {
+    throw new Error(result.exceptionDetails.exception?.description ?? result.exceptionDetails.text)
+  }
   return result.result?.value
 }
 
 async function capture(send, file, opaque = false) {
-  const screenshot = await send('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: false })
+  const screenshot = await send('Page.captureScreenshot', {
+    format: 'png',
+    fromSurface: true,
+    captureBeyondViewport: false,
+  })
   await mkdir(path.dirname(file), { recursive: true })
   if (!opaque) {
     await writeFile(file, Buffer.from(screenshot.data, 'base64'))
@@ -187,8 +221,17 @@ async function capture(send, file, opaque = false) {
   try {
     await writeFile(source, Buffer.from(screenshot.data, 'base64'))
     execFileSync('ffmpeg', [
-      '-y', '-hide_banner', '-loglevel', 'error', '-i', source,
-      '-vf', 'format=rgb24', '-frames:v', '1', normalized,
+      '-y',
+      '-hide_banner',
+      '-loglevel',
+      'error',
+      '-i',
+      source,
+      '-vf',
+      'format=rgb24',
+      '-frames:v',
+      '1',
+      normalized,
     ], { stdio: 'inherit' })
     await rename(normalized, file)
   } finally {
@@ -204,7 +247,9 @@ async function setCaptureTheme(send, theme) {
   await send('Emulation.setEmulatedMedia', {
     features: [{ name: 'prefers-color-scheme', value: theme }],
   })
-  await evaluate(send, `(() => {
+  await evaluate(
+    send,
+    `(() => {
     const theme = ${JSON.stringify(theme)}
     for (const element of [document.documentElement, document.body]) {
       if (!(element instanceof HTMLElement)) continue
@@ -215,19 +260,23 @@ async function setCaptureTheme(send, theme) {
       element.classList.remove('dark', 'light', 'electron-dark', 'electron-light')
       element.classList.add(theme, 'electron-' + theme)
     }
-  })()`)
+  })()`,
+  )
   await new Promise(resolve => setTimeout(resolve, 500))
 }
 
 async function waitForSelector(send, selector, attempts = 100) {
   for (let attempt = 0; attempt < attempts; attempt += 1) {
-    const visible = await evaluate(send, `(() => {
+    const visible = await evaluate(
+      send,
+      `(() => {
       const target = document.querySelector(${JSON.stringify(selector)})
       if (!(target instanceof HTMLElement)) return false
       const rect = target.getBoundingClientRect()
       const style = getComputedStyle(target)
       return rect.width > 0 && rect.height > 0 && style.visibility !== 'hidden' && style.display !== 'none'
-    })()`)
+    })()`,
+    )
     if (visible) return
     await new Promise(resolve => setTimeout(resolve, 100))
   }
@@ -237,7 +286,9 @@ async function waitForSelector(send, selector, attempts = 100) {
 async function recordMotion(send, framesDir) {
   await rm(framesDir, { recursive: true, force: true })
   await mkdir(framesDir, { recursive: true })
-  await evaluate(send, `(() => {
+  await evaluate(
+    send,
+    `(() => {
     document.querySelector('[data-cordisx-motion-cursor]')?.remove()
     const cursor = document.createElement('div')
     cursor.dataset.cordisxMotionCursor = 'true'
@@ -249,7 +300,8 @@ async function recordMotion(send, framesDir) {
     const innerRing = ring.querySelector('i')
     innerRing.style.cssText = 'position:absolute;inset:6px;border:1px solid rgba(250,251,253,.7);border-radius:50%'
     document.body.append(cursor)
-  })()`)
+  })()`,
+  )
 
   let frame = 0
   let point = { x: 1490, y: 860 }
@@ -258,23 +310,32 @@ async function recordMotion(send, framesDir) {
     frame += 1
   }
   const setCursor = async (next, pressed = false, ring = false) => {
-    await evaluate(send, `(() => {
+    await evaluate(
+      send,
+      `(() => {
       const cursor = document.querySelector('[data-cordisx-motion-cursor]')
       if (!(cursor instanceof HTMLElement)) return
-      cursor.style.transform = 'translate(' + ${JSON.stringify(next.x)} + 'px,' + ${JSON.stringify(next.y)} + 'px) scale(' + ${pressed ? '0.82' : '1'} + ')'
+      cursor.style.transform = 'translate(' + ${JSON.stringify(next.x)} + 'px,' + ${
+        JSON.stringify(next.y)
+      } + 'px) scale(' + ${pressed ? '0.82' : '1'} + ')'
       const ring = cursor.querySelector('span')
       if (ring instanceof HTMLElement) {
         ring.style.opacity = ${ring ? "'1'" : "'0'"}
         ring.style.transform = ${ring ? "'scale(1.28) rotate(12deg)'" : "'scale(.38) rotate(-18deg)'"}
       }
-    })()`)
+    })()`,
+    )
   }
-  const targetPoint = async selector => await evaluate(send, `(() => {
+  const targetPoint = async selector =>
+    await evaluate(
+      send,
+      `(() => {
     const target = document.querySelector(${JSON.stringify(selector)})
     if (!(target instanceof HTMLElement)) return null
     const rect = target.getBoundingClientRect()
     return { x: Math.round(rect.left + rect.width / 2), y: Math.round(rect.top + rect.height / 2) }
-  })()`)
+  })()`,
+    )
   const hold = async frames => {
     for (let index = 0; index < frames; index += 1) await writeFrame()
   }
@@ -327,9 +388,62 @@ async function encodeMotion(framesDir, outputDir, basename) {
   const mp4 = path.join(outputDir, `${basename}.mp4`)
   const webm = path.join(outputDir, `${basename}.webm`)
   const gif = path.join(outputDir, `${basename}.gif`)
-  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(motionFrameRate), '-i', pattern, '-vf', 'scale=1280:-2:flags=lanczos', '-c:v', 'libx264', '-preset', 'medium', '-crf', '21', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', mp4], { stdio: 'inherit' })
-  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(motionFrameRate), '-i', pattern, '-vf', 'scale=1280:-2:flags=lanczos,format=yuv420p', '-c:v', 'libvpx-vp9', '-crf', '32', '-b:v', '0', '-pix_fmt', 'yuv420p', webm], { stdio: 'inherit' })
-  execFileSync('ffmpeg', ['-y', '-loglevel', 'error', '-framerate', String(motionFrameRate), '-i', pattern, '-filter_complex', '[0:v]fps=12,scale=960:-2:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=128:stats_mode=diff[p];[s1][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle', '-loop', '0', gif], { stdio: 'inherit' })
+  execFileSync('ffmpeg', [
+    '-y',
+    '-loglevel',
+    'error',
+    '-framerate',
+    String(motionFrameRate),
+    '-i',
+    pattern,
+    '-vf',
+    'scale=1280:-2:flags=lanczos',
+    '-c:v',
+    'libx264',
+    '-preset',
+    'medium',
+    '-crf',
+    '21',
+    '-pix_fmt',
+    'yuv420p',
+    '-movflags',
+    '+faststart',
+    mp4,
+  ], { stdio: 'inherit' })
+  execFileSync('ffmpeg', [
+    '-y',
+    '-loglevel',
+    'error',
+    '-framerate',
+    String(motionFrameRate),
+    '-i',
+    pattern,
+    '-vf',
+    'scale=1280:-2:flags=lanczos,format=yuv420p',
+    '-c:v',
+    'libvpx-vp9',
+    '-crf',
+    '32',
+    '-b:v',
+    '0',
+    '-pix_fmt',
+    'yuv420p',
+    webm,
+  ], { stdio: 'inherit' })
+  execFileSync('ffmpeg', [
+    '-y',
+    '-loglevel',
+    'error',
+    '-framerate',
+    String(motionFrameRate),
+    '-i',
+    pattern,
+    '-filter_complex',
+    '[0:v]fps=12,scale=960:-2:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=128:stats_mode=diff[p];[s1][p]paletteuse=dither=bayer:bayer_scale=3:diff_mode=rectangle',
+    '-loop',
+    '0',
+    gif,
+  ], { stdio: 'inherit' })
   return { mp4, webm, gif }
 }
 
@@ -356,7 +470,9 @@ await mkdir(workspaceDir, { recursive: true, mode: 0o700 })
 await mkdir(path.dirname(computerUseExecutable), { recursive: true, mode: 0o700 })
 await writeFile(computerUseExecutable, '#!/bin/sh\nexec /bin/sleep 3600\n', { mode: 0o700 })
 await chmod(computerUseExecutable, 0o700)
-await writeFile(appLauncher, `#!/bin/sh
+await writeFile(
+  appLauncher,
+  `#!/bin/sh
 exec /usr/bin/open -n -F -W \\
   --env "HOME=$HOME" \\
   --env "CODEX_HOME=$CODEX_HOME" \\
@@ -366,70 +482,112 @@ exec /usr/bin/open -n -F -W \\
   --env "CODEX_ELECTRON_SKIP_COMPUTER_USE_CANONICAL_REFRESH=1" \\
   --env "CODEX_ELECTRON_COMPUTER_USE_APP_PATH=$CODEX_ELECTRON_COMPUTER_USE_APP_PATH" \\
   ${JSON.stringify(appBundle)} --args "$@"
-`, { mode: 0o700 })
+`,
+  { mode: 0o700 },
+)
 await chmod(appLauncher, 0o700)
 const sourceRuntimeCache = path.join(os.homedir(), '.cache', 'codex-runtimes')
 execFileSync('/bin/cp', ['-cR', sourceRuntimeCache, path.join(hostHome, '.cache')], { stdio: 'inherit' })
 console.log(`[showcase] cloned installed Codex runtime into isolated HOME: ${sourceRuntimeCache}`)
 await copyFile(authFile, path.join(codexHome, 'auth.json'))
 const sourceCodexHome = path.dirname(authFile)
-for (const preferenceFile of [
-  '.personality_migration',
-  '.sandbox_migration',
-  '.app-server-state-reconciled-v1',
-]) {
+for (
+  const preferenceFile of [
+    '.personality_migration',
+    '.sandbox_migration',
+    '.app-server-state-reconciled-v1',
+  ]
+) {
   await copyIfPresent(path.join(sourceCodexHome, preferenceFile), path.join(codexHome, preferenceFile))
 }
-await writeFile(path.join(codexHome, '.codex-global-state.json'), `${JSON.stringify({
-  'computer-use-bundled-plugin-auto-install-disabled': true,
-  'electron-persisted-atom-state': {
-    'electron:onboarding-primary-runtime-install-ready': true,
-    'electron:onboarding-primary-runtime-install-requested': true,
-    'electron:onboarding-welcome-pending': false,
-    'electron:onboarding-hide-first-new-thread-promos': true,
-    'chatgpt-migration-announcement-completed-v1': true,
-    'flat-project-sidebar-preferences-v1': {
-      chatSortMode: 'priority',
-      initialized: true,
-      mode: 'project',
-      projectSortMode: 'priority',
-    },
-  },
-  'electron-saved-workspace-roots': [],
-  'active-workspace-roots': [],
-  'local-projects': {},
-  'pinned-project-ids': [],
-  'pinned-thread-ids': [],
-  'project-order': [],
-  'projectless-thread-ids': [],
-  'selected-project': null,
-  'thread-project-assignments': {},
-  'thread-workspace-root-hints': {},
-  'thread-writable-roots': {},
-}, null, 2)}\n`, { mode: 0o600 })
-await writeFile(path.join(codexHome, 'config.toml'), `[desktop]
+await writeFile(
+  path.join(codexHome, '.codex-global-state.json'),
+  `${
+    JSON.stringify(
+      {
+        'computer-use-bundled-plugin-auto-install-disabled': true,
+        'electron-persisted-atom-state': {
+          'electron:onboarding-primary-runtime-install-ready': true,
+          'electron:onboarding-primary-runtime-install-requested': true,
+          'electron:onboarding-welcome-pending': false,
+          'electron:onboarding-hide-first-new-thread-promos': true,
+          'chatgpt-migration-announcement-completed-v1': true,
+          'flat-project-sidebar-preferences-v1': {
+            chatSortMode: 'priority',
+            initialized: true,
+            mode: 'project',
+            projectSortMode: 'priority',
+          },
+        },
+        'electron-saved-workspace-roots': [],
+        'active-workspace-roots': [],
+        'local-projects': {},
+        'pinned-project-ids': [],
+        'pinned-thread-ids': [],
+        'project-order': [],
+        'projectless-thread-ids': [],
+        'selected-project': null,
+        'thread-project-assignments': {},
+        'thread-workspace-root-hints': {},
+        'thread-writable-roots': {},
+      },
+      null,
+      2,
+    )
+  }\n`,
+  { mode: 0o600 },
+)
+await writeFile(
+  path.join(codexHome, 'config.toml'),
+  `[desktop]
 appearanceTheme = ${JSON.stringify(captureTheme)}
 localeOverride = ${JSON.stringify(locale)}
 appearanceDarkChromeTheme = { accent = "#339cff", contrast = 60, fonts = { code = "", ui = "" }, ink = "#ffffff", opaqueWindows = true, semanticColors = { diffAdded = "#40c977", diffRemoved = "#fa423e", skill = "#ad7bf9" }, surface = "#181818" }
 appearanceLightChromeTheme = { accent = "#339cff", contrast = 45, fonts = { code = "", ui = "" }, ink = "#1a1c1f", opaqueWindows = true, semanticColors = { diffAdded = "#00a240", diffRemoved = "#ba2623", skill = "#924ff7" }, surface = "#ffffff" }
-`, { mode: 0o600 })
+`,
+  { mode: 0o600 },
+)
 console.log(`[showcase] ${captureLanguage}/${captureTheme} Codex locale and opaque chrome configured before launch`)
-await writeFile(configFile, `${JSON.stringify({
-  version: 1,
-  defaultApp: 'codex',
-  providers: [],
-  plugins: [{ id: 'slot-showcase', entry: pluginEntry, enabled: true, config: { welcomePage: true } }],
-  permissions: [],
-  publisherGrantIssuers: [],
-  apps: { codex: { defaultProfile: 'showcase', profiles: { showcase: { displayName: 'Showcase capture', dataMode: 'host-isolated' } } } },
-}, null, 2)}\n`, { mode: 0o600 })
+await writeFile(
+  configFile,
+  `${
+    JSON.stringify(
+      {
+        version: 1,
+        defaultApp: 'codex',
+        providers: [],
+        plugins: [{ id: 'slot-showcase', entry: pluginEntry, enabled: true, config: { welcomePage: true } }],
+        permissions: [],
+        publisherGrantIssuers: [],
+        apps: {
+          codex: {
+            defaultProfile: 'showcase',
+            profiles: { showcase: { displayName: 'Showcase capture', dataMode: 'host-isolated' } },
+          },
+        },
+      },
+      null,
+      2,
+    )
+  }\n`,
+  { mode: 0o600 },
+)
 
 const launcher = spawn(process.execPath, [
   cliEntry,
-  'codex', 'showcase', '--data', 'host-isolated',
-  '--executable', appLauncher,
-  '--debug-port', String(port), '--profile-dir', profileDir,
-  '--', '--start-minimized', `--lang=${locale}`,
+  'codex',
+  'showcase',
+  '--data',
+  'host-isolated',
+  '--executable',
+  appLauncher,
+  '--debug-port',
+  String(port),
+  '--profile-dir',
+  profileDir,
+  '--',
+  '--start-minimized',
+  `--lang=${locale}`,
 ], {
   cwd: workspaceDir,
   env: {
@@ -449,11 +607,12 @@ launcher.stdout.on('data', chunk => process.stdout.write(chunk))
 launcher.stderr.on('data', chunk => process.stderr.write(chunk))
 
 let cleanupPromise
-const cleanup = () => cleanupPromise ??= (async () => {
-  await stop(launcher)
-  await stopProfileProcesses(profileDir)
-  await rm(captureRoot, { recursive: true, force: true, maxRetries: 12, retryDelay: 200 })
-})()
+const cleanup = () =>
+  cleanupPromise ??= (async () => {
+    await stop(launcher)
+    await stopProfileProcesses(profileDir)
+    await rm(captureRoot, { recursive: true, force: true, maxRetries: 12, retryDelay: 200 })
+  })()
 const interrupted = signal => {
   process.stderr.write(`\nCapture interrupted by ${signal}; cleaning the isolated Codex instance...\n`)
   void cleanup().finally(() => process.exit(130))
@@ -471,13 +630,18 @@ try {
   await send('Emulation.setLocaleOverride', { locale })
 
   for (let attempt = 0; attempt < 180; attempt += 1) {
-    const ready = await evaluate(send, `document.documentElement.dataset.cordisxReady === 'true' && globalThis.__cordisxRuntime !== undefined`)
+    const ready = await evaluate(
+      send,
+      `document.documentElement.dataset.cordisxReady === 'true' && globalThis.__cordisxRuntime !== undefined`,
+    )
     if (ready) break
     await new Promise(resolve => setTimeout(resolve, 250))
     if (attempt === 179) throw new Error('CordisX renderer did not become ready')
   }
 
-  const onboarding = await evaluate(send, `(async () => {
+  const onboarding = await evaluate(
+    send,
+    `(async () => {
     const wait = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds))
     const labels = new Set([
       'Continue', 'Skip', 'Go to ChatGPT', 'Continue coding with Codex', 'Continue with Codex',
@@ -505,35 +669,62 @@ try {
       await wait(900)
     }
     return clicked
-  })()`)
+  })()`,
+  )
 
   for (let attempt = 0; attempt < 180; attempt += 1) {
-    const ready = await evaluate(send, `(() => {
+    const ready = await evaluate(
+      send,
+      `(() => {
       const text = (document.body?.innerText ?? '').trim()
       const composer = document.querySelector('textarea, [contenteditable="true"]')
       return text !== 'Thinking' && composer !== null && document.querySelectorAll('button').length > 8
-    })()`)
+    })()`,
+    )
     if (ready) break
     await new Promise(resolve => setTimeout(resolve, 500))
     if (attempt === 179) throw new Error('Codex workspace did not become interactive')
   }
   await new Promise(resolve => setTimeout(resolve, 4_000))
 
-  const projection = await evaluate(send, `(() => {
+  const projection = await evaluate(
+    send,
+    `(() => {
     const translateHostToEnglish = ${JSON.stringify(captureLanguage === 'en')}
-    const translations = new Map(${JSON.stringify([
-      ['新对话', 'New conversation'], ['快速聊天', 'Quick chat'], ['拉取请求', 'Pull requests'], ['站点', 'Sites'],
-      ['已安排', 'Scheduled'], ['插件', 'Plugins'], ['项目', 'Projects'], ['没有项目', 'No projects'],
-      ['最近', 'Recent'], ['无聊天', 'No chats'], ['暂无聊天', 'No chats'], ['我们要构建什么？', 'What should we build?'],
-      ['探索并理解代码', 'Explore and understand code'], ['构建新功能、应用或工具', 'Build a feature, app, or tool'],
-      ['审查代码并提出修改建议', 'Review code and suggest changes'], ['修复问题和失败', 'Fix issues and failures'],
-      ['选择项目', 'Select a project'], ['随心输入', 'Ask anything'], ['请求批准', 'Ask for approval'],
-      ['语音', 'Voice'], ['开始使用', 'Get started'], ['轻度', 'Low'], ['极高', 'X-high'],
-      ['更多', 'More'],
-      ['新建本地工作树', 'New local worktree'], ['无环境', 'No environment'], ['完全访问', 'Full access'],
-      ['试试 ChatGPT 语音', 'Try ChatGPT Voice'], ['编排任务，连接工具，探索代码', 'Plan tasks, connect tools, and explore code'],
-      ['开始语音', 'Start voice'],
-    ])})
+    const translations = new Map(${
+      JSON.stringify([
+        ['新对话', 'New conversation'],
+        ['快速聊天', 'Quick chat'],
+        ['拉取请求', 'Pull requests'],
+        ['站点', 'Sites'],
+        ['已安排', 'Scheduled'],
+        ['插件', 'Plugins'],
+        ['项目', 'Projects'],
+        ['没有项目', 'No projects'],
+        ['最近', 'Recent'],
+        ['无聊天', 'No chats'],
+        ['暂无聊天', 'No chats'],
+        ['我们要构建什么？', 'What should we build?'],
+        ['探索并理解代码', 'Explore and understand code'],
+        ['构建新功能、应用或工具', 'Build a feature, app, or tool'],
+        ['审查代码并提出修改建议', 'Review code and suggest changes'],
+        ['修复问题和失败', 'Fix issues and failures'],
+        ['选择项目', 'Select a project'],
+        ['随心输入', 'Ask anything'],
+        ['请求批准', 'Ask for approval'],
+        ['语音', 'Voice'],
+        ['开始使用', 'Get started'],
+        ['轻度', 'Low'],
+        ['极高', 'X-high'],
+        ['更多', 'More'],
+        ['新建本地工作树', 'New local worktree'],
+        ['无环境', 'No environment'],
+        ['完全访问', 'Full access'],
+        ['试试 ChatGPT 语音', 'Try ChatGPT Voice'],
+        ['编排任务，连接工具，探索代码', 'Plan tasks, connect tools, and explore code'],
+        ['开始语音', 'Start voice'],
+      ])
+    })
     const translate = value => {
       const direct = translations.get(value)
       if (direct !== undefined) return direct
@@ -578,12 +769,16 @@ try {
       label.textContent = ${JSON.stringify(profileName)}
       label.style.cssText = 'font:500 13px/1.2 system-ui,sans-serif;white-space:nowrap'
       profile.append(image, label)
-      profile.setAttribute('aria-label', ${JSON.stringify(captureLanguage === 'zh' ? `${profileName} 个人资料` : `${profileName} profile`)})
+      profile.setAttribute('aria-label', ${
+      JSON.stringify(captureLanguage === 'zh' ? `${profileName} 个人资料` : `${profileName} profile`)
+    })
       profile.style.cssText += ';display:flex!important;align-items:center!important;gap:8px!important;width:auto!important;min-width:112px!important;padding:5px 9px!important'
     }
 
     const trigger = document.querySelector('[data-cordisx-manager-trigger]')
-    if (trigger instanceof HTMLElement) trigger.setAttribute('aria-label', ${JSON.stringify(captureLanguage === 'zh' ? '打开 CordisX 管理器' : 'Open CordisX Manager')})
+    if (trigger instanceof HTMLElement) trigger.setAttribute('aria-label', ${
+      JSON.stringify(captureLanguage === 'zh' ? '打开 CordisX 管理器' : 'Open CordisX Manager')
+    })
 
     if (translateHostToEnglish) document.querySelectorAll('button').forEach(button => {
       const label = button.getAttribute('aria-label') ?? ''
@@ -608,14 +803,23 @@ try {
         ? [...new Set(visibleText.split('\\n').map(line => line.trim()).filter(line => /[\u3400-\u9fff]/u.test(line)))].slice(0, 12)
         : [],
     }
-  })()`)
+  })()`,
+  )
 
   if (!projection.profile) throw new Error('Could not project the CordisX profile identity')
-  if (!projection.cordisxEntry) throw new Error(`Could not expose the CordisX extension entry; manager targets: ${JSON.stringify(projection.managerTargets)}`)
-  if (projection.remainingCjk.length > 0) throw new Error(`Codex workspace still contains untranslated text: ${projection.remainingCjk.join(' | ')}`)
+  if (!projection.cordisxEntry) {
+    throw new Error(
+      `Could not expose the CordisX extension entry; manager targets: ${JSON.stringify(projection.managerTargets)}`,
+    )
+  }
+  if (projection.remainingCjk.length > 0) {
+    throw new Error(`Codex workspace still contains untranslated text: ${projection.remainingCjk.join(' | ')}`)
+  }
   await new Promise(resolve => setTimeout(resolve, 800))
 
-  const finalLocalization = await evaluate(send, `(() => {
+  const finalLocalization = await evaluate(
+    send,
+    `(() => {
     const translateHostToEnglish = ${JSON.stringify(captureLanguage === 'en')}
     const placeholderText = ${JSON.stringify(captureLanguage === 'zh' ? '随心输入' : 'Ask anything')}
     const cjk = /[\u3400-\u9fff]/u
@@ -645,9 +849,13 @@ try {
         const overlay = document.createElement('span')
         overlay.textContent = placeholderText
         overlay.setAttribute('data-cordisx-capture-placeholder', 'true')
-        overlay.style.cssText = ${JSON.stringify(captureTheme === 'dark'
+        overlay.style.cssText = ${
+      JSON.stringify(
+        captureTheme === 'dark'
           ? 'position:absolute;z-index:20;left:0;top:18px;width:400px;box-sizing:border-box;padding:4px 72px 5px 20px;background:#2b2b2b;color:rgba(235,235,235,.46);font:400 16px/1.4 system-ui,sans-serif;pointer-events:none'
-          : 'position:absolute;z-index:20;left:0;top:18px;width:400px;box-sizing:border-box;padding:4px 72px 5px 20px;background:#fff;color:rgba(20,24,32,.46);font:400 16px/1.4 system-ui,sans-serif;pointer-events:none')}
+          : 'position:absolute;z-index:20;left:0;top:18px;width:400px;box-sizing:border-box;padding:4px 72px 5px 20px;background:#fff;color:rgba(20,24,32,.46);font:400 16px/1.4 system-ui,sans-serif;pointer-events:none',
+      )
+    }
         surface.append(overlay)
       }
     }
@@ -669,12 +877,21 @@ try {
       .flatMap(element => ['placeholder', 'aria-placeholder', 'data-placeholder'].map(attribute => element.getAttribute(attribute) ?? ''))
       .filter(value => cjk.test(value))
     return { visibleCjk, placeholderCjk, placeholderOverlay: document.querySelector('[data-cordisx-capture-placeholder]') !== null }
-  })()`)
-  if (captureLanguage === 'en' && (finalLocalization.visibleCjk.length > 0 || finalLocalization.placeholderCjk.length > 0)) {
-    throw new Error(`Codex workspace language drifted before capture: ${[...finalLocalization.visibleCjk, ...finalLocalization.placeholderCjk].join(' | ')}`)
+  })()`,
+  )
+  if (
+    captureLanguage === 'en' && (finalLocalization.visibleCjk.length > 0 || finalLocalization.placeholderCjk.length > 0)
+  ) {
+    throw new Error(
+      `Codex workspace language drifted before capture: ${
+        [...finalLocalization.visibleCjk, ...finalLocalization.placeholderCjk].join(' | ')
+      }`,
+    )
   }
 
-  const welcome = await evaluate(send, `(async () => {
+  const welcome = await evaluate(
+    send,
+    `(async () => {
     document.documentElement.lang = ${JSON.stringify(documentLocale)}
     let navigationError = null
     let settled = false
@@ -693,7 +910,8 @@ try {
       await new Promise(resolve => setTimeout(resolve, 100))
     }
     return false
-  })()`)
+  })()`,
+  )
   if (!welcome) throw new Error('CordisX welcome page did not become visible')
   await new Promise(resolve => setTimeout(resolve, 700))
   await setCaptureTheme(send, captureTheme)
@@ -703,7 +921,9 @@ try {
   if (motionEnabled) {
     for (const [language, motionDocumentLocale] of [[captureLanguage, documentLocale]]) {
       for (const theme of [captureTheme]) {
-        await evaluate(send, `(async () => {
+        await evaluate(
+          send,
+          `(async () => {
           document.documentElement.lang = ${JSON.stringify(motionDocumentLocale)}
           document.querySelector('[data-cordisx-motion-cursor]')?.remove()
           const close = document.querySelector(
@@ -725,7 +945,8 @@ try {
             }
           }
           await globalThis.__cordisxRuntime.navigate('slot-showcase', { id: 'main.welcome' })
-        })()`)
+        })()`,
+        )
         await setCaptureTheme(send, theme)
         await waitForSelector(send, '[data-cordisx-manager-trigger]')
         await new Promise(resolve => setTimeout(resolve, 500))
@@ -740,7 +961,9 @@ try {
     }
   }
 
-  const managerOpened = await evaluate(send, `(async () => {
+  const managerOpened = await evaluate(
+    send,
+    `(async () => {
     if (document.querySelector('[data-tab="plugins"]') instanceof HTMLElement) return true
     const trigger = document.querySelector('[data-cordisx-manager-trigger]')
     if (!(trigger instanceof HTMLElement)) return false
@@ -750,7 +973,8 @@ try {
       await new Promise(resolve => setTimeout(resolve, 100))
     }
     return false
-  })()`)
+  })()`,
+  )
   if (!managerOpened) throw new Error('CordisX Manager did not open')
 
   const managerPages = [
@@ -766,13 +990,16 @@ try {
     for (const theme of [captureTheme]) {
       await setCaptureTheme(send, theme)
       for (const pageId of managerPages) {
-        const selected = await evaluate(send, `(async () => {
+        const selected = await evaluate(
+          send,
+          `(async () => {
           const target = document.querySelector('[data-tab=${JSON.stringify(pageId)}]')
           if (!(target instanceof HTMLElement)) return false
           target.click()
           await new Promise(resolve => setTimeout(resolve, 450))
           return true
-        })()`)
+        })()`,
+        )
         if (!selected) throw new Error(`Could not select CordisX Manager page: ${pageId}`)
         const file = path.join(outputDir, `cordisx-manager-${pageId}-${language}-${theme}.png`)
         await capture(send, file)
@@ -781,7 +1008,23 @@ try {
     }
   }
 
-  console.log(JSON.stringify({ outputs: captured, motionOutputs, locale, language: captureLanguage, name: profileName, theme: captureTheme, onboarding, projection, finalLocalization }, null, 2))
+  console.log(
+    JSON.stringify(
+      {
+        outputs: captured,
+        motionOutputs,
+        locale,
+        language: captureLanguage,
+        name: profileName,
+        theme: captureTheme,
+        onboarding,
+        projection,
+        finalLocalization,
+      },
+      null,
+      2,
+    ),
+  )
   socket.close()
 } finally {
   process.off('SIGINT', onSigint)

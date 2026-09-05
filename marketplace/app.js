@@ -28,8 +28,10 @@ const translations = {
     source: 'Source',
     footerIntro: 'An extensible layer for the AI coding workspace you already trust.',
     footerTitle: 'Unofficial, local, and opt-in.',
-    footerDescription: 'CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.',
-    footerSafety: 'Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.',
+    footerDescription:
+      'CordisX brings plugins into Codex Desktop without replacing your tools, projects, conversations, or agent loop.',
+    footerSafety:
+      'Plugins currently run as trusted renderer code. Sandboxing, signed packages, and enforced permissions are not yet available—review source before enabling an extension.',
     copyright: '© 2026 CordisX. Open source.',
     preferencesLabel: 'Display preferences',
     languageName: 'EN',
