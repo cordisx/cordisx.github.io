@@ -1,17 +1,21 @@
-# Homepage Content
+# Homepage Maintenance Documentation
 
-Public-facing CordisX introduction and project summaries belong here.
+This directory contains maintainer guidance for the homepage, Marketplace
+presentation, shared public-site design, and generated product media.
 
-Use [`site-design-system.md`](site-design-system.md) as the design and review
-entry point for Homepage, Docs, Marketplace, plugin detail, shared navigation,
-footer, locale/theme presentation, and product-media layout.
+| Work | Entry point |
+| --- | --- |
+| Repository maintenance boundaries | [Homepage maintenance rules](../rules/README.md) |
+| Layout, shared navigation, footer, locale/theme, and media framing | [Shared site design system](site-design-system.md) |
+| Marketplace feed consumption and presentation | [Marketplace page](marketplace.md) |
+| Real Codex workspace and Manager screenshots or recordings | [Showcase capture workflow](showcase-capture.md) |
+| AI-first plugin demo, generated media, and evidence | [AI-first plugin demo capture workflow](ai-plugin-demo-capture.md) |
 
-Use [`showcase-capture.md`](showcase-capture.md) for the real Codex screenshot
-and recording workflow.
+This repository owns the shared visual language for public CordisX sites.
+Other sites reference the design system instead of copying it. The
+`/marketplace/` page presents the public `cordisx/marketplace` feed; catalog
+data remains owned by that repository.
 
-Use [`ai-plugin-demo-capture.md`](ai-plugin-demo-capture.md) before updating or
-regenerating the README's AI-first plugin demo, including its capture scripts,
-localized light/dark GIFs, MP4/WebM files, posters, and evidence metadata.
-
-The `/marketplace/` page is a read-only presentation of the public
-`cordisx/marketplace` JSON feed. Catalog data remains owned by that repository.
+Product documentation remains in its owning repositories. Use the public
+[Docs entry](https://cordisx.github.io/docs/) to find it; this directory
+documents maintenance of this site.

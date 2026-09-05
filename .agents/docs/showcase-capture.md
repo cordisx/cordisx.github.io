@@ -4,6 +4,22 @@ Use `scripts/capture-codex-showcase.mjs` to regenerate homepage screenshots and
 motion assets. The capture must show the real Codex Desktop renderer launched
 through CordisX, not an HTML recreation of Codex.
 
+## Prerequisites and tools
+
+The capture requires macOS, `/Applications/ChatGPT.app`, a signed-in Codex
+authentication file, a built sibling CordisX checkout, and `ffmpeg` for opaque
+RGB workspace screenshots. Run commands from the homepage repository root.
+Use `npm run capture:codex-showcase -- --help` for avatar, profile name,
+app bundle, authentication file, CordisX checkout, and output-directory
+overrides.
+
+The script uses an APFS copy-on-write clone of the installed Codex runtime
+inside the disposable instance and removes that instance after capture.
+Screenshots are written to `assets/screenshots/`; motion variants are written
+to `assets/motion/`. The declarative scene lives in
+`scripts/showcase-motion-scene.mjs`, and the pointer artwork lives separately
+at `assets/capture/cordisx-motion-cursor.svg`.
+
 ## Capture contract
 
 - Launch Codex with a temporary isolated HOME, CODEX_HOME, Chromium profile,
