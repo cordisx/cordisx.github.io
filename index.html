@@ -33,6 +33,7 @@
   </head>
   <body>
     <div class="site-frame">
+      <!-- site-header:start -->
       <header class="site-header">
         <div class="header-inner">
           <a class="brand" href="/#product" aria-label="CordisX home" data-i18n-aria-label="homeLabel">
@@ -54,6 +55,7 @@
           </nav>
         </div>
       </header>
+      <!-- site-header:end -->
 
       <main>
         <section class="hero" id="product">
@@ -82,10 +84,10 @@
 
         <section class="conversation-demo" id="customize" aria-labelledby="conversation-title">
           <div class="conversation-stage">
-            <div class="conversation-window">
-              <div class="conversation-bar">
-                <span><i></i><strong id="conversation-title" data-i18n="liveWorkspace">CordisX · Live workspace</strong></span>
-                <b data-i18n="liveExtensionMode">02 / LIVE EXTENSION · LOCAL</b>
+            <div class="conversation-window demo-window">
+              <div class="conversation-bar demo-window-bar">
+                <span class="demo-window-bar-identity"><i class="demo-window-bar-indicator"></i><strong class="demo-window-bar-title" id="conversation-title" data-i18n="liveWorkspace">CordisX · Live workspace</strong></span>
+                <b class="demo-window-bar-meta" data-i18n="liveExtensionMode">02 / LIVE EXTENSION · LOCAL</b>
               </div>
 
               <div class="conversation-output" data-conversation-output aria-label="Live extension build output">
@@ -99,7 +101,7 @@
                 <p class="request-copy" data-request-copy data-i18n="voiceRequest">Add a voice input button to the left of my send button.</p>
                 <div class="composer-controls">
                   <span class="voice-slot" data-voice-slot></span>
-                  <button class="demo-send is-inviting" type="submit" aria-label="Send request" data-i18n-aria-label="sendRequest">
+                  <button class="demo-send action-button invite-attention is-inviting" type="submit" aria-label="Send request" data-i18n-aria-label="sendRequest">
                     <span class="reicon-slot send-icon" data-reicon="ArrowUp" data-reicon-size="17" aria-hidden="true"></span>
                   </button>
                 </div>
@@ -107,16 +109,16 @@
               </form>
             </div>
 
-            <p class="conversation-footnote"><span>ONE REQUEST</span><i></i><span>ONE NEW SURFACE</span><i></i><span>NO REBUILD</span></p>
+            <p class="conversation-footnote process-footnote"><span>ONE REQUEST</span><i class="process-footnote-dot"></i><span>ONE NEW SURFACE</span><i class="process-footnote-dot"></i><span>NO REBUILD</span></p>
           </div>
         </section>
 
         <section class="marketplace-demo" id="marketplace-lab" aria-labelledby="marketplace-title" data-marketplace-demo>
           <div class="marketplace-stage">
-            <div class="marketplace-window">
-              <div class="marketplace-bar">
-                <span><i></i><strong id="marketplace-title" data-marketplace-title data-i18n="marketplaceTitle">CordisX · Marketplace</strong></span>
-                <b data-marketplace-mode data-i18n="marketplaceMode">03 / INTERACTION CONCEPT · LOCAL</b>
+            <div class="marketplace-window demo-window">
+              <div class="marketplace-bar demo-window-bar">
+                <span class="demo-window-bar-identity"><i class="demo-window-bar-indicator"></i><strong class="demo-window-bar-title" id="marketplace-title" data-marketplace-title data-i18n="marketplaceTitle">CordisX · Marketplace</strong></span>
+                <b class="demo-window-bar-meta" data-marketplace-mode data-i18n="marketplaceMode">03 / INTERACTION CONCEPT · LOCAL</b>
               </div>
 
               <div class="marketplace-surface">
@@ -136,7 +138,7 @@
                       aria-label="Plugin search query"
                       data-i18n-aria-label="pluginSearchQuery"
                     />
-                    <button class="market-search-button is-inviting" type="submit" aria-label="Search plugins" data-i18n-aria-label="searchPlugins">
+                    <button class="market-search-button action-button invite-attention is-inviting" type="submit" aria-label="Search plugins" data-i18n-aria-label="searchPlugins">
                       <span class="reicon-slot" data-reicon="Search" data-reicon-size="18" aria-hidden="true"></span>
                     </button>
                   </form>
@@ -162,7 +164,7 @@
                           <h3>Party Popper</h3>
                           <p data-i18n="partyDescription">Turn send into a celebration.</p>
                         </div>
-                        <button class="plugin-install" type="button" data-install-party>
+                        <button class="plugin-install action-button invite-attention" type="button" data-install-party>
                           <span data-i18n="install">Install</span>
                           <span class="reicon-slot" data-reicon="BoxAdd" data-reicon-size="15" aria-hidden="true"></span>
                         </button>
@@ -208,7 +210,7 @@
                   <form class="live-composer party-composer" data-party-composer>
                     <p class="request-copy" data-party-input data-i18n="launchRelease">Launch the release.</p>
                     <div class="composer-controls">
-                      <button class="demo-send party-send is-inviting" type="submit" aria-label="Send with Party Popper" data-i18n-aria-label="sendWithParty">
+                      <button class="demo-send party-send action-button invite-attention is-inviting" type="submit" aria-label="Send with Party Popper" data-i18n-aria-label="sendWithParty">
                         <span class="reicon-slot send-icon" data-reicon="Confetti" data-reicon-size="20" aria-hidden="true"></span>
                       </button>
                     </div>
@@ -245,8 +247,8 @@
                     </ul>
 
                     <div class="permission-actions">
-                      <button class="permission-cancel" type="button" data-cancel-install data-i18n="cancel">Cancel</button>
-                      <button class="permission-allow" type="button" data-allow-install>
+                      <button class="permission-cancel action-button dialog-action" type="button" data-cancel-install data-i18n="cancel">Cancel</button>
+                      <button class="permission-allow action-button dialog-action" type="button" data-allow-install>
                         <span data-i18n="previewActivation">Preview activation</span>
                         <span class="reicon-slot" data-reicon="BoxAdd" data-reicon-size="15" aria-hidden="true"></span>
                       </button>
@@ -256,7 +258,7 @@
               </div>
             </div>
 
-            <p class="marketplace-footnote"><span>SEARCH</span><i></i><span>INSPECT</span><i></i><span>PREVIEW</span><i></i><span>ACTIVATE</span></p>
+            <p class="marketplace-footnote process-footnote"><span>SEARCH</span><i class="process-footnote-dot"></i><span>INSPECT</span><i class="process-footnote-dot"></i><span>PREVIEW</span><i class="process-footnote-dot"></i><span>ACTIVATE</span></p>
           </div>
         </section>
 
@@ -414,6 +416,7 @@
         </section>
       </main>
 
+      <!-- site-footer:start -->
       <footer class="site-footer" id="footer" aria-label="CordisX footer">
         <div class="footer-main">
           <div class="footer-intro">
@@ -458,22 +461,23 @@
             </div>
 
             <nav class="footer-actions" aria-label="CordisX quick links">
-            <a href="https://github.com/cordisx/cordisx" aria-label="CordisX on GitHub" title="GitHub">
-              <span class="reicon-slot" data-reicon="Code" data-reicon-size="18" aria-hidden="true"></span>
-            </a>
-            <a href="/docs/" aria-label="CordisX documentation" title="Docs">
-              <span class="reicon-slot" data-reicon="BookOpen" data-reicon-size="18" aria-hidden="true"></span>
-            </a>
-            <a href="/marketplace/" aria-label="CordisX marketplace" title="Marketplace">
-              <span class="reicon-slot" data-reicon="Store" data-reicon-size="18" aria-hidden="true"></span>
-            </a>
-            <a href="https://cordisx.github.io/" aria-label="CordisX website" title="Website">
-              <span class="reicon-slot" data-reicon="Globe" data-reicon-size="18" aria-hidden="true"></span>
-            </a>
+              <a href="https://github.com/cordisx/cordisx" aria-label="CordisX on GitHub" title="GitHub">
+                <span class="reicon-slot" data-reicon="Code" data-reicon-size="18" aria-hidden="true"></span>
+              </a>
+              <a href="/docs/" aria-label="CordisX documentation" title="Docs">
+                <span class="reicon-slot" data-reicon="BookOpen" data-reicon-size="18" aria-hidden="true"></span>
+              </a>
+              <a href="/marketplace/" aria-label="CordisX marketplace" title="Marketplace">
+                <span class="reicon-slot" data-reicon="Store" data-reicon-size="18" aria-hidden="true"></span>
+              </a>
+              <a href="https://cordisx.github.io/" aria-label="CordisX website" title="Website">
+                <span class="reicon-slot" data-reicon="Globe" data-reicon-size="18" aria-hidden="true"></span>
+              </a>
             </nav>
           </div>
         </div>
       </footer>
+      <!-- site-footer:end -->
     </div>
   </body>
 </html>

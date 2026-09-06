@@ -20,9 +20,7 @@ async function readStylesheetGraph(entry) {
 const homepageStyleEntry = new URL('../styles.css', import.meta.url)
 const homepageStyleImports = [
   'foundation.css',
-  'workspace-canvas.css',
-  'workspace-modules.css',
-  'workspace-responsive.css',
+  'components.css',
   'conversation.css',
   'marketplace.css',
   'showcase.css',
@@ -53,6 +51,25 @@ const expectedHomepageStyleManifest = homepageStyleImports
   .join('\n')
 if (homepageStyleManifest.trim() !== expectedHomepageStyleManifest) {
   throw new Error('homepage stylesheet manifest must load every owner module in cascade order')
+}
+
+const homepageClassCounts = [...homepage.matchAll(/class="([^"]+)"/gu)]
+  .flatMap(match => match[1].split(/\s+/u))
+  .reduce((counts, name) => counts.set(name, (counts.get(name) ?? 0) + 1), new Map())
+for (
+  const [name, count] of [
+    ['demo-window', 2],
+    ['demo-window-bar', 2],
+    ['process-footnote', 2],
+    ['action-button', 6],
+    ['invite-attention', 4],
+    ['dialog-action', 2],
+  ]
+) {
+  if (homepageClassCounts.get(name) !== count) {
+    throw new Error(`semantic component ${name} must have ${count} real homepage consumers`)
+  }
+  if (!homepageStyles.includes(`.${name}`)) throw new Error(`semantic component ${name} has no loaded stylesheet`)
 }
 
 for (

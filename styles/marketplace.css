@@ -28,52 +28,13 @@
 }
 
 .marketplace-window {
-  width: min(760px, 100%);
-  margin: 0 auto;
-  overflow: hidden;
-  border: 1px solid #454950;
-  border-radius: 3px;
-  background: #15161a;
-  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
-}
-
-.marketplace-bar {
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  border-bottom: 1px solid #2e3137;
-  color: #777c85;
-  background: #1a1b1f;
-  font-family: "SFMono-Regular", Consolas, monospace;
+  --demo-window-shadow: 0 34px 90px rgba(0, 0, 0, 0.34);
+  --demo-window-indicator: #8e939b;
+  --demo-window-meta: #61666e;
 }
 
 .marketplace-bar > span {
   display: inline-flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.marketplace-bar i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #8e939b;
-}
-
-.marketplace-bar strong {
-  color: #dfe1e4;
-  font-size: 12px;
-  font-weight: 540;
-  letter-spacing: -0.02em;
-}
-
-.marketplace-bar b {
-  color: #61666e;
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
 }
 
 .marketplace-surface {
@@ -106,8 +67,7 @@
 .market-results-meta,
 .plugin-card small,
 .plugin-card-state,
-.permission-kicker,
-.marketplace-footnote {
+.permission-kicker {
   font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 8px;
   letter-spacing: 0.1em;
@@ -158,7 +118,6 @@
 
 .market-search-button,
 .party-send {
-  position: relative;
   width: 38px;
   height: 38px;
   display: grid;
@@ -166,10 +125,8 @@
   justify-self: center;
   padding: 0;
   border: 1px solid #eff1f2;
-  border-radius: 3px;
   color: #191a1e;
   background: #eff1f2;
-  cursor: pointer;
 }
 
 .market-search-button:hover,
@@ -308,7 +265,6 @@
 }
 
 .plugin-install {
-  position: relative;
   min-height: 34px;
   display: inline-flex;
   align-items: center;
@@ -316,44 +272,15 @@
   gap: 8px;
   padding: 0 12px;
   border: 1px solid #e9ebed;
-  border-radius: 3px;
   color: #18191c;
   background: #e9ebed;
   font: inherit;
   font-size: 11px;
   font-weight: 620;
-  cursor: pointer;
 }
 
 .plugin-install:hover {
   background: #ffffff;
-}
-
-.market-search-button.is-inviting,
-.plugin-install.is-inviting,
-.party-send.is-inviting {
-  box-shadow:
-    0 0 0 2px #15161a,
-    -2px 0 rgba(37, 244, 238, 0.72),
-    2px 0 rgba(254, 44, 85, 0.68);
-}
-
-.market-search-button.is-inviting > .reicon-slot,
-.plugin-install.is-inviting > .reicon-slot,
-.party-send.is-inviting > .reicon-slot {
-  animation: send-invite 1.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
-}
-
-.market-search-button.is-inviting::before,
-.plugin-install.is-inviting::before,
-.party-send.is-inviting::before {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  pointer-events: none;
-  border: 1px solid rgba(222, 225, 229, 0.58);
-  border-radius: 6px;
-  animation: send-invite-ring 1.8s ease-out infinite;
 }
 
 .permission-overlay {
@@ -483,21 +410,6 @@
   margin-top: 18px;
 }
 
-.permission-cancel,
-.permission-allow {
-  min-height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 0 13px;
-  border-radius: 3px;
-  font: inherit;
-  font-size: 10px;
-  font-weight: 570;
-  cursor: pointer;
-}
-
 .permission-cancel {
   border: 1px solid #41454c;
   color: #aeb2b8;
@@ -601,19 +513,7 @@
 }
 
 .marketplace-footnote {
-  width: max-content;
-  display: flex;
-  align-items: center;
-  gap: 9px;
   margin: 18px auto 0;
-  color: #5f646c;
-}
-
-.marketplace-footnote i {
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  background: #777c84;
 }
 
 @media (max-width: 760px) {
