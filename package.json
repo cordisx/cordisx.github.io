@@ -10,12 +10,18 @@
     "capture:codex-motion": "node scripts/capture-codex-showcase.mjs --motion",
     "verify:ai-plugin-demo": "node scripts/verify-ai-plugin-demo.mjs",
     "format": "dprint fmt",
-    "format:check": "dprint check"
+    "format:check": "dprint check",
+    "lint:source": "eslint .",
+    "lint": "eslint .",
+    "lint:staged": "lint-staged --config .lintstagedrc.mjs"
   },
   "engines": {
     "node": ">=22.19"
   },
   "devDependencies": {
-    "dprint": "0.57.1"
+    "dprint": "0.57.1",
+    "@cordisx/eslint-config": "github:cordisx/cordisxmono#c63c2e8c2ba7e11502934a52ad2ce3734e804cdc",
+    "eslint": "9.39.4",
+    "lint-staged": "16.2.7"
   }
 }
