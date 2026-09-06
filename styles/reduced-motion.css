@@ -11,14 +11,8 @@
     animation: none;
   }
 
-  .demo-send.is-inviting > .reicon-slot,
-  .demo-send.is-inviting::before,
-  .market-search-button.is-inviting > .reicon-slot,
-  .market-search-button.is-inviting::before,
-  .plugin-install.is-inviting > .reicon-slot,
-  .plugin-install.is-inviting::before,
-  .party-send.is-inviting > .reicon-slot,
-  .party-send.is-inviting::before {
+  .invite-attention.is-inviting > .reicon-slot,
+  .invite-attention.is-inviting::before {
     animation: none;
   }
 

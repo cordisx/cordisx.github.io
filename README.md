@@ -17,6 +17,10 @@ before making changes. The [maintenance index](.agents/docs/README.md) routes
 design, Marketplace, and media work to their owning documents; checks are
 defined in [`package.json`](package.json).
 
+Shared Header/Footer source lives under [`components/`](components/), and
+shared semantic CSS lives in [`styles/components.css`](styles/components.css).
+Run `npm run render:components` after changing the build-time HTML partials.
+
 ## Regenerate the real Codex showcase
 
 The [showcase capture workflow](.agents/docs/showcase-capture.md) owns

@@ -57,6 +57,20 @@ content hierarchy when adding a new page.
   Keep simulated request controls read-only and deterministic; use real product
   screenshots or recordings for claims about Codex itself.
 
+## Shared components
+
+- `components/site-header.html` and `components/site-footer.html` are the single
+  build-time sources for the shared shell markup. Run `npm run
+  render:components` after changing them. The checked-in pages remain ordinary
+  static HTML; `npm run check:components` rejects stale generated regions.
+- `styles/components.css` owns semantic components that have the same DOM role,
+  state behavior and visual contract across product sections: demo windows and
+  title bars, process footnotes, action controls, dialog actions and invitation
+  attention. Feature files provide only their named variants and tokens.
+- Do not promote a declaration merely because it repeats. Workspace diagrams,
+  Conversation output, Marketplace cards and Showcase media remain with their
+  product owner until they share a real behavior and DOM contract.
+
 ## Color, type, and density
 
 - Dark mode is the visual baseline: neutral deep grey, off-white primary text,
@@ -162,10 +176,9 @@ introduce a named reusable variant.
   sites. The `cordisx/docs` repository owns documentation-specific aggregation
   and presentation but references this document instead of copying it.
 - `styles.css` owns only the public entry and cascade order. The files under
-  `styles/` own foundation; Workspace canvas, modules and responsive behavior;
-  Conversation; Marketplace; Showcase; reduced motion; and footer/theme rules
-  in that order. Keep each feature's states, responsive variants and animations
-  with its owner when changing this initial extraction.
+  `styles/` own foundation, shared semantic components, Conversation,
+  Marketplace, Showcase, reduced motion, and footer/theme rules in that order.
+  Keep each feature's states, responsive variants and animations with its owner.
 - `preferences.js` owns locale/theme resolution, persistence, translated site
   copy, and matching showcase-media selection.
 - Page HTML and page scripts own semantic structure and page-specific behavior;
