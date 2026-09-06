@@ -19,9 +19,10 @@ content hierarchy when adding a new page.
 
 ## Shared frame and geometry
 
-- The desktop site uses one centered fixed reading frame. `styles.css` owns the
-  current maximum width and responsive fallback; pages must not introduce a
-  second page-specific maximum width.
+- The desktop site uses one centered fixed reading frame. The ordered
+  `styles.css` manifest and its `styles/` owner modules define the current
+  maximum width and responsive fallback; pages must not introduce a second
+  page-specific maximum width.
 - The outer canvas and the framed site use the same base color in each theme.
   Header, content, and footer may use restrained surface variation, but a
   visible unrelated strip around the header is a defect.
@@ -64,8 +65,9 @@ content hierarchy when adding a new page.
 - Light mode is a first-class palette, not an afterthought. It must preserve
   the same hierarchy and geometry while keeping the outer canvas, header, body,
   section surfaces, and footer visually coherent.
-- Base palette and theme projection belong in `styles.css`. Do not add isolated
-  page colors when an existing surface, text, or border role applies.
+- Base palette and theme projection belong in the ordered homepage stylesheet
+  modules. Do not add isolated page colors when an existing surface, text, or
+  border role applies.
 - Use compact type with deliberate hierarchy. Prefer a short sentence at
   ordinary display size over large multiline headings. Monospace uppercase
   labels are reserved for small technical metadata.
@@ -159,8 +161,11 @@ introduce a named reusable variant.
 - `cordisx/cordisx.github.io` owns the shared visual language for public CordisX
   sites. The `cordisx/docs` repository owns documentation-specific aggregation
   and presentation but references this document instead of copying it.
-- `styles.css` owns site geometry, palette roles, shared section treatments,
-  responsive rules, and control appearance.
+- `styles.css` owns only the public entry and cascade order. The files under
+  `styles/` own foundation; Workspace canvas, modules and responsive behavior;
+  Conversation; Marketplace; Showcase; reduced motion; and footer/theme rules
+  in that order. Keep each feature's states, responsive variants and animations
+  with its owner when changing this initial extraction.
 - `preferences.js` owns locale/theme resolution, persistence, translated site
   copy, and matching showcase-media selection.
 - Page HTML and page scripts own semantic structure and page-specific behavior;

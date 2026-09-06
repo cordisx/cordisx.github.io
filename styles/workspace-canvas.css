@@ -1,0 +1,278 @@
+.workspace-section {
+  position: relative;
+  min-height: 650px;
+  background: #18191d;
+}
+
+.workspace-heading {
+  min-height: 96px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 28px;
+  padding: 18px 28px;
+  border-bottom: 1px solid #303238;
+  background: #1b1c20;
+}
+
+.workspace-index {
+  display: block;
+  margin-bottom: 5px;
+  color: #727781;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+}
+
+.workspace-heading h2 {
+  margin: 0;
+  color: #f0f1f3;
+  font-size: 23px;
+  font-weight: 540;
+  letter-spacing: -0.045em;
+}
+
+.workspace-heading > p {
+  margin: 0;
+  color: #92969e;
+  font-size: 13px;
+}
+
+.layout-switcher {
+  justify-self: end;
+  display: flex;
+  padding: 3px;
+  border: 1px solid #33363c;
+  background: #17181b;
+}
+
+.layout-switcher button {
+  min-width: 58px;
+  height: 27px;
+  border: 0;
+  color: #777c85;
+  background: transparent;
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.layout-switcher button.is-active {
+  color: #eceef0;
+  background: #292b30;
+}
+
+.workspace-viewport {
+  position: relative;
+  height: 554px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.026),
+      transparent 34%
+    ),
+    #18191d;
+}
+
+.workspace-grid {
+  position: absolute;
+  z-index: -3;
+  inset: -80px;
+  opacity: 0.78;
+  background-image:
+    linear-gradient(rgba(111, 116, 126, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 116, 126, 0.065) 1px, transparent 1px),
+    radial-gradient(
+    circle,
+    rgba(204, 208, 214, 0.13) 0.75px,
+    transparent 0.9px
+  );
+  background-position: -1px -1px;
+  background-size: 40px 40px, 40px 40px, 8px 8px;
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 28%,
+    rgba(0, 0, 0, 0.78) 62%,
+    transparent 98%
+  );
+  mask-image: radial-gradient(
+    ellipse at center,
+    #000 28%,
+    rgba(0, 0, 0, 0.78) 62%,
+    transparent 98%
+  );
+}
+
+.workspace-viewport::before,
+.workspace-viewport::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  pointer-events: none;
+}
+
+.workspace-viewport::before {
+  left: 0;
+  background: linear-gradient(90deg, #18191d 8%, transparent);
+}
+
+.workspace-viewport::after {
+  right: 0;
+  background: linear-gradient(-90deg, #18191d 8%, transparent);
+}
+
+.workspace-wire {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.58;
+  background: #4a4e56;
+}
+
+.workspace-connections {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+
+.connection-segment {
+  position: absolute;
+  opacity: 0.66;
+  background: #494d55;
+  transition:
+    left 220ms ease,
+    top 220ms ease,
+    width 220ms ease,
+    height 220ms ease,
+    opacity 220ms ease;
+}
+
+.connection-segment.is-horizontal {
+  height: 1px;
+}
+
+.connection-segment.is-vertical {
+  width: 1px;
+}
+
+.workspace-viewport.is-signaling .connection-segment {
+  background: linear-gradient(
+    90deg,
+    #4a4e56,
+    rgba(37, 244, 238, 0.8),
+    rgba(254, 44, 85, 0.72),
+    #4a4e56
+  );
+  background-size: 240% 100%;
+  animation: connection-flash 620ms ease-out 1;
+}
+
+.workspace-viewport.is-signaling .connection-segment.is-vertical {
+  background: linear-gradient(
+    180deg,
+    #4a4e56,
+    rgba(37, 244, 238, 0.8),
+    rgba(254, 44, 85, 0.72),
+    #4a4e56
+  );
+  background-size: 100% 240%;
+}
+
+@keyframes connection-flash {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+.wire-horizontal {
+  left: 0;
+  right: 0;
+  top: 254px;
+  height: 1px;
+}
+
+.wire-vertical {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+
+.workspace-wire::after {
+  content: "";
+  position: absolute;
+  width: 42px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #25f4ee 44%,
+    #fe2c55 56%,
+    transparent
+  );
+  animation: workspace-signal 4.4s ease-in-out infinite;
+}
+
+.wire-horizontal::after {
+  top: 0;
+  left: 10%;
+}
+
+.wire-vertical::after {
+  top: 16%;
+  left: 0;
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    #25f4ee 44%,
+    #fe2c55 56%,
+    transparent
+  );
+  animation-name: workspace-signal-y;
+}
+
+@keyframes workspace-signal {
+  0%, 54% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  58% {
+    opacity: 0.9;
+  }
+  76% {
+    transform: translateX(720px);
+    opacity: 0.65;
+  }
+  80%, 100% {
+    transform: translateX(720px);
+    opacity: 0;
+  }
+}
+
+@keyframes workspace-signal-y {
+  0%, 60% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  64% {
+    opacity: 0.9;
+  }
+  80% {
+    transform: translateY(330px);
+    opacity: 0.55;
+  }
+  84%, 100% {
+    transform: translateY(330px);
+    opacity: 0;
+  }
+}
