@@ -1,0 +1,23 @@
+export default {
+  extends: ['stylelint-config-standard'],
+  plugins: ['@projectwallace/stylelint-plugin'],
+  rules: {
+    'alpha-value-notation': null,
+    'at-rule-empty-line-before': null,
+    'color-function-alias-notation': null,
+    'color-function-notation': null,
+    'color-hex-length': null,
+    'declaration-block-no-redundant-longhand-properties': null,
+    'declaration-block-single-line-max-declarations': null,
+    'declaration-empty-line-before': null,
+    'font-family-name-quotes': null,
+    'media-feature-range-notation': null,
+    'no-descending-specificity': null,
+    'projectwallace/max-lines-of-code': 1000,
+    'property-no-deprecated': null,
+    'property-no-vendor-prefix': null,
+    'rule-empty-line-before': null,
+    'shorthand-property-no-redundant-values': null,
+    'value-keyword-case': null,
+  },
+}

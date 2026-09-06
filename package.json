@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check brand-animation.js && node --check conversation.js && node --check marketplace.js && node --check preferences.js && node --check showcase.js && node --check reicons.js && node --check marketplace/app.js && node --check marketplace/plugin/app.js && node --check scripts/showcase-motion-scene.mjs && node --check scripts/capture-codex-showcase.mjs && node --check scripts/ai-plugin-demo-scene.mjs && node --check scripts/ai-plugin-demo-playback.mjs && node --check scripts/capture-ai-plugin-demo.mjs && node --check scripts/verify-ai-plugin-demo.mjs && node --check scripts/ai-plugin-demo-renderer.mjs && node --check scripts/showcase-capture-media.mjs && node --test scripts/capture-renderer.test.mjs && node scripts/check.mjs",
+    "check": "npm run lint:styles && node --check brand-animation.js && node --check conversation.js && node --check marketplace.js && node --check preferences.js && node --check showcase.js && node --check reicons.js && node --check marketplace/app.js && node --check marketplace/plugin/app.js && node --check scripts/showcase-motion-scene.mjs && node --check scripts/capture-codex-showcase.mjs && node --check scripts/ai-plugin-demo-scene.mjs && node --check scripts/ai-plugin-demo-playback.mjs && node --check scripts/capture-ai-plugin-demo.mjs && node --check scripts/verify-ai-plugin-demo.mjs && node --check scripts/ai-plugin-demo-renderer.mjs && node --check scripts/showcase-capture-media.mjs && node --test scripts/capture-renderer.test.mjs && node scripts/check.mjs",
     "capture:ai-plugin-demo": "node scripts/capture-ai-plugin-demo.mjs",
     "capture:codex-showcase": "node scripts/capture-codex-showcase.mjs",
     "capture:codex-motion": "node scripts/capture-codex-showcase.mjs --motion",
@@ -12,6 +12,7 @@
     "format": "dprint fmt",
     "format:check": "dprint check",
     "lint:source": "eslint .",
+    "lint:styles": "stylelint \"**/*.{css,scss,sass,less}\" --max-warnings=0",
     "lint": "eslint .",
     "lint:staged": "lint-staged --config .lintstagedrc.mjs"
   },
@@ -19,9 +20,12 @@
     "node": ">=22.19"
   },
   "devDependencies": {
-    "dprint": "0.57.1",
     "@cordisx/eslint-config": "github:cordisx/cordisxmono#c63c2e8c2ba7e11502934a52ad2ce3734e804cdc",
+    "@projectwallace/stylelint-plugin": "0.7.0",
+    "dprint": "0.57.1",
     "eslint": "9.39.4",
-    "lint-staged": "16.2.7"
+    "lint-staged": "16.2.7",
+    "stylelint": "17.15.0",
+    "stylelint-config-standard": "40.0.0"
   }
 }

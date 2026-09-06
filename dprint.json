@@ -1,6 +1,6 @@
 {
   "includes": [
-    "**/*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,json,md}"
+    "**/*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,json,md,css,scss,sass,less}"
   ],
   "excludes": [
     "**/node_modules/**",
@@ -13,5 +13,8 @@
     "assets/motion/cordisx-ai-plugin-demo-*.plugin.tsx",
     "assets/reicon/**"
   ],
-  "extends": "https://raw.githubusercontent.com/cordisx/cordisxmono/c63c2e8c2ba7e11502934a52ad2ce3734e804cdc/tooling/quality/dprint/code.json"
+  "extends": "https://raw.githubusercontent.com/cordisx/cordisxmono/c63c2e8c2ba7e11502934a52ad2ce3734e804cdc/tooling/quality/dprint/code.json",
+  "plugins": [
+    "npm:dprint-plugin-malva@0.16.0"
+  ]
 }

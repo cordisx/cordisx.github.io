@@ -72,7 +72,10 @@
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.022), transparent 45%),
     #1a1b1f;
-  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
 }
 
 .catalog-card-detail {
@@ -377,7 +380,11 @@
 :root[data-theme="light"] .site-footer {
   color: #64686e;
   background:
-    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.65), transparent 30%),
+    radial-gradient(
+      circle at 12% 0%,
+      rgba(255, 255, 255, 0.65),
+      transparent 30%
+    ),
     linear-gradient(180deg, #e1e1de, #d8d8d5);
 }
 

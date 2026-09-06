@@ -1,8 +1,37 @@
 import { access, readFile } from 'node:fs/promises'
 import { selectPlaybackTimeline } from './ai-plugin-demo-playback.mjs'
 
+async function readStylesheetGraph(entry) {
+  const visited = new Set()
+  const sources = []
+  const visit = async (url) => {
+    if (visited.has(url.href)) return
+    visited.add(url.href)
+    const source = await readFile(url, 'utf8')
+    sources.push(source)
+    for (const match of source.matchAll(/@import\s+url\(["']([^"']+)["']\);/gu)) {
+      await visit(new URL(match[1], url))
+    }
+  }
+  await visit(entry)
+  return sources.join('\n')
+}
+
+const homepageStyleEntry = new URL('../styles.css', import.meta.url)
+const homepageStyleImports = [
+  'foundation.css',
+  'workspace-canvas.css',
+  'workspace-modules.css',
+  'workspace-responsive.css',
+  'conversation.css',
+  'marketplace.css',
+  'showcase.css',
+  'reduced-motion.css',
+  'footer-theme.css',
+]
 const homepage = await readFile(new URL('../index.html', import.meta.url), 'utf8')
-const homepageStyles = await readFile(new URL('../styles.css', import.meta.url), 'utf8')
+const homepageStyleManifest = await readFile(homepageStyleEntry, 'utf8')
+const homepageStyles = await readStylesheetGraph(homepageStyleEntry)
 const homepagePreferences = await readFile(new URL('../preferences.js', import.meta.url), 'utf8')
 const homepageMarketplace = await readFile(new URL('../marketplace.js', import.meta.url), 'utf8')
 const shell = await readFile(new URL('../site-shell.css', import.meta.url), 'utf8')
@@ -18,6 +47,13 @@ const aiPluginScene = await readFile(new URL('./ai-plugin-demo-scene.mjs', impor
 const aiPluginPlayback = await readFile(new URL('./ai-plugin-demo-playback.mjs', import.meta.url), 'utf8')
 const aiPluginCapture = await readFile(new URL('./capture-ai-plugin-demo.mjs', import.meta.url), 'utf8')
 const aiPluginWorkflow = await readFile(new URL('../.agents/docs/ai-plugin-demo-capture.md', import.meta.url), 'utf8')
+
+const expectedHomepageStyleManifest = homepageStyleImports
+  .map(file => `@import url("./styles/${file}");`)
+  .join('\n')
+if (homepageStyleManifest.trim() !== expectedHomepageStyleManifest) {
+  throw new Error('homepage stylesheet manifest must load every owner module in cascade order')
+}
 
 for (
   const [file, content, references] of [
