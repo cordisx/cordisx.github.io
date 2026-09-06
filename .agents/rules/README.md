@@ -32,10 +32,8 @@ The local dprint and ESLint entry points consume an exact formal
 [Mono quality configuration](https://github.com/cordisx/cordisxmono/blob/c63c2e8c2ba7e11502934a52ad2ce3734e804cdc/.agents/docs/quality-tooling.md).
 The Shared quality configuration CI job checks the installed configuration and
 tracked-file coverage; inspect its report for excluded paths.
-PR CI uses standard lint-staged with `--diff-filter=A` to enforce the source
-limit on newly added files. Edits or renames of existing files are outside this
-initial gate; follow the organization splitting guidance when expanding them.
-`npm run lint:source` runs the full source policy and reports existing violations;
-its initial CI report is nonblocking while that debt is handled separately.
-A passing configuration job is not a passing full-source lint result.
+`npm run lint:source` enforces the full source policy in blocking CI, including
+existing and newly added files. Keep every maintained JS/TS file within the
+organization's 1000-line limit by splitting responsibilities before expansion.
+The configuration audit and full-source lint remain separate checks and reports.
 Update the dependency, lock, formatter reference and CI provider SHA together.
