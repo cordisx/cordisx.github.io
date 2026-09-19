@@ -1,3 +1,4 @@
+import { createPluginIcon } from './icon.js'
 import { hydrateReicons } from '../reicons.js'
 
 const FEED_URL = 'https://raw.githubusercontent.com/cordisx/marketplace/main/marketplace.json'
@@ -208,15 +209,6 @@ function localizedPlugin(plugin) {
   }
 }
 
-function initials(name) {
-  return name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map(part => part[0]?.toUpperCase() ?? '')
-    .join('') || 'CX'
-}
-
 function safeLink(value, fallback) {
   try {
     const url = new URL(value)
@@ -243,7 +235,7 @@ function renderCard(plugin) {
   detail.href = `/marketplace/plugin/?id=${encodeURIComponent(plugin.id)}`
   detail.setAttribute('aria-label', `${copy('details')}: ${plugin.name}`)
   const head = create('div', 'catalog-card-head')
-  const icon = create('div', 'catalog-card-icon', initials(plugin.name))
+  const icon = createPluginIcon(plugin, 'catalog-card-icon')
   const title = create('div', 'catalog-card-title')
   title.append(create('h3', undefined, plugin.name), create('div', 'catalog-card-id', plugin.id))
   head.append(icon, title)
