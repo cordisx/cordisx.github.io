@@ -1,3 +1,4 @@
+import { createPluginIcon } from '../icon.js'
 import { hydrateReicons } from '/reicons.js'
 
 const FEED_URL = 'https://raw.githubusercontent.com/cordisx/marketplace/main/marketplace.json'
@@ -135,10 +136,6 @@ function safeLink(value) {
   }
 }
 
-function initials(name) {
-  return name.split(/\s+/).filter(Boolean).slice(0, 2).map(part => part[0]?.toUpperCase() ?? '').join('') || 'CX'
-}
-
 function localeCandidates() {
   const candidates = []
   for (const candidate of [locale, ...(navigator.languages ?? []), navigator.language, feedFallbackLocale]) {
@@ -213,7 +210,7 @@ function renderPlugin() {
   back.append(iconSlot('ArrowRight', 13), create('span', undefined, copy('back')))
 
   const hero = create('div', 'plugin-detail-hero')
-  const icon = create('div', 'plugin-detail-icon', initials(value.name))
+  const icon = createPluginIcon(value, 'plugin-detail-icon')
   const title = create('div', 'plugin-detail-title')
   title.append(
     create('h1', undefined, value.name),
